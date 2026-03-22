@@ -83,16 +83,23 @@ function ToeicHome() {
 
       <div className="content-page">
         {/* Header */}
-        <section className="content-page__header" data-aos="fade-up">
-          <h1 className="content-page__title">
-            {t('TOEIC 대비', 'TOEIC Preparation')}
-          </h1>
-          <p className="content-page__subtitle">
-            {t(
-              '체계적인 전략과 연습으로 목표 점수를 달성하세요',
-              'Achieve your target score with systematic strategies and practice'
-            )}
-          </p>
+        <section className="page-header" data-aos="fade-up">
+          <div className="container">
+            <div className="page-header__breadcrumb">
+              <Link to="/">{t('홈', 'Home')}</Link>
+              <span className="breadcrumb-separator">/</span>
+              <span>{t('TOEIC 대비', 'TOEIC')}</span>
+            </div>
+            <h1 className="page-header__title">
+              {t('TOEIC 대비', 'TOEIC Preparation')}
+            </h1>
+            <p className="page-header__description">
+              {t(
+                '체계적인 전략과 연습으로 목표 점수를 달성하세요',
+                'Achieve your target score with systematic strategies and practice'
+              )}
+            </p>
+          </div>
         </section>
 
         {/* TOEIC Structure Overview */}

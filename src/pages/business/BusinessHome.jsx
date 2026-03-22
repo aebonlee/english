@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
 
 const TOPIC_CARDS = [
   {
@@ -47,6 +48,7 @@ const TOPIC_CARDS = [
 
 function BusinessHome() {
   const { t } = useLanguage();
+  useAOS();
 
   return (
     <>
@@ -61,10 +63,15 @@ function BusinessHome() {
         )}
       />
 
-      <section className="page-header">
+      <section className="page-header" data-aos="fade-up">
         <div className="container">
-          <h1>{t('\uBE44\uC988\uB2C8\uC2A4 \uC601\uC5B4', 'Business English')}</h1>
-          <p className="page-header__subtitle">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('\uD648', 'Home')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <span>{t('\uBE44\uC988\uB2C8\uC2A4 \uC601\uC5B4', 'Business English')}</span>
+          </div>
+          <h1 className="page-header__title">{t('\uBE44\uC988\uB2C8\uC2A4 \uC601\uC5B4', 'Business English')}</h1>
+          <p className="page-header__description">
             {t(
               '\uC9C1\uC7A5\uC5D0\uC11C \uBC14\uB85C \uD65C\uC6A9\uD560 \uC218 \uC788\uB294 \uC2E4\uC804 \uBE44\uC988\uB2C8\uC2A4 \uC601\uC5B4\uB97C \uBC30\uC6CC\uBCF4\uC138\uC694.',
               'Learn practical business English you can use at work right away.'

@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
 
 function Interview() {
   const { t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
+  useAOS();
 
   return (
     <>
@@ -20,10 +22,17 @@ function Interview() {
         )}
       />
 
-      <section className="page-header">
+      <section className="page-header" data-aos="fade-up">
         <div className="container">
-          <h1>{t('면접 영어', 'Job Interview')}</h1>
-          <p className="page-header__subtitle">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <Link to="/business">{t('비즈니스', 'Business')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <span>{t('면접 영어', 'Interview')}</span>
+          </div>
+          <h1 className="page-header__title">{t('면접 영어', 'Job Interview')}</h1>
+          <p className="page-header__description">
             {t(
               '영어 면접을 자신 있게 준비하기 위한 핵심 표현과 전략을 배워보세요.',
               'Learn key expressions and strategies to confidently prepare for English interviews.'

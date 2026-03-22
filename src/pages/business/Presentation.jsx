@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
 
 function Presentation() {
   const { t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
+  useAOS();
 
   return (
     <>
@@ -20,10 +22,17 @@ function Presentation() {
         )}
       />
 
-      <section className="page-header">
+      <section className="page-header" data-aos="fade-up">
         <div className="container">
-          <h1>{t('\uD504\uB808\uC820\uD14C\uC774\uC158 \uC601\uC5B4', 'Presentation Skills')}</h1>
-          <p className="page-header__subtitle">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('\uD648', 'Home')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <Link to="/business">{t('\uBE44\uC988\uB2C8\uC2A4', 'Business')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <span>{t('\uD504\uB808\uC820\uD14C\uC774\uC158', 'Presentation')}</span>
+          </div>
+          <h1 className="page-header__title">{t('\uD504\uB808\uC820\uD14C\uC774\uC158 \uC601\uC5B4', 'Presentation Skills')}</h1>
+          <p className="page-header__description">
             {t(
               '자신감 있고 프로페셔널한 영어 프레젠테이션을 위한 핵심 표현을 배워보세요.',
               'Learn key expressions for confident and professional English presentations.'

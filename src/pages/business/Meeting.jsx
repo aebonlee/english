@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
 
 function Meeting() {
   const { t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
+  useAOS();
 
   return (
     <>
@@ -20,10 +22,17 @@ function Meeting() {
         )}
       />
 
-      <section className="page-header">
+      <section className="page-header" data-aos="fade-up">
         <div className="container">
-          <h1>{t('\uD68C\uC758 \uC601\uC5B4', 'Meeting English')}</h1>
-          <p className="page-header__subtitle">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('\uD648', 'Home')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <Link to="/business">{t('\uBE44\uC988\uB2C8\uC2A4', 'Business')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <span>{t('\uD68C\uC758 \uC601\uC5B4', 'Meeting')}</span>
+          </div>
+          <h1 className="page-header__title">{t('\uD68C\uC758 \uC601\uC5B4', 'Meeting English')}</h1>
+          <p className="page-header__description">
             {t(
               '\uD68C\uC758\uB97C \uD6A8\uACFC\uC801\uC73C\uB85C \uC9C4\uD589\uD558\uACE0 \uCC38\uC5EC\uD558\uAE30 \uC704\uD55C \uD575\uC2EC \uD45C\uD604\uC744 \uBC30\uC6CC\uBCF4\uC138\uC694.',
             'Learn key expressions to run and participate in meetings effectively.'

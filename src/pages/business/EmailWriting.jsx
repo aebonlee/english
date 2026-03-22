@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
 
 function EmailWriting() {
   const { t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
+  useAOS();
 
   return (
     <>
@@ -20,10 +22,17 @@ function EmailWriting() {
         )}
       />
 
-      <section className="page-header">
+      <section className="page-header" data-aos="fade-up">
         <div className="container">
-          <h1>{t('\uBE44\uC988\uB2C8\uC2A4 \uC774\uBA54\uC77C \uC791\uC131', 'Business Email Writing')}</h1>
-          <p className="page-header__subtitle">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('\uD648', 'Home')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <Link to="/business">{t('\uBE44\uC988\uB2C8\uC2A4', 'Business')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <span>{t('\uC774\uBA54\uC77C \uC791\uC131', 'Email Writing')}</span>
+          </div>
+          <h1 className="page-header__title">{t('\uBE44\uC988\uB2C8\uC2A4 \uC774\uBA54\uC77C \uC791\uC131', 'Business Email Writing')}</h1>
+          <p className="page-header__description">
             {t(
               '프로페셔널한 비즈니스 이메일을 작성하는 방법을 배워보세요.',
               'Learn how to write professional business emails.'

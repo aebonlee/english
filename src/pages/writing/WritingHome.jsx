@@ -52,16 +52,23 @@ function WritingHome() {
 
       <div className="content-page">
         {/* Header */}
-        <section className="content-page__header" data-aos="fade-up">
-          <h1 className="content-page__title">
-            {t('영어 작문', 'English Writing')}
-          </h1>
-          <p className="content-page__subtitle">
-            {t(
-              '기초 문장 구조부터 에세이까지 단계별로 작문 실력을 향상시키세요',
-              'Improve your writing skills step by step, from basic sentences to essays'
-            )}
-          </p>
+        <section className="page-header" data-aos="fade-up">
+          <div className="container">
+            <div className="page-header__breadcrumb">
+              <Link to="/">{t('홈', 'Home')}</Link>
+              <span className="breadcrumb-separator">/</span>
+              <span>{t('영어 작문', 'Writing')}</span>
+            </div>
+            <h1 className="page-header__title">
+              {t('영어 작문', 'English Writing')}
+            </h1>
+            <p className="page-header__description">
+              {t(
+                '기초 문장 구조부터 에세이까지 단계별로 작문 실력을 향상시키세요',
+                'Improve your writing skills step by step, from basic sentences to essays'
+              )}
+            </p>
+          </div>
         </section>
 
         {/* Topic Cards */}

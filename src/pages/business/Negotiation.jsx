@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
 
 function Negotiation() {
   const { t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
+  useAOS();
 
   return (
     <>
@@ -20,10 +22,17 @@ function Negotiation() {
         )}
       />
 
-      <section className="page-header">
+      <section className="page-header" data-aos="fade-up">
         <div className="container">
-          <h1>{t('협상 & 설득', 'Negotiation & Persuasion')}</h1>
-          <p className="page-header__subtitle">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <Link to="/business">{t('비즈니스', 'Business')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <span>{t('협상 & 설득', 'Negotiation')}</span>
+          </div>
+          <h1 className="page-header__title">{t('협상 & 설득', 'Negotiation & Persuasion')}</h1>
+          <p className="page-header__description">
             {t(
               '비즈니스 협상에서 원하는 결과를 얻기 위한 전략적 영어 표현을 배워보세요.',
               'Learn strategic English expressions to achieve desired results in business negotiations.'

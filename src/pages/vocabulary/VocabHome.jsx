@@ -1,5 +1,8 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import SEOHead from '../../components/SEOHead';
+import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
 import { basicWords, businessWords, toeicWords, dailyWords } from '../../data/vocabulary';
 
 const categories = [
@@ -46,6 +49,8 @@ const categories = [
 ];
 
 export default function VocabHome() {
+  const { t } = useLanguage();
+  useAOS();
   const [search, setSearch] = useState('');
 
   const allWords = useMemo(
@@ -75,13 +80,30 @@ export default function VocabHome() {
 
   return (
     <div className="vocab-home">
-      <div className="vocab-home-header">
-        <h1>필수 영단어</h1>
-        <p className="vocab-home-subtitle">Essential Vocabulary</p>
-        <p className="vocab-home-total">
-          총 <strong>{totalCount.toLocaleString()}</strong>개의 필수 영단어를 학습하세요
-        </p>
-      </div>
+      <SEOHead
+        title={t('필수 영단어 - English Pro', 'Essential Vocabulary - English Pro')}
+        description={t(
+          '기초, 비즈니스, TOEIC, 일상 필수 영단어 2,300+개를 학습하세요.',
+          'Study 2,300+ essential vocabulary words across basic, business, TOEIC, and daily categories.'
+        )}
+      />
+
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <span className="breadcrumb-separator">/</span>
+            <span>{t('필수 영단어', 'Vocabulary')}</span>
+          </div>
+          <h1 className="page-header__title">{t('필수 영단어', 'Essential Vocabulary')}</h1>
+          <p className="page-header__description">
+            {t(
+              `총 ${totalCount.toLocaleString()}개의 필수 영단어를 학습하세요`,
+              `Study ${totalCount.toLocaleString()} essential vocabulary words`
+            )}
+          </p>
+        </div>
+      </section>
 
       <div className="vocab-home-search">
         <div className="search-input-wrapper">
@@ -189,35 +211,6 @@ export default function VocabHome() {
           padding: 40px 20px 80px;
         }
 
-        .vocab-home-header {
-          text-align: center;
-          margin-bottom: 32px;
-        }
-
-        .vocab-home-header h1 {
-          font-size: 2.2rem;
-          font-weight: 800;
-          color: var(--text-primary);
-          margin: 0 0 4px;
-        }
-
-        .vocab-home-subtitle {
-          font-size: 1.1rem;
-          color: var(--text-muted);
-          margin: 0 0 12px;
-        }
-
-        .vocab-home-total {
-          font-size: 1rem;
-          color: var(--text-secondary);
-          margin: 0;
-        }
-
-        .vocab-home-total strong {
-          color: var(--accent);
-          font-size: 1.3rem;
-        }
-
         .vocab-home-search {
           max-width: 600px;
           margin: 0 auto 36px;
@@ -232,30 +225,30 @@ export default function VocabHome() {
         .search-icon {
           position: absolute;
           left: 16px;
-          color: var(--text-muted);
+          color: var(--text-light);
           pointer-events: none;
         }
 
         .search-input-wrapper input {
           width: 100%;
           padding: 14px 44px 14px 48px;
-          border: 2px solid var(--border);
+          border: 2px solid var(--border-light);
           border-radius: 12px;
           font-size: 1rem;
           outline: none;
           transition: border-color 0.2s;
-          background: var(--bg-card);
+          background: var(--bg-white);
           color: var(--text-primary);
         }
 
         .search-input-wrapper input:focus {
-          border-color: var(--accent);
+          border-color: var(--primary-blue);
         }
 
         .search-clear {
           position: absolute;
           right: 12px;
-          background: var(--bg-secondary);
+          background: var(--bg-light-gray);
           border: none;
           border-radius: 50%;
           width: 28px;
@@ -270,8 +263,8 @@ export default function VocabHome() {
         }
 
         .search-clear:hover {
-          background: var(--accent-light);
-          color: var(--accent);
+          background: var(--primary-blue-bg);
+          color: var(--primary-blue);
         }
 
         .vocab-search-results {
@@ -287,7 +280,7 @@ export default function VocabHome() {
 
         .no-results {
           text-align: center;
-          color: var(--text-muted);
+          color: var(--text-light);
           padding: 40px 0;
         }
 
@@ -298,8 +291,8 @@ export default function VocabHome() {
         }
 
         .search-result-item {
-          background: var(--bg-card);
-          border: 1px solid var(--border);
+          background: var(--bg-white);
+          border: 1px solid var(--border-light);
           border-radius: 10px;
           padding: 16px 20px;
           transition: box-shadow 0.2s;
@@ -325,7 +318,7 @@ export default function VocabHome() {
 
         .search-result-pron {
           font-size: 0.85rem;
-          color: var(--text-muted);
+          color: var(--text-light);
         }
 
         .search-result-source {
@@ -344,7 +337,7 @@ export default function VocabHome() {
 
         .search-result-example {
           font-size: 0.85rem;
-          color: var(--text-muted);
+          color: var(--text-light);
           font-style: italic;
         }
 
@@ -361,8 +354,8 @@ export default function VocabHome() {
         }
 
         .vocab-category-card {
-          background: var(--bg-card);
-          border: 1px solid var(--border);
+          background: var(--bg-white);
+          border: 1px solid var(--border-light);
           border-top: 4px solid;
           border-radius: 14px;
           padding: 28px 24px 24px;
@@ -375,7 +368,7 @@ export default function VocabHome() {
 
         .vocab-category-card:hover {
           transform: translateY(-4px);
-          box-shadow: var(--shadow);
+          box-shadow: var(--shadow-md);
         }
 
         .vocab-category-icon {
@@ -398,7 +391,7 @@ export default function VocabHome() {
 
         .vocab-category-subtitle {
           font-size: 0.85rem;
-          color: var(--text-muted);
+          color: var(--text-light);
           margin: 0 0 12px;
         }
 
