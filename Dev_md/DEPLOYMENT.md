@@ -1,5 +1,7 @@
 # English Pro - 배포 가이드
 
+> v2.0.0 - KoreaTech 디자인 시스템 적용
+
 ## 배포 정보
 
 | 항목 | 값 |
@@ -69,9 +71,9 @@ npx gh-pages -d dist
 - `404.html` = `index.html` 복사 (SPA 라우팅)
 - CNAME 파일 포함
 
-### 빌드 사이즈
-- **메인 번들**: ~423KB (gzip: ~123KB)
-- **CSS**: ~101KB (gzip: ~16KB)
+### 빌드 사이즈 (v2.0.0)
+- **메인 번들**: ~425KB (gzip: ~123KB)
+- **CSS**: ~155KB (gzip: ~25KB)
 - **페이지 chunks**: 1-50KB 각각
 - **총 파일 수**: ~42개
 
@@ -93,8 +95,6 @@ export default defineConfig({
 
 ### postBuildPlugin
 SPA 라우팅을 위해 `index.html`을 `404.html`로 복사하고, CNAME 파일을 dist에 복사합니다.
-GitHub Pages는 존재하지 않는 경로에 404.html을 서빙하므로,
-이를 통해 React Router가 클라이언트에서 라우팅을 처리합니다.
 
 ---
 
@@ -105,10 +105,9 @@ GitHub Pages는 존재하지 않는 경로에 404.html을 서빙하므로,
 2. **Branch**: `gh-pages` / `/ (root)`
 3. **Custom domain**: `english.dreamitbiz.com`
 
-### DNS 설정 (커스텀 도메인)
-CNAME 레코드:
+### DNS 설정
 ```
-english.dreamitbiz.com → aebonlee.github.io
+english.dreamitbiz.com → aebonlee.github.io (CNAME)
 ```
 
 ---
@@ -127,10 +126,7 @@ VITE_SUPABASE_ANON_KEY=[anon/public 키]
 
 ### 3. Authentication 설정
 1. Authentication → Providers → Email 활성화
-2. (선택) Google OAuth 설정:
-   - Google Cloud Console에서 OAuth 2.0 클라이언트 생성
-   - Supabase에 Client ID/Secret 등록
-   - Redirect URL 설정
+2. (선택) Google OAuth: Cloud Console에서 클라이언트 생성
 
 ---
 
@@ -138,23 +134,16 @@ VITE_SUPABASE_ANON_KEY=[anon/public 키]
 
 ### 페이지 새로고침 시 404
 → `404.html`이 배포에 포함되었는지 확인
-→ Vite의 `copy404Plugin`이 정상 작동하는지 확인
 
 ### 라우팅이 작동하지 않음
-→ `BrowserRouter`에 basename이 없는지 확인 (커스텀 도메인 루트 서빙)
 → `vite.config.js`의 `base: '/'` 확인
 
 ### Supabase 인증 오류
-→ `.env` 파일의 키가 올바른지 확인
-→ Supabase 대시보드에서 URL과 anon key 재확인
-→ CORS 설정 확인
+→ `.env` 파일의 키 확인, CORS 설정 확인
 
 ### 빌드 에러
 ```bash
-# node_modules 초기화
 rm -rf node_modules package-lock.json
 npm install
-
-# 빌드 재시도
 npm run build
 ```

@@ -1,33 +1,51 @@
 # English Pro - 스타일 가이드
 
+> v2.0.0 - KoreaTech 디자인 시스템 적용 (Light-First)
+
 ## 컬러 팔레트
 
-### 다크 모드 (기본)
+### 라이트 모드 (기본)
 
 | 용도 | 변수 | 색상 |
 |------|------|------|
-| 메인 배경 | `--bg-primary` | #0A1628 |
-| 보조 배경 | `--bg-secondary` | #0F1D32 |
-| 카드 배경 | `--bg-card` | #132238 |
-| 메인 텍스트 | `--text-primary` | #E8ECF1 |
-| 보조 텍스트 | `--text-secondary` | #8899AA |
-| 메인 액센트 | `--accent-primary` | #4A8FE7 |
-| 보조 액센트 | `--accent-secondary` | #1E3A5F |
+| 메인 배경 | `--bg-white` | #FFFFFF |
+| 보조 배경 | `--bg-light-gray` | #F5F7FA |
+| 중간 배경 | `--bg-medium-gray` | #E8EDF2 |
+| 메인 텍스트 | `--text-primary` | #111827 |
+| 보조 텍스트 | `--text-secondary` | #4B5563 |
+| 연한 텍스트 | `--text-light` | #5B6370 |
+| 흰색 텍스트 | `--text-white` | #FFFFFF |
+| 메인 컬러 | `--primary-blue` | #0046C8 |
+| 메인 어두운 | `--primary-blue-dark` | #002E8A |
+| 메인 밝은 | `--primary-blue-light` | #4A8FE7 |
+| 메인 배경색 | `--primary-blue-bg` | rgba(0, 70, 200, 0.06) |
 | 성공 | `--success` | #22C55E |
 | 경고 | `--warning` | #F59E0B |
-| 에러 | `--danger` | #EF4444 |
+| 에러 | `--error` | #EF4444 |
+| 정보 | `--info` | #3B82F6 |
 
-### 라이트 모드
+### 다크 모드 (`[data-theme="dark"]`)
 
 | 용도 | 색상 |
 |------|------|
-| 메인 배경 | #F8FAFC |
-| 보조 배경 | #F1F5F9 |
-| 카드 배경 | #FFFFFF |
-| 메인 텍스트 | #1E293B |
-| 메인 액센트 | #2563EB |
+| 메인 배경 | #111827 |
+| 보조 배경 | #1F2937 |
+| 중간 배경 | #374151 |
+| 메인 텍스트 | #F9FAFB |
+| 보조 텍스트 | #D1D5DB |
+| 메인 컬러 | #4A8FE7 |
 
-### 카테고리별 색상
+### 5색 컬러 테마
+
+| 이름 | 메인 컬러 | 적용 방법 |
+|------|-----------|-----------|
+| Blue (기본) | #0046C8 | 기본값 (data-color 없음) |
+| Red | #C8102E | `html[data-color="red"]` |
+| Green | #00855A | `html[data-color="green"]` |
+| Purple | #8B1AC8 | `html[data-color="purple"]` |
+| Orange | #C87200 | `html[data-color="orange"]` |
+
+### 카테고리별 색상 (영단어)
 
 | 카테고리 | 색상 | 용도 |
 |----------|------|------|
@@ -41,14 +59,15 @@
 ## 타이포그래피
 
 ### 폰트
-- 시스템 폰트 스택 사용 (별도 웹폰트 미사용)
-- `font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
+- **기본 폰트**: `'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
+- **Google Fonts**: Noto Sans KR (400, 500, 600, 700)
+- **한글 처리**: `word-break: keep-all`
 
 ### 크기
 | 요소 | 크기 |
 |------|------|
-| h1 | 2.5rem (clamp 사용) |
-| h2 | 2rem |
+| h1 (Hero) | 60px |
+| h2 (Section Title) | 42px |
 | h3 | 1.5rem |
 | h4 | 1.25rem |
 | body | 1rem (16px) |
@@ -57,108 +76,130 @@
 
 ---
 
+## 레이아웃 변수
+
+| 변수 | 값 | 용도 |
+|------|-----|------|
+| `--nav-height` | 80px | 네비게이션 높이 |
+| `--container-max` | 1280px | 최대 컨테이너 너비 |
+| `--container-narrow` | 800px | 좁은 컨테이너 |
+| `--section-padding` | 80px | 섹션 상하 패딩 |
+| `--sidebar-width` | 280px | 사이드바 너비 |
+
+---
+
+## 그라디언트
+
+| 변수 | 값 | 용도 |
+|------|-----|------|
+| `--primary-gradient` | `135deg, #0046C8 → #4A8FE7` | 버튼, 아이콘 |
+| `--accent-gradient` | `135deg, #002E8A → #0046C8 → #4A8FE7` | 장식 요소 |
+| `--hero-bg` | `135deg, #0046C8 → #002E8A → #1E3A5F` | 히어로, 페이지 헤더 |
+| `--highlight-gradient` | `135deg, #93C5FD → #BFDBFE → #FFFFFF` | 강조 텍스트 |
+
+---
+
 ## 컴포넌트 스타일
 
-### 버튼 (BEM)
+### 버튼
 ```css
-.btn              /* 기본 버튼 */
-.btn--primary     /* 그라디언트 액센트 */
-.btn--outline     /* 아웃라인 */
-.btn--lg          /* 큰 크기 */
-.btn--sm          /* 작은 크기 */
-.btn--full        /* 전체 너비 */
-.btn--google      /* Google 로그인 */
-.btn--danger      /* 삭제/위험 액션 */
-.btn__icon        /* 버튼 내 아이콘 */
+.btn-primary          /* 메인 버튼 (primary-blue bg, white text) */
+.btn-secondary        /* 보조 버튼 (transparent bg, border) */
+.btn-primary-large    /* 큰 메인 버튼 */
+.btn-link             /* 링크 스타일 버튼 */
+.btn--primary         /* BEM: 그라디언트 액센트 */
+.btn--outline         /* BEM: 아웃라인 */
+.btn--lg / --sm       /* BEM: 크기 */
+.btn--full            /* BEM: 전체 너비 */
+.btn--google          /* BEM: Google 로그인 */
+.btn--danger          /* BEM: 삭제/위험 */
 ```
 
 ### 카드
 ```css
-.card             /* 기본 카드 */
+.card             /* 기본 카드 (bg-white, border, shadow) */
 .card-glass       /* Glassmorphism 카드 */
 .card-flat        /* 플랫 카드 */
 ```
 
-### 레이아웃
+### 섹션 헤더
 ```css
-.container        /* 최대 1200px */
-.container-narrow /* 최대 800px */
+.section-header     /* 섹션 헤더 래퍼 (중앙 정렬) */
+.section-title      /* 섹션 제목 (42px, primary) */
+.section-subtitle   /* 섹션 부제 (18px, text-secondary) */
 ```
 
 ---
 
-## CSS 클래스 네이밍 규칙
+## CSS 클래스 네이밍
 
 ### BEM 스타일
 ```
 .page-header              /* Block */
 .page-header__subtitle    /* Element */
 .btn--primary             /* Modifier */
-.btn--active              /* State Modifier */
+.btn--active              /* State */
 ```
 
-### 페이지별 클래스 (BEM)
+### 주요 클래스
 ```css
-/* 콘텐츠 페이지 레이아웃 */
-.content-page                    /* 콘텐츠 페이지 래퍼 */
-.content-page__header            /* 헤더 */
-.content-page__title             /* 페이지 제목 */
-.content-page__subtitle          /* 부제 */
-.content-section                 /* 섹션 */
-.content-section__title          /* 섹션 제목 */
+/* 레이아웃 */
+.container / .container-narrow
+.site-wrapper / .site-main      /* Sticky footer */
 
-/* 레슨 본문 프레임워크 (v1.3.0) */
-.lesson-content                  /* 레슨 섹션 래퍼 (padding) */
-.lesson-body                     /* 본문 컨테이너 (max-width: 800px, 타이포그래피) */
-.callout-box                     /* 학습 목표 박스 (파란색 왼쪽 보더) */
-.exercise-box                    /* 연습 문제 박스 (파란색 테두리) */
-.lesson-table                    /* 레슨 테이블 (thead/tbody 스타일링) */
-.lesson-nav                      /* 이전/다음 레슨 네비게이션 */
-.lesson-nav-btn                  /* 네비게이션 버튼 (.prev / .next) */
-.email-template                  /* 이메일 템플릿 박스 */
+/* 레슨 본문 */
+.lesson-content / .lesson-body
+.callout-box / .exercise-box / .lesson-table / .lesson-nav
 
-/* 레슨/콘텐츠 공통 */
-.lesson-section                  /* 레슨 섹션 (카드형) */
-.example-box                     /* 예시 박스 */
-.tip-box                         /* 팁 박스 */
-.expression-table                /* 표현 테이블 */
-.expression-list                 /* 표현 목록 */
-.dialogue                        /* 대화 예시 */
-.speaker.a / .speaker.b          /* 화자 구분 */
-.translation                     /* 번역 텍스트 */
-
-/* 카드 그리드 & 카드 */
-.card-grid / .card-grid--2 / --3 /* 반응형 그리드 */
-.topic-card / .topic-card__icon  /* 주제 카드 */
-.tip-card / .tip-card__icon      /* 팁 카드 */
-.info-box / .info-box__row       /* 정보 박스 */
-
-/* 대시보드 */
-.dashboard                       /* 대시보드 래퍼 */
-.progress-card                   /* 진도 카드 */
-.action-card                     /* 빠른 액션 */
-.activity-list                   /* 활동 목록 */
-
-/* 설정 */
-.settings                        /* 설정 래퍼 */
-.settings__section               /* 설정 섹션 */
-.settings__option                /* 선택 옵션 */
-
-/* 단어장 (인라인 스타일) */
-.vocab-card / .vocab-card.flipped /* 단어 카드 */
-
-/* 챗봇 (BEM) */
-.chatbot                         /* 채팅 컨테이너 */
-.chatbot__message--user          /* 사용자 메시지 */
-.chatbot__message--assistant     /* AI 메시지 */
-.chatbot__typing                 /* 타이핑 표시 */
-
-/* 음성 (BEM) */
-.speech-practice                 /* 음성 연습 래퍼 */
-.speech-practice__mic-btn        /* 마이크 버튼 */
-.speech-practice__mic-btn--active /* 녹음 중 */
-.speech-practice__accuracy       /* 정확도 미터 */
+/* 챗봇 / 음성 / 단어장 */
+.chatbot / .chatbot__message--user / --assistant
+.speech-practice / .speech-practice__mic-btn
+.vocab-card / .vocab-card.flipped
 ```
+
+---
+
+## Glassmorphism 효과
+
+### Navbar (라이트)
+```css
+.navbar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+```
+
+### Navbar (다크)
+```css
+[data-theme="dark"] .navbar {
+  background: rgba(17, 24, 39, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+```
+
+---
+
+## Border Radius
+
+| 변수 | 값 |
+|------|-----|
+| `--radius-sm` | 8px |
+| `--radius-md` | 12px |
+| `--radius-lg` | 16px |
+| `--radius-xl` | 20px |
+| `--radius-full` | 9999px |
+
+---
+
+## Shadow
+
+| 변수 | 값 |
+|------|-----|
+| `--shadow-sm` | `0 1px 3px rgba(0,0,0,0.06)` |
+| `--shadow-md` | `0 4px 6px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04)` |
+| `--shadow-lg` | `0 10px 25px rgba(0,0,0,0.08), 0 4px 10px rgba(0,0,0,0.04)` |
+| `--shadow-xl` | `0 20px 40px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.06)` |
 
 ---
 
@@ -166,23 +207,22 @@
 
 ### AOS (Animate On Scroll)
 ```html
-<div data-aos="fade-up">              <!-- 아래에서 위로 페이드 -->
-<div data-aos="fade-up" data-aos-delay="100">  <!-- 100ms 지연 -->
+<div data-aos="fade-up">              <!-- 아래에서 위로 -->
+<div data-aos="fade-up" data-aos-delay="100">
 <div data-aos="zoom-in">              <!-- 확대 페이드 -->
 ```
 
-### 지원 방향
-- `fade-up`, `fade-down`, `fade-left`, `fade-right`
-- `zoom-in`, `zoom-out`, `zoom-in-up`
-- `flip-up`, `slide-up`
-- 지연: 100ms ~ 800ms (100ms 단위)
+### 지원 방향 (5종)
+- `fade-up`, `fade-down`, `fade-left`, `fade-right`, `zoom-in`
+- Easing: `cubic-bezier(0.4, 0, 0.2, 1)`
+- Travel distance: `24px` / scale `0.95`
 
-### 키프레임 애니메이션
-- `heroGradient` - 배경 그라디언트 이동
-- `particleFloat` - 파티클 부유
+### 키프레임
+- `float-particle` - 파티클 부유
+- `shape-float` - 히어로 도형
+- `scroll-bounce` - 스크롤 인디케이터
 - `pulseRing` - 마이크 펄스
-- `shimmer` - 스켈레톤 로딩
-- `typingDot` - 타이핑 인디케이터
+- `spin` - 로딩 스피너
 
 ---
 
@@ -190,42 +230,19 @@
 
 | 이름 | 크기 | 변경사항 |
 |------|------|----------|
-| Desktop | > 1024px | 전체 레이아웃 |
-| Tablet | ≤ 1024px | 햄버거 메뉴, 2컬럼 |
-| Mobile | ≤ 768px | 1컬럼, 모바일 메뉴 |
-| Small | ≤ 480px | 압축 레이아웃 |
-| Large | ≥ 1400px | 확장 컨테이너 |
+| Desktop | > 1100px | 전체 레이아웃 |
+| Tablet+ | ≤ 1024px | 2컬럼 그리드, 축소 타이포 |
+| Tablet | ≤ 768px | 1컬럼, 모바일 메뉴 |
+| Mobile | ≤ 480px | 압축 레이아웃 |
 
----
-
-## Glassmorphism 효과
-
-### Navbar
-```css
-.navbar {
-  background: rgba(10, 22, 40, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(74, 143, 231, 0.1);
-}
-```
-
-### Login Container / Modal
-```css
-.login-container,
-.login-modal {
-  background: rgba(15, 29, 50, 0.8);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(74, 143, 231, 0.15);
-}
-```
+> 네비게이션 모바일 전환: 1100px
 
 ---
 
 ## 접근성 가이드
 
 - 색상 대비: WCAG 2.1 AA 기준 충족
-- 포커스 스타일: `focus-visible` 아웃라인
+- 포커스 스타일: `focus-visible` 아웃라인 (`--primary-blue`)
 - 모션 제한: `prefers-reduced-motion: reduce` 지원
 - 스크린 리더: ARIA 속성, 시맨틱 HTML
 - 키보드 탐색: 탭 순서, 모달 포커스 트랩

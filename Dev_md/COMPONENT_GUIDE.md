@@ -1,5 +1,7 @@
 # English Pro - 컴포넌트 가이드
 
+> v2.0.0 - KoreaTech 디자인 시스템 적용
+
 ## 컴포넌트 총 48개
 
 ---
@@ -7,25 +9,27 @@
 ## 레이아웃 컴포넌트
 
 ### Navbar (`src/components/layout/Navbar.jsx`)
-- **역할**: 반응형 네비게이션 바 (Glassmorphism 효과)
+- **역할**: 반응형 네비게이션 바 (라이트 글래스모피즘)
 - **주요 기능**:
   - 데스크톱: 드롭다운 메뉴 (일상회화, 비즈니스, 영단어, 영작문, TOEIC)
   - 모바일: 햄버거 메뉴 + 슬라이드 패널
-  - 테마 토글 (다크/라이트)
+  - 테마 토글 (auto/light/dark 3단계)
+  - **컬러 피커** (5색: blue/red/green/purple/orange)
   - 언어 토글 (KO/EN)
   - 로그인 버튼 / 사용자 메뉴
   - 스크롤 시 배경 변경 (`scrolled` 클래스)
 - **CSS**: `navbar.css`
-- **Context 사용**: ThemeContext, LanguageContext, AuthContext
+- **Context 사용**: ThemeContext (`colorTheme`, `setColorTheme`), LanguageContext, AuthContext
 
 ### Footer (`src/components/layout/Footer.jsx`)
-- **역할**: 3컬럼 푸터 (브랜드, 학습 메뉴, 리소스, 소셜)
+- **역할**: 다크 그라디언트 푸터 (3컬럼)
 - **주요 기능**:
-  - 사이트맵 링크
-  - 소셜 미디어 아이콘 (GitHub, Twitter, LinkedIn)
-  - Back-to-top 버튼
+  - 브랜드 + 설명 + 소셜 (GitHub, Twitter, YouTube)
+  - 바로가기 링크
+  - 연락처 & 정보
   - 저작권 / 법적 고지
 - **CSS**: `footer.css`
+- **디자인**: `background: linear-gradient(180deg, #111827, #0A0F1A)`, white text
 
 ### PublicLayout (`src/layouts/PublicLayout.jsx`)
 - **역할**: 메인 레이아웃 (Navbar + Routes + Footer)
@@ -34,6 +38,7 @@
   - `React.lazy()` + `Suspense`로 코드 스플리팅
   - AOS 스크롤 애니메이션 초기화
   - `PageLoader` 로딩 UI
+  - `.site-wrapper` / `.site-main` sticky footer 레이아웃
 
 ---
 
@@ -48,7 +53,7 @@
   - 폼 유효성 검사
   - 로딩 상태 (스피너)
   - 에러 메시지 표시
-- **CSS**: `auth.css`
+- **CSS**: `auth.css` (KoreaTech 카드형 디자인)
 - **Context 사용**: AuthContext
 
 ### ProtectedRoute (`src/components/auth/ProtectedRoute.jsx`)
@@ -73,13 +78,10 @@
   - 타이핑 인디케이터 (3dot 애니메이션)
   - 대화 초기화 버튼
   - API 키 미등록 시 안내 화면
-  - 에러 핸들링 (에러 배너)
 - **CSS**: `chatbot.css`
-- **데이터 소스**: `localStorage` (API 키)
 
 ### ApiKeySetup (`src/components/ai/ApiKeySetup.jsx`)
 - **역할**: OpenAI API 키 등록 안내 가이드
-- **주요 기능**: 단계별 안내, 키 입력 폼, 유효성 검사
 
 ---
 
@@ -89,15 +91,11 @@
 - **역할**: 음성 인식 발음 연습
 - **주요 기능**:
   - 난이도별 필터 (Beginner, Intermediate, Advanced)
-  - 예문 표시 + 한국어 번역
   - 마이크 버튼 (녹음 시작/중지)
   - 음성 → 텍스트 변환 (Web Speech API)
-  - 정확도 퍼센트 계산 + 시각적 피드백
-  - 단어별 비교 (일치/불일치 하이라이팅)
+  - 정확도 퍼센트 + 단어별 하이라이팅
   - 이전/다음 문장 네비게이션
-  - 브라우저 미지원 시 안내
 - **CSS**: `speech.css`
-- **API**: Web Speech API (`SpeechRecognition`, `lang: 'en-US'`)
 
 ---
 
@@ -106,11 +104,6 @@
 ### SEOHead (`src/components/SEOHead.jsx`)
 - **역할**: 동적 OG 메타 태그 관리
 - **Props**: `title`, `description`, `image`, `url`, `type`
-- **주요 기능**:
-  - `document.title` 동적 설정
-  - Open Graph 태그 (og:title, og:description, og:image, og:url, og:type)
-  - Twitter Card 태그
-  - 언마운트 시 이전 타이틀 복원
 
 ---
 
@@ -131,26 +124,23 @@
 | 컴포넌트 | 경로 | 내용 |
 |----------|------|------|
 | ConversationHome | `/conversation` | 회화 주제 카드 목록 |
-| Greetings | `/conversation/greetings` | 인사 & 소개 패턴 + 대화 예문 |
+| Greetings | `/conversation/greetings` | 인사 & 소개 |
 | DailyLife | `/conversation/daily-life` | 일상생활 표현 |
-| Shopping | `/conversation/shopping` | 쇼핑 & 주문 표현 |
+| Shopping | `/conversation/shopping` | 쇼핑 & 주문 |
 | Travel | `/conversation/travel` | 여행 영어 |
 | Restaurant | `/conversation/restaurant` | 음식점 영어 |
 | Phone | `/conversation/phone` | 전화 영어 |
 
 ### 비즈니스 영어 (6개)
 
-> **v1.3.0**: 모든 비즈니스 하위 페이지가 `lesson-content > lesson-body` 패턴으로 재구성됨.
-> 각 페이지에 `callout-box` 학습 목표, `exercise-box` 연습 문제, `lesson-nav` 이전/다음 네비게이션 포함.
-
 | 컴포넌트 | 경로 | 내용 |
 |----------|------|------|
-| BusinessHome | `/business` | 비즈니스 주제 카드 목록 + 학습 목표 + 추천 학습 순서 |
-| EmailWriting | `/business/email` | 이메일 4단계 구조 + 3개 템플릿 + 톤 구별 표 |
-| Presentation | `/business/presentation` | 오프닝/전환/데이터/Q&A/마무리 5단계 |
-| Meeting | `/business/meeting` | 시작/의견/동의·반대/행동항목/마무리 + 대화 예시 |
-| Negotiation | `/business/negotiation` | 시작/제안/반대제안/타협/체결 + 협상 대화 예시 |
-| Interview | `/business/interview` | 자기소개/장단점/경력/STAR/Q&A/연봉 + 10개 Q&A |
+| BusinessHome | `/business` | 비즈니스 주제 카드 |
+| EmailWriting | `/business/email` | 이메일 4단계 + 3개 템플릿 |
+| Presentation | `/business/presentation` | 오프닝/전환/데이터/Q&A/마무리 |
+| Meeting | `/business/meeting` | 시작/의견/동의·반대/행동항목/마무리 |
+| Negotiation | `/business/negotiation` | 시작/제안/반대제안/타협/체결 |
+| Interview | `/business/interview` | 자기소개/장단점/경력/STAR/Q&A/연봉 |
 
 ### 필수 영단어 (5개)
 
@@ -192,19 +182,19 @@
 ## Context
 
 ### ThemeContext (`src/contexts/ThemeContext.jsx`)
-- **상태**: `theme` (dark/light/auto), `resolvedTheme`, `isDark`
-- **동작**: localStorage 저장, `data-theme` 속성 설정, 탭 간 동기화
-- **자동 모드**: `prefers-color-scheme` 미디어 쿼리 감지
+- **상태**: `theme` (auto/light/dark), `resolvedTheme`, `isDark`, `colorTheme` (blue/red/green/purple/orange)
+- **메서드**: `setTheme()`, `toggleTheme()`, `setColorTheme()`
+- **저장**: localStorage (`english-pro-theme`, `english-pro-color`)
+- **HTML 속성**: `data-theme`, `data-color`
+- **테마 순서**: auto → light → dark
 
 ### LanguageContext (`src/contexts/LanguageContext.jsx`)
 - **상태**: `language` (ko/en), `isKo`, `isEn`
-- **헬퍼**: `t(korean, english)` - 현재 언어에 맞는 텍스트 반환
-- **동작**: localStorage 저장, `lang` 속성 설정
+- **헬퍼**: `t(korean, english)`
 
 ### AuthContext (`src/contexts/AuthContext.jsx`)
 - **상태**: `user`, `session`, `loading`, `isAuthenticated`
 - **메서드**: `login()`, `signup()`, `loginWithGoogle()`, `logout()`, `resetPassword()`
-- **Supabase 미설정 시**: graceful fallback (null 클라이언트 처리)
 
 ---
 
