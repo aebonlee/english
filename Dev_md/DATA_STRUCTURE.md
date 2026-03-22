@@ -1,5 +1,7 @@
 # English Pro - 데이터 구조 문서
 
+> v2.0.0 - KoreaTech 디자인 시스템 적용
+
 ## 데이터 파일 목록
 
 | 파일 | 경로 | 내용 |
@@ -169,9 +171,11 @@
 
 | 키 | 타입 | 설명 | 예시 |
 |----|------|------|------|
-| `englishpro_theme` | string | 테마 설정 | `"dark"`, `"light"`, `"auto"` |
-| `englishpro_language` | string | 언어 설정 | `"ko"`, `"en"` |
-| `englishpro_openai_api_key` | string | OpenAI API 키 | `"sk-..."` |
+| `english-pro-theme` | string | 테마 설정 | `"dark"`, `"light"`, `"auto"` |
+| `english-pro-color` | string | 컬러 테마 (v2.0 신규) | `"blue"`, `"red"`, `"green"`, `"purple"`, `"orange"` |
+| `english-pro-lang` | string | 언어 설정 | `"ko"`, `"en"` |
+| `englishpro_openai_key` | string | OpenAI API 키 (ChatBot/ApiKeySetup) | `"sk-..."` |
+| `englishpro_openai_api_key` | string | OpenAI API 키 (Settings) | `"sk-..."` |
 | `englishpro_progress` | JSON | 학습 진도 | `{"basic": 45, "business": 12}` |
 | `englishpro_activity` | JSON | 최근 활동 | `[{"page": "/vocabulary/basic", "date": "..."}]` |
 

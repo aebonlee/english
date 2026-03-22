@@ -1,5 +1,7 @@
 # English Pro - API & 외부 서비스 가이드
 
+> v2.0.0 - KoreaTech 디자인 시스템 적용
+
 ## 1. OpenAI API (AI 챗봇)
 
 ### 개요
@@ -157,7 +159,9 @@ export const supabase = (supabaseUrl && supabaseAnonKey)
 | 키 | 용도 | 값 예시 |
 |----|------|---------|
 | `english-pro-theme` | 테마 설정 | `dark`, `light`, `auto` |
+| `english-pro-color` | 컬러 테마 (v2.0 신규) | `blue`, `red`, `green`, `purple`, `orange` |
 | `english-pro-lang` | 언어 설정 | `ko`, `en` |
-| `englishpro_openai_api_key` | OpenAI API 키 | `sk-...` |
+| `englishpro_openai_key` | OpenAI API 키 (ChatBot/ApiKeySetup) | `sk-...` |
+| `englishpro_openai_api_key` | OpenAI API 키 (Settings) | `sk-...` |
 | `englishpro_progress` | 학습 진도 | `{ conversation: 30, ... }` |
 | `englishpro_activity` | 최근 활동 | `[{ type, date, ... }]` |
