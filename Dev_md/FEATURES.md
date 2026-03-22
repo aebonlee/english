@@ -1,6 +1,6 @@
 # English Pro - 기능 명세서
 
-> v2.0.0 - KoreaTech 디자인 시스템 적용
+> v2.1.0 - KoreaTech 디자인 시스템 + Font Awesome 아이콘
 
 ## 1. 학습 콘텐츠
 
@@ -104,6 +104,18 @@
 - 태블릿 (≤1024px): 2컬럼, 축소 타이포
 - 모바일 (≤768px): 1컬럼, 슬라이드인 메뉴
 - 소형 모바일 (≤480px): 압축 레이아웃
+
+### 아이콘 (v2.1 신규)
+- Font Awesome 6.5 CDN
+- 커리큘럼 카드 7개: FA 아이콘 + 주컬러 스타일
+- 피처 카드 3개: FA 아이콘 (robot, microphone-lines, book-open)
+- hover 시 배경색 전환 + 흰색 아이콘
+
+### SEO / OG 태그
+- `og:site_name`: English Pro
+- `og:image`: og-image.svg (브랜드 디자인)
+- `og:title`, `og:description`: 페이지별 동적 설정 (SEOHead.jsx)
+- `twitter:card`: summary_large_image
 
 ### 애니메이션
 - AOS: fade-up/down/left/right, zoom-in

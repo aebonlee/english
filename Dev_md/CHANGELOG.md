@@ -1,5 +1,47 @@
 # English Pro - 변경 이력 (CHANGELOG)
 
+## v2.1.0 (2026-03-23)
+
+### Font Awesome 아이콘 + 푸터 리뉴얼 + OG/SEO 개선
+
+**아이콘 시스템 교체:**
+- Font Awesome 6.5 CDN 추가
+- 메인 페이지 이모지 10개를 FA 아이콘으로 교체 (주컬러 스타일)
+- 커리큘럼 카드: `fa-comments`, `fa-briefcase`, `fa-book`, `fa-pen-nib`, `fa-graduation-cap`, `fa-robot`, `fa-microphone`
+- 피처 카드: `fa-robot`, `fa-microphone-lines`, `fa-book-open`
+- `CURRICULUM_CARDS`에 `icon` 필드 추가 (FA 클래스명)
+
+**푸터 리뉴얼 (db-study 패턴 적용):**
+- GitHub/Twitter/YouTube 소셜 링크 제거
+- 연락처 추가: 이메일, 전화, 카카오톡, 영업시간 (SVG 아이콘)
+- 사업자 정보: 대표이사, 사업자등록번호, 통신판매신고번호, 출판사 신고번호
+- Family Site 드롭다운 추가 (`FAMILY_SITES` 설정)
+
+**OG/SEO 개선:**
+- `og:site_name` 메타 태그 추가 (index.html + SEOHead.jsx)
+- `og-image.svg` 생성 (브랜드 디자인)
+
+**CSS 보완:**
+- `.page-header h1` 스타일 추가 (클래스 없는 bare h1 지원)
+- `.page-header__subtitle` 별칭 추가
+- 다크 모드 `page-header h1`/`__subtitle` 색상 오버라이드
+- `--primary-blue-rgb: 0, 70, 200` 변수 추가
+
+**파일 변경 (11개):**
+- `index.html` - Font Awesome CDN, og:site_name, og:image 경로
+- `src/config/site.js` - CURRICULUM_CARDS icon 필드, FAMILY_SITES 추가
+- `src/pages/Home.jsx` - FA 아이콘 적용, 필드명 수정
+- `src/components/layout/Footer.jsx` - 전면 리뉴얼
+- `src/components/SEOHead.jsx` - og:image 경로 업데이트
+- `src/styles/base.css` - --primary-blue-rgb 추가
+- `src/styles/hero.css` - 아이콘 color: var(--primary-blue)
+- `src/styles/footer.css` - Family Site, 연락처, 메타 스타일
+- `src/styles/site.css` - page-header h1, __subtitle
+- `src/styles/dark-mode.css` - page-header 다크 오버라이드
+- `public/og-image.svg` - OG 이미지 신규
+
+---
+
 ## v2.0.0 (2026-03-23)
 
 ### KoreaTech 디자인 시스템 100% 적용

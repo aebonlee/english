@@ -1,10 +1,11 @@
 # English Pro - 실용 영어 학습 사이트 구현 계획
 
-> v2.0.0 - KoreaTech 디자인 시스템 적용
+> v2.1.0 - KoreaTech 디자인 시스템 + Font Awesome 아이콘
 
 ## Context
 비즈니스 및 일상에서 활용 가능한 실용 영어 회화·작문을 학습하는 사이트.
 - KoreaTech 디자인 시스템 100% 적용 (Light-First)
+- Font Awesome 6.5 아이콘 시스템
 - Supabase 로그인/인증 기능 포함
 - AI 챗봇(사용자 API키 등록 방식) + 음성 인식 학습 기능
 - GitHub Pages + 커스텀 도메인 (english.dreamitbiz.com)으로 배포
@@ -15,6 +16,7 @@
 - **Styling**: CSS Variables + KoreaTech Light-First Design System
 - **기본 테마**: 라이트 (#FFFFFF 배경, #0046C8 메인 컬러)
 - **폰트**: Noto Sans KR (Google Fonts)
+- **아이콘**: Font Awesome 6.5 (CDN)
 - **컬러 테마**: 5색 (Blue/Red/Green/Purple/Orange)
 - **Routing**: React Router DOM v7
 - **AI Chat**: OpenAI API (사용자 API키 등록 방식)

@@ -1,6 +1,6 @@
 # English Pro - 아키텍처 문서
 
-> v2.0.0 - KoreaTech 디자인 시스템 적용
+> v2.1.0 - KoreaTech 디자인 시스템 + Font Awesome 아이콘
 
 ## 기술 스택
 
@@ -14,6 +14,7 @@
 | Speech | Web Speech API | Browser Built-in |
 | Deploy | GitHub Pages | gh-pages |
 | Font | Noto Sans KR | Google Fonts |
+| Icons | Font Awesome | 6.5.1 (CDN) |
 
 ## 디렉토리 구조
 

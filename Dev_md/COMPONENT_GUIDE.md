@@ -1,6 +1,6 @@
 # English Pro - 컴포넌트 가이드
 
-> v2.0.0 - KoreaTech 디자인 시스템 적용
+> v2.1.0 - KoreaTech 디자인 시스템 + Font Awesome 아이콘
 
 ## 컴포넌트 총 48개
 
@@ -24,12 +24,13 @@
 ### Footer (`src/components/layout/Footer.jsx`)
 - **역할**: 다크 그라디언트 푸터 (3컬럼)
 - **주요 기능**:
-  - 브랜드 + 설명 + 소셜 (GitHub, Twitter, YouTube)
-  - 바로가기 링크
-  - 연락처 & 정보
-  - 저작권 / 법적 고지
+  - 브랜드 로고 + 설명 + Family Site 드롭다운
+  - 바로가기 링크 (6개 주요 메뉴)
+  - 연락처: 이메일 (aebon@dreamitbiz.com), 전화, 카카오톡, 영업시간
+  - 사업자 정보: 대표이사, 사업자등록번호, 통신판매신고번호, 출판사 신고번호
 - **CSS**: `footer.css`
 - **디자인**: `background: linear-gradient(180deg, #111827, #0A0F1A)`, white text
+- **설정 import**: `FAMILY_SITES` (site.js)
 
 ### PublicLayout (`src/layouts/PublicLayout.jsx`)
 - **역할**: 메인 레이아웃 (Navbar + Routes + Footer)

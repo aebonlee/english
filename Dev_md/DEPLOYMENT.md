@@ -1,6 +1,6 @@
 # English Pro - 배포 가이드
 
-> v2.0.0 - KoreaTech 디자인 시스템 적용
+> v2.1.0 - KoreaTech 디자인 시스템 + Font Awesome 아이콘
 
 ## 배포 정보
 
@@ -71,11 +71,12 @@ npx gh-pages -d dist
 - `404.html` = `index.html` 복사 (SPA 라우팅)
 - CNAME 파일 포함
 
-### 빌드 사이즈 (v2.0.0)
-- **메인 번들**: ~425KB (gzip: ~123KB)
-- **CSS**: ~155KB (gzip: ~25KB)
+### 빌드 사이즈 (v2.1.0)
+- **메인 번들**: ~423KB (gzip: ~123KB)
+- **CSS**: ~156KB (gzip: ~25KB)
 - **페이지 chunks**: 1-50KB 각각
 - **총 파일 수**: ~42개
+- **외부 CDN**: Font Awesome 6.5.1 (~90KB)
 
 ---
 

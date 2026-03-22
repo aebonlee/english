@@ -1,6 +1,6 @@
 # English Pro - 스타일 가이드
 
-> v2.0.0 - KoreaTech 디자인 시스템 적용 (Light-First)
+> v2.1.0 - KoreaTech 디자인 시스템 + Font Awesome 아이콘
 
 ## 컬러 팔레트
 
@@ -19,6 +19,7 @@
 | 메인 어두운 | `--primary-blue-dark` | #002E8A |
 | 메인 밝은 | `--primary-blue-light` | #4A8FE7 |
 | 메인 배경색 | `--primary-blue-bg` | rgba(0, 70, 200, 0.06) |
+| 메인 RGB | `--primary-blue-rgb` | 0, 70, 200 |
 | 성공 | `--success` | #22C55E |
 | 경고 | `--warning` | #F59E0B |
 | 에러 | `--error` | #EF4444 |
@@ -56,11 +57,33 @@
 
 ---
 
+## 아이콘 (Font Awesome 6.5)
+
+- **CDN**: `cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css`
+- **사용 방식**: `<i className="fa-solid fa-icon-name"></i>`
+- **기본 색상**: `color: var(--primary-blue)` (주컬러)
+- **hover**: 배경 전환 (`--primary-blue`), 아이콘 흰색
+
+### 커리큘럼 카드 아이콘
+
+| 카드 | 아이콘 | 클래스 |
+|------|--------|--------|
+| 일상 회화 | 말풍선 | `fa-solid fa-comments` |
+| 비즈니스 | 서류가방 | `fa-solid fa-briefcase` |
+| 영단어 | 책 | `fa-solid fa-book` |
+| 작문 | 펜 | `fa-solid fa-pen-nib` |
+| TOEIC | 학사모 | `fa-solid fa-graduation-cap` |
+| AI 대화 | 로봇 | `fa-solid fa-robot` |
+| 발음 | 마이크 | `fa-solid fa-microphone` |
+
+---
+
 ## 타이포그래피
 
 ### 폰트
 - **기본 폰트**: `'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
 - **Google Fonts**: Noto Sans KR (400, 500, 600, 700)
+- **아이콘 폰트**: Font Awesome 6.5 (CDN)
 - **한글 처리**: `word-break: keep-all`
 
 ### 크기
