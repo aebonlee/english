@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 
 const DEFAULT_TITLE = 'English Pro';
 const DEFAULT_DESCRIPTION = 'Master English with AI-powered learning. Practice conversation, build vocabulary, and prepare for exams.';
-const DEFAULT_IMAGE = '/english/og-image.png';
-const SITE_URL = 'https://englishpro.com';
+const DEFAULT_IMAGE = '/og-image.png';
+const SITE_URL = 'https://english.dreamitbiz.com';
 
 function setMetaTag(property, content) {
   if (!content) return;

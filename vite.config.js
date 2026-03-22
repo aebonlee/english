@@ -20,7 +20,7 @@ const copy404Plugin = () => ({
 
 export default defineConfig({
   plugins: [react(), copy404Plugin()],
-  base: '/english/',
+  base: '/',
   build: {
     outDir: 'dist',
     sourcemap: false

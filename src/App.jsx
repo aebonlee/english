@@ -10,7 +10,7 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         <AuthProvider>
-          <BrowserRouter basename="/english">
+          <BrowserRouter>
             <PublicLayout />
           </BrowserRouter>
         </AuthProvider>
