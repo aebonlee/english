@@ -1,5 +1,35 @@
 # English Pro - 변경 이력 (CHANGELOG)
 
+## v1.3.0 (2026-03-23)
+
+### 비즈니스 영어 페이지 전면 개선
+
+**디자인 패턴 변경 (db-study 참조 적용):**
+- 모든 비즈니스 하위 페이지를 `lesson-content > lesson-body` 패턴으로 전면 재구성
+- 기존 `lesson-section` 카드 분리 방식 → 하나의 연속된 레슨 본문 흐름으로 변경
+- `max-width: 800px` lesson-body 타이포그래피 시스템 적용
+
+**신규 CSS 컴포넌트 추가 (site.css):**
+- `.lesson-content`, `.lesson-body` - 레슨 본문 레이아웃 + h2/h3/h4/p/ul/ol/li/a/code 타이포그래피
+- `.callout-box` - 학습 목표 박스 (파란색 왼쪽 보더)
+- `.exercise-box` - 연습 문제 박스 (파란색 테두리)
+- `.lesson-table` - 레슨 테이블 (thead/tbody 스타일링)
+- `.lesson-nav`, `.lesson-nav-btn` - 이전/다음 레슨 네비게이션
+- `.email-template` - 이메일 템플릿 박스
+- 라이트 모드 + 반응형 (768px, 480px) 대응 포함
+
+**페이지별 변경:**
+- `BusinessHome.jsx` - 이모지 아이콘 제거, callout-box 학습 목표 추가, 추천 학습 순서 추가
+- `EmailWriting.jsx` - 4단계 이메일 구조, 3개 템플릿, 톤 구별 표, 연습 문제
+- `Presentation.jsx` - 오프닝/전환/데이터/Q&A/마무리 5단계 구성
+- `Meeting.jsx` - 시작/의견/동의·반대/행동항목/마무리 + 대화 예시
+- `Negotiation.jsx` - 시작/제안/반대제안/타협/체결 + 협상 대화 예시
+- `Interview.jsx` - 자기소개/장단점/경력/STAR/Q&A/연봉 + 10개 Q&A 예시
+- 모든 페이지에 `lesson-nav` (이전/다음 레슨) 추가
+- 모든 페이지에서 `data-aos` 애니메이션 제거 (콘텐츠 페이지 특성상 불필요)
+
+---
+
 ## v1.2.0 (2025-03-23)
 
 ### 누락 CSS 클래스 대량 추가 (site.css +1,000줄)

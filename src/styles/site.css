@@ -1876,3 +1876,373 @@
 .btn--danger:hover {
   background: #DC2626;
 }
+
+/* ===================================================================
+   Lesson Content Framework (db-study pattern)
+   page-header → section.lesson-content → .container → .lesson-body
+   =================================================================== */
+
+.lesson-content {
+  padding: 3rem 0 4rem;
+}
+
+.lesson-body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Lesson Body Typography --- */
+
+.lesson-body h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-primary);
+  color: var(--text-primary);
+}
+
+.lesson-body h2:first-child {
+  margin-top: 0;
+}
+
+.lesson-body h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--text-primary);
+}
+
+.lesson-body h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.5rem;
+  color: var(--text-primary);
+}
+
+.lesson-body p {
+  line-height: 1.85;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.lesson-body > ul,
+.lesson-body > ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.lesson-body li {
+  line-height: 1.8;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+}
+
+.lesson-body a {
+  color: var(--accent-primary);
+  text-decoration: underline;
+}
+
+.lesson-body strong {
+  color: var(--text-primary);
+}
+
+/* Inline code */
+.lesson-body code {
+  background: var(--bg-card);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  color: var(--accent-primary);
+}
+
+/* --- Callout Box (Learning Objectives, Key Points) --- */
+
+.callout-box {
+  background: rgba(74, 143, 231, 0.08);
+  border-left: 4px solid var(--accent-primary);
+  border-radius: 0 8px 8px 0;
+  padding: 20px 24px;
+  margin: 1.5rem 0;
+}
+
+.callout-box h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 0 0 8px;
+  border: none;
+  padding: 0;
+}
+
+.callout-box ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.callout-box li {
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.callout-box p {
+  margin: 0.3rem 0;
+  color: var(--text-primary);
+}
+
+/* --- Exercise Box (Practice Problems) --- */
+
+.exercise-box {
+  background: rgba(74, 143, 231, 0.06);
+  border: 1px solid rgba(74, 143, 231, 0.3);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 1.5rem 0;
+}
+
+.exercise-box h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 0 0 8px;
+  border: none;
+  padding: 0;
+}
+
+.exercise-box p {
+  margin: 0.3rem 0;
+  color: var(--text-primary);
+}
+
+.exercise-box ol,
+.exercise-box ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.exercise-box li {
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+/* --- Lesson Table --- */
+
+.lesson-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.lesson-table th,
+.lesson-table td {
+  padding: 10px 16px;
+  text-align: left;
+  border: 1px solid var(--border);
+}
+
+.lesson-table th {
+  background: var(--bg-secondary);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.lesson-table td {
+  color: var(--text-secondary);
+}
+
+.lesson-table td code {
+  background: rgba(74, 143, 231, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: var(--accent-primary);
+}
+
+/* --- Lesson Navigation (Prev/Next) --- */
+
+.lesson-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.lesson-nav-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.lesson-nav-btn.prev {
+  color: var(--text-secondary);
+  background: var(--bg-card);
+}
+
+.lesson-nav-btn.prev:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.lesson-nav-btn.next {
+  color: #fff;
+  background: var(--accent-primary);
+}
+
+.lesson-nav-btn.next:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* --- Email Template Box --- */
+
+.email-template {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.email-template p {
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
+.email-template ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.email-template li {
+  color: var(--text-primary);
+}
+
+/* --- Lesson Body Overrides for nested components --- */
+
+.lesson-body .example-box h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 0 0 12px;
+  border: none;
+  padding: 0;
+}
+
+.lesson-body .tip-box h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin: 0 0 8px;
+  border: none;
+  padding: 0;
+}
+
+.lesson-body .expression-list li {
+  color: var(--text-primary);
+}
+
+.lesson-body .dialogue p {
+  margin-bottom: 0.5rem;
+}
+
+/* --- Light Mode Overrides --- */
+
+[data-theme="light"] .lesson-body code {
+  background: #f3f4f6;
+  color: #2563EB;
+}
+
+[data-theme="light"] .callout-box {
+  background: #f0f9ff;
+}
+
+[data-theme="light"] .exercise-box {
+  background: #f0f9ff;
+  border-color: #2563EB;
+}
+
+[data-theme="light"] .lesson-table th {
+  background: #f3f4f6;
+}
+
+[data-theme="light"] .lesson-table td,
+[data-theme="light"] .lesson-table th {
+  border-color: #e5e7eb;
+}
+
+[data-theme="light"] .lesson-table td code {
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563EB;
+}
+
+[data-theme="light"] .lesson-nav-btn.prev {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+[data-theme="light"] .lesson-nav-btn.prev:hover {
+  background: #e5e7eb;
+}
+
+[data-theme="light"] .lesson-nav-btn.next {
+  background: #2563EB;
+}
+
+[data-theme="light"] .email-template {
+  background: #fafafa;
+  border-color: #e5e7eb;
+}
+
+/* --- Responsive: Lesson Framework --- */
+
+@media (max-width: 768px) {
+  .lesson-nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .lesson-nav-btn {
+    text-align: center;
+    width: 100%;
+  }
+
+  .lesson-body {
+    padding: 0 16px;
+  }
+
+  .lesson-table {
+    font-size: 0.85rem;
+  }
+
+  .lesson-table th,
+  .lesson-table td {
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lesson-body h2 {
+    font-size: 1.25rem;
+  }
+
+  .callout-box,
+  .exercise-box {
+    padding: 16px 18px;
+  }
+
+  .email-template {
+    padding: 16px;
+  }
+}
