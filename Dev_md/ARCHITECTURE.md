@@ -47,7 +47,7 @@ src/
     <ThemeProvider>          ← 다크/라이트/자동 테마 관리
       <LanguageProvider>     ← KO/EN 언어 전환
         <AuthProvider>       ← Supabase 인증 상태
-          <BrowserRouter basename="/english">
+          <BrowserRouter>
             <PublicLayout>   ← Navbar + Routes + Footer
               <Suspense>     ← 코드 스플리팅 로딩
                 <Routes>     ← 32개 라우트
@@ -147,8 +147,8 @@ const Greetings = React.lazy(() => import('../pages/conversation/Greetings'));
 ## 배포 설정
 
 ### Vite Config
-- `base: '/english/'` → GitHub Pages 서브패스
-- `copy404Plugin` → `dist/index.html` → `dist/404.html` 복사 (SPA 라우팅)
+- `base: '/'` → 커스텀 도메인 루트 서빙
+- `postBuildPlugin` → `dist/index.html` → `dist/404.html` 복사 + CNAME 복사 (SPA 라우팅)
 
 ### GitHub Pages
 - `gh-pages` 브랜치에 `dist/` 내용 배포

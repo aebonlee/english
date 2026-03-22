@@ -5,7 +5,7 @@
 - D:\db-study의 디자인 패턴과 구조를 참고하여 동일한 품질의 UI를 구현
 - Supabase 로그인/인증 기능 포함
 - AI 챗봇(사용자 API키 등록 방식) + 음성 인식 학습 기능
-- GitHub Pages (aebonlee.github.io/english)로 배포
+- GitHub Pages + 커스텀 도메인 (english.dreamitbiz.com)으로 배포
 
 ## Tech Stack
 - **Frontend**: React 19 + Vite 8 (최신)
@@ -194,7 +194,9 @@ D:\english/
 | `/speech` | 발음 연습 |
 
 ## 배포
-- **URL**: https://aebonlee.github.io/english/
+- **URL**: https://english.dreamitbiz.com/
+- **GitHub Pages**: https://aebonlee.github.io/english/ (CNAME → 커스텀 도메인)
 - **방식**: GitHub Pages (gh-pages 브랜치)
 - **빌드**: `npm run build` → dist/ 폴더 생성
-- **SPA 라우팅**: 404.html = index.html (Vite 플러그인)
+- **SPA 라우팅**: 404.html = index.html (postBuildPlugin)
+- **Vite base**: `'/'` (커스텀 도메인 루트 서빙)

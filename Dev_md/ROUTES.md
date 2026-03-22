@@ -2,8 +2,8 @@
 
 ## 전체 라우트 (32개)
 
-모든 경로는 `basename="/english"` 기준입니다.
-실제 URL: `https://english.dreamitbiz.com/english/[경로]`
+모든 경로는 루트(`/`) 기준입니다.
+실제 URL: `https://english.dreamitbiz.com/[경로]`
 
 ---
 

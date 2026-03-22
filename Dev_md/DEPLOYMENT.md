@@ -40,7 +40,7 @@ VITE_SUPABASE_ANON_KEY=your-anon-key-here
 ```bash
 npm run dev
 ```
-→ http://localhost:5173/english/ 에서 확인
+→ http://localhost:5173/ 에서 확인
 
 ---
 
@@ -71,9 +71,9 @@ npx gh-pages -d dist
 
 ### 빌드 사이즈
 - **메인 번들**: ~423KB (gzip: ~123KB)
-- **CSS**: ~96KB (gzip: ~16KB)
+- **CSS**: ~101KB (gzip: ~16KB)
 - **페이지 chunks**: 1-50KB 각각
-- **총 파일 수**: ~45개
+- **총 파일 수**: ~42개
 
 ---
 
@@ -82,8 +82,8 @@ npx gh-pages -d dist
 ```js
 // vite.config.js
 export default defineConfig({
-  plugins: [react(), copy404Plugin()],
-  base: '/english/',        // GitHub Pages 서브패스
+  plugins: [react(), postBuildPlugin()],
+  base: '/',               // 커스텀 도메인 루트 서빙
   build: {
     outDir: 'dist',
     sourcemap: false        // 프로덕션 소스맵 비활성화
@@ -91,8 +91,8 @@ export default defineConfig({
 })
 ```
 
-### copy404Plugin
-SPA 라우팅을 위해 `index.html`을 `404.html`로 복사합니다.
+### postBuildPlugin
+SPA 라우팅을 위해 `index.html`을 `404.html`로 복사하고, CNAME 파일을 dist에 복사합니다.
 GitHub Pages는 존재하지 않는 경로에 404.html을 서빙하므로,
 이를 통해 React Router가 클라이언트에서 라우팅을 처리합니다.
 
@@ -141,8 +141,8 @@ VITE_SUPABASE_ANON_KEY=[anon/public 키]
 → Vite의 `copy404Plugin`이 정상 작동하는지 확인
 
 ### 라우팅이 작동하지 않음
-→ `BrowserRouter`의 `basename="/english"` 확인
-→ `vite.config.js`의 `base: '/english/'` 확인
+→ `BrowserRouter`에 basename이 없는지 확인 (커스텀 도메인 루트 서빙)
+→ `vite.config.js`의 `base: '/'` 확인
 
 ### Supabase 인증 오류
 → `.env` 파일의 키가 올바른지 확인
