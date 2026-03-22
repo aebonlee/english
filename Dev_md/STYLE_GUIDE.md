@@ -107,13 +107,25 @@
 .content-section                 /* 섹션 */
 .content-section__title          /* 섹션 제목 */
 
+/* 레슨 본문 프레임워크 (v1.3.0) */
+.lesson-content                  /* 레슨 섹션 래퍼 (padding) */
+.lesson-body                     /* 본문 컨테이너 (max-width: 800px, 타이포그래피) */
+.callout-box                     /* 학습 목표 박스 (파란색 왼쪽 보더) */
+.exercise-box                    /* 연습 문제 박스 (파란색 테두리) */
+.lesson-table                    /* 레슨 테이블 (thead/tbody 스타일링) */
+.lesson-nav                      /* 이전/다음 레슨 네비게이션 */
+.lesson-nav-btn                  /* 네비게이션 버튼 (.prev / .next) */
+.email-template                  /* 이메일 템플릿 박스 */
+
 /* 레슨/콘텐츠 공통 */
-.lesson-section                  /* 레슨 섹션 */
+.lesson-section                  /* 레슨 섹션 (카드형) */
 .example-box                     /* 예시 박스 */
 .tip-box                         /* 팁 박스 */
 .expression-table                /* 표현 테이블 */
+.expression-list                 /* 표현 목록 */
 .dialogue                        /* 대화 예시 */
 .speaker.a / .speaker.b          /* 화자 구분 */
+.translation                     /* 번역 텍스트 */
 
 /* 카드 그리드 & 카드 */
 .card-grid / .card-grid--2 / --3 /* 반응형 그리드 */

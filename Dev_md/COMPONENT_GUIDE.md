@@ -140,14 +140,17 @@
 
 ### 비즈니스 영어 (6개)
 
+> **v1.3.0**: 모든 비즈니스 하위 페이지가 `lesson-content > lesson-body` 패턴으로 재구성됨.
+> 각 페이지에 `callout-box` 학습 목표, `exercise-box` 연습 문제, `lesson-nav` 이전/다음 네비게이션 포함.
+
 | 컴포넌트 | 경로 | 내용 |
 |----------|------|------|
-| BusinessHome | `/business` | 비즈니스 주제 카드 목록 |
-| EmailWriting | `/business/email` | 이메일 작성 템플릿 |
-| Presentation | `/business/presentation` | 프레젠테이션 표현 |
-| Meeting | `/business/meeting` | 회의 영어 |
-| Negotiation | `/business/negotiation` | 협상 & 설득 |
-| Interview | `/business/interview` | 면접 영어 |
+| BusinessHome | `/business` | 비즈니스 주제 카드 목록 + 학습 목표 + 추천 학습 순서 |
+| EmailWriting | `/business/email` | 이메일 4단계 구조 + 3개 템플릿 + 톤 구별 표 |
+| Presentation | `/business/presentation` | 오프닝/전환/데이터/Q&A/마무리 5단계 |
+| Meeting | `/business/meeting` | 시작/의견/동의·반대/행동항목/마무리 + 대화 예시 |
+| Negotiation | `/business/negotiation` | 시작/제안/반대제안/타협/체결 + 협상 대화 예시 |
+| Interview | `/business/interview` | 자기소개/장단점/경력/STAR/Q&A/연봉 + 10개 Q&A |
 
 ### 필수 영단어 (5개)
 
