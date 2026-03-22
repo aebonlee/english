@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   tagline: '\uc2e4\uc6a9 \uc601\uc5b4 \ub9c8\uc2a4\ud130',
   description: '\ube44\uc988\ub2c8\uc2a4 \ubc0f \uc77c\uc0c1\uc5d0\uc11c \ud65c\uc6a9 \uac00\ub2a5\ud55c \uc2e4\uc6a9 \uc601\uc5b4 \ud68c\ud654\xb7\uc791\ubb38 \ud559\uc2b5',
   url: 'https://english.dreamitbiz.com/',
-  ogImage: 'https://english.dreamitbiz.com/og-image.png',
+  ogImage: 'https://english.dreamitbiz.com/og-image.svg',
   github: 'https://github.com/aebonlee/english',
   version: '1.0.0'
 };
@@ -70,11 +70,18 @@ export const NAV_MENU = [
 ];
 
 export const CURRICULUM_CARDS = [
-  { title: '\uc77c\uc0c1 \uc601\uc5b4 \ud68c\ud654', titleEn: 'Daily Conversation', desc: '\uc778\uc0ac, \uc1fc\ud551, \uc5ec\ud589 \ub4f1 \uc2e4\uc0dd\ud65c \ud544\uc218 \uc601\uc5b4 \ud45c\ud604', path: '/conversation', color: '#4A8FE7' },
-  { title: '\ube44\uc988\ub2c8\uc2a4 \uc601\uc5b4', titleEn: 'Business English', desc: '\uc774\uba54\uc77c, \ud68c\uc758, \ud504\ub808\uc820\ud14c\uc774\uc158 \ud575\uc2ec \ube44\uc988\ub2c8\uc2a4 \ud45c\ud604', path: '/business', color: '#22C55E' },
-  { title: '\ud544\uc218 \uc601\ub2e8\uc5b4', titleEn: 'Vocabulary', desc: '\uae30\ucd08\xb7\ube44\uc988\ub2c8\uc2a4\xb7TOEIC\xb7\uc77c\uc0c1 \ud544\uc218 2,300+ \ub2e8\uc5b4', path: '/vocabulary', color: '#F59E0B' },
-  { title: '\uc601\uc5b4 \uc791\ubb38', titleEn: 'Writing', desc: '\ubb38\uc7a5 \uad6c\uc870\ubd80\ud130 \uc5d0\uc138\uc774\uae4c\uc9c0 \uccb4\uacc4\uc801 \uc791\ubb38 \uc5f0\uc2b5', path: '/writing', color: '#A855F7' },
-  { title: 'TOEIC \ub300\ube44', titleEn: 'TOEIC Prep', desc: '\ub4e3\uae30\xb7\ub3c5\ud574 \ud30c\ud2b8\ubcc4 \uc804\ub7b5\uacfc \ubaa8\uc758 \ud14c\uc2a4\ud2b8', path: '/toeic', color: '#EF4444' },
-  { title: 'AI \uc601\uc5b4 \ub300\ud654', titleEn: 'AI Chat', desc: 'AI\uc640 \uc2e4\uc2dc\uac04 \uc601\uc5b4 \ub300\ud654 \uc5f0\uc2b5', path: '/ai-chat', color: '#06B6D4' },
-  { title: '\ubc1c\uc74c \uc5f0\uc2b5', titleEn: 'Speech Practice', desc: '\uc74c\uc131 \uc778\uc2dd\uc73c\ub85c \ubc1c\uc74c \uc815\ud655\ub3c4 \ud655\uc778', path: '/speech', color: '#EC4899' }
+  { title: '일상 영어 회화', titleEn: 'Daily Conversation', desc: '인사, 쇼핑, 여행 등 실생활 필수 영어 표현', path: '/conversation', color: '#4A8FE7', icon: 'fa-solid fa-comments' },
+  { title: '비즈니스 영어', titleEn: 'Business English', desc: '이메일, 회의, 프레젠테이션 핵심 비즈니스 표현', path: '/business', color: '#22C55E', icon: 'fa-solid fa-briefcase' },
+  { title: '필수 영단어', titleEn: 'Vocabulary', desc: '기초·비즈니스·TOEIC·일상 필수 2,300+ 단어', path: '/vocabulary', color: '#F59E0B', icon: 'fa-solid fa-book' },
+  { title: '영어 작문', titleEn: 'Writing', desc: '문장 구조부터 에세이까지 체계적 작문 연습', path: '/writing', color: '#A855F7', icon: 'fa-solid fa-pen-nib' },
+  { title: 'TOEIC 대비', titleEn: 'TOEIC Prep', desc: '듣기·독해 파트별 전략과 모의 테스트', path: '/toeic', color: '#EF4444', icon: 'fa-solid fa-graduation-cap' },
+  { title: 'AI 영어 대화', titleEn: 'AI Chat', desc: 'AI와 실시간 영어 대화 연습', path: '/ai-chat', color: '#06B6D4', icon: 'fa-solid fa-robot' },
+  { title: '발음 연습', titleEn: 'Speech Practice', desc: '음성 인식으로 발음 정확도 확인', path: '/speech', color: '#EC4899', icon: 'fa-solid fa-microphone' }
+];
+
+export const FAMILY_SITES = [
+  { name: 'DreamIT Biz (본사이트)', url: 'https://www.dreamitbiz.com' },
+  { name: 'KoreaTech 컴퓨팅 사고', url: 'https://koreatech.dreamitbiz.com' },
+  { name: 'DB Study 데이터베이스', url: 'https://db-study.dreamitbiz.com' },
+  { name: 'English Pro 영어 학습', url: 'https://english.dreamitbiz.com' }
 ];

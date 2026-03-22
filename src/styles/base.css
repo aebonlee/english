@@ -16,6 +16,7 @@
   --primary-blue-dark: #002E8A;
   --primary-blue-light: #4A8FE7;
   --primary-blue-bg: rgba(0, 70, 200, 0.06);
+  --primary-blue-rgb: 0, 70, 200;
 
   /* Background Colors */
   --bg-white: #FFFFFF;

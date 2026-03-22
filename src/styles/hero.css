@@ -528,7 +528,8 @@
   justify-content: center;
   background: var(--primary-blue-bg);
   border-radius: var(--radius-md);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  color: var(--primary-blue);
   margin-bottom: 20px;
   transition: all var(--transition-base);
 }
@@ -633,7 +634,8 @@
   justify-content: center;
   background: var(--primary-blue-bg);
   border-radius: var(--radius-lg);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
+  color: var(--primary-blue);
   margin: 0 auto 20px;
   transition: all var(--transition-base);
 }

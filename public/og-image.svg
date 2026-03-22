@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0046C8"/>
+      <stop offset="50%" style="stop-color:#002E8A"/>
+      <stop offset="100%" style="stop-color:#1E3A5F"/>
+    </linearGradient>
+    <linearGradient id="highlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#93C5FD"/>
+      <stop offset="100%" style="stop-color:#FFFFFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Decorative circles -->
+  <circle cx="150" cy="500" r="200" fill="rgba(255,255,255,0.03)"/>
+  <circle cx="1050" cy="130" r="250" fill="rgba(255,255,255,0.03)"/>
+  <circle cx="600" cy="315" r="350" fill="rgba(255,255,255,0.02)"/>
+  <!-- Logo -->
+  <rect x="520" y="160" width="60" height="60" rx="12" fill="#4A8FE7"/>
+  <text x="550" y="203" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="28" font-weight="800" text-anchor="middle">E</text>
+  <text x="600" y="200" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="32" font-weight="700" text-anchor="start">nglish Pro</text>
+  <!-- Title -->
+  <text x="600" y="310" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="52" font-weight="800" text-anchor="middle" letter-spacing="-1">실용 영어 마스터</text>
+  <!-- Subtitle -->
+  <text x="600" y="370" fill="rgba(255,255,255,0.85)" font-family="Arial,sans-serif" font-size="22" text-anchor="middle">비즈니스 영어 · 일상 회화 · TOEIC · AI 학습</text>
+  <!-- Stats -->
+  <text x="300" y="470" fill="url(#highlight)" font-family="Arial,sans-serif" font-size="28" font-weight="700" text-anchor="middle">2,300+</text>
+  <text x="300" y="500" fill="rgba(255,255,255,0.6)" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">단어</text>
+  <text x="500" y="470" fill="url(#highlight)" font-family="Arial,sans-serif" font-size="28" font-weight="700" text-anchor="middle">40+</text>
+  <text x="500" y="500" fill="rgba(255,255,255,0.6)" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">레슨</text>
+  <text x="700" y="470" fill="url(#highlight)" font-family="Arial,sans-serif" font-size="28" font-weight="700" text-anchor="middle">7</text>
+  <text x="700" y="500" fill="rgba(255,255,255,0.6)" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">카테고리</text>
+  <text x="900" y="470" fill="url(#highlight)" font-family="Arial,sans-serif" font-size="28" font-weight="700" text-anchor="middle">AI</text>
+  <text x="900" y="500" fill="rgba(255,255,255,0.6)" font-family="Arial,sans-serif" font-size="14" text-anchor="middle">학습</text>
+  <!-- URL -->
+  <text x="600" y="580" fill="rgba(255,255,255,0.5)" font-family="Arial,sans-serif" font-size="16" text-anchor="middle">english.dreamitbiz.com</text>
+</svg>

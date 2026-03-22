@@ -56,11 +56,21 @@
 }
 
 .page-description,
-.page-header__description {
+.page-header__description,
+.page-header__subtitle {
   font-size: var(--font-size-lg);
   color: var(--text-secondary);
   max-width: 600px;
   line-height: var(--line-height-relaxed);
+}
+
+/* page-header 내 bare h1 지원 */
+.page-header h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.03em;
 }
 
 /* --- Breadcrumb --- */
