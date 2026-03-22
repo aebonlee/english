@@ -1,10 +1,10 @@
 /* ============================================
-   SPEECH.CSS - Speech Recognition Interface
-   Microphone, waveform, accuracy feedback
+   SPEECH.CSS - Speech Practice Interface
+   BEM naming: .speech-practice__*
    ============================================ */
 
-/* --- Speech Container --- */
-.speech-container {
+/* --- Main Container --- */
+.speech-practice {
   max-width: 700px;
   margin: 0 auto;
   padding: var(--space-2xl) var(--space-lg);
@@ -14,8 +14,53 @@
   gap: var(--space-xl);
 }
 
-/* --- Speech Prompt (Sentence to Read) --- */
-.speech-prompt {
+/* --- Level Filters --- */
+.speech-practice__filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.speech-practice__filter-label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-right: var(--space-sm);
+}
+
+.speech-practice__filter-buttons {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.speech-practice__filter-btn {
+  padding: 8px 18px;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition);
+  background: var(--bg-card);
+  color: var(--text-muted);
+}
+
+.speech-practice__filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.speech-practice__filter-btn--active {
+  background: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+}
+
+/* --- Sentence Card --- */
+.speech-practice__sentence {
   width: 100%;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -26,7 +71,7 @@
   overflow: hidden;
 }
 
-.speech-prompt::before {
+.speech-practice__sentence::before {
   content: '';
   position: absolute;
   top: 0;
@@ -38,20 +83,42 @@
   animation: gradientShift 4s ease infinite;
 }
 
-.speech-prompt-label {
-  font-size: var(--font-size-xs);
-  font-weight: 700;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-md);
+.speech-practice__sentence-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-sm);
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
 }
 
-.speech-prompt-text {
+.speech-practice__level-badge {
+  padding: 4px 12px;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.speech-practice__level-badge--beginner {
+  background: var(--success-light);
+  color: var(--success);
+}
+
+.speech-practice__level-badge--intermediate {
+  background: var(--warning-light);
+  color: var(--warning);
+}
+
+.speech-practice__level-badge--advanced {
+  background: var(--error-light);
+  color: var(--error);
+}
+
+.speech-practice__counter {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+.speech-practice__target-text {
   font-size: var(--font-size-2xl);
   font-weight: 700;
   color: var(--text-primary);
@@ -59,43 +126,21 @@
   margin-bottom: var(--space-md);
 }
 
-.speech-prompt-translation {
+.speech-practice__translation {
   font-size: var(--font-size-sm);
   color: var(--text-muted);
   font-style: italic;
 }
 
-.speech-prompt-audio {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: 8px 16px;
-  background: var(--accent-light);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  color: var(--accent);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all var(--transition);
-  margin-top: var(--space-md);
-}
-
-.speech-prompt-audio:hover {
-  background: var(--accent);
-  color: #FFFFFF;
-  border-color: var(--accent);
-}
-
 /* --- Microphone Button --- */
-.mic-button-wrapper {
+.speech-practice__mic-area {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-md);
 }
 
-.mic-button {
+.speech-practice__mic-btn {
   width: 100px;
   height: 100px;
   display: flex;
@@ -113,18 +158,18 @@
   z-index: 1;
 }
 
-.mic-button:hover {
+.speech-practice__mic-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 32px rgba(74, 143, 231, 0.5);
 }
 
-.mic-button:active {
+.speech-practice__mic-btn:active {
   transform: scale(0.95);
 }
 
 /* Pulse rings when idle */
-.mic-button::before,
-.mic-button::after {
+.speech-practice__mic-btn::before,
+.speech-practice__mic-btn::after {
   content: '';
   position: absolute;
   inset: -8px;
@@ -134,39 +179,40 @@
   z-index: -1;
 }
 
-.mic-button::after {
+.speech-practice__mic-btn::after {
   inset: -16px;
   animation-delay: 1.5s;
 }
 
 /* Recording state */
-.mic-button.recording {
+.speech-practice__mic-btn--active {
   background: linear-gradient(135deg, var(--error), #DC2626);
   box-shadow: 0 4px 24px rgba(239, 68, 68, 0.4);
   animation: micRecordPulse 1.5s ease infinite;
 }
 
-.mic-button.recording::before,
-.mic-button.recording::after {
+.speech-practice__mic-btn--active::before,
+.speech-practice__mic-btn--active::after {
   border-color: rgba(239, 68, 68, 0.3);
   animation-name: micRecordRing;
 }
 
-.mic-button.recording:hover {
+.speech-practice__mic-btn--active:hover {
   box-shadow: 0 6px 32px rgba(239, 68, 68, 0.5);
 }
 
-.mic-button-label {
+.speech-practice__mic-label {
   font-size: var(--font-size-sm);
   color: var(--text-muted);
   font-weight: 500;
   text-align: center;
 }
 
-.mic-button.recording + .mic-button-label {
+.speech-practice__mic-btn--active ~ .speech-practice__mic-label {
   color: var(--error);
 }
 
+/* --- Keyframe Animations --- */
 @keyframes micPulse {
   0%, 100% {
     transform: scale(1);
@@ -198,76 +244,17 @@
   }
 }
 
-/* --- Waveform Visualization --- */
-.waveform {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  padding: var(--space-md);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.waveform-bar {
-  width: 4px;
-  height: 10%;
-  background: var(--accent);
-  border-radius: 2px;
-  transition: height 0.1s ease;
-  min-height: 4px;
-}
-
-.waveform.active .waveform-bar {
-  animation: waveformBounce 0.8s ease infinite;
-}
-
-.waveform.active .waveform-bar:nth-child(1) { animation-delay: 0.0s; }
-.waveform.active .waveform-bar:nth-child(2) { animation-delay: 0.05s; }
-.waveform.active .waveform-bar:nth-child(3) { animation-delay: 0.1s; }
-.waveform.active .waveform-bar:nth-child(4) { animation-delay: 0.15s; }
-.waveform.active .waveform-bar:nth-child(5) { animation-delay: 0.2s; }
-.waveform.active .waveform-bar:nth-child(6) { animation-delay: 0.25s; }
-.waveform.active .waveform-bar:nth-child(7) { animation-delay: 0.3s; }
-.waveform.active .waveform-bar:nth-child(8) { animation-delay: 0.35s; }
-.waveform.active .waveform-bar:nth-child(9) { animation-delay: 0.4s; }
-.waveform.active .waveform-bar:nth-child(10) { animation-delay: 0.45s; }
-.waveform.active .waveform-bar:nth-child(11) { animation-delay: 0.5s; }
-.waveform.active .waveform-bar:nth-child(12) { animation-delay: 0.55s; }
-.waveform.active .waveform-bar:nth-child(13) { animation-delay: 0.6s; }
-.waveform.active .waveform-bar:nth-child(14) { animation-delay: 0.65s; }
-.waveform.active .waveform-bar:nth-child(15) { animation-delay: 0.7s; }
-.waveform.active .waveform-bar:nth-child(16) { animation-delay: 0.75s; }
-.waveform.active .waveform-bar:nth-child(17) { animation-delay: 0.8s; }
-.waveform.active .waveform-bar:nth-child(18) { animation-delay: 0.85s; }
-.waveform.active .waveform-bar:nth-child(19) { animation-delay: 0.9s; }
-.waveform.active .waveform-bar:nth-child(20) { animation-delay: 0.95s; }
-
-.waveform.recording .waveform-bar {
-  background: var(--error);
-}
-
-@keyframes waveformBounce {
+@keyframes gradientShift {
   0%, 100% {
-    height: 10%;
-  }
-  25% {
-    height: 70%;
+    background-position: 0% center;
   }
   50% {
-    height: 30%;
-  }
-  75% {
-    height: 90%;
+    background-position: 200% center;
   }
 }
 
 /* --- Speech Result --- */
-.speech-result {
+.speech-practice__result {
   width: 100%;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -276,355 +263,161 @@
   animation: fadeInUp 0.4s ease;
 }
 
-.speech-result-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--space-lg);
-}
-
-.speech-result-title {
-  font-size: var(--font-size-base);
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.speech-result-badge {
-  padding: 4px 12px;
-  font-size: var(--font-size-xs);
-  font-weight: 700;
-  border-radius: var(--radius-full);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.speech-result-badge.excellent {
-  background: var(--success-light);
-  color: var(--success);
-}
-
-.speech-result-badge.good {
-  background: var(--accent-light);
-  color: var(--accent);
-}
-
-.speech-result-badge.needs-work {
-  background: var(--warning-light);
-  color: var(--warning);
-}
-
-.speech-result-badge.poor {
-  background: var(--error-light);
-  color: var(--error);
-}
-
-/* Transcribed text with highlights */
-.speech-result-text {
-  font-size: var(--font-size-lg);
-  color: var(--text-primary);
-  line-height: var(--line-height-relaxed);
-  margin-bottom: var(--space-lg);
-  padding: var(--space-md);
-  background: var(--bg-secondary);
-  border-radius: var(--radius);
-  border: 1px solid var(--border-light);
-}
-
-.speech-word-correct {
-  color: var(--success);
-  font-weight: 600;
-}
-
-.speech-word-incorrect {
-  color: var(--error);
-  font-weight: 600;
-  text-decoration: underline wavy var(--error);
-  text-underline-offset: 4px;
-}
-
-.speech-word-missed {
-  color: var(--text-muted);
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-
-/* --- Accuracy Meter --- */
-.accuracy-meter {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xl);
-  padding: var(--space-lg);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  width: 100%;
-}
-
-.accuracy-circle {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  flex-shrink: 0;
-}
-
-.accuracy-circle svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-
-.accuracy-circle-bg {
-  fill: none;
-  stroke: var(--bg-card);
-  stroke-width: 8;
-}
-
-.accuracy-circle-fill {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 8;
-  stroke-linecap: round;
-  stroke-dasharray: 283;
-  stroke-dashoffset: 283;
-  transition: stroke-dashoffset 1s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.accuracy-circle.excellent .accuracy-circle-fill { stroke: var(--success); }
-.accuracy-circle.good .accuracy-circle-fill { stroke: var(--accent); }
-.accuracy-circle.needs-work .accuracy-circle-fill { stroke: var(--warning); }
-.accuracy-circle.poor .accuracy-circle-fill { stroke: var(--error); }
-
-.accuracy-circle-value {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: var(--font-size-xl);
-  font-weight: 800;
-  color: var(--text-primary);
-}
-
-.accuracy-details {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.accuracy-detail {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: var(--font-size-sm);
-}
-
-.accuracy-detail-label {
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.accuracy-detail-value {
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.accuracy-detail-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.accuracy-detail-dot.correct { background: var(--success); }
-.accuracy-detail-dot.incorrect { background: var(--error); }
-.accuracy-detail-dot.missed { background: var(--text-muted); }
-
-/* --- Speech Feedback / Tips --- */
-.speech-feedback {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.speech-feedback-item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  line-height: var(--line-height);
-}
-
-.speech-feedback-icon {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  flex-shrink: 0;
-  font-size: 0.75rem;
-  margin-top: 2px;
-}
-
-.speech-feedback-icon.tip {
-  background: var(--accent-light);
-  color: var(--accent);
-}
-
-.speech-feedback-icon.warning {
-  background: var(--warning-light);
-  color: var(--warning);
-}
-
-.speech-feedback-icon.success {
-  background: var(--success-light);
-  color: var(--success);
-}
-
-/* --- Speech History --- */
-.speech-history {
-  width: 100%;
-}
-
-.speech-history-title {
+.speech-practice__result-title {
   font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--space-md);
 }
 
-.speech-history-list {
+.speech-practice__recognized-text {
+  font-size: var(--font-size-lg);
+  color: var(--text-primary);
+  line-height: var(--line-height-relaxed);
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-light);
+}
+
+/* --- Accuracy Section --- */
+.speech-practice__accuracy {
+  width: 100%;
+  padding: var(--space-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  animation: fadeInUp 0.4s ease;
+}
+
+.speech-practice__accuracy-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+
+.speech-practice__accuracy-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.speech-practice__accuracy-value {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+}
+
+.speech-practice__accuracy-info {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.speech-practice__accuracy-label {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.speech-practice__accuracy-desc {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+/* --- Word-by-Word Comparison --- */
+.speech-practice__comparison {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border);
+}
+
+.speech-practice__comparison h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.speech-practice__words {
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-sm);
 }
 
-.speech-history-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--space-md);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transition: all var(--transition);
-  cursor: pointer;
+.speech-practice__word {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-base);
+  font-weight: 600;
 }
 
-.speech-history-item:hover {
-  border-color: var(--accent);
-  background: var(--accent-light);
-}
-
-.speech-history-text {
-  font-size: var(--font-size-sm);
-  color: var(--text-primary);
-  font-weight: 500;
-  flex: 1;
-  margin-right: var(--space-md);
-}
-
-.speech-history-score {
-  font-size: var(--font-size-sm);
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
-}
-
-.speech-history-score.high {
+.speech-practice__word--match {
   background: var(--success-light);
   color: var(--success);
 }
 
-.speech-history-score.medium {
-  background: var(--warning-light);
-  color: var(--warning);
-}
-
-.speech-history-score.low {
+.speech-practice__word--mismatch {
   background: var(--error-light);
   color: var(--error);
+  text-decoration: underline wavy var(--error);
+  text-underline-offset: 4px;
 }
 
-.speech-history-date {
+/* --- Comparison Legend --- */
+.speech-practice__comparison-legend {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-md);
   font-size: var(--font-size-xs);
-  color: var(--text-muted);
-  white-space: nowrap;
-  margin-left: var(--space-md);
 }
 
-/* --- Speech Controls Row --- */
-.speech-controls {
+.speech-practice__legend-item {
   display: flex;
   align-items: center;
+  gap: 4px;
+}
+
+.speech-practice__legend-item::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.speech-practice__legend-item--match::before {
+  background: var(--success-light);
+  border: 1px solid var(--success);
+}
+
+.speech-practice__legend-item--mismatch::before {
+  background: var(--error-light);
+  border: 1px solid var(--error);
+}
+
+/* --- Navigation --- */
+.speech-practice__nav {
+  display: flex;
   justify-content: center;
   gap: var(--space-md);
-  width: 100%;
+  margin-top: var(--space-xl);
 }
 
-.speech-control-btn {
+/* --- Unsupported Browser --- */
+.speech-practice__unsupported {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
-  padding: 10px 20px;
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  color: var(--text-secondary);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: all var(--transition);
+  text-align: center;
+  padding: var(--space-3xl);
 }
 
-.speech-control-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-light);
-}
-
-/* --- Difficulty Selector --- */
-.speech-difficulty {
-  display: flex;
-  gap: var(--space-sm);
+.speech-practice__unsupported-icon {
+  font-size: 3rem;
   margin-bottom: var(--space-lg);
-}
-
-.speech-difficulty-btn {
-  padding: 8px 18px;
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: all var(--transition);
-  background: var(--bg-card);
-  color: var(--text-muted);
-}
-
-.speech-difficulty-btn:hover {
-  border-color: var(--accent);
-  color: var(--text-primary);
-}
-
-.speech-difficulty-btn.active {
-  background: var(--accent);
-  color: #FFFFFF;
-  border-color: var(--accent);
-}
-
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 200% center;
-  }
 }

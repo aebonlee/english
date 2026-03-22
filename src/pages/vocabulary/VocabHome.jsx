@@ -197,24 +197,24 @@ export default function VocabHome() {
         .vocab-home-header h1 {
           font-size: 2.2rem;
           font-weight: 800;
-          color: #1a1a2e;
+          color: var(--text-primary);
           margin: 0 0 4px;
         }
 
         .vocab-home-subtitle {
           font-size: 1.1rem;
-          color: #7f8c8d;
+          color: var(--text-muted);
           margin: 0 0 12px;
         }
 
         .vocab-home-total {
           font-size: 1rem;
-          color: #555;
+          color: var(--text-secondary);
           margin: 0;
         }
 
         .vocab-home-total strong {
-          color: #4A90D9;
+          color: var(--accent);
           font-size: 1.3rem;
         }
 
@@ -232,29 +232,30 @@ export default function VocabHome() {
         .search-icon {
           position: absolute;
           left: 16px;
-          color: #aaa;
+          color: var(--text-muted);
           pointer-events: none;
         }
 
         .search-input-wrapper input {
           width: 100%;
           padding: 14px 44px 14px 48px;
-          border: 2px solid #e0e0e0;
+          border: 2px solid var(--border);
           border-radius: 12px;
           font-size: 1rem;
           outline: none;
           transition: border-color 0.2s;
-          background: #fff;
+          background: var(--bg-card);
+          color: var(--text-primary);
         }
 
         .search-input-wrapper input:focus {
-          border-color: #4A90D9;
+          border-color: var(--accent);
         }
 
         .search-clear {
           position: absolute;
           right: 12px;
-          background: #e0e0e0;
+          background: var(--bg-secondary);
           border: none;
           border-radius: 50%;
           width: 28px;
@@ -264,12 +265,13 @@ export default function VocabHome() {
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #555;
+          color: var(--text-secondary);
           line-height: 1;
         }
 
         .search-clear:hover {
-          background: #ccc;
+          background: var(--accent-light);
+          color: var(--accent);
         }
 
         .vocab-search-results {
@@ -279,13 +281,13 @@ export default function VocabHome() {
 
         .vocab-search-results h3 {
           font-size: 1rem;
-          color: #555;
+          color: var(--text-secondary);
           margin: 0 0 16px;
         }
 
         .no-results {
           text-align: center;
-          color: #999;
+          color: var(--text-muted);
           padding: 40px 0;
         }
 
@@ -296,15 +298,15 @@ export default function VocabHome() {
         }
 
         .search-result-item {
-          background: #fff;
-          border: 1px solid #e8e8e8;
+          background: var(--bg-card);
+          border: 1px solid var(--border);
           border-radius: 10px;
           padding: 16px 20px;
           transition: box-shadow 0.2s;
         }
 
         .search-result-item:hover {
-          box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+          box-shadow: var(--shadow-sm);
         }
 
         .search-result-top {
@@ -318,12 +320,12 @@ export default function VocabHome() {
         .search-result-word {
           font-size: 1.15rem;
           font-weight: 700;
-          color: #1a1a2e;
+          color: var(--text-primary);
         }
 
         .search-result-pron {
           font-size: 0.85rem;
-          color: #888;
+          color: var(--text-muted);
         }
 
         .search-result-source {
@@ -336,13 +338,13 @@ export default function VocabHome() {
 
         .search-result-meaning {
           font-size: 0.95rem;
-          color: #333;
+          color: var(--text-secondary);
           margin-bottom: 4px;
         }
 
         .search-result-example {
           font-size: 0.85rem;
-          color: #888;
+          color: var(--text-muted);
           font-style: italic;
         }
 
@@ -359,8 +361,8 @@ export default function VocabHome() {
         }
 
         .vocab-category-card {
-          background: #fff;
-          border: 1px solid #e8e8e8;
+          background: var(--bg-card);
+          border: 1px solid var(--border);
           border-top: 4px solid;
           border-radius: 14px;
           padding: 28px 24px 24px;
@@ -373,7 +375,7 @@ export default function VocabHome() {
 
         .vocab-category-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+          box-shadow: var(--shadow);
         }
 
         .vocab-category-icon {
@@ -390,19 +392,19 @@ export default function VocabHome() {
         .vocab-category-card h2 {
           font-size: 1.25rem;
           font-weight: 700;
-          color: #1a1a2e;
+          color: var(--text-primary);
           margin: 0 0 4px;
         }
 
         .vocab-category-subtitle {
           font-size: 0.85rem;
-          color: #aaa;
+          color: var(--text-muted);
           margin: 0 0 12px;
         }
 
         .vocab-category-desc {
           font-size: 0.9rem;
-          color: #666;
+          color: var(--text-secondary);
           line-height: 1.5;
           margin: 0 0 16px;
           flex: 1;
