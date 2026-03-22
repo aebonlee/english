@@ -876,3 +876,1003 @@
   font-weight: 600;
   color: var(--text-primary);
 }
+
+/* ===================================================================
+   Content Page Layout (WritingHome, ToeicHome, AiChatPage, SpeechPage,
+   Listening, Reading, MockTest)
+   =================================================================== */
+
+.content-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.content-page__header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.content-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  transition: opacity 0.2s;
+}
+
+.content-page__back:hover {
+  opacity: 0.7;
+}
+
+.content-page__title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+}
+
+.content-page__subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.content-page__note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+/* --- Content Section --- */
+
+.content-section {
+  margin-bottom: 48px;
+}
+
+.content-section__title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+
+/* ===================================================================
+   Card Grid (card-grid--2, card-grid--3)
+   =================================================================== */
+
+.card-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.card-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 900px) {
+  .card-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .card-grid--2,
+  .card-grid--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================================================
+   Topic Card (ConversationHome, BusinessHome, WritingHome, ToeicHome)
+   =================================================================== */
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.topic-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.topic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.topic-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  background: var(--accent-light);
+}
+
+.topic-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.topic-card__desc,
+.topic-card__description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.topic-card__meta {
+  margin-bottom: 12px;
+}
+
+.topic-card__cta {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-top: auto;
+}
+
+/* ===================================================================
+   Tip Card (ToeicHome, WritingHome)
+   =================================================================== */
+
+.tip-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: box-shadow 0.2s;
+}
+
+.tip-card:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.tip-card__icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.tip-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.tip-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 6px;
+}
+
+.tip-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===================================================================
+   Info Box (ToeicHome)
+   =================================================================== */
+
+.info-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 16px;
+}
+
+.info-box__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 700px) {
+  .info-box__row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.info-box__col {
+  min-width: 0;
+}
+
+.info-box__heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+}
+
+.info-box__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+}
+
+.info-box__list li {
+  padding: 6px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.info-box__list li:last-child {
+  border-bottom: none;
+}
+
+.info-box__summary {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin: 8px 0 0;
+}
+
+.info-box__footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 2px solid var(--border);
+  text-align: center;
+}
+
+.info-box__total {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0;
+}
+
+/* ===================================================================
+   Part Card (Listening, Reading)
+   =================================================================== */
+
+.part-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.part-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.part-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.part-card__badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.part-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.part-card__strategies {
+  margin-top: 12px;
+}
+
+.part-card__strategies-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.part-card__strategies-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.part-card__strategies-list li {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 3px 0;
+  line-height: 1.5;
+}
+
+/* ===================================================================
+   Tips Grid (Listening)
+   =================================================================== */
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ===================================================================
+   Mock Test Intro (MockTest)
+   =================================================================== */
+
+.mock-intro {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.mock-intro__info {
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+.mock-intro__details {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.mock-intro__details span {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.mock-intro__rules {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto 32px;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.mock-intro__rules h3 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+}
+
+.mock-intro__rules ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.mock-intro__rules li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding: 4px 0;
+}
+
+/* ===================================================================
+   Dialogue / Speaker / Translation (DailyLife, Meeting, etc.)
+   =================================================================== */
+
+.dialogue {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+
+.speaker {
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+}
+
+.speaker.a {
+  color: var(--accent);
+}
+
+.speaker.b {
+  color: #E67E22;
+}
+
+.translation {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* ===================================================================
+   Structure List / Expression List (EmailWriting, etc.)
+   =================================================================== */
+
+.structure-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.structure-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.expression-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.expression-list li {
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.expression-list li strong {
+  color: var(--text-primary);
+}
+
+/* ===================================================================
+   Dashboard
+   =================================================================== */
+
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.dashboard__welcome {
+  margin-bottom: 40px;
+}
+
+.dashboard__welcome-content {
+  text-align: center;
+}
+
+.dashboard__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.dashboard__subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.dashboard__section {
+  margin-bottom: 40px;
+}
+
+.dashboard__section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+}
+
+.dashboard__progress-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .dashboard__progress-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard__actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .dashboard__actions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashboard__activity {
+  min-height: 100px;
+}
+
+.dashboard__empty {
+  text-align: center;
+  padding: 48px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.dashboard__empty-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 8px;
+}
+
+.dashboard__empty-hint {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 24px;
+}
+
+/* --- Progress Card --- */
+
+.progress-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.progress-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.progress-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.progress-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.progress-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.progress-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 2px;
+}
+
+.progress-card__subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.progress-card__bar-container {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-card__bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  min-width: 0;
+}
+
+.progress-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-card__percentage {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.progress-card__action {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* --- Action Card --- */
+
+.action-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 28px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.action-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.action-card__icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.action-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 6px;
+}
+
+.action-card__description {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- Activity List --- */
+
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.activity-list__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: box-shadow 0.2s;
+}
+
+.activity-list__item:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.activity-list__icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.activity-list__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-list__title {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin: 0 0 2px;
+}
+
+.activity-list__time {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ===================================================================
+   Settings Page
+   =================================================================== */
+
+.settings {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.settings__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 32px;
+}
+
+.settings__section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+
+.settings__section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.settings__section-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.settings__status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.settings__status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.settings__status-dot--active {
+  background: #22C55E;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.4);
+}
+
+.settings__status-dot--inactive {
+  background: #EF4444;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.3);
+}
+
+.settings__status-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.settings__field {
+  margin-bottom: 16px;
+}
+
+.settings__label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.settings__input-group {
+  display: flex;
+  gap: 8px;
+}
+
+.settings__input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.settings__input:focus {
+  border-color: var(--accent);
+}
+
+.settings__toggle-btn {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.settings__toggle-btn:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.settings__message {
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.settings__message--success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22C55E;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.settings__message--error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.settings__actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.settings__guide {
+  margin-top: 16px;
+}
+
+.settings__guide-link {
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.settings__guide-link:hover {
+  opacity: 0.7;
+}
+
+.settings__options {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.settings__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.settings__option:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.settings__option--active {
+  border-color: var(--accent);
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.settings__option-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.settings__option-label {
+  font-weight: 600;
+}
+
+/* ===================================================================
+   Navbar: Dropdown Link Title
+   =================================================================== */
+
+.dropdown-link-title {
+  font-weight: 500;
+}
+
+/* ===================================================================
+   btn--danger variant (Settings delete button)
+   =================================================================== */
+
+.btn--danger {
+  background: #EF4444;
+  color: #fff;
+  border: none;
+}
+
+.btn--danger:hover {
+  background: #DC2626;
+}
