@@ -1,5 +1,34 @@
 # English Pro - 변경 이력 (CHANGELOG)
 
+## v1.2.0 (2025-03-23)
+
+### 누락 CSS 클래스 대량 추가 (site.css +1,000줄)
+
+**공통 컴포넌트:**
+- `content-page` 레이아웃 (WritingHome, ToeicHome, AiChatPage, SpeechPage, Listening, MockTest)
+- `content-section` 섹션 래퍼
+- `card-grid` 반응형 그리드 (--2, --3 variant)
+- `topic-card` 주제 카드 (ConversationHome, BusinessHome, WritingHome, ToeicHome)
+- `tip-card` 학습 팁 카드
+- `info-box` 정보 박스 (ToeicHome)
+- `part-card` 파트별 카드 (Listening, Reading)
+- `tips-grid`, `tip-item` 팁 그리드
+- `mock-intro` 모의테스트 인트로
+
+**페이지별:**
+- `dashboard` 전체 (progress-card, action-card, activity-list)
+- `settings` 전체 (API키 관리, 테마/언어 옵션)
+- `dialogue`, `speaker`, `translation` 대화 예시
+- `structure-list`, `expression-list` 구조/표현 목록
+- `dropdown-link-title` Navbar 드롭다운
+- `btn--danger` 삭제 버튼
+
+### 개발 문서 추가
+- CHANGELOG.md, COMPONENT_GUIDE.md, DATA_STRUCTURE.md 신규 작성
+- PLAN.md, ROUTES.md, DEPLOYMENT.md, ARCHITECTURE.md 업데이트 (base: '/' 반영)
+
+---
+
 ## v1.1.0 (2025-03-23)
 
 ### CSS BEM 클래스명 전면 수정

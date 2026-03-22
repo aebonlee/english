@@ -59,15 +59,17 @@
 
 ## 컴포넌트 스타일
 
-### 버튼
+### 버튼 (BEM)
 ```css
 .btn              /* 기본 버튼 */
-.btn-primary      /* 그라디언트 액센트 */
-.btn-secondary    /* 아웃라인 */
-.btn-ghost        /* 배경 없음 */
-.btn-sm           /* 작은 크기 */
-.btn-lg           /* 큰 크기 */
-.btn-icon         /* 아이콘 전용 */
+.btn--primary     /* 그라디언트 액센트 */
+.btn--outline     /* 아웃라인 */
+.btn--lg          /* 큰 크기 */
+.btn--sm          /* 작은 크기 */
+.btn--full        /* 전체 너비 */
+.btn--google      /* Google 로그인 */
+.btn--danger      /* 삭제/위험 액션 */
+.btn__icon        /* 버튼 내 아이콘 */
 ```
 
 ### 카드
@@ -95,34 +97,55 @@
 .btn--active              /* State Modifier */
 ```
 
-### 페이지별 클래스
+### 페이지별 클래스 (BEM)
 ```css
-/* 콘텐츠 페이지 */
-.lesson-section           /* 레슨 섹션 */
-.example-box              /* 예시 박스 */
-.tip-box                  /* 팁 박스 */
-.practice-section         /* 연습 문제 */
-.dialogue                 /* 대화 예시 */
-.speaker.a / .speaker.b   /* 화자 구분 */
+/* 콘텐츠 페이지 레이아웃 */
+.content-page                    /* 콘텐츠 페이지 래퍼 */
+.content-page__header            /* 헤더 */
+.content-page__title             /* 페이지 제목 */
+.content-page__subtitle          /* 부제 */
+.content-section                 /* 섹션 */
+.content-section__title          /* 섹션 제목 */
 
-/* 단어장 */
-.vocab-container          /* 단어장 컨테이너 */
-.vocab-card               /* 단어 카드 */
-.vocab-card.flipped       /* 뒤집힌 카드 */
-.vocab-card-front         /* 카드 앞면 */
-.vocab-card-back          /* 카드 뒷면 */
+/* 레슨/콘텐츠 공통 */
+.lesson-section                  /* 레슨 섹션 */
+.example-box                     /* 예시 박스 */
+.tip-box                         /* 팁 박스 */
+.expression-table                /* 표현 테이블 */
+.dialogue                        /* 대화 예시 */
+.speaker.a / .speaker.b          /* 화자 구분 */
 
-/* 챗봇 */
-.chat-container           /* 채팅 컨테이너 */
-.chat-message             /* 메시지 */
-.chat-bubble              /* 말풍선 */
-.typing-indicator         /* 타이핑 표시 */
+/* 카드 그리드 & 카드 */
+.card-grid / .card-grid--2 / --3 /* 반응형 그리드 */
+.topic-card / .topic-card__icon  /* 주제 카드 */
+.tip-card / .tip-card__icon      /* 팁 카드 */
+.info-box / .info-box__row       /* 정보 박스 */
 
-/* 음성 */
-.mic-button               /* 마이크 버튼 */
-.mic-button.recording     /* 녹음 중 */
-.speech-result            /* 결과 표시 */
-.accuracy-meter           /* 정확도 미터 */
+/* 대시보드 */
+.dashboard                       /* 대시보드 래퍼 */
+.progress-card                   /* 진도 카드 */
+.action-card                     /* 빠른 액션 */
+.activity-list                   /* 활동 목록 */
+
+/* 설정 */
+.settings                        /* 설정 래퍼 */
+.settings__section               /* 설정 섹션 */
+.settings__option                /* 선택 옵션 */
+
+/* 단어장 (인라인 스타일) */
+.vocab-card / .vocab-card.flipped /* 단어 카드 */
+
+/* 챗봇 (BEM) */
+.chatbot                         /* 채팅 컨테이너 */
+.chatbot__message--user          /* 사용자 메시지 */
+.chatbot__message--assistant     /* AI 메시지 */
+.chatbot__typing                 /* 타이핑 표시 */
+
+/* 음성 (BEM) */
+.speech-practice                 /* 음성 연습 래퍼 */
+.speech-practice__mic-btn        /* 마이크 버튼 */
+.speech-practice__mic-btn--active /* 녹음 중 */
+.speech-practice__accuracy       /* 정확도 미터 */
 ```
 
 ---
@@ -175,9 +198,10 @@
 }
 ```
 
-### Auth Card
+### Login Container / Modal
 ```css
-.auth-card {
+.login-container,
+.login-modal {
   background: rgba(15, 29, 50, 0.8);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(74, 143, 231, 0.15);
