@@ -1,37 +1,39 @@
 /* ============================================
-   FOOTER.CSS - 3-Column Footer
-   Dark bg, link columns, copyright bar
+   FOOTER.CSS - Dark Gradient Footer
+   KoreaTech-style dark footer with English Pro structure
    ============================================ */
+
+/* --- Sticky Footer Layout --- */
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-main {
+  flex: 1;
+}
 
 /* --- Footer Section --- */
 .footer {
-  position: relative;
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border);
-  padding: var(--space-3xl) 0 0;
-  margin-top: auto;
-}
-
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+  background: linear-gradient(180deg, #111827 0%, #0A0F1A 100%);
+  color: var(--text-white);
+  padding: 80px 0 0;
+  margin-top: 0;
 }
 
 /* --- Footer Inner Content Wrapper --- */
 .footer-inner {
-  padding-bottom: var(--space-2xl);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-xl) var(--space-2xl);
 }
 
-/* --- Footer Grid (3 Columns) --- */
+/* --- Footer Grid (3+ Columns) --- */
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: var(--space-2xl);
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 48px;
 }
 
 /* --- Footer Brand Column --- */
@@ -51,7 +53,7 @@
 .footer-logo {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  background: var(--primary-blue-light);
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
@@ -62,16 +64,16 @@
 }
 
 .footer-brand-text {
-  font-size: var(--font-size-lg);
+  font-size: 18px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #FFFFFF;
 }
 
 .footer-description {
-  font-size: var(--font-size-sm);
-  color: var(--text-muted);
-  line-height: var(--line-height-relaxed);
-  max-width: 280px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  font-size: 15px;
+  max-width: 300px;
 }
 
 .footer-social {
@@ -86,19 +88,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-sm);
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 1rem;
-  transition: all var(--transition);
+  transition: all 0.3s ease;
 }
 
 .footer-social-link:hover {
-  background: var(--accent-light);
-  border-color: var(--accent);
-  color: var(--accent);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #FFFFFF;
   transform: translateY(-2px);
 }
 
@@ -109,11 +111,9 @@
 }
 
 .footer-heading {
-  font-size: var(--font-size-sm);
+  font-size: 16px;
   font-weight: 700;
-  color: var(--text-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  color: #FFFFFF;
   margin-bottom: var(--space-lg);
   position: relative;
   padding-bottom: var(--space-sm);
@@ -126,7 +126,7 @@
   left: 0;
   width: 24px;
   height: 2px;
-  background: var(--accent);
+  background: var(--primary-blue-light);
   border-radius: 1px;
 }
 
@@ -134,7 +134,7 @@
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: 8px;
   list-style: none;
 }
 
@@ -142,32 +142,16 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  font-size: var(--font-size-sm);
+  font-size: 15px;
   padding: 4px 0;
-  transition: all var(--transition-fast);
+  transition: color 0.2s ease;
   position: relative;
 }
 
-.footer-link::before {
-  content: '';
-  width: 0;
-  height: 1px;
-  background: var(--accent);
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  transition: width var(--transition);
-}
-
 .footer-link:hover {
-  color: var(--accent);
-  transform: translateX(4px);
-}
-
-.footer-link:hover::before {
-  width: 100%;
+  color: #93C5FD;
 }
 
 /* Footer link with icon */
@@ -182,18 +166,18 @@
 }
 
 .footer-info-text:hover {
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.7);
   transform: none;
-}
-
-.footer-info-text::before {
-  display: none;
 }
 
 /* --- Footer Copyright Bar --- */
 .footer-copyright {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: var(--space-lg) 0;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
 }
 
 .footer-copyright-inner {
@@ -205,12 +189,12 @@
 }
 
 .footer-copyright p {
-  font-size: var(--font-size-sm);
-  color: var(--text-muted);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-copyright a {
-  color: var(--accent);
+  color: #93C5FD;
   text-decoration: none;
 }
 
@@ -225,14 +209,14 @@
 }
 
 .footer-legal-link {
-  font-size: var(--font-size-sm);
-  color: var(--text-muted);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color 0.2s ease;
 }
 
 .footer-legal-link:hover {
-  color: var(--accent);
+  color: #93C5FD;
 }
 
 /* --- Back to Top --- */
@@ -245,16 +229,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent);
+  background: var(--primary-blue);
   color: #FFFFFF;
   border: none;
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
   cursor: pointer;
-  box-shadow: var(--shadow-accent);
+  box-shadow: 0 4px 12px rgba(0, 70, 200, 0.3);
   opacity: 0;
   visibility: hidden;
   transform: translateY(16px);
-  transition: all var(--transition);
+  transition: all 0.3s ease;
   z-index: 99;
   font-size: 1.2rem;
 }
@@ -266,6 +250,6 @@
 }
 
 .back-to-top:hover {
-  background: var(--accent-hover);
+  background: var(--primary-blue-dark);
   transform: translateY(-4px);
 }

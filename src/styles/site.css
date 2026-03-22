@@ -9,8 +9,8 @@
   position: relative;
   background: linear-gradient(
     135deg,
-    var(--bg-primary) 0%,
-    var(--bg-secondary) 50%,
+    var(--bg-white) 0%,
+    var(--bg-light-gray) 50%,
     #122B50 100%
   );
   padding: calc(var(--nav-height) + var(--space-3xl)) var(--space-lg) var(--space-2xl);
@@ -25,7 +25,7 @@
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(ellipse 50% 80% at 70% 20%, rgba(74, 143, 231, 0.08), transparent),
+    radial-gradient(ellipse 50% 80% at 70% 20%, rgba(0, 70, 200, 0.08), transparent),
     radial-gradient(ellipse 40% 60% at 20% 80%, rgba(124, 58, 237, 0.04), transparent);
   pointer-events: none;
 }
@@ -37,7 +37,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0, 70, 200, 0.4), transparent);
 }
 
 .page-header .container {
@@ -75,22 +75,22 @@
 }
 
 .breadcrumb-item {
-  color: var(--text-muted);
+  color: var(--text-light);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 .breadcrumb-item:hover {
-  color: var(--accent);
+  color: var(--primary-blue);
 }
 
 .breadcrumb-item.active {
-  color: var(--accent);
+  color: var(--primary-blue);
   font-weight: 600;
 }
 
 .breadcrumb-separator {
-  color: var(--text-muted);
+  color: var(--text-light);
   opacity: 0.5;
   font-size: var(--font-size-xs);
 }
@@ -117,8 +117,8 @@
 
 /* --- Lesson Section --- */
 .lesson-section {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: var(--space-2xl);
   margin-bottom: var(--space-xl);
@@ -132,7 +132,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), #7C3AED);
+  background: linear-gradient(90deg, var(--primary-blue), #7C3AED);
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   opacity: 0;
   transition: opacity var(--transition);
@@ -158,8 +158,8 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  background: var(--accent-light);
-  color: var(--accent);
+  background: var(--primary-blue-bg);
+  color: var(--primary-blue);
   border-radius: var(--radius-sm);
   font-size: var(--font-size-sm);
   font-weight: 700;
@@ -178,9 +178,9 @@
 
 /* --- Lesson Card --- */
 .lesson-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
   padding: var(--space-xl);
   transition: all var(--transition);
   position: relative;
@@ -194,14 +194,14 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--accent), #7C3AED);
+  background: linear-gradient(90deg, var(--primary-blue), #7C3AED);
   transform: scaleX(0);
   transition: transform var(--transition);
 }
 
 .lesson-card:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow);
+  border-color: var(--primary-blue);
+  box-shadow: var(--shadow-md);
   transform: translateY(-4px);
 }
 
@@ -222,10 +222,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-light);
-  border-radius: var(--radius);
+  background: var(--primary-blue-bg);
+  border-radius: var(--radius-md);
   font-size: 1.5rem;
-  color: var(--accent);
+  color: var(--primary-blue);
 }
 
 .lesson-card-title {
@@ -247,7 +247,7 @@
   align-items: center;
   gap: var(--space-md);
   font-size: var(--font-size-xs);
-  color: var(--text-muted);
+  color: var(--text-light);
 }
 
 .lesson-card-meta span {
@@ -258,10 +258,10 @@
 
 /* --- Example Box (Conversation Examples) --- */
 .example-box {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--bg-light-gray);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: var(--space-lg);
   margin: var(--space-lg) 0;
 }
@@ -269,7 +269,7 @@
 .example-box-title {
   font-size: var(--font-size-sm);
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary-blue);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: var(--space-md);
@@ -294,7 +294,7 @@
 .example-speaker {
   font-size: var(--font-size-xs);
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary-blue);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   min-width: 80px;
@@ -303,7 +303,7 @@
 }
 
 .example-speaker.speaker-a {
-  color: var(--accent);
+  color: var(--primary-blue);
 }
 
 .example-speaker.speaker-b {
@@ -318,16 +318,16 @@
 
 .example-translation {
   font-size: var(--font-size-sm);
-  color: var(--text-muted);
+  color: var(--text-light);
   font-style: italic;
   margin-top: 4px;
 }
 
 /* --- Tip Box / Notes --- */
 .tip-box {
-  background: var(--accent-light);
-  border: 1px solid rgba(74, 143, 231, 0.25);
-  border-radius: var(--radius);
+  background: var(--primary-blue-bg);
+  border: 1px solid rgba(0, 70, 200, 0.25);
+  border-radius: var(--radius-md);
   padding: var(--space-lg);
   margin: var(--space-lg) 0;
   position: relative;
@@ -340,14 +340,14 @@
   left: 0;
   bottom: 0;
   width: 4px;
-  background: var(--accent);
-  border-radius: var(--radius) 0 0 var(--radius);
+  background: var(--primary-blue);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
 }
 
 .tip-box-title {
   font-size: var(--font-size-sm);
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary-blue);
   margin-bottom: var(--space-sm);
   display: flex;
   align-items: center;
@@ -406,8 +406,8 @@
 
 /* --- Practice Section --- */
 .practice-section {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: var(--space-2xl);
   margin: var(--space-xl) 0;
@@ -425,9 +425,9 @@
 
 .practice-question {
   padding: var(--space-lg);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--bg-light-gray);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
   margin-bottom: var(--space-md);
   transition: all var(--transition);
 }
@@ -435,7 +435,7 @@
 .practice-question-number {
   font-size: var(--font-size-xs);
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary-blue);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: var(--space-sm);
@@ -460,8 +460,8 @@
   align-items: center;
   gap: var(--space-sm);
   padding: 12px 16px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all var(--transition-fast);
@@ -470,15 +470,15 @@
 }
 
 .practice-option:hover {
-  border-color: var(--accent);
-  background: var(--accent-light);
+  border-color: var(--primary-blue);
+  background: var(--primary-blue-bg);
   color: var(--text-primary);
 }
 
 .practice-option.selected {
-  border-color: var(--accent);
-  background: var(--accent-light);
-  color: var(--accent);
+  border-color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+  color: var(--primary-blue);
   font-weight: 600;
 }
 
@@ -500,7 +500,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--border);
+  border: 2px solid var(--border-light);
   border-radius: 50%;
   font-size: var(--font-size-xs);
   font-weight: 700;
@@ -510,8 +510,8 @@
 
 .practice-option:hover .practice-option-marker,
 .practice-option.selected .practice-option-marker {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
 }
 
 .practice-feedback {
@@ -545,14 +545,14 @@
   justify-content: space-between;
   margin-top: var(--space-xl);
   padding-top: var(--space-lg);
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-light);
 }
 
 /* --- Code Block --- */
 .code-block {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--bg-light-gray);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
   padding: var(--space-lg);
   margin: var(--space-lg) 0;
   font-family: var(--font-mono);
@@ -569,13 +569,13 @@
   justify-content: space-between;
   margin-bottom: var(--space-md);
   padding-bottom: var(--space-sm);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .code-block-label {
   font-size: var(--font-size-xs);
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--text-light);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-family: var(--font-family);
@@ -584,19 +584,19 @@
 .code-block-copy {
   padding: 4px 10px;
   font-size: var(--font-size-xs);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-sm);
-  color: var(--text-muted);
+  color: var(--text-light);
   cursor: pointer;
   transition: all var(--transition-fast);
   font-family: var(--font-family);
 }
 
 .code-block-copy:hover {
-  background: var(--accent-light);
-  color: var(--accent);
-  border-color: var(--accent);
+  background: var(--primary-blue-bg);
+  color: var(--primary-blue);
+  border-color: var(--primary-blue);
 }
 
 .code-block pre {
@@ -610,16 +610,16 @@
 }
 
 /* Syntax highlighting hints */
-.code-block .keyword { color: var(--accent); }
+.code-block .keyword { color: var(--primary-blue); }
 .code-block .string { color: var(--success); }
-.code-block .comment { color: var(--text-muted); font-style: italic; }
+.code-block .comment { color: var(--text-light); font-style: italic; }
 .code-block .number { color: var(--warning); }
 
 /* --- Progress Bar --- */
 .progress-bar {
   width: 100%;
   height: 8px;
-  background: var(--bg-secondary);
+  background: var(--bg-light-gray);
   border-radius: var(--radius-full);
   overflow: hidden;
   position: relative;
@@ -627,7 +627,7 @@
 
 .progress-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), #7C3AED);
+  background: linear-gradient(90deg, var(--primary-blue), #7C3AED);
   border-radius: var(--radius-full);
   transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;
@@ -661,7 +661,7 @@
 
 .progress-bar-value {
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary-blue);
 }
 
 /* --- Section Headings --- */
@@ -704,7 +704,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--accent-light);
+  background: var(--primary-blue-bg);
   border-radius: var(--radius-lg);
   font-size: 1.75rem;
   margin: 0 auto var(--space-lg);
@@ -713,10 +713,10 @@
 
 .feature-card:hover .feature-card-icon,
 .feature-card:hover .feature-card__icon {
-  background: var(--accent);
+  background: var(--primary-blue);
   color: #FFFFFF;
   transform: scale(1.1);
-  box-shadow: var(--shadow-accent);
+  box-shadow: 0 4px 20px rgba(0, 70, 200, 0.3);
 }
 
 .feature-card-title,
@@ -736,9 +736,9 @@
 
 /* --- Table of Contents (Sidebar) --- */
 .toc {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
   padding: var(--space-lg);
 }
 
@@ -762,7 +762,7 @@
   display: block;
   padding: 8px 12px;
   font-size: var(--font-size-sm);
-  color: var(--text-muted);
+  color: var(--text-light);
   text-decoration: none;
   border-radius: var(--radius-sm);
   border-left: 2px solid transparent;
@@ -771,14 +771,14 @@
 
 .toc-link:hover {
   color: var(--text-primary);
-  background: var(--accent-light);
-  border-left-color: var(--accent);
+  background: var(--primary-blue-bg);
+  border-left-color: var(--primary-blue);
 }
 
 .toc-link.active {
-  color: var(--accent);
-  background: var(--accent-light);
-  border-left-color: var(--accent);
+  color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+  border-left-color: var(--primary-blue);
   font-weight: 600;
 }
 
@@ -798,8 +798,8 @@
   font-size: var(--font-size-xs);
   font-weight: 600;
   border-radius: var(--radius-full);
-  background: var(--accent-light);
-  color: var(--accent);
+  background: var(--primary-blue-bg);
+  color: var(--primary-blue);
   letter-spacing: 0.02em;
 }
 
@@ -839,7 +839,7 @@
 
 .empty-state-desc {
   font-size: var(--font-size-sm);
-  color: var(--text-muted);
+  color: var(--text-light);
   max-width: 400px;
   margin: 0 auto var(--space-lg);
 }
@@ -853,23 +853,23 @@
 }
 
 .expression-table th {
-  background: var(--bg-secondary);
+  background: var(--bg-light-gray);
   color: var(--text-primary);
   font-weight: 700;
   text-align: left;
   padding: 12px 16px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 2px solid var(--border-light);
 }
 
 .expression-table td {
   padding: 12px 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-light);
   color: var(--text-secondary);
   line-height: var(--line-height);
 }
 
 .expression-table tr:hover td {
-  background: var(--accent-light);
+  background: var(--primary-blue-bg);
 }
 
 .expression-table td:first-child {
@@ -897,7 +897,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--accent);
+  color: var(--primary-blue);
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
@@ -926,7 +926,7 @@
 
 .content-page__note {
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--text-light);
   margin-top: 12px;
 }
 
@@ -942,7 +942,7 @@
   color: var(--text-primary);
   margin: 0 0 24px;
   padding-bottom: 12px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 2px solid var(--border-light);
 }
 
 /* ===================================================================
@@ -995,8 +995,8 @@
   display: flex;
   flex-direction: column;
   padding: 28px 24px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 14px;
   text-decoration: none;
   color: inherit;
@@ -1005,7 +1005,7 @@
 
 .topic-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-md);
 }
 
 .topic-card__icon {
@@ -1017,7 +1017,7 @@
   justify-content: center;
   font-size: 1.6rem;
   margin-bottom: 16px;
-  background: var(--accent-light);
+  background: var(--primary-blue-bg);
 }
 
 .topic-card__title {
@@ -1043,7 +1043,7 @@
 .topic-card__cta {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--primary-blue);
   margin-top: auto;
 }
 
@@ -1056,8 +1056,8 @@
   align-items: flex-start;
   gap: 16px;
   padding: 20px 24px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 12px;
   transition: box-shadow 0.2s;
 }
@@ -1096,8 +1096,8 @@
    =================================================================== */
 
 .info-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 14px;
   padding: 28px;
   margin-bottom: 16px;
@@ -1137,7 +1137,7 @@
   padding: 6px 0;
   font-size: 0.9rem;
   color: var(--text-secondary);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .info-box__list li:last-child {
@@ -1153,14 +1153,14 @@
 .info-box__footer {
   margin-top: 20px;
   padding-top: 16px;
-  border-top: 2px solid var(--border);
+  border-top: 2px solid var(--border-light);
   text-align: center;
 }
 
 .info-box__total {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--primary-blue);
   margin: 0;
 }
 
@@ -1169,8 +1169,8 @@
    =================================================================== */
 
 .part-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 14px;
   padding: 24px;
   margin-bottom: 20px;
@@ -1197,8 +1197,8 @@
   font-weight: 600;
   padding: 4px 12px;
   border-radius: 20px;
-  background: var(--accent-light);
-  color: var(--accent);
+  background: var(--primary-blue-bg);
+  color: var(--primary-blue);
 }
 
 .part-card__desc {
@@ -1247,8 +1247,8 @@
   align-items: flex-start;
   gap: 12px;
   padding: 16px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 10px;
   font-size: 0.9rem;
   color: var(--text-secondary);
@@ -1287,8 +1287,8 @@
   max-width: 500px;
   margin: 0 auto 32px;
   padding: 20px 24px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 12px;
 }
 
@@ -1315,8 +1315,8 @@
    =================================================================== */
 
 .dialogue {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 12px;
   padding: 20px 24px;
   margin: 16px 0;
@@ -1329,7 +1329,7 @@
 }
 
 .speaker.a {
-  color: var(--accent);
+  color: var(--primary-blue);
 }
 
 .speaker.b {
@@ -1338,7 +1338,7 @@
 
 .translation {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-light);
   font-style: italic;
   margin-top: 4px;
 }
@@ -1361,8 +1361,8 @@
   align-items: flex-start;
   gap: 12px;
   padding: 16px 20px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 10px;
   font-size: 0.9rem;
   color: var(--text-secondary);
@@ -1380,8 +1380,8 @@
 
 .expression-list li {
   padding: 12px 16px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 8px;
   font-size: 0.9rem;
   color: var(--text-secondary);
@@ -1433,7 +1433,7 @@
   color: var(--text-primary);
   margin: 0 0 20px;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 2px solid var(--border-light);
 }
 
 .dashboard__progress-grid {
@@ -1467,8 +1467,8 @@
 .dashboard__empty {
   text-align: center;
   padding: 48px 20px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 14px;
 }
 
@@ -1480,7 +1480,7 @@
 
 .dashboard__empty-hint {
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--text-light);
   margin: 0 0 24px;
 }
 
@@ -1490,8 +1490,8 @@
   display: flex;
   flex-direction: column;
   padding: 20px 24px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 14px;
   text-decoration: none;
   color: inherit;
@@ -1500,7 +1500,7 @@
 
 .progress-card:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-md);
 }
 
 .progress-card__header {
@@ -1529,14 +1529,14 @@
 
 .progress-card__subtitle {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--text-light);
   margin: 0;
 }
 
 .progress-card__bar-container {
   width: 100%;
   height: 8px;
-  background: var(--bg-secondary);
+  background: var(--bg-light-gray);
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 10px;
@@ -1564,7 +1564,7 @@
 .progress-card__action {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--primary-blue);
 }
 
 /* --- Action Card --- */
@@ -1575,8 +1575,8 @@
   align-items: center;
   text-align: center;
   padding: 28px 20px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 14px;
   text-decoration: none;
   color: inherit;
@@ -1585,7 +1585,7 @@
 
 .action-card:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-md);
 }
 
 .action-card__icon {
@@ -1603,7 +1603,7 @@
 
 .action-card__description {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-light);
   margin: 0;
 }
 
@@ -1623,8 +1623,8 @@
   align-items: center;
   gap: 14px;
   padding: 14px 18px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 10px;
   transition: box-shadow 0.2s;
 }
@@ -1652,7 +1652,7 @@
 
 .activity-list__time {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--text-light);
 }
 
 /* ===================================================================
@@ -1673,8 +1673,8 @@
 }
 
 .settings__section {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 14px;
   padding: 28px;
   margin-bottom: 24px;
@@ -1744,9 +1744,9 @@
 .settings__input {
   flex: 1;
   padding: 10px 14px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-light);
   border-radius: 8px;
-  background: var(--bg-primary);
+  background: var(--bg-white);
   color: var(--text-primary);
   font-size: 0.9rem;
   outline: none;
@@ -1754,14 +1754,14 @@
 }
 
 .settings__input:focus {
-  border-color: var(--accent);
+  border-color: var(--primary-blue);
 }
 
 .settings__toggle-btn {
   padding: 10px 16px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-light);
   border-radius: 8px;
-  background: var(--bg-secondary);
+  background: var(--bg-light-gray);
   color: var(--text-secondary);
   font-size: 0.85rem;
   cursor: pointer;
@@ -1770,8 +1770,8 @@
 }
 
 .settings__toggle-btn:hover {
-  background: var(--accent-light);
-  color: var(--accent);
+  background: var(--primary-blue-bg);
+  color: var(--primary-blue);
 }
 
 .settings__message {
@@ -1805,7 +1805,7 @@
 
 .settings__guide-link {
   font-size: 0.9rem;
-  color: var(--accent);
+  color: var(--primary-blue);
   text-decoration: none;
   font-weight: 500;
   transition: opacity 0.2s;
@@ -1826,9 +1826,9 @@
   align-items: center;
   gap: 10px;
   padding: 12px 20px;
-  border: 2px solid var(--border);
+  border: 2px solid var(--border-light);
   border-radius: 10px;
-  background: var(--bg-primary);
+  background: var(--bg-white);
   color: var(--text-secondary);
   font-size: 0.9rem;
   cursor: pointer;
@@ -1836,14 +1836,14 @@
 }
 
 .settings__option:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
 }
 
 .settings__option--active {
-  border-color: var(--accent);
-  background: var(--accent-light);
-  color: var(--accent);
+  border-color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+  color: var(--primary-blue);
 }
 
 .settings__option-icon {
@@ -1950,7 +1950,7 @@
 
 /* Inline code */
 .lesson-body code {
-  background: var(--bg-card);
+  background: var(--bg-white);
   padding: 2px 6px;
   border-radius: 4px;
   font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
@@ -1961,7 +1961,7 @@
 /* --- Callout Box (Learning Objectives, Key Points) --- */
 
 .callout-box {
-  background: rgba(74, 143, 231, 0.08);
+  background: rgba(0, 70, 200, 0.08);
   border-left: 4px solid var(--accent-primary);
   border-radius: 0 8px 8px 0;
   padding: 20px 24px;
@@ -1995,8 +1995,8 @@
 /* --- Exercise Box (Practice Problems) --- */
 
 .exercise-box {
-  background: rgba(74, 143, 231, 0.06);
-  border: 1px solid rgba(74, 143, 231, 0.3);
+  background: rgba(0, 70, 200, 0.06);
+  border: 1px solid rgba(0, 70, 200, 0.3);
   border-radius: 8px;
   padding: 20px 24px;
   margin: 1.5rem 0;
@@ -2041,11 +2041,11 @@
 .lesson-table td {
   padding: 10px 16px;
   text-align: left;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-light);
 }
 
 .lesson-table th {
-  background: var(--bg-secondary);
+  background: var(--bg-light-gray);
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -2055,7 +2055,7 @@
 }
 
 .lesson-table td code {
-  background: rgba(74, 143, 231, 0.1);
+  background: rgba(0, 70, 200, 0.1);
   padding: 2px 6px;
   border-radius: 3px;
   font-size: 0.9em;
@@ -2070,7 +2070,7 @@
   align-items: center;
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-light);
 }
 
 .lesson-nav-btn {
@@ -2085,11 +2085,11 @@
 
 .lesson-nav-btn.prev {
   color: var(--text-secondary);
-  background: var(--bg-card);
+  background: var(--bg-white);
 }
 
 .lesson-nav-btn.prev:hover {
-  background: var(--bg-secondary);
+  background: var(--bg-light-gray);
   color: var(--text-primary);
 }
 
@@ -2106,8 +2106,8 @@
 /* --- Email Template Box --- */
 
 .email-template {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
   border-radius: 8px;
   padding: 24px;
   margin: 1rem 0;

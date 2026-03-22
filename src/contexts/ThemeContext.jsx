@@ -3,10 +3,12 @@ import { createContext, useContext, useState, useEffect, useCallback, useMemo } 
 const ThemeContext = createContext(undefined);
 
 const STORAGE_KEY = 'english-pro-theme';
-const VALID_THEMES = ['dark', 'light', 'auto'];
+const COLOR_STORAGE_KEY = 'english-pro-color';
+const VALID_THEMES = ['auto', 'light', 'dark'];
+const VALID_COLORS = ['blue', 'red', 'green', 'purple', 'orange'];
 
 function getSystemTheme() {
-  if (typeof window === 'undefined') return 'dark';
+  if (typeof window === 'undefined') return 'light';
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
@@ -22,6 +24,18 @@ function getStoredTheme() {
   return 'auto';
 }
 
+function getStoredColor() {
+  try {
+    const stored = localStorage.getItem(COLOR_STORAGE_KEY);
+    if (stored && VALID_COLORS.includes(stored)) {
+      return stored;
+    }
+  } catch {
+    // localStorage not available
+  }
+  return 'blue';
+}
+
 function resolveTheme(theme) {
   if (theme === 'auto') {
     return getSystemTheme();
@@ -32,16 +46,24 @@ function resolveTheme(theme) {
 export function ThemeProvider({ children }) {
   const [theme, setThemeState] = useState(getStoredTheme);
   const [resolvedTheme, setResolvedTheme] = useState(() => resolveTheme(getStoredTheme()));
+  const [colorTheme, setColorThemeState] = useState(getStoredColor);
 
   const applyTheme = useCallback((resolved) => {
     setResolvedTheme(resolved);
     document.documentElement.setAttribute('data-theme', resolved);
 
-    // Also toggle class for Tailwind dark mode compatibility
     if (resolved === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
+    }
+  }, []);
+
+  const applyColor = useCallback((color) => {
+    if (color === 'blue') {
+      document.documentElement.removeAttribute('data-color');
+    } else {
+      document.documentElement.setAttribute('data-color', color);
     }
   }, []);
 
@@ -62,17 +84,35 @@ export function ThemeProvider({ children }) {
     applyTheme(resolveTheme(newTheme));
   }, [applyTheme]);
 
+  const setColorTheme = useCallback((newColor) => {
+    if (!VALID_COLORS.includes(newColor)) {
+      console.warn(`Invalid color "${newColor}". Must be one of: ${VALID_COLORS.join(', ')}`);
+      return;
+    }
+
+    setColorThemeState(newColor);
+
+    try {
+      localStorage.setItem(COLOR_STORAGE_KEY, newColor);
+    } catch {
+      // localStorage not available
+    }
+
+    applyColor(newColor);
+  }, [applyColor]);
+
   const toggleTheme = useCallback(() => {
-    const order = ['light', 'dark', 'auto'];
+    const order = ['auto', 'light', 'dark'];
     const currentIndex = order.indexOf(theme);
     const nextTheme = order[(currentIndex + 1) % order.length];
     setTheme(nextTheme);
   }, [theme, setTheme]);
 
-  // Apply theme on mount
+  // Apply theme and color on mount
   useEffect(() => {
     applyTheme(resolveTheme(theme));
-  }, [theme, applyTheme]);
+    applyColor(colorTheme);
+  }, [theme, colorTheme, applyTheme, applyColor]);
 
   // Listen for system theme changes when in auto mode
   useEffect(() => {
@@ -95,19 +135,25 @@ export function ThemeProvider({ children }) {
         setThemeState(e.newValue);
         applyTheme(resolveTheme(e.newValue));
       }
+      if (e.key === COLOR_STORAGE_KEY && e.newValue && VALID_COLORS.includes(e.newValue)) {
+        setColorThemeState(e.newValue);
+        applyColor(e.newValue);
+      }
     };
 
     window.addEventListener('storage', handleStorage);
     return () => window.removeEventListener('storage', handleStorage);
-  }, [applyTheme]);
+  }, [applyTheme, applyColor]);
 
   const value = useMemo(() => ({
     theme,
     resolvedTheme,
+    colorTheme,
     setTheme,
+    setColorTheme,
     toggleTheme,
     isDark: resolvedTheme === 'dark'
-  }), [theme, resolvedTheme, setTheme, toggleTheme]);
+  }), [theme, resolvedTheme, colorTheme, setTheme, setColorTheme, toggleTheme]);
 
   return (
     <ThemeContext.Provider value={value}>

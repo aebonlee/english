@@ -159,7 +159,7 @@
   /* Cards */
   .card {
     padding: var(--space-lg);
-    border-radius: var(--radius);
+    border-radius: var(--radius-md);
   }
 
   .card:hover {
@@ -364,7 +364,7 @@
   .login-container,
   .login-modal {
     padding: var(--space-lg);
-    border-radius: var(--radius);
+    border-radius: var(--radius-md);
   }
 
   .auth-tabs,

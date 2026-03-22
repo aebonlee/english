@@ -6,16 +6,26 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useAuth } from '../../contexts/AuthContext';
 import UserMenu from '../auth/UserMenu';
 
+const COLOR_OPTIONS = [
+  { name: 'blue', color: '#0046C8' },
+  { name: 'red', color: '#C8102E' },
+  { name: 'green', color: '#00855A' },
+  { name: 'purple', color: '#8B1AC8' },
+  { name: 'orange', color: '#C87200' },
+];
+
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, resolvedTheme, colorTheme, setColorTheme } = useTheme();
   const { language, toggleLanguage, t } = useLanguage();
   const { user, isAuthenticated } = useAuth();
 
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [colorPickerOpen, setColorPickerOpen] = useState(false);
   const dropdownRef = useRef(null);
   const navRef = useRef(null);
+  const colorPickerRef = useRef(null);
 
   // Scroll-aware navbar
   useEffect(() => {
@@ -31,6 +41,9 @@ export default function Navbar() {
     const handleClickOutside = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setOpenDropdown(null);
+      }
+      if (colorPickerRef.current && !colorPickerRef.current.contains(e.target)) {
+        setColorPickerOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -67,10 +80,50 @@ export default function Navbar() {
     }
   }, [handleDropdownToggle]);
 
-  // Helper to get the display label based on current language
   const getLabel = useCallback((item) => {
     return t(item.label, item.labelEn || item.label);
   }, [t]);
+
+  // Theme icon based on current theme setting
+  const getThemeIcon = () => {
+    if (theme === 'auto') {
+      return (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2" /><path d="M12 20v2" />
+          <path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" />
+          <path d="M2 12h2" /><path d="M20 12h2" />
+          <path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" />
+        </svg>
+      );
+    }
+    if (resolvedTheme === 'dark') {
+      return (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+      );
+    }
+    return (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+    );
+  };
+
+  const getThemeLabel = () => {
+    if (theme === 'auto') return 'Auto theme';
+    if (resolvedTheme === 'dark') return 'Switch to auto';
+    return 'Switch to dark mode';
+  };
 
   return (
     <>
@@ -159,27 +212,47 @@ export default function Navbar() {
             <button
               className="navbar-icon-btn"
               onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-              title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+              aria-label={getThemeLabel()}
+              title={getThemeLabel()}
             >
-              {theme === 'dark' ? (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="5" />
-                  <line x1="12" y1="1" x2="12" y2="3" />
-                  <line x1="12" y1="21" x2="12" y2="23" />
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                  <line x1="1" y1="12" x2="3" y2="12" />
-                  <line x1="21" y1="12" x2="23" y2="12" />
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-              )}
+              {getThemeIcon()}
             </button>
+
+            {/* Color Picker */}
+            <div className="color-picker-wrapper" ref={colorPickerRef}>
+              <button
+                className="navbar-icon-btn"
+                onClick={() => setColorPickerOpen(!colorPickerOpen)}
+                aria-label="Change color theme"
+                title="Color theme"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="13.5" cy="6.5" r="2.5" />
+                  <circle cx="17.5" cy="10.5" r="2.5" />
+                  <circle cx="8.5" cy="7.5" r="2.5" />
+                  <circle cx="6.5" cy="12.5" r="2.5" />
+                  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z" />
+                </svg>
+              </button>
+              {colorPickerOpen && (
+                <div className="color-picker-tooltip">
+                  <div className="color-picker-arrow" />
+                  {COLOR_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.name}
+                      className={`color-dot${colorTheme === opt.name ? ' active' : ''}`}
+                      style={{ background: opt.color }}
+                      onClick={() => {
+                        setColorTheme(opt.name);
+                        setColorPickerOpen(false);
+                      }}
+                      aria-label={`${opt.name} theme`}
+                      title={opt.name}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Language Toggle */}
             <button
@@ -307,27 +380,23 @@ export default function Navbar() {
         <div className="mobile-menu-footer">
           <div className="mobile-menu-actions">
             <button className="navbar-icon-btn" onClick={toggleTheme} aria-label="Toggle theme">
-              {theme === 'dark' ? (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="5" />
-                  <line x1="12" y1="1" x2="12" y2="3" />
-                  <line x1="12" y1="21" x2="12" y2="23" />
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                  <line x1="1" y1="12" x2="3" y2="12" />
-                  <line x1="21" y1="12" x2="23" y2="12" />
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-              )}
+              {getThemeIcon()}
             </button>
             <button className="navbar-lang-btn" onClick={toggleLanguage} aria-label="Toggle language">
               {language === 'ko' ? 'EN' : 'KO'}
             </button>
+            {/* Mobile color dots */}
+            <div style={{ display: 'flex', gap: '6px', marginLeft: '8px' }}>
+              {COLOR_OPTIONS.map((opt) => (
+                <button
+                  key={opt.name}
+                  className={`color-dot${colorTheme === opt.name ? ' active' : ''}`}
+                  style={{ background: opt.color, width: '20px', height: '20px', borderRadius: '50%', border: colorTheme === opt.name ? '2px solid var(--text-primary)' : '2px solid transparent', padding: 0, cursor: 'pointer' }}
+                  onClick={() => setColorTheme(opt.name)}
+                  aria-label={`${opt.name} theme`}
+                />
+              ))}
+            </div>
           </div>
           {!isAuthenticated && (
             <Link to="/login" className="mobile-login-btn" onClick={closeMobile}>
