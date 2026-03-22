@@ -1,0 +1,266 @@
+/* ============================================
+   DARK-MODE.CSS - Light Mode Overrides
+   [data-theme="light"] variable swap
+   ============================================ */
+
+/* --- Light Theme Variables --- */
+[data-theme="light"] {
+  /* Background Colors */
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #F1F5F9;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #FFFFFF;
+
+  /* Text Colors */
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+  --text-inverse: #F8FAFC;
+
+  /* Accent stays consistent */
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+  --accent-light: rgba(37, 99, 235, 0.1);
+  --accent-dark: #1E40AF;
+  --accent-glow: rgba(37, 99, 235, 0.25);
+
+  /* Semantic Colors - slightly adjusted for light bg */
+  --success: #16A34A;
+  --success-light: rgba(22, 163, 74, 0.1);
+  --warning: #D97706;
+  --warning-light: rgba(217, 119, 6, 0.1);
+  --error: #DC2626;
+  --error-light: rgba(220, 38, 38, 0.1);
+  --info: #2563EB;
+  --info-light: rgba(37, 99, 235, 0.1);
+
+  /* Borders & Effects */
+  --border: rgba(30, 41, 59, 0.12);
+  --border-light: rgba(30, 41, 59, 0.06);
+  --glass: rgba(255, 255, 255, 0.85);
+  --glass-light: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(30, 41, 59, 0.08);
+
+  /* Shadows */
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+  --shadow-accent: 0 4px 20px rgba(37, 99, 235, 0.2);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* --- Light Theme: Navbar --- */
+[data-theme="light"] .navbar {
+  background: rgba(248, 250, 252, 0.8);
+  border-bottom-color: rgba(30, 41, 59, 0.08);
+}
+
+[data-theme="light"] .navbar.scrolled {
+  background: rgba(248, 250, 252, 0.95);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Light Theme: Hero --- */
+[data-theme="light"] .hero {
+  background: linear-gradient(
+    135deg,
+    #F8FAFC 0%,
+    #EEF2FF 25%,
+    #E0E7FF 50%,
+    #EEF2FF 75%,
+    #F8FAFC 100%
+  );
+  background-size: 400% 400%;
+}
+
+[data-theme="light"] .hero::before {
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
+}
+
+[data-theme="light"] .hero::after {
+  background-image:
+    linear-gradient(rgba(30, 41, 59, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 41, 59, 0.03) 1px, transparent 1px);
+}
+
+[data-theme="light"] .hero-shape-1 {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.06), transparent 70%);
+}
+
+[data-theme="light"] .hero-shape-2 {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.04), transparent 70%);
+}
+
+[data-theme="light"] .particle {
+  background: var(--accent);
+}
+
+/* --- Light Theme: Cards --- */
+[data-theme="light"] .card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .card:hover {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .card::before {
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), transparent);
+}
+
+[data-theme="light"] .card-glass {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(30, 41, 59, 0.08);
+}
+
+/* --- Light Theme: Form Elements --- */
+[data-theme="light"] input,
+[data-theme="light"] select,
+[data-theme="light"] textarea {
+  background: #FFFFFF;
+  border-color: rgba(30, 41, 59, 0.15);
+}
+
+[data-theme="light"] input:focus,
+[data-theme="light"] select:focus,
+[data-theme="light"] textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  background: #FFFFFF;
+}
+
+[data-theme="light"] select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2364748B' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+}
+
+/* --- Light Theme: Footer --- */
+[data-theme="light"] .footer {
+  background: #F1F5F9;
+  border-top-color: rgba(30, 41, 59, 0.08);
+}
+
+[data-theme="light"] .footer::before {
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), transparent);
+}
+
+[data-theme="light"] .footer-social-link {
+  background: #FFFFFF;
+  border-color: rgba(30, 41, 59, 0.1);
+}
+
+[data-theme="light"] .footer-social-link:hover {
+  background: var(--accent-light);
+}
+
+/* --- Light Theme: Mobile Menu --- */
+[data-theme="light"] .mobile-menu {
+  background: #FFFFFF;
+  border-left-color: rgba(30, 41, 59, 0.08);
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Light Theme: Scrollbar --- */
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(30, 41, 59, 0.15);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(30, 41, 59, 0.3);
+}
+
+/* --- Light Theme: Selection --- */
+[data-theme="light"] ::selection {
+  background: var(--accent);
+  color: #FFFFFF;
+}
+
+/* --- Light Theme: Buttons --- */
+[data-theme="light"] .btn-secondary {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+[data-theme="light"] .btn-ghost:hover {
+  background: rgba(37, 99, 235, 0.08);
+}
+
+/* --- Light Theme: Chat --- */
+[data-theme="light"] .chat-message.bot {
+  background: #F1F5F9;
+}
+
+[data-theme="light"] .chat-input-area {
+  background: #FFFFFF;
+  border-top-color: rgba(30, 41, 59, 0.08);
+}
+
+/* --- Light Theme: Auth --- */
+[data-theme="light"] .auth-card {
+  background: #FFFFFF;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* --- Light Theme: Vocabulary Card --- */
+[data-theme="light"] .vocab-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .vocab-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Light Theme: Speech --- */
+[data-theme="light"] .mic-button {
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
+}
+
+/* --- Light Theme: Code Blocks --- */
+[data-theme="light"] .code-block {
+  background: #F8FAFC;
+  border-color: rgba(30, 41, 59, 0.1);
+}
+
+/* --- Light Theme: Tip/Example Boxes --- */
+[data-theme="light"] .tip-box {
+  background: rgba(37, 99, 235, 0.05);
+  border-color: rgba(37, 99, 235, 0.15);
+}
+
+[data-theme="light"] .example-box {
+  background: #FFFFFF;
+  border-color: rgba(30, 41, 59, 0.1);
+}
+
+/* --- Transition for theme change --- */
+[data-theme="light"] *,
+[data-theme="light"] *::before,
+[data-theme="light"] *::after {
+  transition: background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* --- Prefers Color Scheme (Auto detection fallback) --- */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]):not([data-theme="light"]) {
+    --bg-primary: #F8FAFC;
+    --bg-secondary: #F1F5F9;
+    --bg-card: #FFFFFF;
+    --bg-elevated: #FFFFFF;
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+    --border: rgba(30, 41, 59, 0.12);
+    --glass: rgba(255, 255, 255, 0.85);
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+  }
+}
