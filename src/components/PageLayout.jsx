@@ -5,7 +5,7 @@ import SectionNav from './SectionNav';
 import SubNav from './SubNav';
 import { navData, categoryTitles } from './SubNav';
 
-export default function PageLayout({ sections, category, children }) {
+export default function PageLayout({ sections = [], category, children }) {
   const { t } = useLanguage();
   const { pathname } = useLocation();
   const [activeId, setActiveId] = useState(sections[0]?.id || '');
