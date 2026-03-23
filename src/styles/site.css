@@ -1633,7 +1633,7 @@
 }
 
 .translation {
-  font-size: 0.85rem;
+  font-size: 1.28rem;
   color: var(--text-light);
   font-style: italic;
   margin-top: 4px;
@@ -1679,7 +1679,7 @@
   background: var(--bg-white);
   border: 1px solid var(--border-light);
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 1.35rem;
   color: var(--text-secondary);
   line-height: 1.5;
 }
