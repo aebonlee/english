@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+import SubNav from '../../components/SubNav';
 
 const paragraphParts = [
   {
@@ -131,6 +132,8 @@ function Paragraph() {
           </p>
         </div>
       </section>
+
+      <SubNav category="writing" />
 
       <div className="content-page">
 

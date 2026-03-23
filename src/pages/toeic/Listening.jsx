@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+import SubNav from '../../components/SubNav';
 import { listeningQuestions } from '../../data/toeicData';
 
 const partOverviews = [
@@ -112,6 +113,8 @@ function Listening() {
           </p>
         </div>
       </section>
+
+      <SubNav category="toeic" />
 
       <div className="content-page">
 

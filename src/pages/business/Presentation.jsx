@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+import SubNav from '../../components/SubNav';
 
 function Presentation() {
   const { t } = useLanguage();
@@ -40,6 +41,8 @@ function Presentation() {
           </p>
         </div>
       </section>
+
+      <SubNav category="business" />
       <section className="section lesson-content">
         <div className="container">
           <div className="lesson-body">

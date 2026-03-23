@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+import SubNav from '../../components/SubNav';
 
 export default function Greetings() {
   const { language, t } = useLanguage();
@@ -40,6 +41,8 @@ export default function Greetings() {
           </p>
         </div>
       </section>
+
+      <SubNav category="conversation" />
 
       {/* Section 1: 기본 인사 */}
       <section className="lesson-section" data-aos="fade-up">

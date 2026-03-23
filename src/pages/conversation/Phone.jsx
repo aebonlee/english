@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+import SubNav from '../../components/SubNav';
 
 export default function Phone() {
   const { language, t } = useLanguage();
@@ -40,6 +41,8 @@ export default function Phone() {
           </p>
         </div>
       </section>
+
+      <SubNav category="conversation" />
 
       {/* Section 1: Answering the Phone */}
       <section className="lesson-section" data-aos="fade-up">

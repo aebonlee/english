@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+import SubNav from '../../components/SubNav';
 
 export default function DailyLife() {
   const { language, t } = useLanguage();
@@ -40,6 +41,8 @@ export default function DailyLife() {
           </p>
         </div>
       </section>
+
+      <SubNav category="conversation" />
 
       {/* Section 1: Morning Routine */}
       <section className="lesson-section" data-aos="fade-up">

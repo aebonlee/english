@@ -246,6 +246,26 @@
   background: var(--hero-bg);
 }
 
+/* --- Sub Nav --- */
+[data-theme="dark"] .sub-nav {
+  background: var(--bg-secondary);
+  border-bottom-color: var(--border-light);
+}
+
+[data-theme="dark"] .sub-nav__item {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .sub-nav__item:hover {
+  color: var(--primary-blue);
+  background: rgba(74, 143, 231, 0.12);
+}
+
+[data-theme="dark"] .sub-nav__item--active {
+  color: #fff;
+  background: var(--primary-blue);
+}
+
 /* --- Footer --- */
 [data-theme="dark"] .footer {
   background: #0F172A;

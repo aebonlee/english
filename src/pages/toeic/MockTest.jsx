@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+import SubNav from '../../components/SubNav';
 import { mockTestQuestions } from '../../data/toeicData';
 
 const TOTAL_TIME_SECONDS = 30 * 60; // 30 minutes for mini mock test
@@ -132,6 +133,8 @@ function MockTest() {
           </div>
         </section>
 
+        <SubNav category="toeic" />
+
         <div className="content-page">
 
           <section className="content-section">
@@ -194,6 +197,8 @@ function MockTest() {
             </h1>
           </div>
         </section>
+
+        <SubNav category="toeic" />
 
         <div className="content-page">
 

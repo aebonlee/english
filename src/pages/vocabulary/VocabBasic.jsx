@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
+import SubNav from '../../components/SubNav';
 import { basicWords } from '../../data/vocabulary';
 
 const ITEMS_PER_PAGE = 20;
@@ -92,6 +93,8 @@ export default function VocabBasic() {
           </p>
         </div>
       </section>
+
+      <SubNav category="vocabulary" />
 
       <div className="vocab-container">
         <div className="vocab-progress-wrap">

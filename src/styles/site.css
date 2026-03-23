@@ -2250,3 +2250,140 @@
     padding: 16px;
   }
 }
+
+/* ===================================================================
+   Sub Navigation (2차 메뉴 - 카테고리 하위 페이지 탐색)
+   =================================================================== */
+
+.sub-nav {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 90;
+}
+
+.sub-nav .container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.sub-nav .container::-webkit-scrollbar {
+  display: none;
+}
+
+.sub-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 0;
+  min-width: max-content;
+}
+
+.sub-nav__item {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.sub-nav__item:hover {
+  color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+}
+
+.sub-nav__item--active {
+  color: #fff;
+  background: var(--primary-blue);
+  font-weight: 600;
+}
+
+.sub-nav__item--active:hover {
+  color: #fff;
+  background: var(--primary-blue);
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .sub-nav__item {
+    padding: 7px 14px;
+    font-size: 0.82rem;
+  }
+}
+
+/* ===================================================================
+   Lesson Section Typography 정규화
+   (.lesson-section 내 bare heading 글꼴 크기를 lesson-body 수준으로 통일)
+   =================================================================== */
+
+.lesson-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary-blue);
+  color: var(--text-primary);
+}
+
+.lesson-section h2:first-child {
+  margin-top: 0;
+}
+
+.lesson-section h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--text-primary);
+}
+
+.lesson-section h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.5rem;
+  color: var(--text-primary);
+}
+
+.lesson-section p {
+  line-height: 1.85;
+  color: var(--text-secondary);
+}
+
+/* Content Page Typography 정규화 */
+
+.content-page h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  color: var(--text-primary);
+}
+
+.content-page h2:first-child {
+  margin-top: 0;
+}
+
+.content-page h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--text-primary);
+}
+
+.content-page h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.5rem;
+  color: var(--text-primary);
+}
+
+.content-page p {
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
