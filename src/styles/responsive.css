@@ -299,7 +299,8 @@
   }
 
   .footer-links {
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
   }
 
   .footer-link:hover {

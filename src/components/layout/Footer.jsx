@@ -4,11 +4,13 @@ import { FAMILY_SITES } from '../../config/site';
 
 const QUICK_LINKS = [
   { path: '/conversation', labelKo: '일상 회화', labelEn: 'Conversation' },
-  { path: '/business', labelKo: '비즈니스 영어', labelEn: 'Business English' },
+  { path: '/business', labelKo: '비즈니스', labelEn: 'Business' },
   { path: '/vocabulary', labelKo: '영단어', labelEn: 'Vocabulary' },
   { path: '/writing', labelKo: '작문', labelEn: 'Writing' },
   { path: '/toeic', labelKo: 'TOEIC', labelEn: 'TOEIC' },
+  { path: '/literature', labelKo: '영문학 TTS', labelEn: 'Literature' },
   { path: '/ai-chat', labelKo: 'AI 학습', labelEn: 'AI Chat' },
+  { path: '/speech', labelKo: '발음 연습', labelEn: 'Speech' },
 ];
 
 export default function Footer() {
