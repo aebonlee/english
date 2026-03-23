@@ -1723,6 +1723,14 @@
   color: var(--primary-blue);
 }
 
+/* Mock Test Dark Mode */
+[data-theme="dark"] .mock-timer { background: var(--bg-light-gray); border-bottom-color: var(--border-light); }
+[data-theme="dark"] .mock-indicator { background: var(--bg-light-gray); border-color: var(--border-light); color: var(--text-light); }
+[data-theme="dark"] .mock-result__score-card { background: var(--bg-light-gray); border-color: var(--border-light); }
+[data-theme="dark"] .mock-review__item { background: var(--bg-light-gray); border-color: var(--border-light); }
+[data-theme="dark"] .mock-review__badge--correct { background: #1a3a2a; color: #6fcf97; }
+[data-theme="dark"] .mock-review__badge--wrong { background: #3a1a1a; color: #f09898; }
+
 /* === Sidebar Layout Dark Mode === */
 [data-theme="dark"] .content-sidebar { background: transparent; }
 [data-theme="dark"] .content-main {
