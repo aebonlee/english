@@ -1,5 +1,29 @@
 # English Pro - 변경 이력 (CHANGELOG)
 
+## v2.7.0 (2026-03-24)
+
+### TOEIC UI 개선 + 발음 연습 확대 + MockTest CSS 수정
+
+**TOEIC 학습 팁 2×2 그리드:**
+- `.tips-grid` → `repeat(2, 1fr)` 레이아웃, 좌측 블루 보더 강조
+
+**혼동 어휘 카드 UI:**
+- 블루(A) / 오렌지(B) 색상 코딩 카드 + VS 구분자
+- 2열 그리드 + 다크모드
+
+**MockTest CSS 보완 (~300줄):**
+- timer, question, indicator, result, review 전체 스타일 추가
+- 반응형 + 다크모드 + 경고 애니메이션
+
+**발음 연습 확대 (12→34개):**
+- beginner 8, intermediate 8, advanced 6, business 6, practical 6
+- 비즈니스/실전 필터 버튼 + 배지 색상 추가
+
+**파일 변경 (6개):**
+- 수정: `site.css`, `dark-mode.css`, `speech.css`, `Reading.jsx`, `conversations.js`, `SpeechPractice.jsx`
+
+---
+
 ## v2.6.0 (2026-03-24)
 
 ### 영단어 카드 컴팩트 레이아웃 + TTS 발음 듣기 + 예시 텍스트 개선

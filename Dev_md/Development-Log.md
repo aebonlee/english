@@ -1,5 +1,55 @@
 # English Pro - Development Log
 
+## 2026-03-24: TOEIC UI 개선 + 발음 연습 확대 + MockTest CSS 수정
+
+### Summary
+TOEIC 학습 페이지의 UI를 대폭 개선하고, 발음 연습 예제를 3배 가까이 확대하며 비즈니스/실전 카테고리를 추가했습니다. MockTest 페이지의 누락된 CSS도 보완했습니다.
+
+### Problem
+- TOEIC Listening 페이지의 학습 팁이 세로 목록으로 나열되어 비효율적
+- Reading 페이지의 혼동 어휘가 단순 텍스트로 구분이 어려움
+- MockTest 페이지에 CSS가 전혀 적용되지 않아 레이아웃이 깨짐
+- 발음 연습 예제가 12개로 제한적, 비즈니스/실전 상황 예제 부재
+
+### Changes Made
+
+#### 1. TOEIC 학습 팁 2×2 그리드 (`site.css`)
+- `.tips-grid`: `auto-fill` → `repeat(2, 1fr)` 2×2 그리드 레이아웃
+- `.tip-item`: `flex-direction: column`, 좌측 블루 보더 강조
+- 모바일(≤768px): 1열 폴백
+
+#### 2. 혼동 어휘 카드 UI (`Reading.jsx` + `site.css`)
+- 데이터 구조 변경: 단순 텍스트 → `{wordA, descA, wordB, descB}` 객체
+- `.confused-words-grid`: 2열 카드 그리드 레이아웃
+- `.confused-card`: 블루(A) / 오렌지(B) 색상 코딩 + VS 구분자
+- 다크모드 지원
+
+#### 3. MockTest CSS 보완 (~300줄)
+- `.mock-timer`: sticky 타이머, 경고 애니메이션 (`@keyframes warningPulse`)
+- `.mock-question`: 문항 카드, 진행 표시줄
+- `.mock-indicator`: 문항 번호 네비게이션 (answered/skipped/current 상태)
+- `.mock-result`: 점수 카드, 파트별 분석 차트
+- `.mock-review`: 복습 아이템, correct/incorrect 배지
+- 반응형 + 다크모드 전체 지원
+
+#### 4. 발음 연습 예제 확대 (`conversations.js` + `SpeechPractice.jsx`)
+- 예제 수: 12개 → 34개 (약 3배)
+- 기존 레벨: beginner(4→8), intermediate(5→8), advanced(3→6)
+- 신규 카테고리: business(6개) — 회의, 마케팅, 파트너십 등
+- 신규 카테고리: practical(6개) — 체크인, 환불, 병원, 식당 추천 등
+- `SpeechPractice.jsx`: 레벨 필터에 비즈니스/실전 버튼 추가
+- `speech.css`: 비즈니스(블루)/실전(퍼플) 배지 색상 추가 + 다크모드
+
+### Files Changed (6개)
+- **수정:** `src/styles/site.css` (tips-grid, confused-words, mock-test CSS)
+- **수정:** `src/styles/dark-mode.css` (mock-test, confused-words, speech 다크모드)
+- **수정:** `src/styles/speech.css` (business/practical 배지 색상)
+- **수정:** `src/pages/toeic/Reading.jsx` (혼동 어휘 카드 레이아웃)
+- **수정:** `src/data/conversations.js` (speechExamples 12→34개)
+- **수정:** `src/components/speech/SpeechPractice.jsx` (비즈니스/실전 필터)
+
+---
+
 ## 2026-03-24: 영단어 카드 컴팩트 레이아웃 + TTS 발음 듣기 + 예시 텍스트 개선
 
 ### Summary
