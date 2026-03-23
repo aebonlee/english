@@ -73,7 +73,25 @@ export default function PageLayout({ sections, category, children }) {
         <div className="container">
           <div className="content-layout">
             <aside className="content-sidebar">
-              {/* 카테고리 드롭다운 */}
+              {/* ToC 목차 */}
+              <nav className="toc" ref={tocRef}>
+                <h3 className="toc-title">{t('목차', 'Contents')}</h3>
+                <ul className="toc-list">
+                  {sections.map((s) => (
+                    <li key={s.id}>
+                      <a
+                        className={`toc-link${activeId === s.id ? ' active' : ''}`}
+                        href={`#${s.id}`}
+                        onClick={(e) => handleClick(e, s.id)}
+                      >
+                        {t(s.ko, s.en)}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              {/* 카테고리 드롭다운 (목차 아래) */}
               {items && catTitle && (
                 <nav className="sidebar-nav">
                   <button
@@ -99,24 +117,6 @@ export default function PageLayout({ sections, category, children }) {
                   )}
                 </nav>
               )}
-
-              {/* ToC 목차 */}
-              <nav className="toc" ref={tocRef}>
-                <h3 className="toc-title">{t('목차', 'Contents')}</h3>
-                <ul className="toc-list">
-                  {sections.map((s) => (
-                    <li key={s.id}>
-                      <a
-                        className={`toc-link${activeId === s.id ? ' active' : ''}`}
-                        href={`#${s.id}`}
-                        onClick={(e) => handleClick(e, s.id)}
-                      >
-                        {t(s.ko, s.en)}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
             </aside>
 
             <main className="content-main">
