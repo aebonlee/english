@@ -1,5 +1,15 @@
 # English Pro - 변경 이력 (CHANGELOG)
 
+## v2.7.1 (2026-03-24)
+
+### 대화 번역 줄바꿈 (5개 페이지, 23개 대화)
+
+- Shopping, DailyLife, Restaurant, Phone, Travel 페이지 대화 번역
+- ` / ` 구분자 → `\n` 줄바꿈 + `dialogue-translation` 클래스 적용
+- 화자별 줄바꿈으로 가독성 대폭 개선
+
+---
+
 ## v2.7.0 (2026-03-24)
 
 ### TOEIC UI 개선 + 발음 연습 확대 + MockTest CSS 수정

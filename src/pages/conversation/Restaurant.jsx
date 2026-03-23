@@ -104,9 +104,9 @@ export default function Restaurant() {
               <p><span className="speaker b">You:</span> Could we have a table by the window, if possible?</p>
               <p><span className="speaker a">Host:</span> I'll do my best. See you Friday!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '직원: Bella Italia에 전화 주셔서 감사합니다. 어떻게 도와드릴까요? / 나: 안녕하세요, 이번 금요일 저녁에 예약하고 싶습니다. / 직원: 네. 몇 분이세요? / 나: 4명이요. 가능하면 7시쯤이요. / 직원: 확인해 볼게요... 7시 15분에 자리가 있네요. 괜찮으세요? / 나: 네, 괜찮아요. / 직원: 좋습니다. 예약자 성함은요? / 나: Kim이요. K-I-M. / 직원: 완벽합니다. 금요일 7시 15분, Kim 이름으로 4명 예약. 특별한 요청사항 있으세요? / 나: 가능하면 창가 자리로 부탁드릴 수 있을까요? / 직원: 최선을 다할게요. 금요일에 뵐게요!',
+                '직원: Bella Italia에 전화 주셔서 감사합니다. 어떻게 도와드릴까요?\n나: 안녕하세요, 이번 금요일 저녁에 예약하고 싶습니다.\n직원: 네. 몇 분이세요?\n나: 4명이요. 가능하면 7시쯤이요.\n직원: 확인해 볼게요... 7시 15분에 자리가 있네요. 괜찮으세요?\n나: 네, 괜찮아요.\n직원: 좋습니다. 예약자 성함은요?\n나: Kim이요. K-I-M.\n직원: 완벽합니다. 금요일 7시 15분, Kim 이름으로 4명 예약. 특별한 요청사항 있으세요?\n나: 가능하면 창가 자리로 부탁드릴 수 있을까요?\n직원: 최선을 다할게요. 금요일에 뵐게요!',
                 'Host: Thank you for calling Bella Italia. How can I help you? / You: Hi, I\'d like to make a reservation for this Friday evening. ...'
               )}
             </p>
@@ -157,9 +157,9 @@ export default function Restaurant() {
               <p><span className="speaker b">Friend:</span> Just water for me, thanks.</p>
               <p><span className="speaker a">Server:</span> Got it. I'll have those right out for you.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '서버: 안녕하세요, 환영합니다! 주문하시겠어요, 아니면 조금 더 시간이 필요하세요? / 나: 준비됐어요. 추천 메뉴가 뭐예요? / 서버: 그릴 연어가 인기 많고요, 오늘의 특선은 버섯 리조또예요. / 나: 연어 좋네요. 그릴 연어로 할게요. / 서버: 좋은 선택이에요. 이쪽 분은요? / 친구: 버섯 리조또로 할게요. 치즈 빼고 할 수 있나요? / 서버: 네, 문제 없어요. 음료는요? / 나: 화이트 와인 한 잔 주세요. / 친구: 저는 물만 주세요. / 서버: 알겠습니다. 바로 가져다 드릴게요.',
+                '서버: 안녕하세요, 환영합니다! 주문하시겠어요, 아니면 조금 더 시간이 필요하세요?\n나: 준비됐어요. 추천 메뉴가 뭐예요?\n서버: 그릴 연어가 인기 많고요, 오늘의 특선은 버섯 리조또예요.\n나: 연어 좋네요. 그릴 연어로 할게요.\n서버: 좋은 선택이에요. 이쪽 분은요?\n친구: 버섯 리조또로 할게요. 치즈 빼고 할 수 있나요?\n서버: 네, 문제 없어요. 음료는요?\n나: 화이트 와인 한 잔 주세요.\n친구: 저는 물만 주세요.\n서버: 알겠습니다. 바로 가져다 드릴게요.',
                 'Server: Hi, welcome! Are you ready to order? / You: I think we\'re ready. What do you recommend? ...'
               )}
             </p>
@@ -242,9 +242,9 @@ export default function Restaurant() {
               <p><span className="speaker b">You:</span> No, that's fine. Thank you for understanding.</p>
               <p><span className="speaker a">Server:</span> Of course. Again, I'm very sorry for the mix-up. Your correct order should be ready in just a few minutes.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '나: 실례합니다, 죄송한데 이건 제가 주문한 게 아닌 것 같아요. 비프가 아니라 치킨 파스타를 주문했거든요. / 서버: 아, 정말 죄송합니다! 바로 수정해 드릴게요. / 나: 감사합니다. 그리고 제 친구 수프가 좀 식은 것 같아요. / 서버: 죄송합니다. 바로 주방에서 데워 드리겠습니다. 기다리시는 동안 다른 필요하신 게 있으세요? / 나: 아니요, 괜찮아요. 이해해 주셔서 감사합니다. / 서버: 물론이죠. 다시 한번 혼선에 대해 죄송합니다. 올바른 주문은 몇 분 안에 준비될 거예요.',
+                '나: 실례합니다, 죄송한데 이건 제가 주문한 게 아닌 것 같아요. 비프가 아니라 치킨 파스타를 주문했거든요.\n서버: 아, 정말 죄송합니다! 바로 수정해 드릴게요.\n나: 감사합니다. 그리고 제 친구 수프가 좀 식은 것 같아요.\n서버: 죄송합니다. 바로 주방에서 데워 드리겠습니다. 기다리시는 동안 다른 필요하신 게 있으세요?\n나: 아니요, 괜찮아요. 이해해 주셔서 감사합니다.\n서버: 물론이죠. 다시 한번 혼선에 대해 죄송합니다. 올바른 주문은 몇 분 안에 준비될 거예요.',
                 'You: Excuse me, I\'m sorry, but this isn\'t what I ordered. / Server: Oh, I\'m so sorry about that! ...'
               )}
             </p>
@@ -302,9 +302,9 @@ export default function Restaurant() {
               <p><span className="speaker b">You:</span> The food was excellent, by the way. Thank you.</p>
               <p><span className="speaker a">Server:</span> Thank you! I'm glad you enjoyed it. Have a great evening!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '나: 실례합니다, 계산서 주시겠어요? / 서버: 물론이죠. 여기 있어요. 64.50달러입니다. / 친구: 각자 내자. / 나: 아니, 아니. 오늘은 내가 살게. 다음에 네가 사. / 친구: 진짜? 정말 고마워! / 나: 물론이지. 카드로 결제할 수 있나요? / 서버: 물론이죠. 카드를 여기에 넣거나 터치해 주세요. / 나: 그런데 음식 정말 맛있었어요. 감사합니다. / 서버: 감사합니다! 맛있게 드셨다니 기쁘네요. 좋은 저녁 되세요!',
+                '나: 실례합니다, 계산서 주시겠어요?\n서버: 물론이죠. 여기 있어요. 64.50달러입니다.\n친구: 각자 내자.\n나: 아니, 아니. 오늘은 내가 살게. 다음에 네가 사.\n친구: 진짜? 정말 고마워!\n나: 물론이지. 카드로 결제할 수 있나요?\n서버: 물론이죠. 카드를 여기에 넣거나 터치해 주세요.\n나: 그런데 음식 정말 맛있었어요. 감사합니다.\n서버: 감사합니다! 맛있게 드셨다니 기쁘네요. 좋은 저녁 되세요!',
                 'You: Excuse me, could we have the check, please? / Server: Of course. Here you go. That\'ll be $64.50. ...'
               )}
             </p>

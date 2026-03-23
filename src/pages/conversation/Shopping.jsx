@@ -104,9 +104,9 @@ export default function Shopping() {
               <p><span className="speaker a">Staff:</span> Great choice! Would you like to pay with cash or card?</p>
               <p><span className="speaker b">You:</span> Card, please.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '직원: 안녕하세요! 환영합니다. 찾으시는 거 있으세요? / 나: 안녕하세요, 겨울 재킷을 찾고 있어요. / 직원: 네! 여기 좋은 제품들이 많아요. 사이즈가 어떻게 되세요? / 나: 보통 M이에요. 이 네이비색은 얼마예요? / 직원: 129.99달러인데, 이번 주 20% 할인 중이에요. / 나: 오, 좋네요! 입어봐도 될까요? / 직원: 물론이죠! 탈의실은 바로 저쪽에 있어요. / 나: (입어본 후) 딱 맞아요. 이걸로 할게요! / 직원: 좋은 선택이에요! 현금으로 하실 건가요 카드로 하실 건가요? / 나: 카드로 해주세요.',
+                '직원: 안녕하세요! 환영합니다. 찾으시는 거 있으세요?\n나: 안녕하세요, 겨울 재킷을 찾고 있어요.\n직원: 네! 여기 좋은 제품들이 많아요. 사이즈가 어떻게 되세요?\n나: 보통 M이에요. 이 네이비색은 얼마예요?\n직원: 129.99달러인데, 이번 주 20% 할인 중이에요.\n나: 오, 좋네요! 입어봐도 될까요?\n직원: 물론이죠! 탈의실은 바로 저쪽에 있어요.\n나: (입어본 후) 딱 맞아요. 이걸로 할게요!\n직원: 좋은 선택이에요! 현금으로 하실 건가요 카드로 하실 건가요?\n나: 카드로 해주세요.',
                 'Staff: Hi there! Welcome. Can I help you find anything? / You: Hi, I\'m looking for a winter jacket. ...'
               )}
             </p>
@@ -165,9 +165,9 @@ export default function Shopping() {
               <p><span className="speaker a">Staff:</span> Of course! Just tap or insert your card here. Your name for the order?</p>
               <p><span className="speaker b">You:</span> Jina, please.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '직원: 안녕하세요, 뭘 드릴까요? / 나: 라떼 큰 거 하나 주세요. / 직원: 핫으로 할까요, 아이스로 할까요? / 나: 아이스요. 그리고 에스프레소 샷 추가할 수 있나요? / 직원: 물론이죠! 다른 건요? / 나: 블루베리 머핀 남은 거 있나요? / 직원: 네, 있어요! 라떼 큰 거 아이스 샷 추가, 블루베리 머핀 하나 합해서 8.50달러입니다. / 나: 여기요. 카드로 결제해도 될까요? / 직원: 물론이죠! 여기에 카드를 터치하거나 넣어주세요. 주문자 성함은요? / 나: Jina요.',
+                '직원: 안녕하세요, 뭘 드릴까요?\n나: 라떼 큰 거 하나 주세요.\n직원: 핫으로 할까요, 아이스로 할까요?\n나: 아이스요. 그리고 에스프레소 샷 추가할 수 있나요?\n직원: 물론이죠! 다른 건요?\n나: 블루베리 머핀 남은 거 있나요?\n직원: 네, 있어요! 라떼 큰 거 아이스 샷 추가, 블루베리 머핀 하나 합해서 8.50달러입니다.\n나: 여기요. 카드로 결제해도 될까요?\n직원: 물론이죠! 여기에 카드를 터치하거나 넣어주세요. 주문자 성함은요?\n나: Jina요.',
                 'Staff: Hi, what can I get for you? / You: I\'d like a large latte, please. ...'
               )}
             </p>
@@ -216,9 +216,9 @@ export default function Shopping() {
               <p><span className="speaker a">Agent:</span> Absolutely. I'll email it to you right away. Is there anything else I can help you with?</p>
               <p><span className="speaker b">You:</span> No, that's all. Thank you for your help.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '상담원: ShopStar 고객 서비스에 전화 주셔서 감사합니다. 어떻게 도와드릴까요? / 나: 안녕하세요, 지난주에 주문했는데 아직 도착하지 않았어요. / 상담원: 죄송합니다. 주문번호 알려주시겠어요? / 나: 네, A-7-8-5-2-3이에요. / 상담원: 확인해 볼게요... 창고에서 지연이 있었네요. 영업일 기준 이틀 내로 도착할 겁니다. / 나: 다행이네요. 추적 번호 받을 수 있을까요? / 상담원: 물론이죠. 바로 이메일로 보내드릴게요. 다른 도움이 필요하신 건 있으세요? / 나: 아니요, 됐어요. 도와주셔서 감사합니다.',
+                '상담원: ShopStar 고객 서비스에 전화 주셔서 감사합니다. 어떻게 도와드릴까요?\n나: 안녕하세요, 지난주에 주문했는데 아직 도착하지 않았어요.\n상담원: 죄송합니다. 주문번호 알려주시겠어요?\n나: 네, A-7-8-5-2-3이에요.\n상담원: 확인해 볼게요... 창고에서 지연이 있었네요. 영업일 기준 이틀 내로 도착할 겁니다.\n나: 다행이네요. 추적 번호 받을 수 있을까요?\n상담원: 물론이죠. 바로 이메일로 보내드릴게요. 다른 도움이 필요하신 건 있으세요?\n나: 아니요, 됐어요. 도와주셔서 감사합니다.',
                 'Agent: Thank you for calling ShopStar customer service. How can I help you today? / You: Hi, I placed an order last week, but it still hasn\'t arrived. ...'
               )}
             </p>
@@ -266,9 +266,9 @@ export default function Shopping() {
               <p><span className="speaker a">Staff:</span> Of course. The refund will appear on your card within 3-5 business days.</p>
               <p><span className="speaker b">You:</span> Great, thank you!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '나: 실례합니다, 이 셔츠를 반품하고 싶어요. / 직원: 네, 문제가 있으셨나요? / 나: 사이즈가 안 맞아요. 더 큰 사이즈가 필요한데 재고가 없더라고요. / 직원: 그렇군요. 영수증 있으세요? / 나: 네, 여기 있어요. 3일 전에 샀어요. / 직원: 30일 반품 기간 내네요. 환불해 드릴까요, 아니면 스토어 크레딧으로 드릴까요? / 나: 환불로 해주세요. 신용카드로 돌려받을 수 있나요? / 직원: 물론이죠. 환불은 영업일 기준 3-5일 내에 카드에 반영됩니다. / 나: 감사합니다!',
+                '나: 실례합니다, 이 셔츠를 반품하고 싶어요.\n직원: 네, 문제가 있으셨나요?\n나: 사이즈가 안 맞아요. 더 큰 사이즈가 필요한데 재고가 없더라고요.\n직원: 그렇군요. 영수증 있으세요?\n나: 네, 여기 있어요. 3일 전에 샀어요.\n직원: 30일 반품 기간 내네요. 환불해 드릴까요, 아니면 스토어 크레딧으로 드릴까요?\n나: 환불로 해주세요. 신용카드로 돌려받을 수 있나요?\n직원: 물론이죠. 환불은 영업일 기준 3-5일 내에 카드에 반영됩니다.\n나: 감사합니다!',
                 'You: Excuse me, I\'d like to return this shirt. / Staff: Sure, is there a problem with it? ...'
               )}
             </p>

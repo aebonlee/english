@@ -100,9 +100,9 @@ export default function DailyLife() {
               <p><span className="speaker b">Jisu:</span> Got it. I'll be quick. Is it cold outside?</p>
               <p><span className="speaker a">Mom:</span> Yes, don't forget to wear your jacket.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '엄마: 좋은 아침! 일어날 시간이야. 늦겠다. / Jisu: 벌써? 5분만 더... / 엄마: 안 돼, 지금 일어나. 아침 준비됐어. / Jisu: 알겠어, 알겠어. 일어나는 중이야. 아침 뭐야? / 엄마: 토스트랑 스크램블 에그. 얼른 샤워부터 해. / Jisu: 알겠어. 빨리 할게. 밖에 추워? / 엄마: 응, 재킷 입는 거 잊지 마.',
+                '엄마: 좋은 아침! 일어날 시간이야. 늦겠다.\nJisu: 벌써? 5분만 더...\n엄마: 안 돼, 지금 일어나. 아침 준비됐어.\nJisu: 알겠어, 알겠어. 일어나는 중이야. 아침 뭐야?\n엄마: 토스트랑 스크램블 에그. 얼른 샤워부터 해.\nJisu: 알겠어. 빨리 할게. 밖에 추워?\n엄마: 응, 재킷 입는 거 잊지 마.',
                 'Mom: Good morning! Time to wake up. / Jisu: Already? Just five more minutes... / Mom: No, get up now. Breakfast is ready. ...'
               )}
             </p>
@@ -153,9 +153,9 @@ export default function DailyLife() {
               <p><span className="speaker a">Chris:</span> Good idea. By the way, can you believe how hot it was last week?</p>
               <p><span className="speaker b">Yuna:</span> I know! It was like 38 degrees. I couldn't go outside at all.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                'Chris: 오늘 날씨 좋다, 그지? / Yuna: 응, 정말 좋아! 근데 내일 비 온다고 들었어. / Chris: 진짜? 아쉽다. 등산 가려고 했는데. / Yuna: 일기 예보 다시 확인해 봐. 가벼운 소나기일 수도 있어. / Chris: 좋은 생각이야. 근데 지난주 얼마나 더웠는지 믿기 힘들지 않아? / Yuna: 맞아! 38도였잖아. 밖에 아예 못 나갔어.',
+                'Chris: 오늘 날씨 좋다, 그지?\nYuna: 응, 정말 좋아! 근데 내일 비 온다고 들었어.\nChris: 진짜? 아쉽다. 등산 가려고 했는데.\nYuna: 일기 예보 다시 확인해 봐. 가벼운 소나기일 수도 있어.\nChris: 좋은 생각이야. 근데 지난주 얼마나 더웠는지 믿기 힘들지 않아?\nYuna: 맞아! 38도였잖아. 밖에 아예 못 나갔어.',
                 'Chris: Nice weather today, isn\'t it? / Yuna: Yeah, it\'s gorgeous! I heard it\'s supposed to rain tomorrow though. ...'
               )}
             </p>
@@ -220,9 +220,9 @@ export default function DailyLife() {
               <p><span className="speaker a">Mike:</span> Sure, the more the merrier! Let's meet at the subway station and walk together.</p>
               <p><span className="speaker b">Sora:</span> Sounds like a plan! See you Saturday.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                'Mike: 소라야, 이번 토요일에 뭐 해? / Sora: 아마 없을 것 같은데. 왜, 무슨 일이야? / Mike: 시내에 새로 생긴 이탈리안 레스토랑 가보려고 하는데. 같이 갈래? / Sora: 오, 좋다! 몇 시 생각하고 있어? / Mike: 낮 12시 어때? 거기서 점심 먹으면 되잖아. / Sora: 12시 괜찮아. 하나도 부를까? / Mike: 물론, 다다익선이지! 지하철역에서 만나서 같이 걸어가자. / Sora: 좋은 계획이다! 토요일에 봐.',
+                'Mike: 소라야, 이번 토요일에 뭐 해?\nSora: 아마 없을 것 같은데. 왜, 무슨 일이야?\nMike: 시내에 새로 생긴 이탈리안 레스토랑 가보려고 하는데. 같이 갈래?\nSora: 오, 좋다! 몇 시 생각하고 있어?\nMike: 낮 12시 어때? 거기서 점심 먹으면 되잖아.\nSora: 12시 괜찮아. 하나도 부를까?\nMike: 물론, 다다익선이지! 지하철역에서 만나서 같이 걸어가자.\nSora: 좋은 계획이다! 토요일에 봐.',
                 'Mike: Hey Sora, are you doing anything this Saturday? / Sora: I don\'t think so. Why, what\'s up? ...'
               )}
             </p>
@@ -276,9 +276,9 @@ export default function DailyLife() {
               <p><span className="speaker b">Roommate B:</span> Great, I'll make sure to be home then. Can you wash the dishes after dinner? It's your turn.</p>
               <p><span className="speaker a">Roommate A:</span> No problem!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                'A: 나 왔어! 무슨 냄새가 이렇게 좋아? / B: 파스타 만들고 있어. 배고프지? / A: 완전 배고파! 뭐 도와줄 거 있어? / B: 테이블 좀 세팅해줄래? 10분 정도면 저녁 다 돼. / A: 물론이지. 아 참, 집주인이 히터 관련해서 전화했어. / B: 진짜? 뭐래? / A: 수요일 아침에 수리하러 온대. / B: 좋아, 그때 집에 있어야겠다. 저녁 먹고 설거지 좀 해줄래? 네 차례야. / A: 문제 없어!',
+                'A: 나 왔어! 무슨 냄새가 이렇게 좋아?\nB: 파스타 만들고 있어. 배고프지?\nA: 완전 배고파! 뭐 도와줄 거 있어?\nB: 테이블 좀 세팅해줄래? 10분 정도면 저녁 다 돼.\nA: 물론이지. 아 참, 집주인이 히터 관련해서 전화했어.\nB: 진짜? 뭐래?\nA: 수요일 아침에 수리하러 온대.\nB: 좋아, 그때 집에 있어야겠다. 저녁 먹고 설거지 좀 해줄래? 네 차례야.\nA: 문제 없어!',
                 'A: Hey, I\'m home! What smells so good? / B: I\'m making pasta. Are you hungry? ...'
               )}
             </p>
@@ -332,9 +332,9 @@ export default function DailyLife() {
               <p><span className="speaker a">You:</span> Thank you so much! I really appreciate it.</p>
               <p><span className="speaker b">Neighbor:</span> Happy to help! That's what neighbors are for.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '나: 안녕하세요, 방해해서 죄송해요. 옆집에 사는 이웃이에요. / 이웃: 아 안녕하세요! 전혀 괜찮아요. 무슨 일이세요? / 나: 혹시 무거운 테이블 옮기는 거 도와주실 수 있을까 해서요. 혼자서는 들 수가 없어서요. / 이웃: 물론이죠, 문제 없어요! 언제 도움이 필요하세요? / 나: 지금 괜찮으세요? 몇 분이면 될 거예요. / 이웃: 신발만 신고 올게요. 바로 갈게요. / 나: 정말 감사합니다! 정말 감사해요. / 이웃: 기꺼이 도와드려요! 이웃이 있는 이유가 그거잖아요.',
+                '나: 안녕하세요, 방해해서 죄송해요. 옆집에 사는 이웃이에요.\n이웃: 아 안녕하세요! 전혀 괜찮아요. 무슨 일이세요?\n나: 혹시 무거운 테이블 옮기는 거 도와주실 수 있을까 해서요. 혼자서는 들 수가 없어서요.\n이웃: 물론이죠, 문제 없어요! 언제 도움이 필요하세요?\n나: 지금 괜찮으세요? 몇 분이면 될 거예요.\n이웃: 신발만 신고 올게요. 바로 갈게요.\n나: 정말 감사합니다! 정말 감사해요.\n이웃: 기꺼이 도와드려요! 이웃이 있는 이유가 그거잖아요.',
                 'You: Hi, sorry to bother you. I\'m your neighbor from next door. / Neighbor: Oh hi! No bother at all. ...'
               )}
             </p>

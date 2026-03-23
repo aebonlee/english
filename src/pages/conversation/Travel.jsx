@@ -104,9 +104,9 @@ export default function Travel() {
               <p><span className="speaker b">You:</span> Thank you. Where is Gate B7?</p>
               <p><span className="speaker a">Agent:</span> Go through security, and it'll be on your right. Have a great flight!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '직원: 안녕하세요! 여권과 예약 확인서 보여주시겠어요? / 나: 네, 여기 있습니다. / 직원: 감사합니다. 오늘 부치실 짐이 있으세요? / 나: 네, 캐리어 하나 부치고 기내용 하나 있어요. / 직원: 캐리어를 저울에 올려주세요. 좌석 선호가 있으세요? / 나: 창가 좌석으로 해주세요. / 직원: 네. 24A 좌석이에요. 게이트는 B7이고 탑승은 10시 30분에 시작합니다. / 나: 감사합니다. B7 게이트가 어디예요? / 직원: 보안 검색대를 지나서 오른쪽에 있어요. 좋은 비행 되세요!',
+                '직원: 안녕하세요! 여권과 예약 확인서 보여주시겠어요?\n나: 네, 여기 있습니다.\n직원: 감사합니다. 오늘 부치실 짐이 있으세요?\n나: 네, 캐리어 하나 부치고 기내용 하나 있어요.\n직원: 캐리어를 저울에 올려주세요. 좌석 선호가 있으세요?\n나: 창가 좌석으로 해주세요.\n직원: 네. 24A 좌석이에요. 게이트는 B7이고 탑승은 10시 30분에 시작합니다.\n나: 감사합니다. B7 게이트가 어디예요?\n직원: 보안 검색대를 지나서 오른쪽에 있어요. 좋은 비행 되세요!',
                 'Agent: Good morning! May I see your passport and booking confirmation, please? / You: Sure, here you go. ...'
               )}
             </p>
@@ -156,9 +156,9 @@ export default function Travel() {
               <p><span className="speaker a">Officer:</span> Alright. Enjoy your stay.</p>
               <p><span className="speaker b">You:</span> Thank you!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '심사관: 안녕하세요. 여권 주세요. / 나: 여기 있습니다. / 심사관: 방문 목적이 무엇인가요? / 나: 관광으로 왔습니다. / 심사관: 얼마나 머무르실 건가요? / 나: 약 10일이요. 4월 5일에 출국합니다. / 심사관: 어디에 머무르실 건가요? / 나: 맨해튼의 Grand Hotel에서요. / 심사관: 신고할 물품이 있으신가요? / 나: 아니요, 없습니다. / 심사관: 좋습니다. 좋은 여행 되세요. / 나: 감사합니다!',
+                '심사관: 안녕하세요. 여권 주세요.\n나: 여기 있습니다.\n심사관: 방문 목적이 무엇인가요?\n나: 관광으로 왔습니다.\n심사관: 얼마나 머무르실 건가요?\n나: 약 10일이요. 4월 5일에 출국합니다.\n심사관: 어디에 머무르실 건가요?\n나: 맨해튼의 Grand Hotel에서요.\n심사관: 신고할 물품이 있으신가요?\n나: 아니요, 없습니다.\n심사관: 좋습니다. 좋은 여행 되세요.\n나: 감사합니다!',
                 'Officer: Good afternoon. Passport, please. / You: Here you go. ...'
               )}
             </p>
@@ -219,9 +219,9 @@ export default function Travel() {
               <p><span className="speaker b">You:</span> What time is check-out?</p>
               <p><span className="speaker a">Receptionist:</span> Check-out is at 11 AM. Enjoy your stay!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '나: 안녕하세요, 체크인하고 싶습니다. Kim으로 예약했습니다. / 프런트: 환영합니다! 확인해 볼게요. 네, 2박 예약이 있네요. 신분증 보여주시겠어요? / 나: 네, 여기 여권이요. / 프런트: 감사합니다. 5층 508호입니다. 여기 카드키예요. / 나: 좋아요. 조식 포함인가요? / 프런트: 네, 조식은 2층 레스토랑에서 오전 7시부터 10시까지 제공됩니다. / 나: 완벽하네요. 와이파이 비밀번호가 뭐예요? / 프런트: "Welcome2024"입니다. 방에 있는 카드에도 적혀 있어요. 다른 건 있으세요? / 나: 체크아웃 시간이 몇 시예요? / 프런트: 체크아웃은 오전 11시입니다. 좋은 시간 보내세요!',
+                '나: 안녕하세요, 체크인하고 싶습니다. Kim으로 예약했습니다.\n프런트: 환영합니다! 확인해 볼게요. 네, 2박 예약이 있네요. 신분증 보여주시겠어요?\n나: 네, 여기 여권이요.\n프런트: 감사합니다. 5층 508호입니다. 여기 카드키예요.\n나: 좋아요. 조식 포함인가요?\n프런트: 네, 조식은 2층 레스토랑에서 오전 7시부터 10시까지 제공됩니다.\n나: 완벽하네요. 와이파이 비밀번호가 뭐예요?\n프런트: "Welcome2024"입니다. 방에 있는 카드에도 적혀 있어요. 다른 건 있으세요?\n나: 체크아웃 시간이 몇 시예요?\n프런트: 체크아웃은 오전 11시입니다. 좋은 시간 보내세요!',
                 'You: Hello, I\'d like to check in, please. I have a reservation under Kim. / Receptionist: Welcome! Let me look that up. ...'
               )}
             </p>
@@ -270,9 +270,9 @@ export default function Travel() {
               <p><span className="speaker b">You:</span> Great, thank you so much!</p>
               <p><span className="speaker a">Local:</span> No problem. Have a good day!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '나: 실례합니다, 가장 가까운 지하철역에 어떻게 가나요? / 현지인: 물론이죠! 이 길을 따라 두 블록 정도 직진하세요. / 나: 네, 그다음에요? / 현지인: 큰 교차로에서 왼쪽으로 도세요. 모퉁이에 커피숍이 보일 거예요. / 나: 커피숍에서 좌회전. 알겠어요. / 현지인: 역 입구는 오른쪽에 있을 거예요, 서점 바로 옆이에요. 못 지나칠 거예요. / 나: 여기서 걸어갈 수 있는 거리인가요? / 현지인: 네, 걸어서 약 5분이에요. / 나: 정말 감사합니다! / 현지인: 천만에요. 좋은 하루 보내세요!',
+                '나: 실례합니다, 가장 가까운 지하철역에 어떻게 가나요?\n현지인: 물론이죠! 이 길을 따라 두 블록 정도 직진하세요.\n나: 네, 그다음에요?\n현지인: 큰 교차로에서 왼쪽으로 도세요. 모퉁이에 커피숍이 보일 거예요.\n나: 커피숍에서 좌회전. 알겠어요.\n현지인: 역 입구는 오른쪽에 있을 거예요, 서점 바로 옆이에요. 못 지나칠 거예요.\n나: 여기서 걸어갈 수 있는 거리인가요?\n현지인: 네, 걸어서 약 5분이에요.\n나: 정말 감사합니다!\n현지인: 천만에요. 좋은 하루 보내세요!',
                 'You: Excuse me, could you tell me how to get to the nearest subway station? / Local: Sure! Go straight down this street for about two blocks. ...'
               )}
             </p>
@@ -321,9 +321,9 @@ export default function Travel() {
               <p><span className="speaker b">You:</span> Thank you. Should I see a doctor if it doesn't get better?</p>
               <p><span className="speaker a">Pharmacist:</span> Yes, if your symptoms persist for more than three days, you should see a doctor. There's a clinic two blocks from here.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '나: 실례합니다, 몸이 안 좋아요. 두통이 심하고 목이 아파요. / 약사: 안됐네요. 얼마나 됐어요? / 나: 어제부터요. 감기에 걸린 것 같아요. / 약사: 약에 알레르기가 있으세요? / 나: 아니요, 알레르기 없어요. / 약사: 이 감기약을 추천해 드릴게요. 6시간마다 2알씩 드세요. 그리고 여기 목 캔디도 있어요. / 나: 감사합니다. 나아지지 않으면 의사를 만나야 하나요? / 약사: 네, 증상이 3일 이상 지속되면 의사를 만나세요. 여기서 두 블록 거리에 병원이 있어요.',
+                '나: 실례합니다, 몸이 안 좋아요. 두통이 심하고 목이 아파요.\n약사: 안됐네요. 얼마나 됐어요?\n나: 어제부터요. 감기에 걸린 것 같아요.\n약사: 약에 알레르기가 있으세요?\n나: 아니요, 알레르기 없어요.\n약사: 이 감기약을 추천해 드릴게요. 6시간마다 2알씩 드세요. 그리고 여기 목 캔디도 있어요.\n나: 감사합니다. 나아지지 않으면 의사를 만나야 하나요?\n약사: 네, 증상이 3일 이상 지속되면 의사를 만나세요. 여기서 두 블록 거리에 병원이 있어요.',
                 'You: Excuse me, I\'m not feeling well. I have a terrible headache and a sore throat. / Pharmacist: I\'m sorry to hear that. ...'
               )}
             </p>

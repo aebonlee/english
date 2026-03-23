@@ -130,9 +130,9 @@ export default function Phone() {
               <p><span className="speaker a">Friend:</span> Yeah, Sujin and Jaehyun are coming too. See you tomorrow then!</p>
               <p><span className="speaker b">You:</span> Awesome! See you tomorrow. Bye!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '나: 여보세요? / 친구: 야! 민호야. 지금 바빠? / 나: 민호! 별로. 왜? / 친구: 내일 저녁에 시간 되나 해서. 몇 명이서 저녁 먹기로 했거든. / 나: 내일 저녁? 생각해 볼게... 응, 6시 이후로 괜찮을 것 같아. / 친구: 좋아! 역 근처 한식 고깃집에서 7시에 만나기로 했어. / 나: 좋다! 갈게. 누구 또 와? / 친구: 응, 수진이랑 재현이도 와. 그럼 내일 보자! / 나: 좋아! 내일 봐. 잘 가!',
+                '나: 여보세요?\n친구: 야! 민호야. 지금 바빠?\n나: 민호! 별로. 왜?\n친구: 내일 저녁에 시간 되나 해서. 몇 명이서 저녁 먹기로 했거든.\n나: 내일 저녁? 생각해 볼게... 응, 6시 이후로 괜찮을 것 같아.\n친구: 좋아! 역 근처 한식 고깃집에서 7시에 만나기로 했어.\n나: 좋다! 갈게. 누구 또 와?\n친구: 응, 수진이랑 재현이도 와. 그럼 내일 보자!\n나: 좋아! 내일 봐. 잘 가!',
                 'You: Hello? / Friend: Hey! It\'s Minho. Are you busy right now? ...'
               )}
             </p>
@@ -181,9 +181,9 @@ export default function Phone() {
               <p><span className="speaker a">Receptionist:</span> Great. You're all set. Please arrive 10 minutes early. Is there anything else?</p>
               <p><span className="speaker b">You:</span> No, that's all. Thank you!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '접수원: 좋은 아침입니다, City Medical Center입니다. 어떻게 도와드릴까요? / 나: 안녕하세요, Johnson 선생님 진료 예약하려고 전화했습니다. / 접수원: 네. 기존 환자이신가요? / 나: 네, 그렇습니다. 이름은 김지나입니다. / 접수원: 감사합니다, Ms. Kim. 어디가 불편하세요? / 나: 약 일주일 동안 허리가 아팠어요. / 접수원: 알겠습니다. Johnson 선생님이 목요일 오후 2시에 빈 시간이 있으세요. 괜찮으세요? / 나: 목요일 2시 괜찮아요. / 접수원: 좋습니다. 예약되었습니다. 10분 일찍 오시기 바랍니다. 다른 건 있으세요? / 나: 아니요, 됐어요. 감사합니다!',
+                '접수원: 좋은 아침입니다, City Medical Center입니다. 어떻게 도와드릴까요?\n나: 안녕하세요, Johnson 선생님 진료 예약하려고 전화했습니다.\n접수원: 네. 기존 환자이신가요?\n나: 네, 그렇습니다. 이름은 김지나입니다.\n접수원: 감사합니다, Ms. Kim. 어디가 불편하세요?\n나: 약 일주일 동안 허리가 아팠어요.\n접수원: 알겠습니다. Johnson 선생님이 목요일 오후 2시에 빈 시간이 있으세요. 괜찮으세요?\n나: 목요일 2시 괜찮아요.\n접수원: 좋습니다. 예약되었습니다. 10분 일찍 오시기 바랍니다. 다른 건 있으세요?\n나: 아니요, 됐어요. 감사합니다!',
                 'Receptionist: Good morning, City Medical Center. How can I help you? / You: Hi, I\'m calling to make an appointment with Dr. Johnson. ...'
               )}
             </p>
@@ -231,9 +231,9 @@ export default function Phone() {
               <p><span className="speaker b">You:</span> Thank you very much. Have a nice day.</p>
               <p><span className="speaker a">Receptionist:</span> You too. Goodbye.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '접수원: 안녕하세요, KTech Solutions입니다. 어디로 연결해 드릴까요? / 나: 안녕하세요, 영업부의 이 씨와 통화할 수 있을까요? / 접수원: 죄송합니다, 이 씨는 지금 회의 중이세요. 메시지를 남기시겠어요? / 나: 네, 부탁드립니다. 박지나가 전화했다고 전해주세요. 지난주에 논의한 제안서 건이에요. / 접수원: 네. 연락 가능한 전화번호가 어떻게 되세요? / 나: 02-555-1234로 전화 주시면 돼요. 오후 5시까지 가능합니다. / 접수원: 알겠습니다. 박지나, 제안서 건, 02-555-1234로 5시 전에 전화. 꼭 전달하겠습니다. / 나: 감사합니다. 좋은 하루 보내세요. / 접수원: 감사합니다. 안녕히 계세요.',
+                '접수원: 안녕하세요, KTech Solutions입니다. 어디로 연결해 드릴까요?\n나: 안녕하세요, 영업부의 이 씨와 통화할 수 있을까요?\n접수원: 죄송합니다, 이 씨는 지금 회의 중이세요. 메시지를 남기시겠어요?\n나: 네, 부탁드립니다. 박지나가 전화했다고 전해주세요. 지난주에 논의한 제안서 건이에요.\n접수원: 네. 연락 가능한 전화번호가 어떻게 되세요?\n나: 02-555-1234로 전화 주시면 돼요. 오후 5시까지 가능합니다.\n접수원: 알겠습니다. 박지나, 제안서 건, 02-555-1234로 5시 전에 전화. 꼭 전달하겠습니다.\n나: 감사합니다. 좋은 하루 보내세요.\n접수원: 감사합니다. 안녕히 계세요.',
                 'Receptionist: Good afternoon, KTech Solutions. How may I direct your call? / You: Hello, may I speak to Mr. Lee in the sales department? ...'
               )}
             </p>
@@ -283,9 +283,9 @@ export default function Phone() {
               <p><span className="speaker a">Partner:</span> Sounds good. Thanks for the call, Jina.</p>
               <p><span className="speaker b">You:</span> Thank you for your time. Have a good day!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '나: 안녕하세요, ABC Trading의 김지나입니다. 지난주에 논의한 배송 건으로 전화드립니다. / 파트너: 아, 지나 씨. 네, 전화 기다리고 있었어요. 업데이트가 어떻게 되나요? / 나: 주문을 확인했고, 배송은 다음 주 월요일로 예정되어 있습니다. / 파트너: 좋은 소식이네요. 배송되면 추적 정보를 보내주실 수 있나요? / 나: 물론이죠. 이메일로 모두 보내드리겠습니다. 그리고 하나 확인하고 싶은 게 있어요. / 파트너: 네, 말씀하세요. / 나: 결제 조건이 30일 이내 결제(net 30)가 맞나요? / 파트너: 네, 맞습니다. 청구서 날짜로부터 30일입니다. / 나: 완벽합니다. 확인해 주셔서 감사합니다. 이번 주에 청구서를 후속 조치하겠습니다. / 파트너: 좋습니다. 전화해 줘서 고마워요, 지나 씨. / 나: 시간 내주셔서 감사합니다. 좋은 하루 되세요!',
+                '나: 안녕하세요, ABC Trading의 김지나입니다. 지난주에 논의한 배송 건으로 전화드립니다.\n파트너: 아, 지나 씨. 네, 전화 기다리고 있었어요. 업데이트가 어떻게 되나요?\n나: 주문을 확인했고, 배송은 다음 주 월요일로 예정되어 있습니다.\n파트너: 좋은 소식이네요. 배송되면 추적 정보를 보내주실 수 있나요?\n나: 물론이죠. 이메일로 모두 보내드리겠습니다. 그리고 하나 확인하고 싶은 게 있어요.\n파트너: 네, 말씀하세요.\n나: 결제 조건이 30일 이내 결제(net 30)가 맞나요?\n파트너: 네, 맞습니다. 청구서 날짜로부터 30일입니다.\n나: 완벽합니다. 확인해 주셔서 감사합니다. 이번 주에 청구서를 후속 조치하겠습니다.\n파트너: 좋습니다. 전화해 줘서 고마워요, 지나 씨.\n나: 시간 내주셔서 감사합니다. 좋은 하루 되세요!',
                 'You: Hello, this is Jina Kim from ABC Trading. I\'m calling regarding the shipment we discussed last week. ...'
               )}
             </p>
@@ -370,9 +370,9 @@ export default function Phone() {
               <p><span className="speaker a">Colleague:</span> You too. Goodbye!</p>
               <p><span className="speaker b">You:</span> Bye!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                '동료: 좋아, 다 다룬 것 같아요. 다른 건 있어요? / 나: 아니요, 그게 다인 것 같아요. 업데이트해 줘서 감사합니다. / 동료: 천만에요. 수정된 문서를 내일 아침까지 보내드릴게요. / 나: 좋겠어요. 받으면 바로 검토할게요. / 동료: 완벽합니다. 시간 내줘서 고마워요, 지나 씨. / 나: 저도 감사합니다. 좋은 하루 보내세요! / 동료: 감사합니다. 안녕히 계세요! / 나: 안녕!',
+                '동료: 좋아, 다 다룬 것 같아요. 다른 건 있어요?\n나: 아니요, 그게 다인 것 같아요. 업데이트해 줘서 감사합니다.\n동료: 천만에요. 수정된 문서를 내일 아침까지 보내드릴게요.\n나: 좋겠어요. 받으면 바로 검토할게요.\n동료: 완벽합니다. 시간 내줘서 고마워요, 지나 씨.\n나: 저도 감사합니다. 좋은 하루 보내세요!\n동료: 감사합니다. 안녕히 계세요!\n나: 안녕!',
                 'Colleague: Alright, I think we\'ve covered everything. Is there anything else? / You: No, I think that\'s it. Thank you for the update. ...'
               )}
             </p>

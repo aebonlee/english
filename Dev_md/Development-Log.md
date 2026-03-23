@@ -1,5 +1,25 @@
 # English Pro - Development Log
 
+## 2026-03-24: 대화 번역 줄바꿈 처리 (전체 5개 페이지, 23개 대화)
+
+### Summary
+일상 회화 페이지의 대화 번역문에서 화자별 구분이 ` / `로 이어져 있던 것을 `\n` 줄바꿈으로 변경하여 가독성을 대폭 개선했습니다.
+
+### Problem
+- 대화 번역이 한 줄에 모든 화자의 대사가 ` / `로 구분되어 길게 나열
+- 화자 구분이 어렵고 영어 원문 대화와 대조하기 힘듦
+
+### Changes Made
+- 5개 대화 페이지의 23개 대화 번역에서 ` / ` → `\n` 줄바꿈 처리
+- `className="translation"` → `className="translation dialogue-translation"` 변경
+- 기존 `dialogue-translation { white-space: pre-line }` CSS로 줄바꿈 표시
+
+### Files Changed (5개)
+- **수정:** `Shopping.jsx` (4개 대화), `DailyLife.jsx` (5개 대화)
+- **수정:** `Restaurant.jsx` (4개 대화), `Phone.jsx` (5개 대화), `Travel.jsx` (5개 대화)
+
+---
+
 ## 2026-03-24: TOEIC UI 개선 + 발음 연습 확대 + MockTest CSS 수정
 
 ### Summary
