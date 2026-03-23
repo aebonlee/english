@@ -79,7 +79,7 @@ export default function ConversationHome() {
         <div className="container">
           <div className="page-header__breadcrumb">
             <Link to="/">{t('홈', 'Home')}</Link>
-            <span className="breadcrumb-separator">/</span>
+            <i className="fas fa-chevron-right"></i>
             <span>{t('일상 회화', 'Conversation')}</span>
           </div>
           <h1 className="page-header__title">{t('일상 영어 회화', 'Daily English Conversation')}</h1>

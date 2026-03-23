@@ -26,9 +26,9 @@ function EmailWriting() {
         <div className="container">
           <div className="page-header__breadcrumb">
             <Link to="/">{t('\uD648', 'Home')}</Link>
-            <span className="breadcrumb-separator">/</span>
+            <i className="fas fa-chevron-right"></i>
             <Link to="/business">{t('\uBE44\uC988\uB2C8\uC2A4', 'Business')}</Link>
-            <span className="breadcrumb-separator">/</span>
+            <i className="fas fa-chevron-right"></i>
             <span>{t('\uC774\uBA54\uC77C \uC791\uC131', 'Email Writing')}</span>
           </div>
           <h1 className="page-header__title">{t('\uBE44\uC988\uB2C8\uC2A4 \uC774\uBA54\uC77C \uC791\uC131', 'Business Email Writing')}</h1>

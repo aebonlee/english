@@ -92,7 +92,7 @@ export default function VocabHome() {
         <div className="container">
           <div className="page-header__breadcrumb">
             <Link to="/">{t('홈', 'Home')}</Link>
-            <span className="breadcrumb-separator">/</span>
+            <i className="fas fa-chevron-right"></i>
             <span>{t('필수 영단어', 'Vocabulary')}</span>
           </div>
           <h1 className="page-header__title">{t('필수 영단어', 'Essential Vocabulary')}</h1>

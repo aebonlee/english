@@ -67,7 +67,7 @@ function BusinessHome() {
         <div className="container">
           <div className="page-header__breadcrumb">
             <Link to="/">{t('\uD648', 'Home')}</Link>
-            <span className="breadcrumb-separator">/</span>
+            <i className="fas fa-chevron-right"></i>
             <span>{t('\uBE44\uC988\uB2C8\uC2A4 \uC601\uC5B4', 'Business English')}</span>
           </div>
           <h1 className="page-header__title">{t('\uBE44\uC988\uB2C8\uC2A4 \uC601\uC5B4', 'Business English')}</h1>

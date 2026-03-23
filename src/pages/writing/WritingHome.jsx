@@ -56,7 +56,7 @@ function WritingHome() {
           <div className="container">
             <div className="page-header__breadcrumb">
               <Link to="/">{t('홈', 'Home')}</Link>
-              <span className="breadcrumb-separator">/</span>
+              <i className="fas fa-chevron-right"></i>
               <span>{t('영어 작문', 'Writing')}</span>
             </div>
             <h1 className="page-header__title">

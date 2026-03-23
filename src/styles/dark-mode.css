@@ -246,24 +246,6 @@
   background: var(--hero-bg);
 }
 
-[data-theme="dark"] .page-header__title,
-[data-theme="dark"] .page-header h1 {
-  color: #F9FAFB;
-}
-
-[data-theme="dark"] .page-header__subtitle,
-[data-theme="dark"] .page-header__description {
-  color: #D1D5DB;
-}
-
-[data-theme="dark"] .page-header__breadcrumb a {
-  color: #D1D5DB;
-}
-
-[data-theme="dark"] .page-header__breadcrumb a:hover {
-  color: #F9FAFB;
-}
-
 /* --- Footer --- */
 [data-theme="dark"] .footer {
   background: #0F172A;

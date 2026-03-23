@@ -26,9 +26,9 @@ function Meeting() {
         <div className="container">
           <div className="page-header__breadcrumb">
             <Link to="/">{t('\uD648', 'Home')}</Link>
-            <span className="breadcrumb-separator">/</span>
+            <i className="fas fa-chevron-right"></i>
             <Link to="/business">{t('\uBE44\uC988\uB2C8\uC2A4', 'Business')}</Link>
-            <span className="breadcrumb-separator">/</span>
+            <i className="fas fa-chevron-right"></i>
             <span>{t('\uD68C\uC758 \uC601\uC5B4', 'Meeting')}</span>
           </div>
           <h1 className="page-header__title">{t('\uD68C\uC758 \uC601\uC5B4', 'Meeting English')}</h1>
