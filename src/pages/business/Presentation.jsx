@@ -4,11 +4,21 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 function Presentation() {
   const { t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'opening', ko: '오프닝', en: 'Opening' },
+    { id: 'transition', ko: '전환 표현', en: 'Transitions' },
+    { id: 'data', ko: '데이터 설명', en: 'Data' },
+    { id: 'qa', ko: '질의응답', en: 'Q&A' },
+    { id: 'closing', ko: '마무리', en: 'Closing' },
+    { id: 'script', ko: '스크립트 예시', en: 'Script Example' },
+  ];
 
   return (
     <>
@@ -43,6 +53,7 @@ function Presentation() {
       </section>
 
       <SubNav category="business" />
+      <SectionNav sections={sections} />
       <section className="section lesson-content">
         <div className="container">
           <div className="lesson-body">
@@ -58,7 +69,7 @@ function Presentation() {
             </div>
 
 
-            <h2>{t('\uC624\uD504\uB2DD (Opening)', 'Opening')}</h2>
+            <h2 id="opening">{t('\uC624\uD504\uB2DD (Opening)', 'Opening')}</h2>
             <p>
               {t(
             '\uD504\uB808\uC820\uD14C\uC774\uC158\uC758 \uCCAB\uC778\uC0C1\uC740 \uB9E4\uC6B0 \uC911\uC694\uD569\uB2C8\uB2E4. \uC790\uAE30\uC18C\uAC1C, \uC8FC\uC81C \uC18C\uAC1C, \uBAA9\uCC28 \uC124\uBA85\uC744 \uD3EC\uD568\uD569\uB2C8\uB2E4.',
@@ -114,7 +125,7 @@ function Presentation() {
             </div>
 
 
-            <h2>{t('\uC804\uD658 \uD45C\uD604 (Transitions)', 'Transition Expressions')}</h2>
+            <h2 id="transition">{t('\uC804\uD658 \uD45C\uD604 (Transitions)', 'Transition Expressions')}</h2>
             <div className="example-box">
               <h4>{t('\uB2E4\uC74C \uC8FC\uC81C\uB85C \uC804\uD658', 'Moving to Next Topic')}</h4>
               <ul className="expression-list">
@@ -164,7 +175,7 @@ function Presentation() {
             </div>
 
 
-            <h2>{t('\uB370\uC774\uD130 \uC124\uBA85 (Describing Data)', 'Describing Data')}</h2>
+            <h2 id="data">{t('\uB370\uC774\uD130 \uC124\uBA85 (Describing Data)', 'Describing Data')}</h2>
             <div className="example-box">
               <h4>{t('\uCC28\uD2B8/\uADF8\uB798\uD504 \uC124\uBA85 \uD45C\uD604', 'Chart & Graph Expressions')}</h4>
               <ul className="expression-list">
@@ -214,7 +225,7 @@ function Presentation() {
             </div>
 
 
-            <h2>{t('\uC9C8\uC758\uC751\uB2F5 (Q&A)', 'Q&A Session')}</h2>
+            <h2 id="qa">{t('\uC9C8\uC758\uC751\uB2F5 (Q&A)', 'Q&A Session')}</h2>
             <div className="example-box">
               <h4>{t('Q&A \uD575\uC2EC \uD45C\uD604', 'Q&A Key Expressions')}</h4>
               <ul className="expression-list">
@@ -260,7 +271,7 @@ function Presentation() {
             </div>
 
 
-            <h2>{t('\uB9C8\uBB34\uB9AC (Closing)', 'Closing')}</h2>
+            <h2 id="closing">{t('\uB9C8\uBB34\uB9AC (Closing)', 'Closing')}</h2>
             <div className="example-box">
               <h4>{t('\uB9C8\uBB34\uB9AC \uD575\uC2EC \uD45C\uD604', 'Closing Key Expressions')}</h4>
               <ul className="expression-list">
@@ -288,7 +299,7 @@ function Presentation() {
             </div>
 
 
-            <h2>{t('\uD504\uB808\uC820\uD14C\uC774\uC158 \uC2A4\uD06C\uB9BD\uD2B8 \uC608\uC2DC', 'Full Presentation Script Example')}</h2>
+            <h2 id="script">{t('\uD504\uB808\uC820\uD14C\uC774\uC158 \uC2A4\uD06C\uB9BD\uD2B8 \uC608\uC2DC', 'Full Presentation Script Example')}</h2>
             <div className="example-box">
               <h4>{t('\uC8FC\uC81C: 2026\uB144 \uB514\uC9C0\uD138 \uB9C8\uCF00\uD305 \uC804\uB7B5', 'Topic: 2026 Digital Marketing Strategy')}</h4>
               <div className="dialogue">

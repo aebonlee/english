@@ -4,6 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 const essayStructure = [
   {
@@ -116,6 +117,13 @@ function Essay() {
   const [userEssay, setUserEssay] = useState('');
   const [selectedPrompt, setSelectedPrompt] = useState(0);
 
+  const sections = [
+    { id: 'structure', ko: '에세이 구조', en: 'Structure' },
+    { id: 'transitions', ko: '연결어', en: 'Transitions' },
+    { id: 'sample', ko: '샘플 에세이', en: 'Sample' },
+    { id: 'practice', ko: '에세이 연습', en: 'Practice' },
+  ];
+
   return (
     <>
       <SEOHead
@@ -148,11 +156,12 @@ function Essay() {
       </section>
 
       <SubNav category="writing" />
+      <SectionNav sections={sections} />
 
       <div className="content-page">
 
         {/* Essay Structure */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="structure" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('에세이 구조', 'Essay Structure')}
           </h2>
@@ -197,7 +206,7 @@ function Essay() {
         </section>
 
         {/* Transition Words */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="transitions" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('🔗 연결어 (Transition Words)', '🔗 Transition Words')}
           </h2>
@@ -229,7 +238,7 @@ function Essay() {
         </section>
 
         {/* Sample Essay */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="sample" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('📄 샘플 에세이', '📄 Sample Essay')}
           </h2>
@@ -259,7 +268,7 @@ function Essay() {
         </section>
 
         {/* Writing Prompts */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="practice" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('✍️ 에세이 연습', '✍️ Essay Practice')}
           </h2>

@@ -4,11 +4,22 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 export default function Restaurant() {
   const { language, t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'reservation', ko: '예약', en: 'Reservation' },
+    { id: 'ordering', ko: '주문', en: 'Ordering' },
+    { id: 'requests', ko: '특별 요청', en: 'Special Requests' },
+    { id: 'complaints', ko: '불만 표현', en: 'Complaints' },
+    { id: 'paying', ko: '계산', en: 'Paying' },
+    { id: 'summary', ko: '핵심 표현', en: 'Key Expressions' },
+    { id: 'practice', ko: '연습 문제', en: 'Practice' },
+  ];
 
   return (
     <>
@@ -43,9 +54,10 @@ export default function Restaurant() {
       </section>
 
       <SubNav category="conversation" />
+      <SectionNav sections={sections} />
 
       {/* Section 1: Reservation */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="reservation" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 예약하기 (Making a Reservation)', '1. Making a Reservation')}</h2>
           <p>
@@ -103,7 +115,7 @@ export default function Restaurant() {
       </section>
 
       {/* Section 2: Ordering */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="ordering" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 주문하기 (Ordering)', '2. Ordering')}</h2>
 
@@ -156,7 +168,7 @@ export default function Restaurant() {
       </section>
 
       {/* Section 3: Special Requests */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="requests" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('3. 특별 요청 (Special Requests)', '3. Special Requests')}</h2>
 
@@ -195,7 +207,7 @@ export default function Restaurant() {
       </section>
 
       {/* Section 4: Complaints */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="complaints" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('4. 불만 표현 (Complaints)', '4. Complaints')}</h2>
 
@@ -251,7 +263,7 @@ export default function Restaurant() {
       </section>
 
       {/* Section 5: Paying */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="paying" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('5. 계산하기 (Paying the Bill)', '5. Paying the Bill')}</h2>
 
@@ -311,7 +323,7 @@ export default function Restaurant() {
       </section>
 
       {/* Key Expressions Summary */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="summary" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('핵심 표현 정리', 'Key Expressions Summary')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -351,7 +363,7 @@ export default function Restaurant() {
       </section>
 
       {/* Practice Exercises */}
-      <section className="practice-section" data-aos="fade-up">
+      <section id="practice" className="practice-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('연습 문제', 'Practice Exercises')}</h2>
           <p>

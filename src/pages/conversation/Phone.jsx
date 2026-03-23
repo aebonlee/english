@@ -4,11 +4,22 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 export default function Phone() {
   const { language, t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'answering', ko: '전화 받기', en: 'Answering' },
+    { id: 'making', ko: '전화 걸기', en: 'Making Calls' },
+    { id: 'messages', ko: '메시지', en: 'Messages' },
+    { id: 'business', ko: '비즈니스', en: 'Business Calls' },
+    { id: 'ending', ko: '전화 끝내기', en: 'Ending Calls' },
+    { id: 'summary', ko: '핵심 표현', en: 'Key Expressions' },
+    { id: 'practice', ko: '연습 문제', en: 'Practice' },
+  ];
 
   return (
     <>
@@ -43,9 +54,10 @@ export default function Phone() {
       </section>
 
       <SubNav category="conversation" />
+      <SectionNav sections={sections} />
 
       {/* Section 1: Answering the Phone */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="answering" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 전화 받기 (Answering the Phone)', '1. Answering the Phone')}</h2>
           <p>
@@ -129,7 +141,7 @@ export default function Phone() {
       </section>
 
       {/* Section 2: Making Calls */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="making" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 전화 걸기 (Making Calls)', '2. Making Calls')}</h2>
 
@@ -180,7 +192,7 @@ export default function Phone() {
       </section>
 
       {/* Section 3: Taking Messages */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="messages" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('3. 메시지 남기기 & 받기 (Taking Messages)', '3. Taking & Leaving Messages')}</h2>
 
@@ -230,7 +242,7 @@ export default function Phone() {
       </section>
 
       {/* Section 4: Business Calls */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="business" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('4. 비즈니스 전화 (Business Calls)', '4. Business Calls')}</h2>
 
@@ -292,7 +304,7 @@ export default function Phone() {
       </section>
 
       {/* Section 5: Ending Calls */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="ending" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('5. 전화 끝내기 (Ending Calls)', '5. Ending Calls')}</h2>
 
@@ -379,7 +391,7 @@ export default function Phone() {
       </section>
 
       {/* Key Expressions Summary */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="summary" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('핵심 표현 정리', 'Key Expressions Summary')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -419,7 +431,7 @@ export default function Phone() {
       </section>
 
       {/* Practice Exercises */}
-      <section className="practice-section" data-aos="fade-up">
+      <section id="practice" className="practice-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('연습 문제', 'Practice Exercises')}</h2>
           <p>

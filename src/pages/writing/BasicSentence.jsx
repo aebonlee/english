@@ -4,6 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 const sentenceStructures = [
   {
@@ -151,6 +152,15 @@ function BasicSentence() {
     setRevealedAnswers((prev) => ({ ...prev, [exerciseId]: true }));
   };
 
+  const sections = [
+    { id: 'sv', ko: '1형식 S+V', en: 'S+V' },
+    { id: 'svc', ko: '2형식 S+V+C', en: 'S+V+C' },
+    { id: 'svo', ko: '3형식 S+V+O', en: 'S+V+O' },
+    { id: 'svoo', ko: '4형식 S+V+O+O', en: 'S+V+O+O' },
+    { id: 'svoc', ko: '5형식 S+V+O+C', en: 'S+V+O+C' },
+    { id: 'practice', ko: '연습 문제', en: 'Practice' },
+  ];
+
   return (
     <>
       <SEOHead
@@ -183,12 +193,14 @@ function BasicSentence() {
       </section>
 
       <SubNav category="writing" />
+      <SectionNav sections={sections} />
 
       <div className="content-page">
 
         {/* Sentence Structures */}
         {sentenceStructures.map((structure, index) => (
           <section
+            id={structure.id}
             key={structure.id}
             className="content-section"
             data-aos="fade-up"
@@ -220,7 +232,7 @@ function BasicSentence() {
         ))}
 
         {/* Practice Exercises */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="practice" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('📝 연습 문제', '📝 Practice Exercises')}
           </h2>

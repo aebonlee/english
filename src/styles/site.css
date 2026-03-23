@@ -2320,6 +2320,71 @@
 }
 
 /* ===================================================================
+   Section Navigation (3차 메뉴 - 페이지 내 섹션 앵커 탐색)
+   =================================================================== */
+
+.section-nav {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: calc(var(--nav-height) + 47px);
+  z-index: 89;
+}
+
+.section-nav .container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.section-nav .container::-webkit-scrollbar {
+  display: none;
+}
+
+.section-nav__list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 0;
+  min-width: max-content;
+}
+
+.section-nav__item {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+
+.section-nav__item:hover {
+  color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+}
+
+.section-nav__item--active {
+  color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .section-nav__item {
+    padding: 5px 11px;
+    font-size: 0.78rem;
+  }
+
+  .section-nav {
+    top: calc(var(--nav-height) + 42px);
+  }
+}
+
+/* ===================================================================
    Lesson Section Typography 정규화
    (.lesson-section 내 bare heading 글꼴 크기를 lesson-body 수준으로 통일)
    =================================================================== */

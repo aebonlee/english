@@ -4,11 +4,22 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 function Negotiation() {
   const { t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'opening', ko: '협상 시작', en: 'Opening' },
+    { id: 'proposals', ko: '제안하기', en: 'Proposals' },
+    { id: 'counter', ko: '반대 제안', en: 'Counter-Offers' },
+    { id: 'compromise', ko: '타협 표현', en: 'Compromise' },
+    { id: 'closing', ko: '계약 체결', en: 'Closing Deals' },
+    { id: 'dialogue', ko: '대화 예시', en: 'Dialogue' },
+    { id: 'summary', ko: '필수 표현', en: 'Key Phrases' },
+  ];
 
   return (
     <>
@@ -43,6 +54,7 @@ function Negotiation() {
       </section>
 
       <SubNav category="business" />
+      <SectionNav sections={sections} />
 
       <section className="section lesson-content">
         <div className="container">
@@ -59,7 +71,7 @@ function Negotiation() {
             </div>
 
             {/* Section 1: Opening Positions */}
-            <h2>{t('협상 시작 (Opening Positions)', 'Opening Positions')}</h2>
+            <h2 id="opening">{t('협상 시작 (Opening Positions)', 'Opening Positions')}</h2>
             <p>
               {t(
                 '협상의 첫 단계에서는 자신의 입장을 명확하게 전달하면서도 유연성을 보여주는 것이 중요합니다.',
@@ -97,7 +109,7 @@ function Negotiation() {
             </div>
 
             {/* Section 2: Making Proposals */}
-            <h2>{t('제안하기 (Making Proposals)', 'Making Proposals')}</h2>
+            <h2 id="proposals">{t('제안하기 (Making Proposals)', 'Making Proposals')}</h2>
             <div className="example-box">
               <h4>{t('제안 표현', 'Proposal Expressions')}</h4>
               <ul className="expression-list">
@@ -143,7 +155,7 @@ function Negotiation() {
             </div>
 
             {/* Section 3: Counter-Offers */}
-            <h2>{t('반대 제안 (Counter-Offers)', 'Counter-Offers')}</h2>
+            <h2 id="counter">{t('반대 제안 (Counter-Offers)', 'Counter-Offers')}</h2>
             <div className="example-box">
               <h4>{t('반대 제안 표현', 'Counter-Offer Expressions')}</h4>
               <ul className="expression-list">
@@ -175,7 +187,7 @@ function Negotiation() {
             </div>
 
             {/* Section 4: Compromise */}
-            <h2>{t('타협 표현 (Compromise Expressions)', 'Compromise Expressions')}</h2>
+            <h2 id="compromise">{t('타협 표현 (Compromise Expressions)', 'Compromise Expressions')}</h2>
             <div className="example-box">
               <h4>{t('타협점 찾기', 'Finding Middle Ground')}</h4>
               <ul className="expression-list">
@@ -221,7 +233,7 @@ function Negotiation() {
             </div>
 
             {/* Section 5: Closing Deals */}
-            <h2>{t('계약 체결 (Closing Deals)', 'Closing Deals')}</h2>
+            <h2 id="closing">{t('계약 체결 (Closing Deals)', 'Closing Deals')}</h2>
             <div className="example-box">
               <h4>{t('계약 체결 표현', 'Deal Closing Expressions')}</h4>
               <ul className="expression-list">
@@ -257,7 +269,7 @@ function Negotiation() {
             </div>
 
             {/* Example Negotiation Dialogue */}
-            <h2>{t('협상 대화 예시', 'Example Negotiation Dialogue')}</h2>
+            <h2 id="dialogue">{t('협상 대화 예시', 'Example Negotiation Dialogue')}</h2>
             <div className="example-box">
               <h4>{t('공급 계약 협상', 'Supply Contract Negotiation')}</h4>
               <div className="dialogue">
@@ -287,7 +299,7 @@ function Negotiation() {
             </div>
 
             {/* Key Negotiation Phrases Table */}
-            <h2>{t('협상 필수 표현 정리', 'Essential Negotiation Phrases')}</h2>
+            <h2 id="summary">{t('협상 필수 표현 정리', 'Essential Negotiation Phrases')}</h2>
             <div className="example-box">
               <table className="lesson-table">
                 <thead>

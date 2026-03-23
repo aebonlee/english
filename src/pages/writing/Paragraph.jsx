@@ -4,6 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 const paragraphParts = [
   {
@@ -102,6 +103,12 @@ function Paragraph() {
   const [userWriting, setUserWriting] = useState({});
   const [expandedExample, setExpandedExample] = useState(null);
 
+  const sections = [
+    { id: 'structure', ko: '문단 구조', en: 'Structure' },
+    { id: 'examples', ko: '예시 문단', en: 'Examples' },
+    { id: 'practice', ko: '작문 연습', en: 'Practice' },
+  ];
+
   return (
     <>
       <SEOHead
@@ -134,11 +141,12 @@ function Paragraph() {
       </section>
 
       <SubNav category="writing" />
+      <SectionNav sections={sections} />
 
       <div className="content-page">
 
         {/* Paragraph Structure */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="structure" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('문단의 구조', 'Paragraph Structure')}
           </h2>
@@ -180,7 +188,7 @@ function Paragraph() {
         </section>
 
         {/* Example Paragraphs */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="examples" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('📚 예시 문단', '📚 Example Paragraphs')}
           </h2>
@@ -216,7 +224,7 @@ function Paragraph() {
         </section>
 
         {/* Practice Prompts */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="practice" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('✍️ 작문 연습', '✍️ Writing Practice')}
           </h2>

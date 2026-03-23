@@ -4,11 +4,22 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 export default function Travel() {
   const { language, t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'airport', ko: '공항', en: 'Airport' },
+    { id: 'immigration', ko: '입국 심사', en: 'Immigration' },
+    { id: 'hotel', ko: '호텔', en: 'Hotel' },
+    { id: 'directions', ko: '길 찾기', en: 'Directions' },
+    { id: 'emergency', ko: '긴급 상황', en: 'Emergency' },
+    { id: 'summary', ko: '핵심 표현', en: 'Key Expressions' },
+    { id: 'practice', ko: '연습 문제', en: 'Practice' },
+  ];
 
   return (
     <>
@@ -43,9 +54,10 @@ export default function Travel() {
       </section>
 
       <SubNav category="conversation" />
+      <SectionNav sections={sections} />
 
       {/* Section 1: At the Airport */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="airport" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 공항에서 (At the Airport)', '1. At the Airport')}</h2>
           <p>
@@ -103,7 +115,7 @@ export default function Travel() {
       </section>
 
       {/* Section 2: Immigration */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="immigration" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 입국 심사 (Immigration)', '2. Immigration')}</h2>
 
@@ -165,7 +177,7 @@ export default function Travel() {
       </section>
 
       {/* Section 3: Hotel Check-in */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="hotel" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('3. 호텔 체크인 (Hotel Check-in)', '3. Hotel Check-in')}</h2>
 
@@ -218,7 +230,7 @@ export default function Travel() {
       </section>
 
       {/* Section 4: Asking Directions */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="directions" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('4. 길 찾기 (Asking Directions)', '4. Asking Directions')}</h2>
 
@@ -269,7 +281,7 @@ export default function Travel() {
       </section>
 
       {/* Section 5: Emergency */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="emergency" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('5. 긴급 상황 (Emergency)', '5. Emergency Situations')}</h2>
 
@@ -330,7 +342,7 @@ export default function Travel() {
       </section>
 
       {/* Key Expressions Summary */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="summary" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('핵심 표현 정리', 'Key Expressions Summary')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -370,7 +382,7 @@ export default function Travel() {
       </section>
 
       {/* Practice Exercises */}
-      <section className="practice-section" data-aos="fade-up">
+      <section id="practice" className="practice-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('연습 문제', 'Practice Exercises')}</h2>
           <p>

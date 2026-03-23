@@ -4,11 +4,20 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 function EmailWriting() {
   const { t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'structure', ko: '이메일 구조', en: 'Structure' },
+    { id: 'opening', ko: '시작 표현', en: 'Opening' },
+    { id: 'closing', ko: '마무리 표현', en: 'Closing' },
+    { id: 'templates', ko: '템플릿', en: 'Templates' },
+    { id: 'tone', ko: '톤 구분', en: 'Tone Guide' },
+  ];
 
   return (
     <>
@@ -43,6 +52,7 @@ function EmailWriting() {
       </section>
 
       <SubNav category="business" />
+      <SectionNav sections={sections} />
 
       <section className="section lesson-content">
         <div className="container">
@@ -59,7 +69,7 @@ function EmailWriting() {
             </div>
 
             {/* Section 1: Email Structure */}
-            <h2>{t('\uC774\uBA54\uC77C \uAD6C\uC870 (Email Structure)', 'Email Structure')}</h2>
+            <h2 id="structure">{t('\uC774\uBA54\uC77C \uAD6C\uC870 (Email Structure)', 'Email Structure')}</h2>
             <p>
               {t(
                 '\uBE44\uC988\uB2C8\uC2A4 \uC774\uBA54\uC77C\uC740 \uBA85\uD655\uD55C \uAD6C\uC870\uB97C \uB530\uB985\uB2C8\uB2E4. \uAC01 \uBD80\uBD84\uC758 \uC5ED\uD560\uC744 \uC774\uD574\uD558\uBA74 \uD6A8\uACFC\uC801\uC778 \uC774\uBA54\uC77C\uC744 \uC791\uC131\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.',
@@ -111,7 +121,7 @@ function EmailWriting() {
             </div>
 
             {/* Section 2: Opening Expressions */}
-            <h2>{t('\uC774\uBA54\uC77C \uC2DC\uC791 \uD45C\uD604 (Opening Expressions)', 'Opening Expressions')}</h2>
+            <h2 id="opening">{t('\uC774\uBA54\uC77C \uC2DC\uC791 \uD45C\uD604 (Opening Expressions)', 'Opening Expressions')}</h2>
             <div className="example-box">
               <h4>{t('\uBAA9\uC801 \uC804\uB2EC', 'Stating Purpose')}</h4>
               <ul className="expression-list">
@@ -175,7 +185,7 @@ function EmailWriting() {
             </div>
 
             {/* Section 3: Closing Expressions */}
-            <h2>{t('\uC774\uBA54\uC77C \uB9C8\uBB34\uB9AC \uD45C\uD604 (Closing Expressions)', 'Closing Expressions')}</h2>
+            <h2 id="closing">{t('\uC774\uBA54\uC77C \uB9C8\uBB34\uB9AC \uD45C\uD604 (Closing Expressions)', 'Closing Expressions')}</h2>
             <div className="example-box">
               <h4>{t('\uC694\uCCAD/\uD589\uB3D9 \uC720\uB3C4', 'Requesting / Prompting Action')}</h4>
               <ul className="expression-list">
@@ -229,7 +239,7 @@ function EmailWriting() {
             </div>
 
             {/* Section 4: Email Templates */}
-            <h2>{t('\uC774\uBA54\uC77C \uD15C\uD50C\uB9BF (Email Templates)', 'Email Templates')}</h2>
+            <h2 id="templates">{t('\uC774\uBA54\uC77C \uD15C\uD50C\uB9BF (Email Templates)', 'Email Templates')}</h2>
 
             {/* Template 1: Meeting Request */}
             <div className="example-box">
@@ -342,7 +352,7 @@ function EmailWriting() {
             </div>
 
             {/* Section 5: Tone Tips */}
-            <h2>{t('\uD1A4 \uAD6C\uBCC4 (Formal vs. Semi-Formal)', 'Tone Guide (Formal vs. Semi-Formal)')}</h2>
+            <h2 id="tone">{t('\uD1A4 \uAD6C\uBCC4 (Formal vs. Semi-Formal)', 'Tone Guide (Formal vs. Semi-Formal)')}</h2>
             <div className="example-box">
               <h4>{t('\uAC19\uC740 \uC758\uBBF8, \uB2E4\uB978 \uD1A4', 'Same Meaning, Different Tone')}</h4>
               <table className="lesson-table">

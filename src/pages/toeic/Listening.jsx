@@ -4,6 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 import { listeningQuestions } from '../../data/toeicData';
 
 const partOverviews = [
@@ -86,6 +87,12 @@ function Listening() {
     setRevealedAnswers((prev) => ({ ...prev, [questionId]: true }));
   };
 
+  const sections = [
+    { id: 'parts', ko: 'Part 1-4', en: 'Parts 1-4' },
+    { id: 'tips', ko: '핵심 팁', en: 'Key Tips' },
+    { id: 'practice', ko: '연습 문제', en: 'Practice' },
+  ];
+
   return (
     <>
       <SEOHead
@@ -115,10 +122,12 @@ function Listening() {
       </section>
 
       <SubNav category="toeic" />
+      <SectionNav sections={sections} />
 
       <div className="content-page">
 
         {/* Part Overviews */}
+        <div id="parts">
         {partOverviews.map((part, index) => (
           <section
             key={part.part}
@@ -149,9 +158,10 @@ function Listening() {
             </div>
           </section>
         ))}
+        </div>
 
         {/* Key Listening Tips */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="tips" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('🎯 핵심 듣기 팁', '🎯 Key Listening Tips')}
           </h2>
@@ -188,7 +198,7 @@ function Listening() {
         </section>
 
         {/* Practice Exercises */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="practice" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('📝 연습 문제', '📝 Practice Exercises')}
           </h2>

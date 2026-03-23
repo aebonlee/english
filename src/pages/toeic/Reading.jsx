@@ -4,6 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 import { readingQuestions } from '../../data/toeicData';
 
 const partOverviews = [
@@ -86,6 +87,12 @@ function Reading() {
     setRevealedAnswers((prev) => ({ ...prev, [questionId]: true }));
   };
 
+  const sections = [
+    { id: 'parts', ko: 'Part 5-7', en: 'Parts 5-7' },
+    { id: 'confused', ko: '혼동 어휘', en: 'Confused Words' },
+    { id: 'practice', ko: '연습 문제', en: 'Practice' },
+  ];
+
   return (
     <>
       <SEOHead
@@ -115,10 +122,12 @@ function Reading() {
       </section>
 
       <SubNav category="toeic" />
+      <SectionNav sections={sections} />
 
       <div className="content-page">
 
         {/* Part Overviews */}
+        <div id="parts">
         {partOverviews.map((part, index) => (
           <section
             key={part.part}
@@ -161,9 +170,10 @@ function Reading() {
             </div>
           </section>
         ))}
+        </div>
 
         {/* Vocabulary Tips */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="confused" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('📚 자주 혼동되는 어휘', '📚 Commonly Confused Words')}
           </h2>
@@ -188,7 +198,7 @@ function Reading() {
         </section>
 
         {/* Practice Exercises */}
-        <section className="content-section" data-aos="fade-up">
+        <section id="practice" className="content-section" data-aos="fade-up">
           <h2 className="content-section__title">
             {t('📝 연습 문제', '📝 Practice Exercises')}
           </h2>

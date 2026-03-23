@@ -4,11 +4,22 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 function Interview() {
   const { t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'selfintro', ko: '자기소개', en: 'Self-Intro' },
+    { id: 'strengths', ko: '장단점', en: 'Strengths' },
+    { id: 'experience', ko: '경력 설명', en: 'Experience' },
+    { id: 'star', ko: 'STAR 방법', en: 'STAR Method' },
+    { id: 'questions', ko: '면접관 질문', en: 'Questions' },
+    { id: 'salary', ko: '연봉 협상', en: 'Salary' },
+    { id: 'examples', ko: 'Q&A 예시', en: 'Q&A Examples' },
+  ];
 
   return (
     <>
@@ -43,6 +54,7 @@ function Interview() {
       </section>
 
       <SubNav category="business" />
+      <SectionNav sections={sections} />
 
       <section className="section lesson-content">
         <div className="container">
@@ -60,7 +72,7 @@ function Interview() {
             </div>
     {/* Section 1: Self-Introduction */}
 
-            <h2>{t('\uC790\uAE30\uC18C\uAC1C (Self-Introduction)', 'Self-Introduction')}</h2>
+            <h2 id="selfintro">{t('\uC790\uAE30\uC18C\uAC1C (Self-Introduction)', 'Self-Introduction')}</h2>
             <p>
               {t(
                 '\uBA74\uC811\uC758 \uCCAB \uC778\uC0C1\uC744 \uACB0\uC815\uD558\uB294 \uC790\uAE30\uC18C\uAC1C\uB294 \uAC04\uACB0\uD558\uBA74\uC11C\uB3C4 \uC778\uC0C1 \uAE4A\uAC8C \uC900\uBE44\uD574\uC57C \uD569\uB2C8\uB2E4. 1-2\uBD84 \uB0B4\uB85C \uC815\uB9AC\uD558\uC138\uC694.',
@@ -118,7 +130,7 @@ function Interview() {
 
           {/* Section 2: Strengths & Weaknesses */}
 
-            <h2>{t('\uC7A5\uC810 & \uB2E8\uC810 (Strengths & Weaknesses)', 'Strengths & Weaknesses')}</h2>
+            <h2 id="strengths">{t('\uC7A5\uC810 & \uB2E8\uC810 (Strengths & Weaknesses)', 'Strengths & Weaknesses')}</h2>
             <div className="example-box">
               <h4>{t('\uC7A5\uC810 \uD45C\uD604', 'Expressing Strengths')}</h4>
               <ul className="expression-list">
@@ -179,7 +191,7 @@ function Interview() {
 
           {/* Section 3: Experience Description */}
 
-            <h2>{t('\uACBD\uB825 \uC124\uBA85 (Experience Description)', 'Experience Description')}</h2>
+            <h2 id="experience">{t('\uACBD\uB825 \uC124\uBA85 (Experience Description)', 'Experience Description')}</h2>
             <div className="example-box">
               <h4>{t('\uACBD\uB825 \uC124\uBA85 \uD45C\uD604', 'Experience Description Expressions')}</h4>
               <ul className="expression-list">
@@ -212,7 +224,7 @@ function Interview() {
 
           {/* Section 4: STAR Method */}
 
-            <h2>{t('STAR 방법 (Tell me about a time when...)', 'STAR Method (Tell me about a time when...)')}</h2>
+            <h2 id="star">{t('STAR 방법 (Tell me about a time when...)', 'STAR Method (Tell me about a time when...)')}</h2>
             <p>
               {t(
                 '\uD589\uB3D9 \uAE30\uBC18 \uC9C8\uBB38\uC5D0\uB294 STAR \uBC29\uBC95\uC73C\uB85C \uB2F5\uBCC0\uD558\uC138\uC694: Situation(\uC0C1\uD669), Task(\uACFC\uC81C), Action(\uD589\uB3D9), Result(\uACB0\uACFC)',
@@ -254,7 +266,7 @@ function Interview() {
 
           {/* Section 5: Questions to Ask */}
 
-            <h2>{t('\uBA74\uC811\uAD00\uC5D0\uAC8C \uD560 \uC9C8\uBB38 (Questions to Ask)', 'Questions to Ask the Interviewer')}</h2>
+            <h2 id="questions">{t('\uBA74\uC811\uAD00\uC5D0\uAC8C \uD560 \uC9C8\uBB38 (Questions to Ask)', 'Questions to Ask the Interviewer')}</h2>
             <div className="example-box">
               <h4>{t('\uCD94\uCC9C \uC9C8\uBB38 \uBAA9\uB85D', 'Recommended Questions')}</h4>
               <ul className="expression-list">
@@ -301,7 +313,7 @@ function Interview() {
 
           {/* Section 6: Salary Negotiation */}
 
-            <h2>{t('\uC5F0\uBD09 \uD611\uC0C1 (Salary Negotiation)', 'Salary Negotiation')}</h2>
+            <h2 id="salary">{t('\uC5F0\uBD09 \uD611\uC0C1 (Salary Negotiation)', 'Salary Negotiation')}</h2>
             <div className="example-box">
               <h4>{t('\uC5F0\uBD09 \uD611\uC0C1 \uD45C\uD604', 'Salary Negotiation Expressions')}</h4>
               <ul className="expression-list">
@@ -344,7 +356,7 @@ function Interview() {
 
           {/* Section 7: Example Interview Q&A */}
 
-            <h2>{t('\uBA74\uC811 Q&A \uC608\uC2DC (10+ \uC9C8\uBB38)', 'Interview Q&A Examples (10+ Questions)')}</h2>
+            <h2 id="examples">{t('\uBA74\uC811 Q&A \uC608\uC2DC (10+ \uC9C8\uBB38)', 'Interview Q&A Examples (10+ Questions)')}</h2>
 
             <div className="example-box">
               <h4>Q1: "Tell me about yourself."</h4>

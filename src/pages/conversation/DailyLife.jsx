@@ -4,11 +4,22 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 export default function DailyLife() {
   const { language, t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'morning', ko: '아침 루틴', en: 'Morning Routine' },
+    { id: 'weather', ko: '날씨', en: 'Weather' },
+    { id: 'plans', ko: '약속 잡기', en: 'Making Plans' },
+    { id: 'home', ko: '집에서', en: 'At Home' },
+    { id: 'help', ko: '도움 요청', en: 'Asking Help' },
+    { id: 'summary', ko: '핵심 표현', en: 'Key Expressions' },
+    { id: 'practice', ko: '연습 문제', en: 'Practice' },
+  ];
 
   return (
     <>
@@ -43,9 +54,10 @@ export default function DailyLife() {
       </section>
 
       <SubNav category="conversation" />
+      <SectionNav sections={sections} />
 
       {/* Section 1: Morning Routine */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="morning" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 아침 루틴 (Morning Routine)', '1. Morning Routine')}</h2>
           <p>
@@ -99,7 +111,7 @@ export default function DailyLife() {
       </section>
 
       {/* Section 2: Weather Talk */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="weather" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 날씨 이야기 (Weather Talk)', '2. Weather Talk')}</h2>
           <p>
@@ -162,7 +174,7 @@ export default function DailyLife() {
       </section>
 
       {/* Section 3: Making Plans */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="plans" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('3. 약속 잡기 (Making Plans)', '3. Making Plans')}</h2>
           <p>
@@ -219,7 +231,7 @@ export default function DailyLife() {
       </section>
 
       {/* Section 4: At Home */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="home" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('4. 집에서 (At Home)', '4. At Home')}</h2>
           <p>
@@ -275,7 +287,7 @@ export default function DailyLife() {
       </section>
 
       {/* Section 5: Asking for Help */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="help" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('5. 도움 요청하기 (Asking for Help)', '5. Asking for Help')}</h2>
           <p>
@@ -341,7 +353,7 @@ export default function DailyLife() {
       </section>
 
       {/* Key Expressions Summary */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="summary" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('핵심 표현 정리', 'Key Expressions Summary')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -381,7 +393,7 @@ export default function DailyLife() {
       </section>
 
       {/* Practice Exercises */}
-      <section className="practice-section" data-aos="fade-up">
+      <section id="practice" className="practice-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('연습 문제', 'Practice Exercises')}</h2>
           <p>

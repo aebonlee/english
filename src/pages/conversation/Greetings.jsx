@@ -4,11 +4,20 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 export default function Greetings() {
   const { language, t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'greetings', ko: '기본 인사', en: 'Basic Greetings' },
+    { id: 'intro', ko: '자기소개', en: 'Self-Introduction' },
+    { id: 'conversation', ko: '실전 대화', en: 'Real Conversations' },
+    { id: 'summary', ko: '핵심 표현', en: 'Key Expressions' },
+    { id: 'practice', ko: '연습 문제', en: 'Practice' },
+  ];
 
   return (
     <>
@@ -43,9 +52,10 @@ export default function Greetings() {
       </section>
 
       <SubNav category="conversation" />
+      <SectionNav sections={sections} />
 
       {/* Section 1: 기본 인사 */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="greetings" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 기본 인사', '1. Basic Greetings')}</h2>
           <p>
@@ -173,7 +183,7 @@ export default function Greetings() {
       </section>
 
       {/* Section 2: 자기소개 */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="intro" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 자기소개', '2. Self-Introduction')}</h2>
           <p>
@@ -251,7 +261,7 @@ export default function Greetings() {
       </section>
 
       {/* Section 3: 실전 대화 */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="conversation" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('3. 실전 대화', '3. Real Conversations')}</h2>
           <p>
@@ -322,7 +332,7 @@ export default function Greetings() {
       </section>
 
       {/* Section 4: 핵심 표현 정리 */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="summary" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('4. 핵심 표현 정리', '4. Key Expressions Summary')}</h2>
           <p>
@@ -369,7 +379,7 @@ export default function Greetings() {
       </section>
 
       {/* Section 5: 연습 문제 */}
-      <section className="practice-section" data-aos="fade-up">
+      <section id="practice" className="practice-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('5. 연습 문제', '5. Practice Exercises')}</h2>
           <p>

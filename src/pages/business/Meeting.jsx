@@ -4,11 +4,22 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 function Meeting() {
   const { t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'start', ko: '회의 시작', en: 'Starting' },
+    { id: 'opinions', ko: '의견 제시', en: 'Opinions' },
+    { id: 'agree', ko: '동의 & 반대', en: 'Agree/Disagree' },
+    { id: 'action', ko: '행동 항목', en: 'Action Items' },
+    { id: 'wrap', ko: '마무리', en: 'Wrapping Up' },
+    { id: 'dialogue', ko: '대화 예시', en: 'Dialogue' },
+    { id: 'summary', ko: '필수 표현', en: 'Key Phrases' },
+  ];
 
   return (
     <>
@@ -43,6 +54,7 @@ function Meeting() {
       </section>
 
       <SubNav category="business" />
+      <SectionNav sections={sections} />
 
       <section className="section lesson-content">
         <div className="container">
@@ -58,7 +70,7 @@ function Meeting() {
               </ul>
             </div>
 
-            <h2>{t('\uD68C\uC758 \uC2DC\uC791\uD558\uAE30 (Starting a Meeting)', 'Starting a Meeting')}</h2>
+            <h2 id="start">{t('\uD68C\uC758 \uC2DC\uC791\uD558\uAE30 (Starting a Meeting)', 'Starting a Meeting')}</h2>
             <div className="example-box">
               <h4>{t('\uD68C\uC758 \uC2DC\uC791 \uD45C\uD604', 'Meeting Opening Expressions')}</h4>
               <ul className="expression-list">
@@ -101,7 +113,7 @@ function Meeting() {
               </div>
             </div>
           
-            <h2>{t('\uC758\uACAC \uC81C\uC2DC\uD558\uAE30 (Giving Opinions)', 'Giving Opinions')}</h2>
+            <h2 id="opinions">{t('\uC758\uACAC \uC81C\uC2DC\uD558\uAE30 (Giving Opinions)', 'Giving Opinions')}</h2>
             <div className="example-box">
               <h4>{t('\uC758\uACAC \uC81C\uC2DC \uD45C\uD604', 'Opinion Expressions')}</h4>
               <ul className="expression-list">
@@ -146,7 +158,7 @@ function Meeting() {
               </p>
             </div>
           
-            <h2>{t('\uB3D9\uC758 & \uC815\uC911\uD55C \uBC18\uB300 (Agreeing & Disagreeing)', 'Agreeing & Disagreeing Politely')}</h2>
+            <h2 id="agree">{t('\uB3D9\uC758 & \uC815\uC911\uD55C \uBC18\uB300 (Agreeing & Disagreeing)', 'Agreeing & Disagreeing Politely')}</h2>
 
             <div className="example-box">
               <h4>{t('\uB3D9\uC758 \uD45C\uD604', 'Agreeing Expressions')}</h4>
@@ -218,7 +230,7 @@ function Meeting() {
               </p>
             </div>
           
-            <h2>{t('\uD589\uB3D9 \uD56D\uBAA9 \uC815\uB9AC (Action Items)', 'Action Items')}</h2>
+            <h2 id="action">{t('\uD589\uB3D9 \uD56D\uBAA9 \uC815\uB9AC (Action Items)', 'Action Items')}</h2>
             <div className="example-box">
               <h4>{t('\uD589\uB3D9 \uD56D\uBAA9 \uAD00\uB828 \uD45C\uD604', 'Action Item Expressions')}</h4>
               <ul className="expression-list">
@@ -249,7 +261,7 @@ function Meeting() {
               </ul>
             </div>
           
-            <h2>{t('\uD68C\uC758 \uB9C8\uBB34\uB9AC (Wrapping Up)', 'Wrapping Up a Meeting')}</h2>
+            <h2 id="wrap">{t('\uD68C\uC758 \uB9C8\uBB34\uB9AC (Wrapping Up)', 'Wrapping Up a Meeting')}</h2>
             <div className="example-box">
               <h4>{t('\uD68C\uC758 \uB9C8\uBB34\uB9AC \uD45C\uD604', 'Meeting Closing Expressions')}</h4>
               <ul className="expression-list">
@@ -280,7 +292,7 @@ function Meeting() {
               </ul>
             </div>
           
-            <h2>{t('\uD68C\uC758 \uB300\uD654 \uC608\uC2DC', 'Example Meeting Dialogue')}</h2>
+            <h2 id="dialogue">{t('\uD68C\uC758 \uB300\uD654 \uC608\uC2DC', 'Example Meeting Dialogue')}</h2>
             <div className="example-box">
               <h4>{t('\uC2E0\uC81C\uD488 \uCD9C\uC2DC \uD0C0\uC784\uB77C\uC778 \uD68C\uC758', 'New Product Launch Timeline Meeting')}</h4>
               <div className="dialogue">
@@ -297,7 +309,7 @@ function Meeting() {
               </div>
             </div>
           
-            <h2>{t('\uD68C\uC758 \uD544\uC218 \uD45C\uD604 \uC815\uB9AC', 'Essential Meeting Phrases Summary')}</h2>
+            <h2 id="summary">{t('\uD68C\uC758 \uD544\uC218 \uD45C\uD604 \uC815\uB9AC', 'Essential Meeting Phrases Summary')}</h2>
             <div className="example-box">
               <h4>{t('\uC0C1\uD669\uBCC4 \uD575\uC2EC \uD45C\uD604', 'Key Phrases by Situation')}</h4>
               <table className="lesson-table">

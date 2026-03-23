@@ -4,11 +4,21 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
+import SectionNav from '../../components/SectionNav';
 
 export default function Shopping() {
   const { language, t } = useLanguage();
   const [showAnswers, setShowAnswers] = useState(false);
   useAOS();
+
+  const sections = [
+    { id: 'store', ko: '매장에서', en: 'At Store' },
+    { id: 'paying', ko: '결제', en: 'Paying' },
+    { id: 'online', ko: '온라인 쇼핑', en: 'Online Shopping' },
+    { id: 'returns', ko: '반품 & 교환', en: 'Returns' },
+    { id: 'summary', ko: '핵심 표현', en: 'Key Expressions' },
+    { id: 'practice', ko: '연습 문제', en: 'Practice' },
+  ];
 
   return (
     <>
@@ -43,9 +53,10 @@ export default function Shopping() {
       </section>
 
       <SubNav category="conversation" />
+      <SectionNav sections={sections} />
 
       {/* Section 1: At a Store */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="store" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('1. 매장에서 (At a Store)', '1. At a Store')}</h2>
           <p>
@@ -114,7 +125,7 @@ export default function Shopping() {
       </section>
 
       {/* Section 2: Paying */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="paying" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('2. 결제하기 (Paying)', '2. Paying')}</h2>
 
@@ -165,7 +176,7 @@ export default function Shopping() {
       </section>
 
       {/* Section 3: Online Shopping */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="online" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('3. 온라인 쇼핑 (Online Shopping)', '3. Online Shopping')}</h2>
 
@@ -216,7 +227,7 @@ export default function Shopping() {
       </section>
 
       {/* Section 4: Returns & Exchanges */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="returns" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('4. 반품 & 교환 (Returns & Exchanges)', '4. Returns & Exchanges')}</h2>
 
@@ -276,7 +287,7 @@ export default function Shopping() {
       </section>
 
       {/* Key Expressions Summary */}
-      <section className="lesson-section" data-aos="fade-up">
+      <section id="summary" className="lesson-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('핵심 표현 정리', 'Key Expressions Summary')}</h2>
           <div className="example-box" data-aos="fade-up">
@@ -316,7 +327,7 @@ export default function Shopping() {
       </section>
 
       {/* Practice Exercises */}
-      <section className="practice-section" data-aos="fade-up">
+      <section id="practice" className="practice-section" data-aos="fade-up">
         <div className="container">
           <h2>{t('연습 문제', 'Practice Exercises')}</h2>
           <p>
