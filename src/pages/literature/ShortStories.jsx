@@ -186,7 +186,7 @@ export default function ShortStories() {
         )}
       />
 
-      <section className="page-header" data-aos="fade-up">
+      <section className="page-header">
         <div className="container">
           <div className="page-header__breadcrumb">
             <Link to="/">{t('홈', 'Home')}</Link>
