@@ -177,7 +177,7 @@ export default function Poetry() {
   const tts = useTTS();
 
   return (
-    <PageLayout category="literature">
+    <>
       <SEOHead
         title={t('영미시 - 영문학 TTS - English Pro', 'Poetry - Literature TTS - English Pro')}
         description={t(
@@ -186,32 +186,44 @@ export default function Poetry() {
         )}
       />
 
-      <div className="content-page">
-        <div className="content-page__header">
-          <Link to="/literature" className="content-page__back">
-            <i className="fas fa-arrow-left"></i> {t('영문학 TTS', 'Literature TTS')}
-          </Link>
-          <h1 className="content-page__title">{t('영미시 (Poetry)', 'Poetry')}</h1>
-          <p className="content-page__subtitle">
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <Link to="/literature">{t('영문학 TTS', 'Literature TTS')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <span>{t('영미시', 'Poetry')}</span>
+          </div>
+          <h1 className="page-header__title">
+            {language === 'ko'
+              ? <>영미시 <span className="page-header__en">(Poetry)</span></>
+              : 'Poetry'}
+          </h1>
+          <p className="page-header__description">
             {t(
               '저작권이 풀린 영미 명시 9편을 원문과 번역, TTS 음성으로 감상하세요.',
               'Enjoy 9 classic public-domain poems with original text, translation, and TTS audio.'
             )}
           </p>
         </div>
+      </section>
 
-        <div className="literature-list">
-          {poetryWorks.map(work => (
-            <LiteratureCard
-              key={work.id}
-              work={work}
-              tts={tts}
-              t={t}
-              language={language}
-            />
-          ))}
+      <PageLayout category="literature">
+        <div className="content-page">
+          <div className="literature-list">
+            {poetryWorks.map(work => (
+              <LiteratureCard
+                key={work.id}
+                work={work}
+                tts={tts}
+                t={t}
+                language={language}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </PageLayout>
+      </PageLayout>
+    </>
   );
 }

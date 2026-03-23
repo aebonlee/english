@@ -177,7 +177,7 @@ export default function ShortStories() {
   const tts = useTTS();
 
   return (
-    <PageLayout category="literature">
+    <>
       <SEOHead
         title={t('단편 & 명연설 - 영문학 TTS - English Pro', 'Short Stories & Speeches - Literature TTS - English Pro')}
         description={t(
@@ -186,32 +186,44 @@ export default function ShortStories() {
         )}
       />
 
-      <div className="content-page">
-        <div className="content-page__header">
-          <Link to="/literature" className="content-page__back">
-            <i className="fas fa-arrow-left"></i> {t('영문학 TTS', 'Literature TTS')}
-          </Link>
-          <h1 className="content-page__title">{t('단편 & 명연설', 'Short Stories & Speeches')}</h1>
-          <p className="content-page__subtitle">
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <Link to="/literature">{t('영문학 TTS', 'Literature TTS')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <span>{t('단편 & 명연설', 'Stories & Speeches')}</span>
+          </div>
+          <h1 className="page-header__title">
+            {language === 'ko'
+              ? <>단편 & 명연설 <span className="page-header__en">(Short Stories & Speeches)</span></>
+              : 'Short Stories & Speeches'}
+          </h1>
+          <p className="page-header__description">
             {t(
               '이솝 우화, O. 헨리 단편, 역사적 명연설을 원문과 번역, TTS 음성으로 감상하세요.',
               'Enjoy Aesop\'s Fables, O. Henry stories, and historic speeches with original text, translation, and TTS.'
             )}
           </p>
         </div>
+      </section>
 
-        <div className="literature-list">
-          {proseWorks.map(work => (
-            <LiteratureCard
-              key={work.id}
-              work={work}
-              tts={tts}
-              t={t}
-              language={language}
-            />
-          ))}
+      <PageLayout category="literature">
+        <div className="content-page">
+          <div className="literature-list">
+            {proseWorks.map(work => (
+              <LiteratureCard
+                key={work.id}
+                work={work}
+                tts={tts}
+                t={t}
+                language={language}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </PageLayout>
+      </PageLayout>
+    </>
   );
 }
