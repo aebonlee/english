@@ -1,35 +1,57 @@
 # English Pro - Development Log
 
-## 2026-03-24: SubNav 사이드바 드롭다운 통합 + ToC 가독성 개선 + 타이틀 영문 축소
+## 2026-03-24: 사이드바 트리 네비게이션 통합 + ToC 가독성 개선 + 타이틀 영문 축소
 
 ### Summary
-데스크톱에서 SubNav(2차 메뉴)를 사이드바 상단 접기/펼치기 드롭다운으로 통합하고, ToC 줄간격 가독성을 개선하며, 페이지 타이틀의 영문 괄호 부분을 0.7em으로 축소했습니다.
+데스크톱 사이드바에 2차 메뉴(SubNav)와 3차 메뉴(섹션 앵커)를 통합 트리 네비게이션으로 구현했습니다. 현재 페이지의 2차 메뉴 항목 아래에 3차 메뉴(페이지 내 섹션)가 드롭다운으로 표시됩니다. 또한 ToC 줄간격 가독성을 개선하고, 페이지 타이틀의 영문 괄호 부분을 0.7em으로 축소했습니다.
 
 ### Problem
 - SubNav가 page-header 아래 독립적 가로 바로 표시되어 사이드바와의 연결성이 약함
+- ToC와 카테고리 네비게이션이 분리되어 시각적 통일성이 부족함
 - ToC 항목 간 줄간격이 좁아 가독성이 떨어짐
 - 한글 타이틀에 포함된 영문 괄호 부분이 너무 커서 시각적 비중이 과함
 
 ### Changes Made
 
-#### 1. SubNav → 사이드바 드롭다운 (`PageLayout.jsx`)
+#### 1. 통합 트리 네비게이션 (`PageLayout.jsx`)
 - `category` prop 추가, `navData`/`categoryTitles`를 SubNav에서 import
-- 데스크톱: 사이드바 상단에 카테고리 드롭다운(접기/펼치기) + ToC 2단 구조
-- 모바일: `.sub-nav-mobile` div로 기존 SubNav 가로 바 유지
-- 현재 페이지 하이라이트 (`sidebar-nav__link--active`)
-- `useState`로 토글 상태 관리 (기본: 펼침)
+- 데스크톱: 2차 메뉴 + 3차 메뉴를 하나의 통합 트리로 구성
+  - 카테고리 헤더 토글(접기/펼치기) → 2차 메뉴 항목 나열
+  - 현재 페이지(활성 항목)는 `sidebar-nav__link--active`로 하이라이트
+  - 현재 페이지 아래에 3차 메뉴(섹션 앵커) 드롭다운 표시
+  - 비활성 항목은 `<Link>`로 다른 페이지 이동
+- 모바일: `.sub-nav-mobile`로 기존 SubNav 가로 바 유지
+- `category` 없는 페이지는 기존 ToC 목차 표시 (fallback)
+- IntersectionObserver로 활성 섹션 자동 추적, 활성 항목 자동 스크롤
+
+```
+┌───────────────────────┐
+│ 일상 회화            ▾ │  ← 카테고리 헤더 (토글)
+│   인사 & 소개          │  ← 현재 페이지 (하이라이트)
+│   ├ 기본 인사          │  ← 3차 메뉴 (섹션 앵커)
+│   ├ 자기소개           │
+│   ├ 실전 대화          │
+│   └ 핵심 표현          │
+│   일상생활             │  ← 다른 페이지 (Link)
+│   쇼핑                │
+│   여행                │
+└───────────────────────┘
+```
 
 #### 2. SubNav.jsx 수정
 - `navData`, `categoryTitles` export 추가 (PageLayout에서 import용)
 
 #### 3. CSS 수정 (`site.css`)
 - `.sidebar-nav` 카테고리 네비게이션 스타일 신규 추가
+- `.sidebar-nav__sections` 3차 메뉴 스타일 (좌측 border-left 라인, 들여쓰기)
+- `.sidebar-nav__section-link` 섹션 링크 스타일 (0.8rem, active 하이라이트)
 - `.toc-list` gap: `var(--space-xs)` → `4px`, `.toc-link` padding: `10px 14px`, `line-height: 1.5`
 - `.sub-nav-mobile` 데스크톱 숨김 / 모바일 표시 규칙 추가
 - `.page-header__en` 영문 스타일 추가 (`font-size: 0.7em`, `font-weight: 400`, `opacity: 0.85`)
 
 #### 4. 다크모드 (`dark-mode.css`)
 - `.sidebar-nav`, `.sidebar-nav__toggle`, `.sidebar-nav__link` 다크모드 오버라이드
+- `.sidebar-nav__sections`, `.sidebar-nav__section-link` 다크모드 오버라이드
 
 #### 5. 16개 PageLayout 페이지 수정
 - SubNav import 제거, `category` prop을 PageLayout에 전달
@@ -43,12 +65,6 @@
 - **수정:** `src/components/PageLayout.jsx`, `src/components/SubNav.jsx`
 - **수정:** `src/styles/site.css`, `src/styles/dark-mode.css`
 - **수정:** 16개 페이지 JSX 파일
-
-### Build Result
-- Build successful (vite v8.0.1, 586ms)
-- 167.51 KB CSS (26.80 KB gzip)
-- PageLayout.js 3.73 KB (1.33 KB gzip)
-- SubNav.js 2.54 KB (1.19 KB gzip)
 
 ---
 
