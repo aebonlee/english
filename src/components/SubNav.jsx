@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -39,12 +40,38 @@ export default function SubNav({ category }) {
   const { t } = useLanguage();
   const { pathname } = useLocation();
   const items = navData[category];
+  const scrollRef = useRef(null);
+  const [fadeLeft, setFadeLeft] = useState(false);
+  const [fadeRight, setFadeRight] = useState(false);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setFadeLeft(el.scrollLeft > 4);
+    setFadeRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, [checkScroll]);
 
   if (!items) return null;
 
+  const cls = ['sub-nav'];
+  if (fadeLeft) cls.push('sub-nav--fade-left');
+  if (fadeRight) cls.push('sub-nav--fade-right');
+
   return (
-    <nav className="sub-nav">
-      <div className="container">
+    <nav className={cls.join(' ')}>
+      <div className="container" ref={scrollRef}>
         <div className="sub-nav__list">
           {items.map((item) => (
             <Link

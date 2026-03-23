@@ -1,5 +1,36 @@
 # English Pro - 변경 이력 (CHANGELOG)
 
+## v2.3.0 (2026-03-24)
+
+### SubNav / SectionNav 프리미엄 디자인 리뉴얼
+
+**SubNav → Glass Underline Tab:**
+- 글래스모피즘 배경 (`backdrop-filter: blur(12px)`) + 미세 box-shadow
+- pill 버튼 제거 → 클린한 탭 스타일, 하단 2.5px 언더라인 애니메이션
+- hover 시 60% 너비 언더라인 힌트, 활성 시 100% 언더라인
+- 패딩 14px 20px 터치 타겟 확보
+
+**SectionNav → Tinted Chip Bar:**
+- 배경색 `var(--bg-light-gray)` 띠로 SubNav과 시각적 구분
+- 활성 칩: `border-color: var(--primary-blue)` + 흰 배경 + box-shadow
+- hover 시 흰 배경 + 보더로 떠오르는 효과
+
+**모바일 스크롤 인디케이터:**
+- `::before`/`::after` 그라데이션 페이드로 스크롤 가능 콘텐츠 암시
+- JS scrollLeft 감지, `--fade-left`/`--fade-right` 클래스 토글
+
+**다크모드:**
+- SubNav: `rgba(17,24,39,0.8)` 다크 글래스, SectionNav: `var(--bg-secondary)` 배경
+- 페이드 그라데이션 다크 배경색 적용
+
+**파일 변경 (4개):**
+- `src/styles/site.css` — SubNav/SectionNav CSS 전면 교체
+- `src/styles/dark-mode.css` — 다크모드 오버라이드 교체
+- `src/components/SubNav.jsx` — 스크롤 감지 추가
+- `src/components/SectionNav.jsx` — 스크롤 감지 추가
+
+---
+
 ## v2.2.0 (2026-03-24)
 
 ### 전체 하위 페이지 UX 개선 — page-header 표준화 + 2차/3차 네비게이션

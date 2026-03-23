@@ -1,5 +1,59 @@
 # English Pro - Development Log
 
+## 2026-03-24: SubNav / SectionNav 프리미엄 디자인 리뉴얼
+
+### Summary
+SubNav(2차)와 SectionNav(3차)의 디자인을 전면 교체하여 시각적 위계를 명확히 하고, 모바일 스크롤 인디케이터를 추가했습니다.
+
+### Problem
+- SubNav과 SectionNav이 둘 다 흰 배경 위 pill 버튼 스타일로 시각적 구분이 약함
+- 모바일에서 가로 스크롤 가능 여부를 시각적으로 알 수 없는 UX 문제
+- 전체적으로 저렴해 보이는 디자인
+
+### Changes Made
+
+#### SubNav → Glass Underline Tab
+- 글래스모피즘 배경: `backdrop-filter: blur(12px)` + 미세 `box-shadow`
+- pill 버튼 제거 → 클린한 탭 스타일 (`border-radius: 0`)
+- 활성 표시: 하단 2.5px 언더라인 애니메이션 (`::after` pseudo, width 0→100%)
+- hover: 60% 너비 언더라인 힌트
+- 패딩 14px 20px로 터치 타겟 확보
+
+#### SectionNav → Tinted Chip Bar
+- 배경색 `var(--bg-light-gray)` (#F5F7FA) 띠로 SubNav과 명확 구분
+- pill 칩 유지하되, 활성 시 `border-color: var(--primary-blue)` + 흰 배경 + `box-shadow`
+- hover 시 흰 배경 + 보더로 떠오르는 효과
+
+#### 모바일 스크롤 인디케이터 (SubNav + SectionNav 공통)
+- `::before`/`::after` 그라데이션 페이드로 더 보이는 콘텐츠 암시
+- JS `scrollLeft` 감지로 `--fade-left`/`--fade-right` 클래스 토글
+- `useRef` + scroll/resize 이벤트 리스너
+
+#### 다크모드 대응
+- SubNav: `rgba(17,24,39,0.8)` 다크 글래스 배경
+- SectionNav: `var(--bg-secondary)` 배경 + 다크 칩 스타일
+- 페이드 그라데이션 각각 다크 배경색 사용
+
+### Files Changed (4개)
+- `src/styles/site.css` — SubNav/SectionNav CSS 전면 교체 (glass underline + tinted chip + fade)
+- `src/styles/dark-mode.css` — 다크모드 오버라이드 교체
+- `src/components/SubNav.jsx` — scrollRef + checkScroll() 스크롤 감지 추가
+- `src/components/SectionNav.jsx` — 동일 스크롤 감지 패턴 추가
+
+### Build Result
+- Build successful (vite v8.0.1, 896ms)
+- 160.62 KB CSS (25.93 KB gzip)
+- SubNav.js 2.29 KB, SectionNav.js 1.54 KB
+- 423.38 KB main JS bundle (123.23 KB gzip)
+
+### Architecture Notes
+- SubNav: `position: relative` on `.container`로 페이드 pseudo-element 기준점 확보
+- SectionNav: 기존 IntersectionObserver 로직 완전 보존, 스크롤 감지만 추가
+- 페이드 임계값 4px — 완전 끝에 도달하면 페이드 숨김
+- `{ passive: true }` scroll 리스너로 성능 최적화
+
+---
+
 ## 2026-03-24: 전체 하위 페이지 UX 개선 (page-header 표준화 + SubNav + SectionNav)
 
 ### Summary

@@ -1,9 +1,12 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function SectionNav({ sections }) {
   const { t } = useLanguage();
   const [activeId, setActiveId] = useState(sections[0]?.id || '');
+  const scrollRef = useRef(null);
+  const [fadeLeft, setFadeLeft] = useState(false);
+  const [fadeRight, setFadeRight] = useState(false);
 
   const handleClick = useCallback((e, id) => {
     e.preventDefault();
@@ -35,11 +38,34 @@ export default function SectionNav({ sections }) {
     return () => observer.disconnect();
   }, [sections]);
 
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setFadeLeft(el.scrollLeft > 4);
+    setFadeRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, [checkScroll]);
+
   if (!sections || sections.length === 0) return null;
 
+  const cls = ['section-nav'];
+  if (fadeLeft) cls.push('section-nav--fade-left');
+  if (fadeRight) cls.push('section-nav--fade-right');
+
   return (
-    <nav className="section-nav">
-      <div className="container">
+    <nav className={cls.join(' ')}>
+      <div className="container" ref={scrollRef}>
         <div className="section-nav__list">
           {sections.map((s) => (
             <a
