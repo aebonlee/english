@@ -1,5 +1,39 @@
 # English Pro - 변경 이력 (CHANGELOG)
 
+## v2.2.0 (2026-03-24)
+
+### 전체 하위 페이지 UX 개선 — page-header 표준화 + 2차/3차 네비게이션
+
+**page-header 표준화 (12개 페이지):**
+- 단어장 4개, TOEIC 3개, 작문 3개, AI Chat, Speech 하위 페이지에 표준 page-header 적용
+- 그래디언트 배경 + 흰색 텍스트 + FA 셰브론 브레드크럼 통일
+- SEOHead 메타 태그, useLanguage 다국어, useAOS 애니메이션 추가
+- 구 스타일(`vocab-header`, `content-page__header`) 제거
+
+**SubNav 2차 메뉴 (신규 컴포넌트):**
+- `src/components/SubNav.jsx` 신규 생성
+- 5개 카테고리(conversation, business, vocabulary, writing, toeic) 형제 페이지 탭
+- 21개 하위 페이지 적용, sticky 고정, 현재 페이지 하이라이트
+- 다크모드 대응, 모바일 가로 스크롤 지원
+
+**SectionNav 3차 메뉴 (신규 컴포넌트):**
+- `src/components/SectionNav.jsx` 신규 생성
+- IntersectionObserver 기반 스크롤 스파이
+- 16개 페이지에 페이지 내 섹션 앵커 탭 적용
+- 클릭 시 smooth scroll, 현재 섹션 자동 하이라이트
+
+**본문 폰트 크기 통일:**
+- `.lesson-section h2` 2.5rem → 1.5rem
+- `.content-page h2` 2.5rem → 1.4rem
+- h3, h4, p 등 전체 heading 정규화
+
+**파일 변경 (29개):**
+- 신규: `SubNav.jsx`, `SectionNav.jsx`
+- 수정: `site.css`, `dark-mode.css`
+- 수정: 하위 페이지 JSX 25개
+
+---
+
 ## v2.1.0 (2026-03-23)
 
 ### Font Awesome 아이콘 + 푸터 리뉴얼 + OG/SEO 개선

@@ -1,5 +1,83 @@
 # English Pro - Development Log
 
+## 2026-03-24: 전체 하위 페이지 UX 개선 (page-header 표준화 + SubNav + SectionNav)
+
+### Summary
+전체 하위 페이지의 상단 영역 디자인을 표준화하고, 2차/3차 네비게이션 시스템을 구축하여 페이지 탐색 UX를 대폭 개선했습니다.
+
+### Problem
+- 단어장(Vocab) 4개, TOEIC 3개, Writing 3개, AI Chat, Speech 등 하위 페이지들이 표준 `page-header` 패턴을 사용하지 않아 상단 타이틀/영역 간격이 제각각
+- h2 폰트 크기가 `.lesson-section`(2.5rem)과 `.content-page`(1.4rem)로 불일치
+- 긴 페이지에서 섹션 간 이동 시 과도한 스크롤 필요
+- 카테고리 내 형제 페이지 간 네비게이션 수단 부재
+
+### Changes Made
+
+#### Phase 1: page-header 표준화 (커밋 2533048, 2fed0a9)
+**12개 하위 페이지**에 표준 page-header 패턴 적용:
+- 그래디언트 배경 + 흰색 텍스트 + FA 셰브론 브레드크럼
+- SEOHead, useLanguage, useAOS 훅 추가
+- 구 스타일(`vocab-header`, `content-page__header`) 제거
+
+| 카테고리 | 적용 페이지 |
+|---------|-----------|
+| 단어장 | VocabBasic, VocabBusiness, VocabToeic, VocabDaily |
+| TOEIC | Listening, Reading, MockTest (intro+finished) |
+| 작문 | BasicSentence, Paragraph, Essay |
+| 기타 | AiChatPage, SpeechPage |
+
+#### Phase 2: SubNav 2차 메뉴 (커밋 43db808)
+**SubNav.jsx** 컴포넌트 신규 생성 — 카테고리별 형제 페이지 가로 탭 네비게이션:
+- 5개 카테고리 정의: conversation(6), business(5), vocabulary(4), writing(3), toeic(3)
+- page-header 바로 아래 sticky 고정 (z-index: 90)
+- 현재 페이지 파란색 pill 하이라이트
+- 모바일 가로 스크롤 지원, 다크모드 대응
+- **21개 하위 페이지** 전체 적용
+
+#### Phase 3: 본문 폰트 크기 통일 (커밋 43db808)
+site.css에 `.lesson-section` 및 `.content-page` heading 정규화 CSS 추가:
+
+| 요소 | Before | After |
+|------|--------|-------|
+| `.lesson-section h2` | 2.5rem | 1.5rem |
+| `.lesson-section h3` | 2rem | 1.15rem |
+| `.lesson-section h4` | 1.5rem | 1.05rem |
+| `.content-page h2` | 2.5rem | 1.4rem |
+| `.content-page h3` | 2rem | 1.15rem |
+| `.content-page h4` | 1.5rem | 1.05rem |
+
+#### Phase 4: SectionNav 3차 메뉴 (커밋 6f262ae)
+**SectionNav.jsx** 컴포넌트 신규 생성 — 페이지 내 섹션 앵커 탭 네비게이션:
+- IntersectionObserver 기반 스크롤 스파이 (현재 섹션 자동 하이라이트)
+- smooth scroll로 해당 섹션으로 부드럽게 이동
+- SubNav 바로 아래 sticky 고정 (z-index: 89)
+- **16개 페이지** 적용 (일상회화 6, 비즈니스 5, 작문 3, TOEIC 2)
+- 각 페이지의 모든 h2 섹션에 id 속성 추가
+
+### New Components
+- `src/components/SubNav.jsx` — 2차 카테고리 네비게이션
+- `src/components/SectionNav.jsx` — 3차 섹션 앵커 네비게이션
+
+### Files Changed
+- **신규**: SubNav.jsx, SectionNav.jsx (2개)
+- **수정**: site.css, dark-mode.css (2개)
+- **수정**: 하위 페이지 JSX 25개 (vocabulary 4, toeic 3, writing 3, conversation 6, business 5, ai-chat 1, speech 1)
+- **총 29개 파일**, +821 lines, -260 lines
+
+### Build Result
+- Build successful (vite v8.0.1, 628ms)
+- 158.97 KB CSS (25.64 KB gzip)
+- SubNav.js 1.76 KB, SectionNav.js 1.02 KB
+- 423.38 KB main JS bundle (123.23 KB gzip)
+
+### Architecture Notes
+- 3단계 네비게이션 시스템: Navbar(1차) → SubNav(2차: 카테고리 형제) → SectionNav(3차: 페이지 내 섹션)
+- 모든 nav는 sticky 고정: Navbar top:0 → SubNav top:nav-height → SectionNav top:nav-height+47px
+- SubNav은 URL pathname 비교로 active 판정, SectionNav은 IntersectionObserver로 스크롤 기반 판정
+- navData는 SubNav.jsx 내부 정적 정의, sections는 각 페이지 컴포넌트 내부 정의
+
+---
+
 ## 2026-03-23: KoreaTech Design System Migration
 
 ### Summary
