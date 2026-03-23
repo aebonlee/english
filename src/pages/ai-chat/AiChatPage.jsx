@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import ChatBot from '../../components/ai/ChatBot';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -17,24 +18,32 @@ function AiChatPage() {
         )}
       />
 
-      <div className="content-page">
-        {/* Header */}
-        <section className="content-page__header" data-aos="fade-up">
-          <h1 className="content-page__title">
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <span>{t('AI 영어 대화', 'AI English Chat')}</span>
+          </div>
+          <h1 className="page-header__title">
             {t('AI 영어 대화', 'AI English Chat')}
           </h1>
-          <p className="content-page__subtitle">
+          <p className="page-header__description">
             {t(
               'AI 튜터와 함께 다양한 상황에서 영어 대화를 연습하세요. 문법 교정과 표현 제안을 받을 수 있습니다.',
               'Practice English conversation in various scenarios with an AI tutor. Get grammar corrections and expression suggestions.'
             )}
           </p>
-          <p className="content-page__note">
-            {t(
-              '※ 이 기능을 사용하려면 OpenAI API 키가 필요합니다. 설정 페이지에서 API 키를 등록해주세요.',
-              '※ This feature requires an OpenAI API key. Please register your API key in the Settings page.'
-            )}
-          </p>
+        </div>
+      </section>
+
+      <div className="content-page">
+        {/* API Note */}
+        <section className="content-section" data-aos="fade-up" style={{ textAlign: 'center', padding: '12px 20px', fontSize: '0.9rem', color: '#888' }}>
+          {t(
+            '※ 이 기능을 사용하려면 OpenAI API 키가 필요합니다. 설정 페이지에서 API 키를 등록해주세요.',
+            '※ This feature requires an OpenAI API key. Please register your API key in the Settings page.'
+          )}
         </section>
 
         {/* ChatBot */}

@@ -160,22 +160,28 @@ function BasicSentence() {
         )}
       />
 
-      <div className="content-page">
-        {/* Header */}
-        <section className="content-page__header" data-aos="fade-up">
-          <Link to="/writing" className="content-page__back">
-            ← {t('영어 작문', 'English Writing')}
-          </Link>
-          <h1 className="content-page__title">
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <Link to="/writing">{t('영어 작문', 'Writing')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <span>{t('기초 문장', 'Basic Sentence')}</span>
+          </div>
+          <h1 className="page-header__title">
             {t('기초 문장 구조', 'Basic Sentence Structures')}
           </h1>
-          <p className="content-page__subtitle">
+          <p className="page-header__description">
             {t(
               '영어의 5가지 기본 문형을 이해하고 활용하세요',
               'Understand and use the 5 basic English sentence patterns'
             )}
           </p>
-        </section>
+        </div>
+      </section>
+
+      <div className="content-page">
 
         {/* Sentence Structures */}
         {sentenceStructures.map((structure, index) => (

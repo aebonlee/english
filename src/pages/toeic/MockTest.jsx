@@ -2,12 +2,14 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
 import { mockTestQuestions } from '../../data/toeicData';
 
 const TOTAL_TIME_SECONDS = 30 * 60; // 30 minutes for mini mock test
 
 function MockTest() {
   const { t } = useLanguage();
+  useAOS();
 
   const [testState, setTestState] = useState('intro'); // 'intro' | 'running' | 'finished'
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -109,21 +111,28 @@ function MockTest() {
             'Build test-taking skills with TOEIC mock tests'
           )}
         />
-        <div className="content-page">
-          <section className="content-page__header">
-            <Link to="/toeic" className="content-page__back">
-              ← {t('TOEIC 대비', 'TOEIC Preparation')}
-            </Link>
-            <h1 className="content-page__title">
+        <section className="page-header" data-aos="fade-up">
+          <div className="container">
+            <div className="page-header__breadcrumb">
+              <Link to="/">{t('홈', 'Home')}</Link>
+              <i className="fas fa-chevron-right"></i>
+              <Link to="/toeic">{t('TOEIC 대비', 'TOEIC Preparation')}</Link>
+              <i className="fas fa-chevron-right"></i>
+              <span>{t('모의 테스트', 'Mock Test')}</span>
+            </div>
+            <h1 className="page-header__title">
               {t('TOEIC 모의 테스트', 'TOEIC Mock Test')}
             </h1>
-            <p className="content-page__subtitle">
+            <p className="page-header__description">
               {t(
                 '실전처럼 시간을 재며 문제를 풀어보세요',
                 'Practice solving questions under timed conditions'
               )}
             </p>
-          </section>
+          </div>
+        </section>
+
+        <div className="content-page">
 
           <section className="content-section">
             <div className="mock-intro">
@@ -171,12 +180,22 @@ function MockTest() {
           title={t('모의 테스트 결과 - English Pro', 'Mock Test Results - English Pro')}
           description={t('TOEIC 모의 테스트 결과를 확인하세요', 'View your TOEIC mock test results')}
         />
-        <div className="content-page">
-          <section className="content-page__header">
-            <h1 className="content-page__title">
+        <section className="page-header" data-aos="fade-up">
+          <div className="container">
+            <div className="page-header__breadcrumb">
+              <Link to="/">{t('홈', 'Home')}</Link>
+              <i className="fas fa-chevron-right"></i>
+              <Link to="/toeic">{t('TOEIC 대비', 'TOEIC Preparation')}</Link>
+              <i className="fas fa-chevron-right"></i>
+              <span>{t('테스트 결과', 'Test Results')}</span>
+            </div>
+            <h1 className="page-header__title">
               {t('테스트 결과', 'Test Results')}
             </h1>
-          </section>
+          </div>
+        </section>
+
+        <div className="content-page">
 
           <section className="content-section">
             <div className="mock-result">

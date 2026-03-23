@@ -111,22 +111,28 @@ function Paragraph() {
         )}
       />
 
-      <div className="content-page">
-        {/* Header */}
-        <section className="content-page__header" data-aos="fade-up">
-          <Link to="/writing" className="content-page__back">
-            ← {t('영어 작문', 'English Writing')}
-          </Link>
-          <h1 className="content-page__title">
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <Link to="/writing">{t('영어 작문', 'Writing')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <span>{t('문단 작성', 'Paragraph')}</span>
+          </div>
+          <h1 className="page-header__title">
             {t('문단 작성 (Paragraph Writing)', 'Paragraph Writing')}
           </h1>
-          <p className="content-page__subtitle">
+          <p className="page-header__description">
             {t(
               '좋은 문단을 구성하는 세 가지 요소를 학습하세요',
               'Learn the three elements that make a good paragraph'
             )}
           </p>
-        </section>
+        </div>
+      </section>
+
+      <div className="content-page">
 
         {/* Paragraph Structure */}
         <section className="content-section" data-aos="fade-up">

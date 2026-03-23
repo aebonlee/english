@@ -125,22 +125,28 @@ function Essay() {
         )}
       />
 
-      <div className="content-page">
-        {/* Header */}
-        <section className="content-page__header" data-aos="fade-up">
-          <Link to="/writing" className="content-page__back">
-            ← {t('영어 작문', 'English Writing')}
-          </Link>
-          <h1 className="content-page__title">
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <Link to="/writing">{t('영어 작문', 'Writing')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <span>{t('에세이 작성', 'Essay')}</span>
+          </div>
+          <h1 className="page-header__title">
             {t('에세이 작성 (Essay Writing)', 'Essay Writing')}
           </h1>
-          <p className="content-page__subtitle">
+          <p className="page-header__description">
             {t(
               '논리적이고 설득력 있는 에세이를 작성하는 방법을 배우세요',
               'Learn how to write logical and persuasive essays'
             )}
           </p>
-        </section>
+        </div>
+      </section>
+
+      <div className="content-page">
 
         {/* Essay Structure */}
         <section className="content-section" data-aos="fade-up">

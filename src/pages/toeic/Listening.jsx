@@ -95,19 +95,25 @@ function Listening() {
         )}
       />
 
-      <div className="content-page">
-        {/* Header */}
-        <section className="content-page__header" data-aos="fade-up">
-          <Link to="/toeic" className="content-page__back">
-            ← {t('TOEIC 대비', 'TOEIC Preparation')}
-          </Link>
-          <h1 className="content-page__title">
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <Link to="/toeic">{t('TOEIC 대비', 'TOEIC Preparation')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <span>{t('듣기', 'Listening')}</span>
+          </div>
+          <h1 className="page-header__title">
             {t('TOEIC 듣기 (Listening)', 'TOEIC Listening')}
           </h1>
-          <p className="content-page__subtitle">
+          <p className="page-header__description">
             {t('Part 1-4 전략과 핵심 팁', 'Part 1-4 strategies and key tips')}
           </p>
-        </section>
+        </div>
+      </section>
+
+      <div className="content-page">
 
         {/* Part Overviews */}
         {partOverviews.map((part, index) => (
