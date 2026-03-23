@@ -207,7 +207,7 @@ export default function VocabBasic() {
                 <h3 className="card-word">{word.word}</h3>
                 <div className="pronunciation-row">
                   <span className="pronunciation">{word.pronunciation}</span>
-                  <button className="speak-btn" onClick={(e) => speak(e, word.word)} title="발음 듣기">🔊</button>
+                  <button className="speak-btn" onClick={(e) => speak(e, word.word)} title="발음 듣기"><i className="fas fa-volume-up" /></button>
                 </div>
                 {!showMeaning && (
                   <p className="card-hint">클릭하여 뜻 확인</p>
@@ -550,17 +550,17 @@ const vocabPageStyles = `
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 0.75rem;
-    padding: 2px;
+    font-size: 0.95rem;
+    padding: 2px 4px;
     line-height: 1;
     border-radius: 4px;
     transition: transform 0.15s;
-    opacity: 0.7;
+    color: #4A90D9;
   }
 
   .speak-btn:hover {
     transform: scale(1.2);
-    opacity: 1;
+    opacity: 0.8;
   }
 
   .card-hint {
