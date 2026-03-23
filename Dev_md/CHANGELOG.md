@@ -1,5 +1,35 @@
 # English Pro - 변경 이력 (CHANGELOG)
 
+## v2.6.0 (2026-03-24)
+
+### 영단어 카드 컴팩트 레이아웃 + TTS 발음 듣기 + 예시 텍스트 개선
+
+**영단어 카드 컴팩트 레이아웃:**
+- 그리드: `minmax(260px)` → `minmax(170px)`, 5열+ 배치
+- 카드 높이 `200px` → `140px`, 패딩/폰트 전체 축소
+- 모바일: 1열 → 2열 그리드
+
+**영단어 발음 듣기 (Web Speech API):**
+- 카드 앞면에 `fa-volume-up` 스피커 버튼 추가
+- 각 페이지 주컬러 적용 (Blue/Green/Orange/Purple)
+
+**글로벌 TTS 스피커 자동 삽입:**
+- `PageLayout.jsx`에서 expression-list code, dialogue p에 자동 배치
+- 16개 콘텐츠 페이지 전체 적용, 개별 수정 불필요
+
+**예시 텍스트 개선:**
+- `.expression-list li`: `0.9rem` → `1.2rem`
+- `.translation`: `display: block` 줄바꿈 + `1.15rem`
+
+**버그 수정:**
+- Meeting 페이지 깨진 한글 텍스트 수정
+
+**파일 변경 (10개):**
+- 수정: `PageLayout.jsx`, `site.css`, `dark-mode.css`, `vocabulary.css`
+- 수정: 4개 Vocab 페이지, `Meeting.jsx`
+
+---
+
 ## v2.5.0 (2026-03-24)
 
 ### 사이드바 트리 네비게이션 통합 + ToC 가독성 개선 + 타이틀 영문 축소

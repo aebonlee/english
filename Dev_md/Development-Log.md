@@ -1,5 +1,57 @@
 # English Pro - Development Log
 
+## 2026-03-24: 영단어 카드 컴팩트 레이아웃 + TTS 발음 듣기 + 예시 텍스트 개선
+
+### Summary
+영단어 카드 그리드를 3열에서 5열 컴팩트 레이아웃으로 변경하고, 영단어 카드와 모든 콘텐츠 페이지 영어 예시 문장에 Web Speech API 기반 TTS(발음 듣기) 기능을 추가했습니다. 또한 예시 텍스트의 폰트 크기를 조정하고 영한 번역을 줄바꿈 표시로 개선했습니다.
+
+### Problem
+- 영단어 카드가 3×3 배치로 개별 카드가 너무 커 한눈에 보기 어려움
+- 영단어 발음을 듣는 기능이 없어 학습 효과가 제한적
+- 콘텐츠 페이지 예시 문장(expression-list, dialogue)에도 발음 듣기 필요
+- 예시 텍스트 폰트가 너무 작고, 영어/한글 번역이 같은 줄에 표시되어 가독성 저하
+- Meeting 페이지에 깨진 한글 텍스트(인코딩 오류) 존재
+
+### Changes Made
+
+#### 1. 영단어 카드 컴팩트 레이아웃 (4개 Vocab 페이지)
+- 그리드: `minmax(260px)` → `minmax(170px)`, 5열+ 레이아웃
+- 카드 높이: `200px` → `140px`, 패딩: `20px` → `12px`
+- 폰트 축소: card-word `1.5rem` → `1.15rem`, card-meaning `1.3rem` → `1.05rem`
+- 모바일: 1열 → 2열 그리드로 변경
+- gap: `16px` → `10px`
+
+#### 2. 영단어 카드 발음 듣기 (4개 Vocab 페이지)
+- Web Speech API (`SpeechSynthesis`) 기반 TTS 기능 추가
+- 카드 앞면 발음 기호 옆에 스피커 버튼 배치
+- Font Awesome `fa-volume-up` 아이콘 + 각 페이지 주컬러 적용
+  - Basic: `#4A90D9`, Daily: `#27AE60`, Business: `#E67E22`, TOEIC: `#8E44AD`
+- `stopPropagation`으로 카드 플립과 독립 동작
+
+#### 3. 글로벌 TTS 스피커 자동 삽입 (`PageLayout.jsx`)
+- `useEffect`로 콘텐츠 영역 내 영어 문장에 스피커 버튼 자동 삽입
+- `.expression-list li code` 옆 + `.dialogue p` 끝에 자동 배치
+- 개별 페이지 수정 없이 16개 콘텐츠 페이지 전체 적용
+- CSS: `.tts-btn` 스타일 + 다크모드 지원
+
+#### 4. 예시 텍스트 크기 조정 + 줄바꿈 (`site.css`)
+- `.expression-list li`: `0.9rem` → `1.2rem` (확대 후 0.9배 조정)
+- `.translation`: `0.85rem` → `1.15rem`, `display: block` + `margin-top: 4px`로 줄바꿈
+- 영어 문장과 한글 번역이 별도 줄에 표시
+
+#### 5. 버그 수정
+- Meeting 페이지 깨진 한글 `[?좎쭨] [?쒓컙]` → `[날짜] [시간]` 수정
+
+### Files Changed (10개)
+- **수정:** `src/components/PageLayout.jsx` (글로벌 TTS)
+- **수정:** `src/styles/site.css` (tts-btn, expression-list, translation)
+- **수정:** `src/styles/dark-mode.css` (tts-btn 다크모드)
+- **수정:** `src/styles/vocabulary.css` (그리드/카드 크기)
+- **수정:** `src/pages/vocabulary/VocabBasic.jsx`, `VocabDaily.jsx`, `VocabBusiness.jsx`, `VocabToeic.jsx`
+- **수정:** `src/pages/business/Meeting.jsx` (텍스트 오류)
+
+---
+
 ## 2026-03-24: 사이드바 트리 네비게이션 통합 + ToC 가독성 개선 + 타이틀 영문 축소
 
 ### Summary
