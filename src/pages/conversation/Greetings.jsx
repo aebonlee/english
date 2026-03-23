@@ -282,10 +282,10 @@ export default function Greetings() {
               <p><span className="speaker b">Jina:</span> Thanks, I really appreciate that. Nice to meet you, Tom!</p>
               <p><span className="speaker a">Tom:</span> Nice to meet you too, Jina!</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                'Tom: 안녕하세요, 아직 만난 적이 없는 것 같아요. 마케팅 팀의 Tom입니다. / Jina: 아, 안녕하세요 Tom! 저는 Jina예요. 지난주에 디자인 부서에 입사했어요. / Tom: 환영합니다! 지금까지 어떠세요? / Jina: 좋아요. 모두 정말 친절하게 맞아주셨어요. / Tom: 다행이네요. 필요한 게 있으면 편하게 말씀하세요. / Jina: 감사합니다, 정말 감사해요. 만나서 반가워요, Tom! / Tom: 저도 만나서 반가워요, Jina!',
-                'Korean Translation: Tom: Hi, I don\'t think we\'ve met. I\'m Tom from the marketing team. / Jina: Oh, hi Tom! I\'m Jina. I just started in the design department last week. ...'
+                'Tom: 안녕하세요, 아직 만난 적이 없는 것 같아요. 마케팅 팀의 Tom입니다.\nJina: 아, 안녕하세요 Tom! 저는 Jina예요. 지난주에 디자인 부서에 입사했어요.\nTom: 환영합니다! 지금까지 어떠세요?\nJina: 좋아요. 모두 정말 친절하게 맞아주셨어요.\nTom: 다행이네요. 필요한 게 있으면 편하게 말씀하세요.\nJina: 감사합니다, 정말 감사해요. 만나서 반가워요, Tom!\nTom: 저도 만나서 반가워요, Jina!',
+                'Tom: Hi, I don\'t think we\'ve met. I\'m Tom from the marketing team.\nJina: Oh, hi Tom! I\'m Jina. I just started in the design department last week.\nTom: Welcome aboard! How are you finding it so far?\nJina: It\'s been great. Everyone\'s been really welcoming.\nTom: That\'s good to hear. If you need anything, don\'t hesitate to ask.\nJina: Thanks, I really appreciate that. Nice to meet you, Tom!\nTom: Nice to meet you too, Jina!'
               )}
             </p>
           </div>
@@ -302,10 +302,10 @@ export default function Greetings() {
               <p><span className="speaker a">Alex:</span> That's awesome! I studied engineering there. Small world!</p>
               <p><span className="speaker b">Minji:</span> Really? That's so cool! It was nice meeting you, Alex.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                'Alex: 안녕! 나는 Alex야. 전에 본 적이 없는 것 같은데. / Minji: 안녕 Alex, 나는 Minji야. Sarah 친구야. / Alex: 오, 멋지다! Minji 어디에서 왔어? / Minji: 한국 서울에서 왔어. 여기에 산 지 약 2년 됐어. / Alex: 멋지다! 어쩌다 여기 오게 됐어? / Minji: 대학교에서 컴퓨터 공학 석사 과정 중이야. / Alex: 대단하다! 나도 거기서 공학 공부했는데. 세상 좁다! / Minji: 진짜? 신기하다! 만나서 반가웠어, Alex.',
-                'Korean Translation: Alex: Hey! I\'m Alex. I don\'t think I\'ve seen you around before. / Minji: Hi Alex, I\'m Minji. I\'m a friend of Sarah\'s. ...'
+                'Alex: 안녕! 나는 Alex야. 전에 본 적이 없는 것 같은데.\nMinji: 안녕 Alex, 나는 Minji야. Sarah 친구야.\nAlex: 오, 멋지다! Minji 어디에서 왔어?\nMinji: 한국 서울에서 왔어. 여기에 산 지 약 2년 됐어.\nAlex: 멋지다! 어쩌다 여기 오게 됐어?\nMinji: 대학교에서 컴퓨터 공학 석사 과정 중이야.\nAlex: 대단하다! 나도 거기서 공학 공부했는데. 세상 좁다!\nMinji: 진짜? 신기하다! 만나서 반가웠어, Alex.',
+                'Alex: Hey! I\'m Alex. I don\'t think I\'ve seen you around before.\nMinji: Hi Alex, I\'m Minji. I\'m a friend of Sarah\'s.\nAlex: Oh, cool! So where are you from, Minji?\nMinji: I\'m from Seoul, Korea. I\'ve been living here for about two years.\nAlex: Nice! What brought you here?\nMinji: I\'m doing my master\'s in computer science at the university.\nAlex: That\'s awesome! I studied engineering there. Small world!\nMinji: Really? That\'s so cool! It was nice meeting you, Alex.'
               )}
             </p>
           </div>
@@ -321,10 +321,10 @@ export default function Greetings() {
               <p><span className="speaker b">Ms. Davis:</span> Great. Please, have a seat. Can I get you some coffee or tea?</p>
               <p><span className="speaker a">Mr. Park:</span> Coffee would be wonderful, thank you.</p>
             </div>
-            <p className="translation">
+            <p className="translation dialogue-translation">
               {t(
-                'Mr. Park: 안녕하세요. KTech의 프로젝트 매니저 박선우입니다. / Ms. Davis: 안녕하세요, Mr. Park. GlobalCo 국제 파트너십 부서 책임자 Rachel Davis입니다. 만나 뵙게 되어 영광입니다. / Mr. Park: 저야말로 영광입니다. 팀에 대해 좋은 이야기를 많이 들었습니다. / Ms. Davis: 과찬이세요. 비행은 어떠셨나요? / Mr. Park: 편안했습니다, 물어봐 주셔서 감사합니다. 어젯밤 도착했습니다. / Ms. Davis: 좋습니다. 앉으세요. 커피나 차 드릴까요? / Mr. Park: 커피 주시면 감사하겠습니다.',
-                'Korean Translation: Mr. Park: Good morning. I\'m Sunwoo Park, the project manager at KTech. / Ms. Davis: Good morning, Mr. Park. ...'
+                'Mr. Park: 안녕하세요. KTech의 프로젝트 매니저 박선우입니다.\nMs. Davis: 안녕하세요, Mr. Park. GlobalCo 국제 파트너십 부서 책임자 Rachel Davis입니다. 만나 뵙게 되어 영광입니다.\nMr. Park: 저야말로 영광입니다. 팀에 대해 좋은 이야기를 많이 들었습니다.\nMs. Davis: 과찬이세요. 비행은 어떠셨나요?\nMr. Park: 편안했습니다, 물어봐 주셔서 감사합니다. 어젯밤 도착했습니다.\nMs. Davis: 좋습니다. 앉으세요. 커피나 차 드릴까요?\nMr. Park: 커피 주시면 감사하겠습니다.',
+                'Mr. Park: Good morning. I\'m Sunwoo Park, the project manager at KTech.\nMs. Davis: Good morning, Mr. Park. I\'m Rachel Davis, the head of international partnerships at GlobalCo. It\'s a pleasure to meet you.\nMr. Park: The pleasure is all mine, Ms. Davis. I\'ve heard wonderful things about your team.\nMs. Davis: That\'s very kind of you. How was your flight?\nMr. Park: It was smooth, thank you for asking. I arrived last night.\nMs. Davis: Great. Please, have a seat. Can I get you some coffee or tea?\nMr. Park: Coffee would be wonderful, thank you.'
               )}
             </p>
           </div>

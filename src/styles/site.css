@@ -1641,6 +1641,11 @@
   margin-top: 4px;
 }
 
+.dialogue-translation {
+  white-space: pre-line;
+  line-height: 1.8;
+}
+
 /* ===================================================================
    Structure List / Expression List (EmailWriting, etc.)
    =================================================================== */
