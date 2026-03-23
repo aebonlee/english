@@ -4,7 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
-import SectionNav from '../../components/SectionNav';
+import PageLayout from '../../components/PageLayout';
 import { readingQuestions } from '../../data/toeicData';
 
 const partOverviews = [
@@ -122,9 +122,8 @@ function Reading() {
       </section>
 
       <SubNav category="toeic" />
-      <SectionNav sections={sections} />
-
-      <div className="content-page">
+      <PageLayout sections={sections}>
+        <div className="content-page">
 
         {/* Part Overviews */}
         <div id="parts">
@@ -269,6 +268,7 @@ function Reading() {
           </div>
         </section>
       </div>
+      </PageLayout>
     </>
   );
 }

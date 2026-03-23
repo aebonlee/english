@@ -4,7 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
-import SectionNav from '../../components/SectionNav';
+import PageLayout from '../../components/PageLayout';
 
 function EmailWriting() {
   const { t } = useLanguage();
@@ -52,10 +52,7 @@ function EmailWriting() {
       </section>
 
       <SubNav category="business" />
-      <SectionNav sections={sections} />
-
-      <section className="section lesson-content">
-        <div className="container">
+      <PageLayout sections={sections}>
           <div className="lesson-body">
 
             <div className="callout-box">
@@ -499,8 +496,7 @@ function EmailWriting() {
             </div>
 
           </div>
-        </div>
-      </section>
+      </PageLayout>
     </>
   );
 }

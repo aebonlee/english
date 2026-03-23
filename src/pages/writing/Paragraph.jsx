@@ -4,7 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
-import SectionNav from '../../components/SectionNav';
+import PageLayout from '../../components/PageLayout';
 
 const paragraphParts = [
   {
@@ -141,9 +141,8 @@ function Paragraph() {
       </section>
 
       <SubNav category="writing" />
-      <SectionNav sections={sections} />
-
-      <div className="content-page">
+      <PageLayout sections={sections}>
+        <div className="content-page">
 
         {/* Paragraph Structure */}
         <section id="structure" className="content-section" data-aos="fade-up">
@@ -267,6 +266,7 @@ function Paragraph() {
           </div>
         </section>
       </div>
+      </PageLayout>
     </>
   );
 }

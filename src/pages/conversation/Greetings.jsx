@@ -4,7 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
-import SectionNav from '../../components/SectionNav';
+import PageLayout from '../../components/PageLayout';
 
 export default function Greetings() {
   const { language, t } = useLanguage();
@@ -52,7 +52,7 @@ export default function Greetings() {
       </section>
 
       <SubNav category="conversation" />
-      <SectionNav sections={sections} />
+      <PageLayout sections={sections}>
 
       {/* Section 1: 기본 인사 */}
       <section id="greetings" className="lesson-section" data-aos="fade-up">
@@ -499,6 +499,7 @@ export default function Greetings() {
           </div>
         </div>
       </section>
+      </PageLayout>
     </>
   );
 }

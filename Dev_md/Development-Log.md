@@ -1,5 +1,64 @@
 # English Pro - Development Log
 
+## 2026-03-24: 전체 콘텐츠 페이지 사이드바 레이아웃 리뉴얼
+
+### Summary
+16개 콘텐츠 페이지에 왼쪽 사이드바(목차) + 오른쪽 콘텐츠 박스 2단 레이아웃을 적용하여 시각적 구조를 강화했습니다. 모바일에서는 기존 SectionNav 가로 칩 UI를 유지합니다.
+
+### Problem
+- 페이지마다 너비가 달라 (1100px / 800px / 제한없음) 일관성이 없음
+- 콘텐츠가 단일 컬럼으로 나열되어 시각적 구조가 약함
+- 긴 페이지에서 현재 위치를 파악하기 어려움
+
+### Changes Made
+
+#### 신규 컴포넌트: `PageLayout.jsx`
+- 재사용 가능한 사이드바 + 콘텐츠 래퍼 컴포넌트
+- IntersectionObserver로 활성 섹션 자동 추적 (SectionNav과 동일 로직)
+- 데스크톱(>1024px): 왼쪽 260px 사이드바 ToC + 오른쪽 콘텐츠 박스
+- 모바일(≤1024px): SectionNav 가로 칩 표시, 사이드바 숨김
+- 활성 ToC 항목 자동 스크롤 (`scrollIntoView`)
+
+#### CSS 수정: `site.css`
+- `.content-layout` grid: `1fr 280px` → `260px 1fr` (좌우 반전)
+- `.content-main` 박스 스타일: `border-radius: 16px`, `padding: 40px`, `box-shadow`
+- `.section-nav-mobile` 데스크톱/모바일 표시 분기
+- 내부 래퍼 중첩 무력화: `.content-main .container`, `.content-main .content-page`, `.content-main .lesson-body`, `.content-main .lesson-content`
+
+#### 다크모드: `dark-mode.css`
+- `.content-sidebar`: 투명 배경
+- `.content-main`: `var(--bg-light-gray)` 배경 + 다크 보더/그림자
+- `.toc`, `.toc-link`, `.toc-link.active` 다크 오버라이드
+
+#### 16개 페이지 JSX 수정 (3가지 패턴)
+**패턴 A — TOEIC/Writing (5개):** `SectionNav` → `PageLayout` 래핑, `content-page` div 유지
+- Listening, Reading, Essay, Paragraph, BasicSentence
+
+**패턴 B — Business (5개):** `section.lesson-content > .container` 제거, `PageLayout` + `lesson-body`만 유지
+- Meeting, Interview, EmailWriting, Negotiation, Presentation
+
+**패턴 C — Conversation (6개):** `SectionNav` → `PageLayout` 래핑, 내부 `.container` CSS로 무력화
+- Phone, Restaurant, Travel, Shopping, DailyLife, Greetings
+
+### Files Changed (19개)
+- **신규:** `src/components/PageLayout.jsx`
+- **수정:** `src/styles/site.css`, `src/styles/dark-mode.css`
+- **수정:** 16개 페이지 JSX 파일
+
+### Build Result
+- Build successful (vite v8.0.1, 635ms)
+- 165.90 KB CSS (26.65 KB gzip)
+- PageLayout.js 3.04 KB (1.09 KB gzip)
+- 423.38 KB main JS bundle (123.24 KB gzip)
+
+### Architecture Notes
+- `PageLayout`은 `SectionNav`을 내부적으로 임포트하여 모바일에서 재사용
+- IntersectionObserver `rootMargin: '-150px 0px -60% 0px'`으로 SectionNav과 동일한 감지 로직
+- CSS `.content-main .container { max-width: none; padding: 0; }`로 중첩 컨테이너 무력화하여 JSX 변경 최소화
+- 사이드바 `position: sticky`, `max-height: calc(100vh - nav)`, `overflow-y: auto`로 긴 목차 스크롤 지원
+
+---
+
 ## 2026-03-24: SubNav / SectionNav 프리미엄 디자인 리뉴얼
 
 ### Summary

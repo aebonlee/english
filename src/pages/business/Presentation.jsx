@@ -4,7 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
-import SectionNav from '../../components/SectionNav';
+import PageLayout from '../../components/PageLayout';
 
 function Presentation() {
   const { t } = useLanguage();
@@ -53,9 +53,7 @@ function Presentation() {
       </section>
 
       <SubNav category="business" />
-      <SectionNav sections={sections} />
-      <section className="section lesson-content">
-        <div className="container">
+      <PageLayout sections={sections}>
           <div className="lesson-body">
             <div className="callout-box">
               <h3>{t('학습 목표', 'Learning Objectives')}</h3>
@@ -377,8 +375,7 @@ function Presentation() {
               <Link to="/business/meeting" className="lesson-nav-btn next">{t('회의 영어 →', 'Meeting English →')}</Link>
             </div>
           </div>
-        </div>
-      </section>
+      </PageLayout>
     </>
   );
 }

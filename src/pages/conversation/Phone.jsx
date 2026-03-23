@@ -4,7 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
-import SectionNav from '../../components/SectionNav';
+import PageLayout from '../../components/PageLayout';
 
 export default function Phone() {
   const { language, t } = useLanguage();
@@ -54,7 +54,7 @@ export default function Phone() {
       </section>
 
       <SubNav category="conversation" />
-      <SectionNav sections={sections} />
+      <PageLayout sections={sections}>
 
       {/* Section 1: Answering the Phone */}
       <section id="answering" className="lesson-section" data-aos="fade-up">
@@ -548,6 +548,7 @@ export default function Phone() {
           </div>
         </div>
       </section>
+      </PageLayout>
     </>
   );
 }

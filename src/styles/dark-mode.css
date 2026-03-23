@@ -1618,6 +1618,90 @@
   border-color: var(--border-light);
 }
 
+/* === Practice Items (BEM) Dark Mode === */
+[data-theme="dark"] .practice-item {
+  background: var(--bg-light-gray);
+  border-color: var(--border-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .practice-item__context {
+  background: var(--bg-white);
+  border-color: var(--border-light);
+}
+
+[data-theme="dark"] .practice-item__context--image {
+  background: linear-gradient(135deg, var(--bg-white), var(--primary-blue-bg));
+  border-color: var(--border-light);
+}
+
+[data-theme="dark"] .practice-item__passage {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .practice-item__question {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .practice-option {
+  background: var(--bg-white);
+  border-color: var(--border-light);
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .practice-option:hover {
+  border-color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .practice-option--selected {
+  border-color: var(--primary-blue) !important;
+  background: var(--primary-blue-bg) !important;
+  color: var(--primary-blue) !important;
+}
+
+[data-theme="dark"] .practice-option--correct {
+  border-color: var(--success) !important;
+  background: var(--success-light) !important;
+  color: var(--success) !important;
+}
+
+[data-theme="dark"] .practice-option--wrong {
+  border-color: var(--error) !important;
+  background: var(--error-light) !important;
+  color: var(--error) !important;
+}
+
+[data-theme="dark"] .practice-item__explanation {
+  border-top-color: var(--border-medium);
+}
+
+[data-theme="dark"] .practice-item__explanation-text {
+  color: var(--text-secondary);
+}
+
+[data-theme="dark"] .practice-item__badge {
+  background: var(--primary-blue-bg);
+  color: var(--primary-blue);
+}
+
+[data-theme="dark"] .practice-item__number {
+  color: var(--primary-blue);
+}
+
+/* === Sidebar Layout Dark Mode === */
+[data-theme="dark"] .content-sidebar { background: transparent; }
+[data-theme="dark"] .content-main {
+  background: var(--bg-light-gray);
+  border-color: var(--border-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+[data-theme="dark"] .toc { background: var(--bg-light-gray); border-color: var(--border-light); }
+[data-theme="dark"] .toc-link { color: var(--text-light); }
+[data-theme="dark"] .toc-link:hover { color: var(--text-primary); background: var(--primary-blue-bg); }
+[data-theme="dark"] .toc-link.active { color: var(--primary-blue); background: var(--primary-blue-bg); }
+
 /* === 404 Page Dark Mode === */
 [data-theme="dark"] .not-found,
 [data-theme="dark"] .error-page,

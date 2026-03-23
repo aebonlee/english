@@ -4,7 +4,7 @@ import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
 import SubNav from '../../components/SubNav';
-import SectionNav from '../../components/SectionNav';
+import PageLayout from '../../components/PageLayout';
 
 function Negotiation() {
   const { t } = useLanguage();
@@ -54,10 +54,7 @@ function Negotiation() {
       </section>
 
       <SubNav category="business" />
-      <SectionNav sections={sections} />
-
-      <section className="section lesson-content">
-        <div className="container">
+      <PageLayout sections={sections}>
           <div className="lesson-body">
 
             <div className="callout-box">
@@ -419,8 +416,7 @@ function Negotiation() {
             </div>
 
           </div>
-        </div>
-      </section>
+      </PageLayout>
     </>
   );
 }
