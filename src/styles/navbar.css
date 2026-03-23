@@ -105,13 +105,14 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
+  gap: 5px;
+  padding: 8px 12px;
   color: var(--text-primary);
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-weight: 500;
   border-radius: 8px;
+  white-space: nowrap;
   transition: color 0.2s ease, background 0.2s ease;
   white-space: nowrap;
   background: transparent;
@@ -124,8 +125,8 @@
   content: '';
   position: absolute;
   bottom: 2px;
-  left: 16px;
-  right: 16px;
+  left: 12px;
+  right: 12px;
   height: 2px;
   background: var(--primary-blue);
   border-radius: 1px;
@@ -840,7 +841,8 @@
 /* Mobile Menu Actions */
 .mobile-menu-actions {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 

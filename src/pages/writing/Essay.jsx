@@ -164,44 +164,61 @@ function Essay() {
           <h2 className="content-section__title">
             {t('에세이 구조', 'Essay Structure')}
           </h2>
-          <div className="essay-structure">
-            {essayStructure.map((section) => (
-              <div key={section.id} className="essay-part" data-aos="fade-up">
+
+          {/* Flow buttons */}
+          <div className="essay-flow">
+            {essayStructure.map((section, idx) => (
+              <div key={section.id} className="essay-flow__item">
                 <button
-                  className={`essay-part__toggle ${expandedStructure === section.id ? 'essay-part__toggle--active' : ''}`}
+                  className={`essay-flow__btn essay-flow__btn--${section.id} ${expandedStructure === section.id ? 'essay-flow__btn--active' : ''}`}
                   onClick={() => setExpandedStructure(expandedStructure === section.id ? null : section.id)}
                 >
-                  <span className="essay-part__icon">{section.icon}</span>
-                  <h3 className="essay-part__title">
-                    {t(section.title, section.titleEn)}
-                  </h3>
-                  <span className="essay-part__arrow">
-                    {expandedStructure === section.id ? '▼' : '▶'}
+                  <span className="essay-flow__icon">{section.icon}</span>
+                  <span className="essay-flow__label">{t(section.title, section.titleEn)}</span>
+                  <span className={`essay-flow__chevron ${expandedStructure === section.id ? 'essay-flow__chevron--open' : ''}`}>
+                    <i className="fas fa-chevron-down"></i>
                   </span>
                 </button>
-
-                {expandedStructure === section.id && (
-                  <div className="essay-part__content">
-                    <div className="essay-part__elements">
-                      <h4>{t('구성 요소', 'Key Elements')}</h4>
-                      <ul>
-                        {section.elements.map((el, i) => (
-                          <li key={i}>{t(el.ko, el.en)}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="essay-part__example">
-                      <h4>{t('예시', 'Example')}</h4>
-                      <blockquote className="example-quote">
-                        <p className="example-quote__en">{section.example.en}</p>
-                        <p className="example-quote__ko">{section.example.ko}</p>
-                      </blockquote>
-                    </div>
-                  </div>
+                {idx < essayStructure.length - 1 && (
+                  <span className="essay-flow__arrow">
+                    <i className="fas fa-arrow-right"></i>
+                  </span>
                 )}
               </div>
             ))}
           </div>
+
+          {/* Expanded content */}
+          {essayStructure.map((section) => (
+            expandedStructure === section.id && (
+              <div key={section.id} className={`essay-detail essay-detail--${section.id}`} data-aos="fade-up">
+                <div className="essay-detail__elements">
+                  <h4 className="essay-detail__subtitle">
+                    <i className="fas fa-list-check"></i>
+                    {t('구성 요소', 'Key Elements')}
+                  </h4>
+                  <ul className="essay-detail__list">
+                    {section.elements.map((el, i) => (
+                      <li key={i} className="essay-detail__item">
+                        <span className="essay-detail__bullet">{i + 1}</span>
+                        <span>{t(el.ko, el.en)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="essay-detail__example">
+                  <h4 className="essay-detail__subtitle">
+                    <i className="fas fa-quote-left"></i>
+                    {t('예시', 'Example')}
+                  </h4>
+                  <blockquote className="essay-detail__quote">
+                    <p className="essay-detail__quote-en">{section.example.en}</p>
+                    <p className="essay-detail__quote-ko">{section.example.ko}</p>
+                  </blockquote>
+                </div>
+              </div>
+            )
+          ))}
         </section>
 
         {/* Transition Words */}

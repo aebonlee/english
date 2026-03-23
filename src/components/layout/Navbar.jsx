@@ -342,7 +342,7 @@ export default function Navbar() {
                       </svg>
                     </button>
                     {openDropdown === item.path && (
-                      <ul className="mobile-dropdown">
+                      <ul className="mobile-dropdown show">
                         {item.children.map((child) => (
                           <li key={child.path}>
                             <NavLink

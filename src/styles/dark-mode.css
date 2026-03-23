@@ -1972,3 +1972,81 @@
 [data-theme="dark"] .literature-analysis p {
   color: var(--text-secondary);
 }
+
+/* ===================================================================
+   Essay Page — Dark Mode
+   =================================================================== */
+[data-theme="dark"] .essay-flow__btn {
+  background: var(--bg-light-gray);
+  border-color: var(--border-light);
+  color: var(--text-primary);
+}
+[data-theme="dark"] .essay-flow__btn--intro:hover,
+[data-theme="dark"] .essay-flow__btn--intro.essay-flow__btn--active {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: #3B82F6;
+  color: #93C5FD;
+}
+[data-theme="dark"] .essay-flow__btn--body:hover,
+[data-theme="dark"] .essay-flow__btn--body.essay-flow__btn--active {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: #22C55E;
+  color: #86EFAC;
+}
+[data-theme="dark"] .essay-flow__btn--conclusion:hover,
+[data-theme="dark"] .essay-flow__btn--conclusion.essay-flow__btn--active {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: #F59E0B;
+  color: #FCD34D;
+}
+[data-theme="dark"] .essay-detail {
+  background: var(--bg-light-gray);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+[data-theme="dark"] .essay-detail__item {
+  background: var(--bg-white);
+}
+[data-theme="dark"] .essay-detail__quote {
+  background: var(--bg-white);
+}
+[data-theme="dark"] .essay-detail__quote-ko {
+  border-top-color: var(--border-light);
+}
+[data-theme="dark"] .transition-card {
+  background: var(--bg-light-gray);
+  border-color: var(--border-light);
+}
+[data-theme="dark"] .transition-tag {
+  background: var(--bg-white);
+  color: #93C5FD;
+}
+[data-theme="dark"] .sample-essay {
+  background: var(--bg-light-gray);
+  border-color: var(--border-light);
+}
+[data-theme="dark"] .label--intro { background: rgba(59, 130, 246, 0.2); color: #93C5FD; }
+[data-theme="dark"] .label--body { background: rgba(34, 197, 94, 0.2); color: #86EFAC; }
+[data-theme="dark"] .label--conclusion { background: rgba(245, 158, 11, 0.2); color: #FCD34D; }
+[data-theme="dark"] .writing-prompts__tab {
+  background: var(--bg-light-gray);
+  border-color: var(--border-light);
+  color: var(--text-secondary);
+}
+[data-theme="dark"] .writing-prompts__tab--active {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: #fff;
+}
+[data-theme="dark"] .writing-prompts__content {
+  background: var(--bg-light-gray);
+  border-color: var(--border-light);
+}
+[data-theme="dark"] .writing-prompts__textarea {
+  background: var(--bg-white);
+  border-color: var(--border-light);
+  color: var(--text-primary);
+}
+[data-theme="dark"] .writing-prompts__textarea:focus {
+  border-color: var(--primary-blue);
+  background: var(--bg-light-gray);
+}

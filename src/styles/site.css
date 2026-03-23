@@ -1241,6 +1241,414 @@
   border-bottom: 2px solid var(--border-light);
 }
 
+.content-section__desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: -12px 0 24px;
+}
+
+/* ===================================================================
+   Essay Page — Structure Flow Buttons, Detail, Transitions, Sample
+   =================================================================== */
+
+/* --- Flow Buttons (서론 ▶ 본론 ▶ 결론) --- */
+.essay-flow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.essay-flow__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.essay-flow__btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  border: 2px solid var(--border-light);
+  background: var(--card-bg, #fff);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.essay-flow__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.essay-flow__btn--intro {
+  border-color: #3B82F6;
+}
+.essay-flow__btn--intro:hover,
+.essay-flow__btn--intro.essay-flow__btn--active {
+  background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+  border-color: #3B82F6;
+  color: #1E40AF;
+}
+
+.essay-flow__btn--body {
+  border-color: #22C55E;
+}
+.essay-flow__btn--body:hover,
+.essay-flow__btn--body.essay-flow__btn--active {
+  background: linear-gradient(135deg, #F0FDF4, #DCFCE7);
+  border-color: #22C55E;
+  color: #166534;
+}
+
+.essay-flow__btn--conclusion {
+  border-color: #F59E0B;
+}
+.essay-flow__btn--conclusion:hover,
+.essay-flow__btn--conclusion.essay-flow__btn--active {
+  background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+  border-color: #F59E0B;
+  color: #92400E;
+}
+
+.essay-flow__icon {
+  font-size: 1.3rem;
+}
+
+.essay-flow__label {
+  white-space: nowrap;
+}
+
+.essay-flow__chevron {
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  opacity: 0.5;
+}
+
+.essay-flow__chevron--open {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+.essay-flow__arrow {
+  color: var(--text-light);
+  font-size: 1rem;
+  opacity: 0.4;
+}
+
+/* --- Detail Panel (expanded) --- */
+.essay-detail {
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 24px;
+  border-left: 4px solid var(--border-light);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  animation: essaySlideDown 0.3s ease;
+}
+
+@keyframes essaySlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.essay-detail--intro  { border-left-color: #3B82F6; }
+.essay-detail--body   { border-left-color: #22C55E; }
+.essay-detail--conclusion { border-left-color: #F59E0B; }
+
+.essay-detail__subtitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 16px;
+}
+
+.essay-detail__subtitle i {
+  color: var(--primary-blue);
+  font-size: 0.95rem;
+}
+
+.essay-detail__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.essay-detail__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg-secondary, #F8FAFC);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+.essay-detail__bullet {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.essay-detail__quote {
+  margin: 0;
+  padding: 20px 24px;
+  background: var(--bg-secondary, #F8FAFC);
+  border-radius: 12px;
+  border-left: 3px solid var(--primary-blue);
+}
+
+.essay-detail__quote-en {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+}
+
+.essay-detail__quote-ko {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-light);
+}
+
+/* --- Transition Words Grid --- */
+.transition-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.transition-card {
+  background: var(--card-bg, #fff);
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.transition-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.transition-card__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 12px;
+}
+
+.transition-card__words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.transition-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--bg-secondary, #F1F5F9);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--primary-blue);
+  font-weight: 500;
+}
+
+/* --- Sample Essay --- */
+.sample-essay {
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.sample-essay__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+.sample-essay__section {
+  margin-bottom: 20px;
+}
+
+.sample-essay__section p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin: 8px 0 0;
+}
+
+.label {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.label--intro      { background: #DBEAFE; color: #1E40AF; }
+.label--body       { background: #DCFCE7; color: #166534; }
+.label--conclusion { background: #FEF3C7; color: #92400E; }
+
+/* --- Writing Prompts / Practice --- */
+.writing-prompts__tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.writing-prompts__tab {
+  padding: 10px 20px;
+  border: 2px solid var(--border-light);
+  border-radius: 10px;
+  background: var(--card-bg, #fff);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.writing-prompts__tab:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.writing-prompts__tab--active {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  color: #fff;
+}
+
+.writing-prompts__content {
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.writing-prompts__prompt {
+  margin-bottom: 20px;
+}
+
+.writing-prompts__prompt h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.writing-prompts__prompt p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.writing-prompts__textarea {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid var(--border-light);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--bg-secondary, #F8FAFC);
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.writing-prompts__textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  background: var(--card-bg, #fff);
+}
+
+.writing-prompts__footer {
+  margin-top: 12px;
+  text-align: right;
+}
+
+.writing-prompts__count {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* --- Essay Page Responsive --- */
+@media (max-width: 900px) {
+  .transition-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .essay-flow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .essay-flow__item {
+    flex-direction: column;
+  }
+  .essay-flow__btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .essay-flow__arrow {
+    text-align: center;
+    transform: rotate(90deg);
+  }
+  .essay-detail {
+    padding: 20px;
+  }
+  .sample-essay {
+    padding: 20px;
+  }
+  .transition-grid {
+    grid-template-columns: 1fr;
+  }
+  .writing-prompts__content {
+    padding: 20px;
+  }
+}
+
 /* ===================================================================
    Card Grid (card-grid--2, card-grid--3)
    =================================================================== */

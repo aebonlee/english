@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   tagline: '\uc2e4\uc6a9 \uc601\uc5b4 \ub9c8\uc2a4\ud130',
   description: '\ube44\uc988\ub2c8\uc2a4 \ubc0f \uc77c\uc0c1\uc5d0\uc11c \ud65c\uc6a9 \uac00\ub2a5\ud55c \uc2e4\uc6a9 \uc601\uc5b4 \ud68c\ud654\xb7\uc791\ubb38 \ud559\uc2b5',
   url: 'https://english.dreamitbiz.com/',
-  ogImage: 'https://english.dreamitbiz.com/og-image.svg',
+  ogImage: 'https://english.dreamitbiz.com/og-image.png',
   github: 'https://github.com/aebonlee/english',
   version: '1.0.0'
 };
