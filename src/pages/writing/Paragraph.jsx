@@ -195,11 +195,14 @@ function Paragraph() {
             {exampleParagraphs.map((para, index) => (
               <div key={index} className="example-paragraph" data-aos="fade-up" data-aos-delay={index * 100}>
                 <button
-                  className="example-paragraph__toggle"
+                  className={`example-paragraph__toggle ${expandedExample === index ? 'example-paragraph__toggle--active' : ''}`}
                   onClick={() => setExpandedExample(expandedExample === index ? null : index)}
                 >
-                  <h3>{para.title}</h3>
-                  <span>{expandedExample === index ? '−' : '+'}</span>
+                  <span className="example-paragraph__num">{index + 1}</span>
+                  <h3 className="example-paragraph__title">{para.title}</h3>
+                  <span className="example-paragraph__icon">
+                    <i className={`fas fa-chevron-${expandedExample === index ? 'up' : 'down'}`}></i>
+                  </span>
                 </button>
                 {expandedExample === index && (
                   <div className="example-paragraph__content">

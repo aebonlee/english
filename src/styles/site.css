@@ -1650,6 +1650,291 @@
 }
 
 /* ===================================================================
+   Paragraph Page — Structure, Example Paragraphs, Practice
+   =================================================================== */
+
+/* --- Paragraph Structure Cards --- */
+.paragraph-structure {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.paragraph-part {
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  padding: 28px 32px;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.paragraph-part__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.paragraph-part__icon {
+  font-size: 1.5rem;
+}
+
+.paragraph-part__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.paragraph-part__desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0 0 16px;
+}
+
+.paragraph-part__tips {
+  margin-bottom: 16px;
+}
+
+.paragraph-part__tips h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.paragraph-part__tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.paragraph-part__tips li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.paragraph-part__tips li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #22C55E;
+  font-weight: 700;
+}
+
+.paragraph-part__example h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.paragraph-part__example .example-quote {
+  margin: 0;
+  padding: 16px 20px;
+  background: var(--bg-secondary, #F8FAFC);
+  border-radius: 10px;
+  border-left: 3px solid var(--primary-blue);
+}
+
+.paragraph-part__example .example-quote__en {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.paragraph-part__example .example-quote__ko {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --- Example Paragraph Toggle Buttons --- */
+.example-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.example-paragraph {
+  border-radius: 14px;
+  border: 2px solid var(--border-light);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.example-paragraph:hover {
+  border-color: var(--primary-blue);
+}
+
+.example-paragraph__toggle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 18px 24px;
+  background: var(--card-bg, #fff);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.example-paragraph__toggle:hover {
+  background: var(--bg-secondary, #F8FAFC);
+}
+
+.example-paragraph__toggle--active {
+  background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+  border-bottom: 2px solid var(--border-light);
+}
+
+.example-paragraph__num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.example-paragraph__title {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.example-paragraph__icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--bg-secondary, #F1F5F9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--primary-blue);
+  transition: transform 0.3s;
+}
+
+.example-paragraph__content {
+  padding: 24px;
+  background: var(--card-bg, #fff);
+  animation: essaySlideDown 0.3s ease;
+}
+
+.example-paragraph__content p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+  margin: 0 0 16px;
+}
+
+.example-paragraph__content p:last-child {
+  margin-bottom: 0;
+}
+
+.example-paragraph__content .label {
+  margin-right: 8px;
+}
+
+.label--topic      { background: #DBEAFE; color: #1E40AF; }
+.label--supporting { background: #DCFCE7; color: #166534; }
+.label--concluding { background: #FEF3C7; color: #92400E; }
+
+/* --- Practice Prompts --- */
+.practice-prompts {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.practice-prompt {
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  border: 1px solid var(--border-light);
+  padding: 24px 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.practice-prompt__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px;
+}
+
+.practice-prompt__hint {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
+.practice-prompt__textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--border-light);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background: var(--bg-secondary, #F8FAFC);
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.practice-prompt__textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  background: var(--card-bg, #fff);
+}
+
+.practice-prompt__footer {
+  margin-top: 8px;
+  text-align: right;
+}
+
+.practice-prompt__count {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* --- Paragraph Page Responsive --- */
+@media (max-width: 768px) {
+  .paragraph-part {
+    padding: 20px;
+  }
+  .example-paragraph__toggle {
+    padding: 14px 16px;
+  }
+  .example-paragraph__content {
+    padding: 16px;
+  }
+  .practice-prompt {
+    padding: 20px;
+  }
+}
+
+/* ===================================================================
    Card Grid (card-grid--2, card-grid--3)
    =================================================================== */
 

@@ -2050,3 +2050,49 @@
   border-color: var(--primary-blue);
   background: var(--bg-light-gray);
 }
+
+/* ===================================================================
+   Paragraph Page — Dark Mode
+   =================================================================== */
+[data-theme="dark"] .paragraph-part {
+  background: var(--bg-light-gray);
+  border-color: var(--border-light);
+}
+[data-theme="dark"] .paragraph-part__example .example-quote {
+  background: var(--bg-white);
+}
+[data-theme="dark"] .example-paragraph {
+  border-color: var(--border-light);
+}
+[data-theme="dark"] .example-paragraph__toggle {
+  background: var(--bg-light-gray);
+}
+[data-theme="dark"] .example-paragraph__toggle:hover {
+  background: var(--bg-white);
+}
+[data-theme="dark"] .example-paragraph__toggle--active {
+  background: rgba(59, 130, 246, 0.15);
+  border-bottom-color: var(--border-light);
+}
+[data-theme="dark"] .example-paragraph__icon {
+  background: var(--bg-white);
+}
+[data-theme="dark"] .example-paragraph__content {
+  background: var(--bg-light-gray);
+}
+[data-theme="dark"] .label--topic { background: rgba(59, 130, 246, 0.2); color: #93C5FD; }
+[data-theme="dark"] .label--supporting { background: rgba(34, 197, 94, 0.2); color: #86EFAC; }
+[data-theme="dark"] .label--concluding { background: rgba(245, 158, 11, 0.2); color: #FCD34D; }
+[data-theme="dark"] .practice-prompt {
+  background: var(--bg-light-gray);
+  border-color: var(--border-light);
+}
+[data-theme="dark"] .practice-prompt__textarea {
+  background: var(--bg-white);
+  border-color: var(--border-light);
+  color: var(--text-primary);
+}
+[data-theme="dark"] .practice-prompt__textarea:focus {
+  border-color: var(--primary-blue);
+  background: var(--bg-light-gray);
+}

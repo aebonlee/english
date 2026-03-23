@@ -32,7 +32,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  max-width: var(--container-max, 1200px);
+  max-width: 1400px;
   padding: 0 var(--space-lg, 24px);
 }
 
@@ -80,14 +80,17 @@
 .navbar-desktop {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
 }
 
 .navbar-menu {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   margin: 0;
   padding: 0;
 }
