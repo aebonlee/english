@@ -1,11 +1,17 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import SEOHead from '../../components/SEOHead';
+import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
 import { basicWords } from '../../data/vocabulary';
 
 const ITEMS_PER_PAGE = 20;
 const TOTAL_LABEL = 500;
 
 export default function VocabBasic() {
+  const { t } = useLanguage();
+  useAOS();
+
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [showMeaning, setShowMeaning] = useState(true);
@@ -57,23 +63,50 @@ export default function VocabBasic() {
   ];
 
   return (
-    <div className="vocab-container">
-      <div className="vocab-header">
-        <Link to="/vocabulary" className="vocab-back">&larr; 전체 단어장</Link>
-        <h1>기초 필수 단어 500</h1>
-        <p className="vocab-subtitle">Basic Essential 500</p>
-        <div className="vocab-progress">
-          <div className="vocab-progress-bar">
-            <div
-              className="vocab-progress-fill"
-              style={{ width: `${(learnedCount / TOTAL_LABEL) * 100}%` }}
-            />
+    <>
+      <SEOHead
+        title={t('기초 필수 단어 500 - English Pro', 'Basic Essential 500 - English Pro')}
+        description={t(
+          '영어 학습의 기본이 되는 필수 단어 500개를 학습하세요.',
+          'Study 500 essential words for English learning basics.'
+        )}
+      />
+
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <Link to="/vocabulary">{t('필수 영단어', 'Vocabulary')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <span>{t('기초 필수 단어', 'Basic Essential')}</span>
           </div>
-          <span className="vocab-progress-text">
-            {learnedCount} / {TOTAL_LABEL} 학습 완료
-          </span>
+          <h1 className="page-header__title">
+            {t('기초 필수 단어 500', 'Basic Essential 500')}
+          </h1>
+          <p className="page-header__description">
+            {t(
+              '영어 학습의 기본이 되는 필수 단어 500개를 학습하세요.',
+              'Study 500 essential words for English learning basics.'
+            )}
+          </p>
         </div>
-      </div>
+      </section>
+
+      <div className="vocab-container">
+        <div className="vocab-progress-wrap">
+          <div className="vocab-progress">
+            <div className="vocab-progress-bar">
+              <div
+                className="vocab-progress-fill"
+                style={{ width: `${(learnedCount / TOTAL_LABEL) * 100}%` }}
+              />
+            </div>
+            <span className="vocab-progress-text">
+              {learnedCount} / {TOTAL_LABEL} {t('학습 완료', 'completed')}
+            </span>
+          </div>
+        </div>
 
       <div className="vocab-controls">
         <div className="vocab-search-bar">
@@ -200,6 +233,7 @@ export default function VocabBasic() {
 
       <style>{vocabPageStyles}</style>
     </div>
+    </>
   );
 }
 
@@ -210,36 +244,9 @@ const vocabPageStyles = `
     padding: 32px 20px 80px;
   }
 
-  .vocab-header {
+  .vocab-progress-wrap {
     text-align: center;
     margin-bottom: 28px;
-  }
-
-  .vocab-back {
-    display: inline-block;
-    color: #4A90D9;
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    margin-bottom: 12px;
-    transition: opacity 0.2s;
-  }
-
-  .vocab-back:hover {
-    opacity: 0.7;
-  }
-
-  .vocab-header h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #1a1a2e;
-    margin: 0 0 4px;
-  }
-
-  .vocab-subtitle {
-    font-size: 1rem;
-    color: #999;
-    margin: 0 0 20px;
   }
 
   .vocab-progress {

@@ -1,5 +1,8 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import SEOHead from '../../components/SEOHead';
+import { useLanguage } from '../../contexts/LanguageContext';
+import useAOS from '../../hooks/useAOS';
 import { businessWords } from '../../data/vocabulary';
 
 const ITEMS_PER_PAGE = 20;
@@ -9,6 +12,9 @@ const ACCENT_BG = '#fef5ee';
 const ACCENT_BORDER = '#f5d5b0';
 
 export default function VocabBusiness() {
+  const { t } = useLanguage();
+  useAOS();
+
   const [search, setSearch] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [showMeaning, setShowMeaning] = useState(true);
@@ -60,23 +66,50 @@ export default function VocabBusiness() {
   ];
 
   return (
-    <div className="vocab-container">
-      <div className="vocab-header">
-        <Link to="/vocabulary" className="vocab-back" style={{ color: ACCENT_COLOR }}>&larr; 전체 단어장</Link>
-        <h1>비즈니스 필수 단어 500</h1>
-        <p className="vocab-subtitle">Business Essential 500</p>
-        <div className="vocab-progress">
-          <div className="vocab-progress-bar">
-            <div
-              className="vocab-progress-fill"
-              style={{ width: `${(learnedCount / TOTAL_LABEL) * 100}%`, background: `linear-gradient(90deg, ${ACCENT_COLOR}, #d35400)` }}
-            />
+    <>
+      <SEOHead
+        title={t('비즈니스 필수 단어 500 - English Pro', 'Business Essential 500 - English Pro')}
+        description={t(
+          '직장 생활과 비즈니스 환경에서 자주 사용되는 전문 어휘 500개를 학습하세요.',
+          'Study 500 essential business vocabulary words for the workplace.'
+        )}
+      />
+
+      <section className="page-header" data-aos="fade-up">
+        <div className="container">
+          <div className="page-header__breadcrumb">
+            <Link to="/">{t('홈', 'Home')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <Link to="/vocabulary">{t('필수 영단어', 'Vocabulary')}</Link>
+            <i className="fas fa-chevron-right"></i>
+            <span>{t('비즈니스 필수 단어', 'Business Essential')}</span>
           </div>
-          <span className="vocab-progress-text">
-            {learnedCount} / {TOTAL_LABEL} 학습 완료
-          </span>
+          <h1 className="page-header__title">
+            {t('비즈니스 필수 단어 500', 'Business Essential 500')}
+          </h1>
+          <p className="page-header__description">
+            {t(
+              '직장 생활과 비즈니스 환경에서 자주 사용되는 전문 어휘 500개를 학습하세요.',
+              'Study 500 essential business vocabulary words for the workplace.'
+            )}
+          </p>
         </div>
-      </div>
+      </section>
+
+      <div className="vocab-container">
+        <div className="vocab-progress-wrap">
+          <div className="vocab-progress">
+            <div className="vocab-progress-bar">
+              <div
+                className="vocab-progress-fill"
+                style={{ width: `${(learnedCount / TOTAL_LABEL) * 100}%`, background: `linear-gradient(90deg, ${ACCENT_COLOR}, #d35400)` }}
+              />
+            </div>
+            <span className="vocab-progress-text">
+              {learnedCount} / {TOTAL_LABEL} {t('학습 완료', 'completed')}
+            </span>
+          </div>
+        </div>
 
       <div className="vocab-controls">
         <div className="vocab-search-bar">
@@ -166,11 +199,7 @@ export default function VocabBusiness() {
 
       <style>{`
         .vocab-container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 80px; }
-        .vocab-header { text-align: center; margin-bottom: 28px; }
-        .vocab-back { display: inline-block; text-decoration: none; font-size: 0.95rem; font-weight: 500; margin-bottom: 12px; transition: opacity 0.2s; }
-        .vocab-back:hover { opacity: 0.7; }
-        .vocab-header h1 { font-size: 2rem; font-weight: 800; color: #1a1a2e; margin: 0 0 4px; }
-        .vocab-subtitle { font-size: 1rem; color: #999; margin: 0 0 20px; }
+        .vocab-progress-wrap { text-align: center; margin-bottom: 28px; }
         .vocab-progress { max-width: 400px; margin: 0 auto; }
         .vocab-progress-bar { height: 8px; background: #e8e8e8; border-radius: 4px; overflow: hidden; margin-bottom: 6px; }
         .vocab-progress-fill { height: 100%; border-radius: 4px; transition: width 0.4s ease; min-width: 0; }
@@ -212,5 +241,6 @@ export default function VocabBusiness() {
         .vocab-load-more button { padding: 12px 36px; border: 2px solid; border-radius: 10px; background: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
       `}</style>
     </div>
+    </>
   );
 }
