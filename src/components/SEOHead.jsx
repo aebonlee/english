@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const DEFAULT_TITLE = 'English Pro';
 const DEFAULT_DESCRIPTION = 'Master English with AI-powered learning. Practice conversation, build vocabulary, and prepare for exams.';
-const DEFAULT_IMAGE = 'https://english.dreamitbiz.com/og-image.png';
+const DEFAULT_IMAGE = 'https://english.dreamitbiz.com/og-image.png?v=2';
 const SITE_URL = 'https://english.dreamitbiz.com';
 
 function setMetaTag(property, content) {
