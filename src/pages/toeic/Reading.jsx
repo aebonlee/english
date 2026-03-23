@@ -61,12 +61,12 @@ const partOverviews = [
 ];
 
 const vocabularyTips = [
-  { en: 'effect / affect', ko: 'effect(명사: 효과) / affect(동사: 영향을 미치다)' },
-  { en: 'compliment / complement', ko: 'compliment(칭찬) / complement(보완)' },
-  { en: 'personnel / personal', ko: 'personnel(직원, 인사부) / personal(개인의)' },
-  { en: 'adopt / adapt', ko: 'adopt(채택하다) / adapt(적응하다)' },
-  { en: 'eligible / illegible', ko: 'eligible(자격이 있는) / illegible(읽을 수 없는)' },
-  { en: 'ensure / insure', ko: 'ensure(보장하다) / insure(보험에 가입하다)' },
+  { wordA: 'effect', descA: { ko: '명사: 효과, 영향', en: 'noun: effect, result' }, wordB: 'affect', descB: { ko: '동사: 영향을 미치다', en: 'verb: to influence' } },
+  { wordA: 'compliment', descA: { ko: '칭찬, 찬사', en: 'praise, flattery' }, wordB: 'complement', descB: { ko: '보완, 보충', en: 'something that completes' } },
+  { wordA: 'personnel', descA: { ko: '직원, 인사부', en: 'staff, HR department' }, wordB: 'personal', descB: { ko: '개인의, 사적인', en: 'private, individual' } },
+  { wordA: 'adopt', descA: { ko: '채택하다, 입양하다', en: 'to take up, to adopt' }, wordB: 'adapt', descB: { ko: '적응하다, 각색하다', en: 'to adjust, to modify' } },
+  { wordA: 'eligible', descA: { ko: '자격이 있는', en: 'qualified, entitled' }, wordB: 'illegible', descB: { ko: '읽을 수 없는', en: 'unreadable' } },
+  { wordA: 'ensure', descA: { ko: '보장하다, 확실히 하다', en: 'to make certain' }, wordB: 'insure', descB: { ko: '보험에 가입하다', en: 'to provide insurance' } },
 ];
 
 function Reading() {
@@ -176,23 +176,20 @@ function Reading() {
           <h2 className="content-section__title">
             {t('📚 자주 혼동되는 어휘', '📚 Commonly Confused Words')}
           </h2>
-          <div className="vocab-table">
-            <table className="data-table">
-              <thead>
-                <tr>
-                  <th>{t('영어', 'English')}</th>
-                  <th>{t('구분', 'Distinction')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {vocabularyTips.map((item, index) => (
-                  <tr key={index}>
-                    <td><strong>{item.en}</strong></td>
-                    <td>{item.ko}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="confused-words-grid">
+            {vocabularyTips.map((item, index) => (
+              <div key={index} className="confused-card">
+                <div className="confused-card__word confused-card__word--a">
+                  <span className="confused-card__label">{item.wordA}</span>
+                  <span className="confused-card__desc">{t(item.descA.ko, item.descA.en)}</span>
+                </div>
+                <div className="confused-card__vs">VS</div>
+                <div className="confused-card__word confused-card__word--b">
+                  <span className="confused-card__label">{item.wordB}</span>
+                  <span className="confused-card__desc">{t(item.descB.ko, item.descB.en)}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

@@ -113,6 +113,16 @@
   color: var(--error);
 }
 
+.speech-practice__level-badge--business {
+  background: #EBF5FB;
+  color: #2980B9;
+}
+
+.speech-practice__level-badge--practical {
+  background: #F5EEF8;
+  color: #8E44AD;
+}
+
 .speech-practice__counter {
   font-size: var(--font-size-sm);
   color: var(--text-light);

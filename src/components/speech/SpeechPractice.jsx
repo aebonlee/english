@@ -179,6 +179,10 @@ function SpeechPractice() {
         return t('중급', 'Intermediate');
       case 'advanced':
         return t('고급', 'Advanced');
+      case 'business':
+        return t('비즈니스', 'Business');
+      case 'practical':
+        return t('실전', 'Practical');
       default:
         return level;
     }
@@ -215,6 +219,8 @@ function SpeechPractice() {
             { value: 'beginner', label: t('초급', 'Beginner') },
             { value: 'intermediate', label: t('중급', 'Intermediate') },
             { value: 'advanced', label: t('고급', 'Advanced') },
+            { value: 'business', label: t('비즈니스', 'Business') },
+            { value: 'practical', label: t('실전', 'Practical') },
           ].map((level) => (
             <button
               key={level.value}

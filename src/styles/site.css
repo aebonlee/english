@@ -1529,26 +1529,116 @@
 }
 
 /* ===================================================================
+   Confused Words Grid (Reading)
+   =================================================================== */
+.confused-words-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .confused-words-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.confused-card {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg-white);
+}
+
+.confused-card__word {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.confused-card__word--a {
+  background: rgba(74, 144, 217, 0.06);
+}
+
+.confused-card__word--b {
+  background: rgba(231, 126, 34, 0.06);
+}
+
+.confused-card__label {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.confused-card__word--a .confused-card__label {
+  color: var(--primary-blue);
+}
+
+.confused-card__word--b .confused-card__label {
+  color: #E67E22;
+}
+
+.confused-card__desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.confused-card__vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-light);
+  background: var(--bg-light-gray);
+  letter-spacing: 0.05em;
+}
+
+/* ===================================================================
    Tips Grid (Listening)
    =================================================================== */
 
 .tips-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .tip-item {
   display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 16px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
   background: var(--bg-white);
   border: 1px solid var(--border-light);
-  border-radius: 10px;
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 0 10px 10px 0;
   font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.5;
+}
+
+.tip-item h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin: 0;
+}
+
+.tip-item p {
+  margin: 0;
 }
 
 /* ===================================================================

@@ -1078,6 +1078,16 @@
   color: var(--text-light);
 }
 
+[data-theme="dark"] .speech-practice__level-badge--business {
+  background: rgba(41, 128, 185, 0.2);
+  color: #5DADE2;
+}
+
+[data-theme="dark"] .speech-practice__level-badge--practical {
+  background: rgba(142, 68, 173, 0.2);
+  color: #BB8FCE;
+}
+
 /* === Vocabulary Dark Mode === */
 [data-theme="dark"] .vocab-card-front {
   background: var(--bg-light-gray);
