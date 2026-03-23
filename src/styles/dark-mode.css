@@ -1705,6 +1705,18 @@
   color: var(--primary-blue);
   background: var(--primary-blue-bg);
 }
+[data-theme="dark"] .sidebar-nav__sections {
+  border-left-color: var(--border-light);
+}
+[data-theme="dark"] .sidebar-nav__section-link { color: var(--text-light); }
+[data-theme="dark"] .sidebar-nav__section-link:hover {
+  color: var(--text-primary);
+  background: var(--primary-blue-bg);
+}
+[data-theme="dark"] .sidebar-nav__section-link.active {
+  color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+}
 
 /* === Sidebar Layout Dark Mode === */
 [data-theme="dark"] .content-sidebar { background: transparent; }

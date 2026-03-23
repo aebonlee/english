@@ -10,7 +10,7 @@ export default function PageLayout({ sections, category, children }) {
   const { pathname } = useLocation();
   const [activeId, setActiveId] = useState(sections[0]?.id || '');
   const [navOpen, setNavOpen] = useState(true);
-  const tocRef = useRef(null);
+  const sidebarRef = useRef(null);
 
   const items = category ? navData[category] : null;
   const catTitle = category ? categoryTitles[category] : null;
@@ -36,8 +36,8 @@ export default function PageLayout({ sections, category, children }) {
   }, [sections]);
 
   useEffect(() => {
-    if (!tocRef.current) return;
-    const activeLink = tocRef.current.querySelector('.toc-link.active');
+    if (!sidebarRef.current) return;
+    const activeLink = sidebarRef.current.querySelector('.sidebar-nav__section-link.active');
     if (activeLink) {
       activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
@@ -54,6 +54,9 @@ export default function PageLayout({ sections, category, children }) {
   }, []);
 
   if (!sections || sections.length === 0) return children;
+
+  // 카테고리가 있으면 통합 트리, 없으면 기존 ToC
+  const hasCategoryNav = items && catTitle;
 
   return (
     <>
@@ -72,27 +75,9 @@ export default function PageLayout({ sections, category, children }) {
       <div className="page-layout">
         <div className="container">
           <div className="content-layout">
-            <aside className="content-sidebar">
-              {/* ToC 목차 */}
-              <nav className="toc" ref={tocRef}>
-                <h3 className="toc-title">{t('목차', 'Contents')}</h3>
-                <ul className="toc-list">
-                  {sections.map((s) => (
-                    <li key={s.id}>
-                      <a
-                        className={`toc-link${activeId === s.id ? ' active' : ''}`}
-                        href={`#${s.id}`}
-                        onClick={(e) => handleClick(e, s.id)}
-                      >
-                        {t(s.ko, s.en)}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-
-              {/* 카테고리 드롭다운 (목차 아래) */}
-              {items && catTitle && (
+            <aside className="content-sidebar" ref={sidebarRef}>
+              {hasCategoryNav ? (
+                /* 통합 트리: 2차 메뉴 + 현재 페이지 아래 3차 메뉴 드롭다운 */
                 <nav className="sidebar-nav">
                   <button
                     className="sidebar-nav__toggle"
@@ -103,18 +88,61 @@ export default function PageLayout({ sections, category, children }) {
                   </button>
                   {navOpen && (
                     <ul className="sidebar-nav__list">
-                      {items.map((item) => (
-                        <li key={item.path}>
-                          <Link
-                            className={`sidebar-nav__link${pathname === item.path ? ' sidebar-nav__link--active' : ''}`}
-                            to={item.path}
-                          >
-                            {t(item.ko, item.en)}
-                          </Link>
-                        </li>
-                      ))}
+                      {items.map((item) => {
+                        const isActive = pathname === item.path;
+                        return (
+                          <li key={item.path}>
+                            {isActive ? (
+                              <>
+                                <span className="sidebar-nav__link sidebar-nav__link--active">
+                                  {t(item.ko, item.en)}
+                                </span>
+                                {/* 3차 메뉴: 현재 페이지 섹션 앵커 */}
+                                <ul className="sidebar-nav__sections">
+                                  {sections.map((s) => (
+                                    <li key={s.id}>
+                                      <a
+                                        className={`sidebar-nav__section-link${activeId === s.id ? ' active' : ''}`}
+                                        href={`#${s.id}`}
+                                        onClick={(e) => handleClick(e, s.id)}
+                                      >
+                                        {t(s.ko, s.en)}
+                                      </a>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </>
+                            ) : (
+                              <Link
+                                className="sidebar-nav__link"
+                                to={item.path}
+                              >
+                                {t(item.ko, item.en)}
+                              </Link>
+                            )}
+                          </li>
+                        );
+                      })}
                     </ul>
                   )}
+                </nav>
+              ) : (
+                /* 카테고리 없으면 기존 ToC만 표시 */
+                <nav className="toc">
+                  <h3 className="toc-title">{t('목차', 'Contents')}</h3>
+                  <ul className="toc-list">
+                    {sections.map((s) => (
+                      <li key={s.id}>
+                        <a
+                          className={`toc-link${activeId === s.id ? ' active' : ''}`}
+                          href={`#${s.id}`}
+                          onClick={(e) => handleClick(e, s.id)}
+                        >
+                          {t(s.ko, s.en)}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
                 </nav>
               )}
             </aside>
