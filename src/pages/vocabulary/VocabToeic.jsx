@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -27,6 +27,15 @@ export default function VocabToeic() {
     if (!showMeaning) return;
     setFlipped((prev) => ({ ...prev, [id]: !prev[id] }));
   };
+
+  const speak = useCallback((e, word) => {
+    e.stopPropagation();
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(word);
+    u.lang = 'en-US';
+    u.rate = 0.9;
+    window.speechSynthesis.speak(u);
+  }, []);
 
   const toggleLearned = (e, id) => {
     e.stopPropagation();
@@ -170,7 +179,10 @@ export default function VocabToeic() {
                   </button>
                 </div>
                 <h3 className="card-word">{word.word}</h3>
-                <span className="pronunciation">{word.pronunciation}</span>
+                <div className="pronunciation-row">
+                  <span className="pronunciation">{word.pronunciation}</span>
+                  <button className="speak-btn" onClick={(e) => speak(e, word.word)} title="발음 듣기">🔊</button>
+                </div>
                 {!showMeaning && <p className="card-hint">클릭하여 뜻 확인</p>}
               </div>
               <div className="vocab-card-back" style={{ background: ACCENT_BG, borderColor: ACCENT_BORDER }}>
@@ -235,7 +247,10 @@ export default function VocabToeic() {
         .learn-check:hover { border-color: ${ACCENT_COLOR}; color: ${ACCENT_COLOR}; }
         .learn-check.checked { color: #fff; }
         .card-word { font-size: 1.15rem; font-weight: 700; color: #1a1a2e; margin: 0 0 4px; }
-        .pronunciation { font-size: 0.75rem; color: #888; margin-bottom: 2px; }
+        .pronunciation-row { display: flex; align-items: center; gap: 4px; }
+        .pronunciation { font-size: 0.75rem; color: #888; margin-bottom: 0; }
+        .speak-btn { background: none; border: none; cursor: pointer; font-size: 0.75rem; padding: 2px; line-height: 1; border-radius: 4px; transition: transform 0.15s; opacity: 0.7; }
+        .speak-btn:hover { transform: scale(1.2); opacity: 1; }
         .card-hint { font-size: 0.7rem; color: #bbb; margin: 4px 0 0; }
         .card-meaning { font-size: 1.05rem; font-weight: 700; color: #2c3e50; margin: 0 0 8px; }
         .example { font-size: 0.75rem; color: #666; font-style: italic; line-height: 1.4; margin: 0; }
