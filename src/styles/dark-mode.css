@@ -1718,6 +1718,11 @@
   background: var(--primary-blue-bg);
 }
 
+/* TTS Button Dark Mode */
+[data-theme="dark"] .tts-btn {
+  color: var(--primary-blue);
+}
+
 /* === Sidebar Layout Dark Mode === */
 [data-theme="dark"] .content-sidebar { background: transparent; }
 [data-theme="dark"] .content-main {

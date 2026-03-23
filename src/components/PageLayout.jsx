@@ -53,6 +53,54 @@ export default function PageLayout({ sections, category, children }) {
     }
   }, []);
 
+  const contentRef = useRef(null);
+
+  // 글로벌 TTS: 영어 문장 옆 스피커 버튼 자동 삽입
+  useEffect(() => {
+    const root = contentRef.current;
+    if (!root) return;
+
+    const speak = (text) => {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'en-US';
+      u.rate = 0.9;
+      window.speechSynthesis.speak(u);
+    };
+
+    const makeBtn = (text) => {
+      const btn = document.createElement('button');
+      btn.className = 'tts-btn';
+      btn.title = '발음 듣기';
+      btn.innerHTML = '<i class="fas fa-volume-up"></i>';
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        speak(text);
+      });
+      return btn;
+    };
+
+    // 1) expression-list 내 code 요소
+    root.querySelectorAll('.expression-list li code').forEach((code) => {
+      if (code.parentElement.querySelector('.tts-btn')) return;
+      code.after(makeBtn(code.textContent));
+    });
+
+    // 2) dialogue 내 p 요소
+    root.querySelectorAll('.dialogue p').forEach((p) => {
+      if (p.querySelector('.tts-btn')) return;
+      const speaker = p.querySelector('.speaker');
+      let text = p.textContent;
+      if (speaker) text = text.replace(speaker.textContent, '').trim();
+      if (text) p.appendChild(makeBtn(text));
+    });
+
+    return () => {
+      root.querySelectorAll('.tts-btn').forEach((btn) => btn.remove());
+    };
+  }, []);
+
   if (!sections || sections.length === 0) return children;
 
   // 카테고리가 있으면 통합 트리, 없으면 기존 ToC
@@ -147,7 +195,7 @@ export default function PageLayout({ sections, category, children }) {
               )}
             </aside>
 
-            <main className="content-main">
+            <main className="content-main" ref={contentRef}>
               {children}
             </main>
           </div>

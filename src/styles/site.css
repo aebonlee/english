@@ -1690,6 +1690,38 @@
   color: var(--text-primary);
 }
 
+/* --- TTS Speaker Button (auto-injected) --- */
+.tts-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-blue);
+  font-size: 0.9rem;
+  padding: 2px 5px;
+  margin-left: 6px;
+  border-radius: 4px;
+  transition: transform 0.15s;
+  vertical-align: middle;
+}
+
+.tts-btn:hover {
+  transform: scale(1.15);
+  opacity: 0.8;
+}
+
+.dialogue p .tts-btn {
+  font-size: 0.8rem;
+  margin-left: 4px;
+  opacity: 0.6;
+}
+
+.dialogue p .tts-btn:hover {
+  opacity: 1;
+}
+
 /* ===================================================================
    Dashboard
    =================================================================== */
