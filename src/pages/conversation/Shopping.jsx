@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 
 export default function Shopping() {
@@ -41,7 +40,9 @@ export default function Shopping() {
             <span>{t('쇼핑 & 주문', 'Shopping')}</span>
           </div>
           <h1 className="page-header__title">
-            {t('쇼핑 & 주문 (Shopping & Ordering)', 'Shopping & Ordering')}
+            {language === 'ko'
+              ? <>쇼핑 & 주문 <span className="page-header__en">(Shopping & Ordering)</span></>
+              : 'Shopping & Ordering'}
           </h1>
           <p className="page-header__description">
             {t(
@@ -52,8 +53,7 @@ export default function Shopping() {
         </div>
       </section>
 
-      <SubNav category="conversation" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="conversation">
 
       {/* Section 1: At a Store */}
       <section id="store" className="lesson-section" data-aos="fade-up">

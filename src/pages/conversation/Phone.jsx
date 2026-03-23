@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 
 export default function Phone() {
@@ -42,7 +41,9 @@ export default function Phone() {
             <span>{t('전화 영어', 'Phone')}</span>
           </div>
           <h1 className="page-header__title">
-            {t('전화 영어 (Phone English)', 'Phone English')}
+            {language === 'ko'
+              ? <>전화 영어 <span className="page-header__en">(Phone English)</span></>
+              : 'Phone English'}
           </h1>
           <p className="page-header__description">
             {t(
@@ -53,8 +54,7 @@ export default function Phone() {
         </div>
       </section>
 
-      <SubNav category="conversation" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="conversation">
 
       {/* Section 1: Answering the Phone */}
       <section id="answering" className="lesson-section" data-aos="fade-up">

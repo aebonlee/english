@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 
 const paragraphParts = [
@@ -97,7 +96,7 @@ const practicePrompts = [
 ];
 
 function Paragraph() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   useAOS();
 
   const [userWriting, setUserWriting] = useState({});
@@ -129,7 +128,9 @@ function Paragraph() {
             <span>{t('문단 작성', 'Paragraph')}</span>
           </div>
           <h1 className="page-header__title">
-            {t('문단 작성 (Paragraph Writing)', 'Paragraph Writing')}
+            {language === 'ko'
+              ? <>문단 작성 <span className="page-header__en">(Paragraph Writing)</span></>
+              : 'Paragraph Writing'}
           </h1>
           <p className="page-header__description">
             {t(
@@ -140,8 +141,7 @@ function Paragraph() {
         </div>
       </section>
 
-      <SubNav category="writing" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="writing">
         <div className="content-page">
 
         {/* Paragraph Structure */}

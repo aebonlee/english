@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 
 export default function Restaurant() {
@@ -42,7 +41,9 @@ export default function Restaurant() {
             <span>{t('음식점 영어', 'Restaurant')}</span>
           </div>
           <h1 className="page-header__title">
-            {t('음식점 영어 (At the Restaurant)', 'At the Restaurant')}
+            {language === 'ko'
+              ? <>음식점 영어 <span className="page-header__en">(At the Restaurant)</span></>
+              : 'At the Restaurant'}
           </h1>
           <p className="page-header__description">
             {t(
@@ -53,8 +54,7 @@ export default function Restaurant() {
         </div>
       </section>
 
-      <SubNav category="conversation" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="conversation">
 
       {/* Section 1: Reservation */}
       <section id="reservation" className="lesson-section" data-aos="fade-up">

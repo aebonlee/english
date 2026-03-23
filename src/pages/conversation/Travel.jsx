@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 
 export default function Travel() {
@@ -42,7 +41,9 @@ export default function Travel() {
             <span>{t('여행 영어', 'Travel')}</span>
           </div>
           <h1 className="page-header__title">
-            {t('여행 영어 (Travel English)', 'Travel English')}
+            {language === 'ko'
+              ? <>여행 영어 <span className="page-header__en">(Travel English)</span></>
+              : 'Travel English'}
           </h1>
           <p className="page-header__description">
             {t(
@@ -53,8 +54,7 @@ export default function Travel() {
         </div>
       </section>
 
-      <SubNav category="conversation" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="conversation">
 
       {/* Section 1: At the Airport */}
       <section id="airport" className="lesson-section" data-aos="fade-up">

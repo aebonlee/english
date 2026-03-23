@@ -1,11 +1,19 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import SectionNav from './SectionNav';
+import SubNav from './SubNav';
+import { navData, categoryTitles } from './SubNav';
 
-export default function PageLayout({ sections, children }) {
+export default function PageLayout({ sections, category, children }) {
   const { t } = useLanguage();
+  const { pathname } = useLocation();
   const [activeId, setActiveId] = useState(sections[0]?.id || '');
+  const [navOpen, setNavOpen] = useState(true);
   const tocRef = useRef(null);
+
+  const items = category ? navData[category] : null;
+  const catTitle = category ? categoryTitles[category] : null;
 
   useEffect(() => {
     const ids = sections.map((s) => s.id);
@@ -49,6 +57,14 @@ export default function PageLayout({ sections, children }) {
 
   return (
     <>
+      {/* 모바일: SubNav 가로 바 */}
+      {category && (
+        <div className="sub-nav-mobile">
+          <SubNav category={category} />
+        </div>
+      )}
+
+      {/* 모바일: SectionNav 칩 */}
       <div className="section-nav-mobile">
         <SectionNav sections={sections} />
       </div>
@@ -57,6 +73,34 @@ export default function PageLayout({ sections, children }) {
         <div className="container">
           <div className="content-layout">
             <aside className="content-sidebar">
+              {/* 카테고리 드롭다운 */}
+              {items && catTitle && (
+                <nav className="sidebar-nav">
+                  <button
+                    className="sidebar-nav__toggle"
+                    onClick={() => setNavOpen((v) => !v)}
+                  >
+                    {t(catTitle.ko, catTitle.en)}
+                    <i className={`fas fa-chevron-${navOpen ? 'up' : 'down'}`} />
+                  </button>
+                  {navOpen && (
+                    <ul className="sidebar-nav__list">
+                      {items.map((item) => (
+                        <li key={item.path}>
+                          <Link
+                            className={`sidebar-nav__link${pathname === item.path ? ' sidebar-nav__link--active' : ''}`}
+                            to={item.path}
+                          >
+                            {t(item.ko, item.en)}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </nav>
+              )}
+
+              {/* ToC 목차 */}
               <nav className="toc" ref={tocRef}>
                 <h3 className="toc-title">{t('목차', 'Contents')}</h3>
                 <ul className="toc-list">

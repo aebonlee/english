@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 import { readingQuestions } from '../../data/toeicData';
 
@@ -71,7 +70,7 @@ const vocabularyTips = [
 ];
 
 function Reading() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   useAOS();
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -113,7 +112,9 @@ function Reading() {
             <span>{t('독해', 'Reading')}</span>
           </div>
           <h1 className="page-header__title">
-            {t('TOEIC 독해 (Reading)', 'TOEIC Reading')}
+            {language === 'ko'
+              ? <>TOEIC 독해 <span className="page-header__en">(Reading)</span></>
+              : 'TOEIC Reading'}
           </h1>
           <p className="page-header__description">
             {t('Part 5-7 전략과 핵심 팁', 'Part 5-7 strategies and key tips')}
@@ -121,8 +122,7 @@ function Reading() {
         </div>
       </section>
 
-      <SubNav category="toeic" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="toeic">
         <div className="content-page">
 
         {/* Part Overviews */}

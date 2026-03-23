@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 
 const essayStructure = [
@@ -110,7 +109,7 @@ const writingPrompts = [
 ];
 
 function Essay() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   useAOS();
 
   const [expandedStructure, setExpandedStructure] = useState('intro');
@@ -144,7 +143,9 @@ function Essay() {
             <span>{t('에세이 작성', 'Essay')}</span>
           </div>
           <h1 className="page-header__title">
-            {t('에세이 작성 (Essay Writing)', 'Essay Writing')}
+            {language === 'ko'
+              ? <>에세이 작성 <span className="page-header__en">(Essay Writing)</span></>
+              : 'Essay Writing'}
           </h1>
           <p className="page-header__description">
             {t(
@@ -155,8 +156,7 @@ function Essay() {
         </div>
       </section>
 
-      <SubNav category="writing" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="writing">
         <div className="content-page">
 
         {/* Essay Structure */}

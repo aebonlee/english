@@ -99,6 +99,75 @@
   font-weight: 600;
 }
 
+/* --- Page Header English Text (0.7em) --- */
+.page-header__en {
+  font-size: 0.7em;
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+/* --- Sidebar Category Nav (SubNav in sidebar) --- */
+.sidebar-nav {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.sidebar-nav__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 4px;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar-nav__toggle i {
+  font-size: 0.7em;
+  transition: transform 0.2s;
+}
+
+.sidebar-nav__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: var(--space-sm);
+}
+
+.sidebar-nav__link {
+  display: block;
+  padding: 8px 12px;
+  font-size: var(--font-size-sm);
+  color: var(--text-light);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  border-left: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-nav__link:hover {
+  color: var(--text-primary);
+  background: var(--primary-blue-bg);
+  border-left-color: var(--primary-blue);
+}
+
+.sidebar-nav__link--active {
+  color: var(--primary-blue);
+  background: var(--primary-blue-bg);
+  border-left-color: var(--primary-blue);
+  font-weight: 600;
+}
+
 /* --- Content Layout (Sidebar + Main) --- */
 .content-layout {
   display: grid;
@@ -124,8 +193,9 @@
   overflow-y: auto;
 }
 
-/* Desktop: hide mobile SectionNav */
+/* Desktop: hide mobile nav bars */
 .section-nav-mobile { display: none; }
+.sub-nav-mobile { display: none; }
 
 /* Inner wrappers: neutralize nested containers inside content-main */
 .content-main .content-page { max-width: none; padding: 0; margin: 0; }
@@ -134,9 +204,10 @@
 .content-main .container { max-width: none; padding: 0; }
 .content-main .lesson-content { padding: 0; }
 
-/* Mobile: sidebar hidden, SectionNav visible */
+/* Mobile: sidebar hidden, SubNav/SectionNav visible */
 @media (max-width: 1024px) {
   .section-nav-mobile { display: block; }
+  .sub-nav-mobile { display: block; }
   .content-layout { grid-template-columns: 1fr; }
   .content-sidebar { display: none; }
   .content-main {
@@ -947,12 +1018,13 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: 4px;
 }
 
 .toc-link {
   display: block;
-  padding: 8px 12px;
+  padding: 10px 14px;
+  line-height: 1.5;
   font-size: var(--font-size-sm);
   color: var(--text-light);
   text-decoration: none;

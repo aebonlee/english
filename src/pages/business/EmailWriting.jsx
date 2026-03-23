@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 
 function EmailWriting() {
@@ -51,8 +50,7 @@ function EmailWriting() {
         </div>
       </section>
 
-      <SubNav category="business" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="business">
           <div className="lesson-body">
 
             <div className="callout-box">

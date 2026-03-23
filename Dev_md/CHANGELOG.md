@@ -1,5 +1,39 @@
 # English Pro - 변경 이력 (CHANGELOG)
 
+## v2.5.0 (2026-03-24)
+
+### SubNav 사이드바 드롭다운 통합 + ToC 가독성 개선 + 타이틀 영문 축소
+
+**SubNav → 사이드바 드롭다운:**
+- 데스크톱: SubNav를 사이드바 상단 접기/펼치기 드롭다운 메뉴로 통합
+- 카테고리 헤더 토글 + 현재 페이지 하이라이트 (`sidebar-nav__link--active`)
+- 모바일: 기존 SubNav 가로 바 유지 (`.sub-nav-mobile`)
+
+**SubNav.jsx:**
+- `navData`, `categoryTitles` export 추가
+
+**PageLayout.jsx:**
+- `category` prop 추가, SubNav 데이터 import
+- 사이드바: 카테고리 드롭다운 + ToC 2단 구조
+- 모바일: SubNav/SectionNav 가로 바 렌더링
+
+**ToC 줄간격 개선:**
+- `.toc-list` gap: `var(--space-xs)` → `4px`
+- `.toc-link` padding: `8px 12px` → `10px 14px`, `line-height: 1.5` 추가
+
+**타이틀 영문 0.7em 축소:**
+- `.page-header__en`: `font-size: 0.7em`, `font-weight: 400`, `opacity: 0.85`
+- 10개 페이지에 `<span className="page-header__en">` 래핑 적용
+
+**다크모드:**
+- `.sidebar-nav` 관련 다크모드 오버라이드 추가
+
+**파일 변경 (20개):**
+- 수정: `PageLayout.jsx`, `SubNav.jsx`, `site.css`, `dark-mode.css`
+- 수정: 16개 페이지 JSX 파일
+
+---
+
 ## v2.4.0 (2026-03-24)
 
 ### 전체 콘텐츠 페이지 사이드바 레이아웃 리뉴얼

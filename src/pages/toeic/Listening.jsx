@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 import { listeningQuestions } from '../../data/toeicData';
 
@@ -71,7 +70,7 @@ const partOverviews = [
 ];
 
 function Listening() {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   useAOS();
 
   const [selectedAnswers, setSelectedAnswers] = useState({});
@@ -113,7 +112,9 @@ function Listening() {
             <span>{t('듣기', 'Listening')}</span>
           </div>
           <h1 className="page-header__title">
-            {t('TOEIC 듣기 (Listening)', 'TOEIC Listening')}
+            {language === 'ko'
+              ? <>TOEIC 듣기 <span className="page-header__en">(Listening)</span></>
+              : 'TOEIC Listening'}
           </h1>
           <p className="page-header__description">
             {t('Part 1-4 전략과 핵심 팁', 'Part 1-4 strategies and key tips')}
@@ -121,8 +122,7 @@ function Listening() {
         </div>
       </section>
 
-      <SubNav category="toeic" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="toeic">
         <div className="content-page">
 
         {/* Part Overviews */}

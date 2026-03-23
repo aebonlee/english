@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 
 export default function Greetings() {
@@ -40,7 +39,9 @@ export default function Greetings() {
             <span>{t('인사 & 소개', 'Greetings')}</span>
           </div>
           <h1 className="page-header__title">
-            {t('인사 & 소개 (Greetings & Introductions)', 'Greetings & Introductions')}
+            {language === 'ko'
+              ? <>인사 & 소개 <span className="page-header__en">(Greetings & Introductions)</span></>
+              : 'Greetings & Introductions'}
           </h1>
           <p className="page-header__description">
             {t(
@@ -51,8 +52,7 @@ export default function Greetings() {
         </div>
       </section>
 
-      <SubNav category="conversation" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="conversation">
 
       {/* Section 1: 기본 인사 */}
       <section id="greetings" className="lesson-section" data-aos="fade-up">

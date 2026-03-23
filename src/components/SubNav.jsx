@@ -2,7 +2,15 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 
-const navData = {
+export const categoryTitles = {
+  conversation: { ko: '일상 회화', en: 'Conversation' },
+  business: { ko: '비즈니스 영어', en: 'Business English' },
+  vocabulary: { ko: '단어 학습', en: 'Vocabulary' },
+  writing: { ko: '영어 작문', en: 'Writing' },
+  toeic: { ko: 'TOEIC', en: 'TOEIC' },
+};
+
+export const navData = {
   conversation: [
     { path: '/conversation/greetings', ko: '인사 & 소개', en: 'Greetings' },
     { path: '/conversation/daily-life', ko: '일상생활', en: 'Daily Life' },

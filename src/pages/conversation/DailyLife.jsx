@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../components/SEOHead';
 import { useLanguage } from '../../contexts/LanguageContext';
 import useAOS from '../../hooks/useAOS';
-import SubNav from '../../components/SubNav';
 import PageLayout from '../../components/PageLayout';
 
 export default function DailyLife() {
@@ -42,7 +41,9 @@ export default function DailyLife() {
             <span>{t('일상생활 표현', 'Daily Life')}</span>
           </div>
           <h1 className="page-header__title">
-            {t('일상생활 표현 (Daily Life)', 'Daily Life Expressions')}
+            {language === 'ko'
+              ? <>일상생활 표현 <span className="page-header__en">(Daily Life)</span></>
+              : 'Daily Life Expressions'}
           </h1>
           <p className="page-header__description">
             {t(
@@ -53,8 +54,7 @@ export default function DailyLife() {
         </div>
       </section>
 
-      <SubNav category="conversation" />
-      <PageLayout sections={sections}>
+      <PageLayout sections={sections} category="conversation">
 
       {/* Section 1: Morning Routine */}
       <section id="morning" className="lesson-section" data-aos="fade-up">
