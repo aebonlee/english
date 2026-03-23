@@ -46,6 +46,11 @@ const Listening = React.lazy(() => import('../pages/toeic/Listening'));
 const Reading = React.lazy(() => import('../pages/toeic/Reading'));
 const MockTest = React.lazy(() => import('../pages/toeic/MockTest'));
 
+// Literature
+const LiteratureHome = React.lazy(() => import('../pages/literature/LiteratureHome'));
+const Poetry = React.lazy(() => import('../pages/literature/Poetry'));
+const ShortStories = React.lazy(() => import('../pages/literature/ShortStories'));
+
 // AI & Speech
 const AiChatPage = React.lazy(() => import('../pages/ai-chat/AiChatPage'));
 const SpeechPage = React.lazy(() => import('../pages/speech/SpeechPage'));
@@ -133,6 +138,11 @@ export default function PublicLayout() {
             <Route path="toeic/listening" element={<Listening />} />
             <Route path="toeic/reading" element={<Reading />} />
             <Route path="toeic/mock-test" element={<MockTest />} />
+
+            {/* Literature */}
+            <Route path="literature" element={<LiteratureHome />} />
+            <Route path="literature/poetry" element={<Poetry />} />
+            <Route path="literature/short-stories" element={<ShortStories />} />
 
             {/* AI & Speech */}
             <Route path="ai-chat" element={<AiChatPage />} />

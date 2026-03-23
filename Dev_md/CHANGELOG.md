@@ -1,5 +1,31 @@
 # English Pro - 변경 이력 (CHANGELOG)
 
+## v2.8.0 (2026-03-24)
+
+### 영문학 TTS 기능 추가 + README.md 작성
+
+**영문학 TTS 섹션 (신규):**
+- 영미시 9편: Frost, Shakespeare, Dickinson, Blake, Poe, Whitman, Wordsworth
+- 단편/명연설 5편: Aesop(2), O. Henry, Lincoln, Churchill
+- 각 작품: 영문 원문 + 한국어 번역 + 핵심 어휘 + 작품 해설
+- Web Speech API TTS: 전문 읽기 / 일시정지 / 중지 / 속도 조절 (0.7x~1.0x)
+- 현재 읽는 단락 하이라이트 (.reading-highlight)
+
+**네비게이션 등록:**
+- NAV_MENU + CURRICULUM_CARDS에 '영문학 TTS' 추가
+- SubNav categoryTitles + navData에 literature 키 추가
+- PublicLayout.jsx에 lazy import + Route 3개 추가
+
+**CSS + 다크모드:**
+- literature-card, literature-text, literature-controls 등 20+ 클래스
+- 번역/어휘/해설 토글 패널 스타일
+- 다크모드 전체 지원
+
+**README.md 생성:**
+- 프로젝트 소개, 기능 표, 기술 스택, 실행 방법, 구조
+
+---
+
 ## v2.7.1 (2026-03-24)
 
 ### 대화 번역 줄바꿈 (5개 페이지, 23개 대화)

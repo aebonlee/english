@@ -8,6 +8,7 @@ export const categoryTitles = {
   vocabulary: { ko: '단어 학습', en: 'Vocabulary' },
   writing: { ko: '영어 작문', en: 'Writing' },
   toeic: { ko: 'TOEIC', en: 'TOEIC' },
+  literature: { ko: '영문학 TTS', en: 'Literature TTS' },
 };
 
 export const navData = {
@@ -41,6 +42,10 @@ export const navData = {
     { path: '/toeic/listening', ko: '듣기', en: 'Listening' },
     { path: '/toeic/reading', ko: '독해', en: 'Reading' },
     { path: '/toeic/mock-test', ko: '모의 테스트', en: 'Mock Test' },
+  ],
+  literature: [
+    { path: '/literature/poetry', ko: '영미시', en: 'Poetry' },
+    { path: '/literature/short-stories', ko: '단편 & 명연설', en: 'Stories & Speeches' },
   ],
 };
 

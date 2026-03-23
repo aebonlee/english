@@ -1,5 +1,66 @@
 # English Pro - Development Log
 
+## 2026-03-24: 영문학 TTS 기능 추가 + README.md 작성
+
+### Summary
+저작권이 풀린(Public Domain) 영미 문학 작품(시 9편, 단편/명연설 5편)의 영문 원문 + 한국어 번역 + TTS 음성 서비스를 제공하는 새로운 '영문학 TTS' 섹션을 추가했습니다. README.md도 생성했습니다.
+
+### Problem
+- 읽기·듣기 중심의 영어 학습 콘텐츠 부족
+- 유명 영문학 작품을 통한 독해 + 리스닝 훈련 기능 없음
+- 프로젝트 루트에 README.md 없음
+
+### Changes Made
+
+#### 1. 데이터 파일 (`src/data/literatureData.js`)
+- `poetryWorks` (9편): Frost(2), Shakespeare, Dickinson(2), Blake, Poe, Whitman, Wordsworth
+- `proseWorks` (5편): Aesop(2), O. Henry, Lincoln Gettysburg Address, Churchill Beaches
+- 각 작품: id, title, author, year, level, paragraphs[], translation, vocabulary[], analysis
+- `levelLabels`: beginner/intermediate/advanced 한영 라벨 + 색상
+
+#### 2. 페이지 컴포넌트 (3개 신규)
+- `LiteratureHome.jsx`: 섹션 홈 — 시/단편 2개 카테고리 카드 (ConversationHome 패턴)
+- `Poetry.jsx`: 영미시 9편 — TTS 재생 + 번역 토글 + 어휘 + 해설
+- `ShortStories.jsx`: 단편/명연설 5편 — 동일 구조
+- `useTTS()` 커스텀 훅: speak/pause/resume/stop, 속도 조절, 단락 하이라이트
+
+#### 3. 네비게이션 등록
+- `site.js`: NAV_MENU에 '영문학 TTS' 드롭다운(시, 단편&명연설) 추가
+- `site.js`: CURRICULUM_CARDS에 영문학 TTS 카드 추가 (보라색, feather-pointed 아이콘)
+- `SubNav.jsx`: categoryTitles + navData에 `literature` 키 추가
+- `PublicLayout.jsx`: LiteratureHome, Poetry, ShortStories lazy import + Route 3개
+
+#### 4. CSS (`site.css` + `dark-mode.css`)
+- `.literature-list`, `.literature-card`, `.literature-card__header/title/meta/level`
+- `.literature-controls`, `.literature-controls__speed`
+- `.literature-text`, `.reading-highlight` (현재 읽는 단락 강조)
+- `.literature-toggles` (번역/어휘/해설 토글 버튼)
+- `.literature-translation`, `.literature-vocab`, `.literature-analysis`
+- 모바일 반응형 + 다크모드 전체 지원
+
+#### 5. README.md
+- 프로젝트 소개, 배포 URL, 기능 표, 기술 스택, 실행 방법, 프로젝트 구조
+
+### Files Changed (10개)
+- **신규:** `src/data/literatureData.js` (시 9편 + 단편/명연설 5편 데이터)
+- **신규:** `src/pages/literature/LiteratureHome.jsx` (섹션 홈)
+- **신규:** `src/pages/literature/Poetry.jsx` (시 페이지 + TTS)
+- **신규:** `src/pages/literature/ShortStories.jsx` (단편/명연설 + TTS)
+- **신규:** `README.md` (프로젝트 문서)
+- **수정:** `src/config/site.js` (NAV_MENU + CURRICULUM_CARDS)
+- **수정:** `src/components/SubNav.jsx` (categoryTitles + navData)
+- **수정:** `src/layouts/PublicLayout.jsx` (lazy import + Route)
+- **수정:** `src/styles/site.css` (literature 스타일 ~180줄)
+- **수정:** `src/styles/dark-mode.css` (다크모드 ~40줄)
+
+### TTS 기능 상세
+- Web Speech API (SpeechSynthesis) 활용
+- 전문 읽기 / 일시정지 / 재개 / 중지 컨트롤
+- 속도 조절: 0.7x, 0.85x, 1.0x
+- 현재 읽는 단락 하이라이트 (`.reading-highlight`)
+
+---
+
 ## 2026-03-24: 대화 번역 줄바꿈 처리 (전체 5개 페이지, 23개 대화)
 
 ### Summary

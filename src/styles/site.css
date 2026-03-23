@@ -3261,3 +3261,231 @@
   line-height: 1.8;
   color: var(--text-secondary);
 }
+
+/* ===================================================================
+   Literature TTS Styles
+   =================================================================== */
+
+.literature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.literature-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 28px;
+  transition: box-shadow 0.2s;
+}
+
+.literature-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.literature-card__header {
+  margin-bottom: 16px;
+}
+
+.literature-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 6px;
+}
+
+.literature-card__meta {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.literature-card__level {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* TTS Controls */
+.literature-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.literature-controls__speed {
+  padding: 6px 10px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  background: var(--bg-white);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* Original Text */
+.literature-text {
+  background: var(--bg-light-gray);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.literature-text p {
+  white-space: pre-line;
+  line-height: 1.9;
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin: 0 0 16px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.literature-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Reading highlight */
+.reading-highlight {
+  background: rgba(74, 143, 231, 0.12) !important;
+  box-shadow: inset 3px 0 0 var(--primary-blue);
+}
+
+/* Toggle buttons row */
+.literature-toggles {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+/* Translation panel */
+.literature-translation {
+  background: var(--bg-light-gray);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.literature-translation h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin: 0 0 12px;
+}
+
+.literature-translation p {
+  white-space: pre-line;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Vocabulary panel */
+.literature-vocab {
+  background: var(--bg-light-gray);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid #F59E0B;
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.literature-vocab h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #F59E0B;
+  margin: 0 0 12px;
+}
+
+.literature-vocab ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.literature-vocab li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.literature-vocab li strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.literature-vocab__example {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* Analysis panel */
+.literature-analysis {
+  background: var(--bg-light-gray);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid #8B5CF6;
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+}
+
+.literature-analysis h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #8B5CF6;
+  margin: 0 0 12px;
+}
+
+.literature-analysis p {
+  line-height: 1.85;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .literature-card {
+    padding: 20px 16px;
+  }
+
+  .literature-text {
+    padding: 16px;
+  }
+
+  .literature-text p {
+    font-size: 0.92rem;
+    padding: 6px 8px;
+  }
+
+  .literature-translation,
+  .literature-vocab,
+  .literature-analysis {
+    padding: 16px;
+  }
+
+  .literature-controls__speed {
+    margin-left: 0;
+  }
+}

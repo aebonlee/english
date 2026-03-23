@@ -65,6 +65,15 @@ export const NAV_MENU = [
       { label: '\ubaa8\uc758 \ud14c\uc2a4\ud2b8', labelEn: 'Mock Test', path: '/toeic/mock-test' }
     ]
   },
+  {
+    label: '\uc601\ubb38\ud559 TTS',
+    labelEn: 'Literature',
+    path: '/literature',
+    children: [
+      { label: '\uc601\ubbf8\uc2dc', labelEn: 'Poetry', path: '/literature/poetry' },
+      { label: '\ub2e8\ud3b8 & \uba85\uc5f0\uc124', labelEn: 'Stories & Speeches', path: '/literature/short-stories' }
+    ]
+  },
   { label: 'AI \ud559\uc2b5', labelEn: 'AI Chat', path: '/ai-chat' },
   { label: '\ubc1c\uc74c \uc5f0\uc2b5', labelEn: 'Speech', path: '/speech' }
 ];
@@ -75,6 +84,7 @@ export const CURRICULUM_CARDS = [
   { title: '필수 영단어', titleEn: 'Vocabulary', desc: '기초·비즈니스·TOEIC·일상 필수 2,300+ 단어', path: '/vocabulary', color: '#F59E0B', icon: 'fa-solid fa-book' },
   { title: '영어 작문', titleEn: 'Writing', desc: '문장 구조부터 에세이까지 체계적 작문 연습', path: '/writing', color: '#A855F7', icon: 'fa-solid fa-pen-nib' },
   { title: 'TOEIC 대비', titleEn: 'TOEIC Prep', desc: '듣기·독해 파트별 전략과 모의 테스트', path: '/toeic', color: '#EF4444', icon: 'fa-solid fa-graduation-cap' },
+  { title: '영문학 TTS', titleEn: 'Literature TTS', desc: '명시·단편·명연설 원문 + 번역 + TTS 음성 학습', path: '/literature', color: '#8B5CF6', icon: 'fa-solid fa-feather-pointed' },
   { title: 'AI 영어 대화', titleEn: 'AI Chat', desc: 'AI와 실시간 영어 대화 연습', path: '/ai-chat', color: '#06B6D4', icon: 'fa-solid fa-robot' },
   { title: '발음 연습', titleEn: 'Speech Practice', desc: '음성 인식으로 발음 정확도 확인', path: '/speech', color: '#EC4899', icon: 'fa-solid fa-microphone' }
 ];

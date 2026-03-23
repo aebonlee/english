@@ -1919,3 +1919,56 @@
 [data-theme="dark"] .flashcard-nav-btn {
   transition: none !important;
 }
+
+/* === Literature TTS Dark Mode === */
+[data-theme="dark"] .literature-card {
+  background: var(--bg-light-gray);
+  border-color: var(--border-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+[data-theme="dark"] .literature-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+[data-theme="dark"] .literature-text {
+  background: var(--bg-white);
+  border-color: var(--border-light);
+}
+[data-theme="dark"] .literature-text p {
+  color: var(--text-primary);
+}
+[data-theme="dark"] .reading-highlight {
+  background: rgba(74, 143, 231, 0.2) !important;
+  box-shadow: inset 3px 0 0 var(--primary-blue);
+}
+[data-theme="dark"] .literature-controls__speed {
+  background: var(--bg-white);
+  border-color: var(--border-light);
+  color: var(--text-secondary);
+}
+[data-theme="dark"] .literature-translation {
+  background: var(--bg-white);
+  border-color: var(--border-light);
+}
+[data-theme="dark"] .literature-translation p {
+  color: var(--text-secondary);
+}
+[data-theme="dark"] .literature-vocab {
+  background: var(--bg-white);
+  border-color: var(--border-light);
+}
+[data-theme="dark"] .literature-vocab li {
+  color: var(--text-secondary);
+}
+[data-theme="dark"] .literature-vocab li strong {
+  color: var(--text-primary);
+}
+[data-theme="dark"] .literature-vocab__example {
+  color: var(--text-light);
+}
+[data-theme="dark"] .literature-analysis {
+  background: var(--bg-white);
+  border-color: var(--border-light);
+}
+[data-theme="dark"] .literature-analysis p {
+  color: var(--text-secondary);
+}
