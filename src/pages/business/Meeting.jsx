@@ -278,7 +278,7 @@ function Meeting() {
                 </li>
                 <li>
                   <code>Our next meeting will be on [date] at [time].</code>
-                  <span className="translation">{t(' - \uB2E4\uC74C \uD68C\uC758\uB294 [?좎쭨] [?쒓컙]\uC5D0 \uC788\uC2B5\uB2C8\uB2E4.', ' - Our next meeting is on [date] at [time].')}</span>
+                  <span className="translation">{t(' - 다음 회의는 [날짜] [시간]에 있습니다.', ' - Our next meeting is on [date] at [time].')}</span>
                 </li>
                 <li>
                   <code>Thank you all for your time and input today.</code>
