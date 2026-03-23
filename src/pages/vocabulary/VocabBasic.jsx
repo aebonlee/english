@@ -403,19 +403,20 @@ const vocabPageStyles = `
 
   .vocab-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 10px;
   }
 
   @media (max-width: 600px) {
     .vocab-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
     }
   }
 
   .vocab-card {
     perspective: 800px;
-    height: 200px;
+    height: 140px;
     cursor: pointer;
   }
 
@@ -441,8 +442,8 @@ const vocabPageStyles = `
     inset: 0;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    border-radius: 14px;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
     border: 1px solid #e8e8e8;
@@ -467,22 +468,22 @@ const vocabPageStyles = `
 
   .card-top-row {
     position: absolute;
-    top: 12px;
-    left: 14px;
-    right: 14px;
+    top: 8px;
+    left: 10px;
+    right: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   .category-badge {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-weight: 600;
     text-transform: uppercase;
     background: #eef2f7;
     color: #6b7c93;
-    padding: 3px 10px;
-    border-radius: 10px;
+    padding: 2px 7px;
+    border-radius: 8px;
     letter-spacing: 0.5px;
   }
 
@@ -490,9 +491,9 @@ const vocabPageStyles = `
     background: none;
     border: 2px solid #ccc;
     border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -515,33 +516,33 @@ const vocabPageStyles = `
   }
 
   .card-word {
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: #1a1a2e;
-    margin: 0 0 6px;
+    margin: 0 0 4px;
   }
 
   .pronunciation {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: #888;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
   }
 
   .card-hint {
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     color: #bbb;
-    margin: 8px 0 0;
+    margin: 4px 0 0;
   }
 
   .card-meaning {
-    font-size: 1.3rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: #2c3e50;
-    margin: 0 0 12px;
+    margin: 0 0 8px;
   }
 
   .example {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: #666;
     font-style: italic;
     line-height: 1.4;
