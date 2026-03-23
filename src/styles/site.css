@@ -19,7 +19,7 @@
 /* --- Page Title --- */
 .page-title,
 .page-header__title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
   font-weight: 800;
   color: white;
   margin-bottom: var(--space-sm);
@@ -37,7 +37,7 @@
 
 /* page-header 내 bare h1 지원 */
 .page-header h1 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
   font-weight: 800;
   color: white;
   margin-bottom: var(--space-sm);
