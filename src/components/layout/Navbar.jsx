@@ -26,6 +26,7 @@ export default function Navbar() {
   const dropdownRef = useRef(null);
   const navRef = useRef(null);
   const colorPickerRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
   // Scroll-aware navbar
   useEffect(() => {
@@ -39,6 +40,7 @@ export default function Navbar() {
   // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
+      if (mobileMenuRef.current && mobileMenuRef.current.contains(e.target)) return;
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setOpenDropdown(null);
       }
@@ -295,6 +297,7 @@ export default function Navbar() {
         aria-hidden="true"
       />
       <aside
+        ref={mobileMenuRef}
         className={`mobile-menu${mobileOpen ? ' open' : ''}`}
         aria-label="Mobile navigation"
         role="dialog"

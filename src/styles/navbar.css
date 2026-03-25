@@ -962,12 +962,6 @@
   .navbar-actions .navbar-lang-btn {
     display: none;
   }
-}
-
-@media (max-width: 768px) {
-  .navbar-login-btn {
-    display: none;
-  }
 
   .mobile-menu {
     display: flex;
@@ -980,6 +974,12 @@
 
   .mobile-overlay.visible {
     pointer-events: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-login-btn {
+    display: none;
   }
 }
 

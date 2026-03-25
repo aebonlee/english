@@ -37,12 +37,18 @@
   }
 
   .mobile-menu {
-    display: block;
+    display: flex;
   }
 
   .mobile-menu-overlay,
   .mobile-overlay {
     display: block;
+    pointer-events: none;
+  }
+
+  .mobile-menu-overlay.visible,
+  .mobile-overlay.visible {
+    pointer-events: auto;
   }
 
   /* Hero */
