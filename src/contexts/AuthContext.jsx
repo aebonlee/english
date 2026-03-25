@@ -8,6 +8,54 @@ export function AuthProvider({ children }) {
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [accountBlock, setAccountBlock] = useState(null);
+
+  const clearAccountBlock = useCallback(() => setAccountBlock(null), []);
+
+  // visited_sites / signup_domain / check_user_status 처리
+  const handlePostAuth = useCallback(async (userId) => {
+    if (!supabase || !userId) return;
+
+    const currentDomain = window.location.hostname;
+    const { data } = await supabase
+      .from('user_profiles')
+      .select('signup_domain, visited_sites')
+      .eq('id', userId)
+      .single();
+
+    if (data) {
+      const updates = {};
+      if (!data.signup_domain) updates.signup_domain = currentDomain;
+      const sites = Array.isArray(data.visited_sites) ? data.visited_sites : [];
+      if (!sites.includes(currentDomain)) {
+        updates.visited_sites = [...sites, currentDomain];
+      }
+      if (Object.keys(updates).length > 0) {
+        supabase.from('user_profiles').update(updates).eq('id', userId).then(() => {});
+      }
+    }
+
+    // 계정 상태 체크
+    try {
+      const { data: statusData } = await supabase.rpc('check_user_status', {
+        target_user_id: userId,
+        current_domain: currentDomain,
+      });
+      if (statusData && statusData.status && statusData.status !== 'active') {
+        setAccountBlock({
+          status: statusData.status,
+          reason: statusData.reason || '',
+          suspended_until: statusData.suspended_until || null,
+        });
+        await supabase.auth.signOut();
+        setUser(null);
+        setSession(null);
+        return;
+      }
+    } catch {
+      // check_user_status 함수 미존재 시 무시
+    }
+  }, []);
 
   // Initialize auth state
   useEffect(() => {
@@ -24,24 +72,34 @@ export function AuthProvider({ children }) {
         setError(sessionError.message);
       }
       setSession(currentSession);
-      setUser(currentSession?.user ?? null);
+      const u = currentSession?.user ?? null;
+      setUser(u);
+      if (u) handlePostAuth(u.id);
       setLoading(false);
     });
 
     // Listen for auth state changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (_event, newSession) => {
+      (event, newSession) => {
         setSession(newSession);
-        setUser(newSession?.user ?? null);
+        const u = newSession?.user ?? null;
+        setUser(u);
         setLoading(false);
         setError(null);
+        if (event === 'SIGNED_IN' && u) {
+          supabase.from('user_profiles')
+            .update({ last_sign_in_at: new Date().toISOString() })
+            .eq('id', u.id)
+            .then(() => {});
+          handlePostAuth(u.id);
+        }
       }
     );
 
     return () => {
       subscription.unsubscribe();
     };
-  }, []);
+  }, [handlePostAuth]);
 
   const login = useCallback(async (email, password) => {
     if (!supabase) {
@@ -166,12 +224,14 @@ export function AuthProvider({ children }) {
     error,
     isAuthenticated: !!user,
     isSupabaseConfigured: !!supabase,
+    accountBlock,
+    clearAccountBlock,
     login,
     signup,
     loginWithGoogle,
     logout,
     resetPassword
-  }), [user, session, loading, error, login, signup, loginWithGoogle, logout, resetPassword]);
+  }), [user, session, loading, error, accountBlock, clearAccountBlock, login, signup, loginWithGoogle, logout, resetPassword]);
 
   return (
     <AuthContext.Provider value={value}>
