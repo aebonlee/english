@@ -1,0 +1,70 @@
+export interface ChatScenario {
+  id: string;
+  title: string;
+  titleEn: string;
+  desc: string;
+  icon: string;
+  systemPrompt?: string;
+}
+
+export interface SpeechExample {
+  id: number;
+  text: string;
+  translation: string;
+  level: string;
+}
+
+export const chatScenarios: ChatScenario[] = [
+  { id: 'free', title: '자유 대화', titleEn: 'Free Talk', desc: '자유롭게 영어 대화 연습', icon: '💬' },
+  { id: 'cafe', title: '카페 주문', titleEn: 'Cafe Order', desc: '카페에서 음료 주문하기', icon: '☕', systemPrompt: 'You are a friendly barista at a coffee shop. Help the user practice ordering drinks in English.' },
+  { id: 'hotel', title: '호텔 체크인', titleEn: 'Hotel Check-in', desc: '호텔 체크인 상황 연습', icon: '🏨', systemPrompt: 'You are a hotel receptionist. Help the user practice checking in at a hotel.' },
+  { id: 'interview', title: '영어 면접', titleEn: 'Job Interview', desc: '영어 면접 연습', icon: '👔', systemPrompt: 'You are a hiring manager conducting a job interview. Ask the user common interview questions.' },
+  { id: 'restaurant', title: '레스토랑', titleEn: 'Restaurant', desc: '레스토랑 주문 연습', icon: '🍽️', systemPrompt: 'You are a waiter at a restaurant. Help the user practice ordering food.' },
+  { id: 'travel', title: '여행 안내', titleEn: 'Travel Guide', desc: '여행 중 상황 연습', icon: '✈️', systemPrompt: 'You are a helpful local guide. Help the user practice travel-related conversations.' }
+];
+
+export const speechExamples: SpeechExample[] = [
+  // --- Beginner (초급) ---
+  { id: 1, text: 'Hello, how are you doing today?', translation: '안녕하세요, 오늘 어떠세요?', level: 'beginner' },
+  { id: 2, text: 'I would like to make a reservation for two, please.', translation: '2명 예약하고 싶습니다.', level: 'beginner' },
+  { id: 3, text: 'Excuse me, where is the baggage claim area?', translation: '실례합니다, 수하물 찾는 곳이 어디인가요?', level: 'beginner' },
+  { id: 4, text: 'Would you mind if I opened the window? It is quite warm in here.', translation: '창문 열어도 될까요? 여기 꽤 덥네요.', level: 'beginner' },
+  { id: 5, text: 'Nice to meet you. My name is Sarah.', translation: '만나서 반갑습니다. 저는 사라입니다.', level: 'beginner' },
+  { id: 6, text: 'Can I have a glass of water, please?', translation: '물 한 잔 주시겠어요?', level: 'beginner' },
+  { id: 7, text: 'What time does the store close today?', translation: '오늘 가게는 몇 시에 문을 닫나요?', level: 'beginner' },
+  { id: 8, text: 'I am looking for a birthday gift for my friend.', translation: '친구 생일 선물을 찾고 있어요.', level: 'beginner' },
+
+  // --- Intermediate (중급) ---
+  { id: 9, text: 'Could you tell me how to get to the nearest subway station?', translation: '가장 가까운 지하철역까지 어떻게 가는지 알려주시겠어요?', level: 'intermediate' },
+  { id: 10, text: 'I appreciate your taking the time to meet with me today.', translation: '오늘 시간 내주셔서 감사합니다.', level: 'intermediate' },
+  { id: 11, text: 'I have a meeting scheduled at three o\'clock this afternoon.', translation: '오늘 오후 3시에 회의가 예정되어 있습니다.', level: 'intermediate' },
+  { id: 12, text: 'The presentation went really well and the client was impressed.', translation: '프레젠테이션이 정말 잘 되었고 고객이 감동받았습니다.', level: 'intermediate' },
+  { id: 13, text: 'Let me check if we have any available rooms for this weekend.', translation: '이번 주말에 이용 가능한 방이 있는지 확인해 보겠습니다.', level: 'intermediate' },
+  { id: 14, text: 'I think we should consider a different approach to this problem.', translation: '이 문제에 대해 다른 접근 방식을 고려해야 한다고 생각합니다.', level: 'intermediate' },
+  { id: 15, text: 'The weather forecast says it will be sunny this weekend.', translation: '일기 예보에 따르면 이번 주말에는 맑을 거래요.', level: 'intermediate' },
+  { id: 16, text: 'I have been working on this project for about three months now.', translation: '이 프로젝트를 약 3개월째 진행하고 있습니다.', level: 'intermediate' },
+
+  // --- Advanced (고급) ---
+  { id: 17, text: 'The quarterly report indicates a significant increase in revenue.', translation: '분기 보고서에 따르면 매출이 크게 증가했습니다.', level: 'advanced' },
+  { id: 18, text: 'We need to discuss the terms and conditions of the contract.', translation: '계약 조건에 대해 논의해야 합니다.', level: 'advanced' },
+  { id: 19, text: 'I strongly believe that investing in employee training will yield long-term benefits.', translation: '직원 교육에 대한 투자가 장기적인 이익을 가져올 것이라고 강력히 믿습니다.', level: 'advanced' },
+  { id: 20, text: 'The implementation of sustainable practices has become a top priority for our organization.', translation: '지속 가능한 관행의 실행이 우리 조직의 최우선 과제가 되었습니다.', level: 'advanced' },
+  { id: 21, text: 'Despite the initial setbacks, the team managed to deliver the project ahead of schedule.', translation: '초기 어려움에도 불구하고 팀은 일정보다 앞서 프로젝트를 완료했습니다.', level: 'advanced' },
+  { id: 22, text: 'The correlation between customer satisfaction and brand loyalty cannot be overstated.', translation: '고객 만족도와 브랜드 충성도 사이의 상관관계는 아무리 강조해도 지나치지 않습니다.', level: 'advanced' },
+
+  // --- Business (비즈니스) ---
+  { id: 23, text: 'Let me walk you through the agenda for today\'s meeting.', translation: '오늘 회의 안건을 안내해 드리겠습니다.', level: 'business' },
+  { id: 24, text: 'We are pleased to announce that we have exceeded our sales target this quarter.', translation: '이번 분기 매출 목표를 초과 달성했음을 알려드립니다.', level: 'business' },
+  { id: 25, text: 'Could we schedule a follow-up meeting to discuss the details?', translation: '세부 사항 논의를 위한 후속 회의를 잡을 수 있을까요?', level: 'business' },
+  { id: 26, text: 'I would like to propose a new marketing strategy for the upcoming product launch.', translation: '다가오는 제품 출시를 위한 새로운 마케팅 전략을 제안하고 싶습니다.', level: 'business' },
+  { id: 27, text: 'Thank you for your prompt response regarding our partnership inquiry.', translation: '파트너십 문의에 신속히 응답해 주셔서 감사합니다.', level: 'business' },
+  { id: 28, text: 'We need to allocate more resources to the research and development department.', translation: '연구개발 부서에 더 많은 자원을 배분해야 합니다.', level: 'business' },
+
+  // --- Practical (실전) ---
+  { id: 29, text: 'Hi, I have a reservation under the name Kim. Could you check me in?', translation: '안녕하세요, 김이라는 이름으로 예약했는데 체크인해 주시겠어요?', level: 'practical' },
+  { id: 30, text: 'I think there is a mistake on my bill. Could you double-check it?', translation: '계산서에 오류가 있는 것 같은데 다시 확인해 주시겠어요?', level: 'practical' },
+  { id: 31, text: 'Excuse me, I missed my connecting flight. What are my options?', translation: '실례합니다, 연결편을 놓쳤는데 어떤 방법이 있을까요?', level: 'practical' },
+  { id: 32, text: 'I would like to return this item. I have the receipt right here.', translation: '이 물건을 반품하고 싶습니다. 영수증 여기 있어요.', level: 'practical' },
+  { id: 33, text: 'Could you recommend a good restaurant near here? Something not too expensive.', translation: '근처에 괜찮은 식당 추천해 주시겠어요? 너무 비싸지 않은 곳으로요.', level: 'practical' },
+  { id: 34, text: 'I am not feeling well. Is there a pharmacy or clinic nearby?', translation: '몸이 좋지 않아요. 근처에 약국이나 병원이 있나요?', level: 'practical' },
+];
