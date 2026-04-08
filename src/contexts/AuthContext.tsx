@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import type { User, Session, AuthError } from '@supabase/supabase-js';
-import { supabase } from '../lib/supabase';
+import { supabase, setSharedSession, getSharedSession, clearSharedSession } from '../lib/supabase';
 
 interface AccountBlock {
   status: string;
@@ -93,7 +93,7 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
       return;
     }
 
-    supabase.auth.getSession().then(({ data: { session: currentSession }, error: sessionError }) => {
+    supabase.auth.getSession().then(async ({ data: { session: currentSession }, error: sessionError }) => {
       if (sessionError) {
         console.error('Error getting session:', sessionError.message);
         setError(sessionError.message);
@@ -101,12 +101,26 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
       setSession(currentSession);
       const u = currentSession?.user ?? null;
       setUser(u);
-      if (u) handlePostAuth(u.id);
+      if (u) {
+        if (currentSession?.refresh_token) setSharedSession(currentSession.refresh_token);
+        handlePostAuth(u.id);
+      } else {
+        const rt = getSharedSession();
+        if (rt) {
+          try {
+            const { data } = await supabase!.auth.refreshSession({ refresh_token: rt });
+            if (!data.session) clearSharedSession();
+          } catch { clearSharedSession(); }
+        }
+      }
       setLoading(false);
     });
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, newSession) => {
+        if (newSession?.refresh_token) setSharedSession(newSession.refresh_token);
+        if (event === 'SIGNED_OUT') clearSharedSession();
+
         setSession(newSession);
         const u = newSession?.user ?? null;
         setUser(u);
