@@ -1,6 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import type { User, Session, AuthError } from '@supabase/supabase-js';
 import { supabase, setSharedSession, getSharedSession, clearSharedSession } from '../lib/supabase';
+import { ADMIN_EMAILS } from '../config/admin';
 
 interface AccountBlock {
   status: string;
@@ -19,6 +20,7 @@ interface AuthContextValue {
   loading: boolean;
   error: string | null;
   isAuthenticated: boolean;
+  isAdmin: boolean;
   isSupabaseConfigured: boolean;
   accountBlock: AccountBlock | null;
   clearAccountBlock: () => void;
@@ -249,12 +251,20 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
     return { data };
   }, []);
 
+  const allEmails = [
+    user?.email,
+    (user as any)?.user_metadata?.email,
+    (user as any)?.identities?.[0]?.identity_data?.email,
+  ].filter(Boolean).map((e: any) => e.toLowerCase());
+  const isAdmin = allEmails.some((e: string) => ADMIN_EMAILS.includes(e));
+
   const value = useMemo((): AuthContextValue => ({
     user,
     session,
     loading,
     error,
     isAuthenticated: !!user,
+    isAdmin,
     isSupabaseConfigured: !!supabase,
     accountBlock,
     clearAccountBlock,
@@ -263,7 +273,7 @@ export function AuthProvider({ children }: AuthProviderProps): React.ReactElemen
     loginWithGoogle,
     logout,
     resetPassword
-  }), [user, session, loading, error, accountBlock, clearAccountBlock, login, signup, loginWithGoogle, logout, resetPassword]);
+  }), [user, session, loading, error, isAdmin, accountBlock, clearAccountBlock, login, signup, loginWithGoogle, logout, resetPassword]);
 
   return (
     <AuthContext.Provider value={value}>
