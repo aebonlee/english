@@ -130,6 +130,11 @@
     --nav-height: 60px;
   }
 
+  /* Touch target minimum size */
+  .btn, .nav-login-btn, button:not(.mobile-toggle) {
+      min-height: 44px;
+  }
+
   /* Layout */
   .container {
     padding-inline: var(--space-md);
